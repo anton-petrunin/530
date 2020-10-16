@@ -1,0 +1,72 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage{epsfig,lpic,wrapfig}
+%\usepackage[utf8]{inputenc}
+%\usepackage[russian]{babel}
+\usepackage[active]{srcltx}
+\usepackage{amsmath,amssymb} 
+\usepackage{textpos}
+\usepackage{amssymb, amsfonts, amsmath, amsthm}
+\usepackage{enumerate}
+\usepackage{bm}
+\usepackage{color}
+\usepackage{pifont}
+\usepackage{enumerate}
+
+\def\CC{\mathbb{C}}%  
+\def\PP{\mathbb{P}}%  
+\def\NN{\mathbb{N}}%  
+\def\RR{\mathbb{R}}%  
+\def\ZZ{\mathbb{Z}}% 
+\def\QQ{\mathbb{Q}}%  
+\def\T{\mathrm{T}}%
+\def\eps{\varepsilon}%  
+\newcommand*{\tc}[1]{\Phi({#1})}
+\def\length{\mathop{\rm length}\nolimits}%  
+\def\"#1{{\accent"7F #1\penalty10000\hskip 0pt plus 0pt}} % ! % 
+\def\:{\colon}
+\def\kur{k}
+\def\tor{\kappa}
+
+
+\begin{document}
+\pagestyle{empty}
+\begin{textblock*}{150mm}(.0\textwidth,-4cm)
+\hfill
+Math 530, HWA-08
+\end{textblock*}
+
+-. Give an example of a noncomplete vector field.
+
+\ 
+
+-. Show that the identity
+\[L_X[Y,Z]=[L_XY,Z]+[Y,L_XZ]\]
+holds for any vector fields $X$, $Y$, and $Z$.
+
+\ 
+
+-. Let $X$ and $Y$ be vector
+fields and
+$p$ be a critical point of a smooth function $f$;
+that is, $d_pf=0$.
+
+Show that $(XYf)(p)$ depends only on the vectors $X(p), Y (p)\in \T_p$. Furthermore,
+the map $X(p), Y (p) \to  (XY f)(p)$ is a symmetric bilinear form on~$\T_p$.
+
+\ 
+
+-. Show that 
+\[dL_X\omega=L_Xd\omega\]
+for any vector field $X$ and any form $\omega$.
+
+\ 
+
+-. Let $\omega$ be a symplectic form; that is, $\omega$ is a 2-form such that $d\omega=0$ and for any $1$-form $\alpha$ there is a vector field $X$ such that $\alpha=\iota_X\omega$.
+
+Suppose that $\iota_X\omega=dh$ for a smooth function $h$ and a vector field $X$.
+Show that $L_X\omega=0$.
+Conclude that $\omega$ is invariant with respect to the flow $\mu$ of~$X$; that is, $\mu^t_*\omega=\omega$ for any $t$.
+
+
+
+\end{document}
