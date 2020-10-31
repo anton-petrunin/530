@@ -180,10 +180,11 @@ Then for any smooth function $f\:\S M$ the following identity holds:
 \[\int_{\vec w\in \S M}f(\vec w)
 =
 \int_{\vec u\in \S^+ \partial M} 
-\int_0^{\ell(\vec u)} f[\gamma'_{\vec u}(t)]\cdot dt.\]
+\int_0^{\ell(\vec u)} f[\gamma'_{\vec u}(t)]\cdot\langle\vec u,\vec n\rangle\cdot dt,\]
+where $\vec n$ denotes the unit vector field normal to $\partial M$ that points inside~$M$
 
 In particular, by taking $f\equiv 1$, we get
-\[\vol\SSS^{n-1}\cdot\vol M=\int_{\vec u\in \S^+ \partial M} \ell(\vec u).\]
+\[\vol\SSS^{n-1}\cdot\vol M=\int_{\vec u\in \S^+ \partial M} \ell(\vec u)\cdot\langle\vec u,\vec n\rangle.\]
 
 \end{thm}
 
