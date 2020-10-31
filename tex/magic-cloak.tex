@@ -2,7 +2,7 @@
 
 This lecture is based on a lecture of Sergei Ivanov \cite{ivanov-2012}.
 
-\section{Visually identical manifolds}
+\section{Scattering data}
 
 Given a Riemannian manifold $M$ denote by $\S M$ its unit tangent bundle
 \[\S M=\set{\vec v\in \T M}{|v|=1}.\]
@@ -17,33 +17,38 @@ Consider a geodesic $\gamma_{\vec u}$ in the direction of a vector $\vec u\in \S
 Suppose that $\gamma_{\vec u}$ hits the boundary again; 
 denote by $\ell_{\vec u}$ the first \emph{hitting time}, so $\gamma_{\vec u}(\ell_{\vec u})\in \partial M$.
 Note that in this case $\vec v=-\gamma'(\ell)\in \S^+ \partial M$.
-Note that $\vec u\mapsto \vec v$ describes a partially defined involution on $\S M$ which we will call \emph{return map}.
+Note that $\vec u\mapsto \vec v$ describes a partially defined involution on $\S M$ which we will call \emph{scattering map}.
 
 Suppose that $M$ and $\bar M$ be two compact connected Riemannian manifolds with boundary such that a neighborhood of $\partial M$ can be isometrically identified with a neighborhood of $\partial \bar M$,
-and moreover, the return maps in $M$ and $\bar M$ are identical.
-In this case we say that $M$ and $\bar M$ are \emph{visually identical}.
+and moreover, the scattering maps in $M$ and $\bar M$ are identical.
+In this case we say that $M$ and $\bar M$ have identical  \emph{scattering data}.
+If in addition the hitting time functions coincide then they are said to have the same \emph{lens data}.
 
 Notice that a complement of a small ball in the standard sphere $\SSS^n$ is visually identical to the complement of identical ball in the projective space $\RP^n=\SSS^n/\ZZ_2$.
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.7]{pics/sphere.png}
+\end{figure}
 
-Note that the hitting time functions for the constructed pair of manifolds are not identical.
-No examples of nonisometric visually identical manifolds with identical hitting time seems to be known.
+Note that the lens data for the constructed pair of manifolds are not identical.
+An example of nonisometric manifolds with identical lens data can be found among surfaces of revolution which look like cylinders with bumps on them that are shifted and otherwise look the same.
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.7]{pics/revolution.png}
+\end{figure}
 
 \begin{thm}{Exercise}
-Construct a pair of diffeomorphic visually identical Riemannian manifolds.
+Construct a pair of Riemannian metrics on the disc with identical scattering/lens data.
 \end{thm}
 
-\parit{Hint:}
-Attach two examples as above by smooth tubes to you favorite Riemannian manifold.
-
-
 \begin{thm}{Theorem}\label{thm:magic-cloak}
-Let $M$ be a connected compact region of Euclidean space of dimension at least 2 cut by a smooth hypersurface.
-Then any visually identical manifold to $M$ is isometric to $M$.
+Any connected compact region $M$ of Euclidean space of dimension at least 2 cut by a smooth hypersurface is \emph{scattering rigid};
+that is, any manifold with scattering data identical to $M$ is isometric to $M$.
 \end{thm}
 
 \begin{thm}{Corollary}
 Suppose a Riemannian metric $g$ on $\RR^n$ coincides with Euclidean metric $g_0$ outside of a compact set $K$.
-Suppose that that the complement $\gamma\backslash K$ of any $g$-geodesic $\gamma$ coincides with the complement of a line.
+Suppose that that the complement $\gamma\backslash K$ of any $g$-geodesic $\gamma$ coincides with the complement of a line (as sets).
 Then $(\RR^n,g)$ is isometric to the Euclidean space.
 \end{thm}
 
@@ -52,23 +57,21 @@ Indeed for any diffeomorphism $\phi\:\RR^n\to\RR^n$ that is identical outside $K
 Clearly one can choose $\phi$ so that $\phi_*g_0\ne g_0$.
 
 
-\section{Hitting time}
-
-Recall that hitting time function $\vec u\mapsto \ell(\vec u)$ returns the time when the geodesic $\gamma_{\vec u}$ first hits the boundary.
+\section{Lens data}
 
 \begin{thm}{Lemma}\label{lem:no-delay}
-Suppose that a manifold $\bar M$ is visually identical to a compact region $M$ in Euclidean space of dimension at least 2.
-Then $M$ and $\bar M$ have identical hitting time functions. 
+Suppose that a manifold $\bar M$ has identical scattering data with a compact region $M$ in Euclidean space of dimension at least 2.
+Then $M$ and $\bar M$ have identical lens data. 
 \end{thm}
 
 \parit{Proof.}
-Note that we can cut $M$ from the Euclidean space $E$ and glue $\bar M$ back in along the isometry in the definition of visually identical manifolds.
+Note that we can cut $M$ from the Euclidean space $E$ and glue $\bar M$ back in along the isometry in the definition of scattering data.
 This way we obtain a complete Riemannian manifold $\bar E$ that is Euclidean outside of a $\bar M$.
 
 Suppose that a smooth hypersurface $\Sigma$ in $E$ surrounds $M$.
-Then $\Sigma$ cuts from $E$ and $\bar E$ visually identical manifolds.
-Moreover if $\bar M$ is not isometric to $M$,
-then the obtained pair of visually identical manifolds are not isometric as well.
+Then $\Sigma$ cuts from $E$ and $\bar E$ manifolds with identical scattering data.
+Moreover if $\bar M$ and $M$ are not isometric,
+then the obtained pair is not isometric as well.
 
 It follows that we can assume that $M$ is a ball.
 (This is true for the proof of the lemma and theorem as well.)
@@ -125,7 +128,7 @@ here $T=2\cdot\diam M$ and $\gamma_{\vec u}$ is the geodesic defined by $\gamma'
 \section{Volume equality}
 
 \begin{thm}{Lemma}\label{lem:vol=}
-Suppose that $M$ and $\bar M$ are visually identical.
+Suppose that $M$ and $\bar M$ have identical scattering data.
 Then 
 \[\vol M=\vol \bar M.\]
 
@@ -243,6 +246,9 @@ but $\diam S_R$ stays bounded for all $R$.
 
 \section{Remarks}
 
+The fact that not all manifolds are scattering rigid was pointed out by Christopher Croke \cite{croke-1991}.
+More examples constructed by Christopher Croke and Bruce Kleiner \cite{croke-kleiner-1994}.
+
 Theorem \ref{thm:magic-cloak} proved by Mikhael Gromov \cite{gromov-1983}.
 It has a number of variations and generalizations.
 In particular an analog of this theorem holds in the following cases:
@@ -252,5 +258,6 @@ In particular an analog of this theorem holds in the following cases:
 \item If $M$ is a Riemannian manifold with unique geodesic between any two points, then the theorem holds for the product $\RR\times M$ \cite{croke-kleiner-1998}.
 \item For any Riemannian manifold, provided that the metric tensor is modified to in a sufficiently small region \cite{burago-ivanov-2010}.
 \end{itemize}
+
 
 
