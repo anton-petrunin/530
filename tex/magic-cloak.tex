@@ -1,0 +1,256 @@
+\chapter{Magic cloaks}
+
+This lecture is based on a lecture of Sergei Ivanov \cite{ivanov-2012}.
+
+\section{Visually identical manifolds}
+
+Given a Riemannian manifold $M$ denote by $\S M$ its unit tangent bundle
+\[\S M=\set{\vec v\in \T M}{|v|=1}.\]
+Recall that geodesic flow $\phi^t$ preserves the natural volume on $\S M$.
+
+Suppose $M$ has nonempty boundary $\partial M$;
+in other words, $M$ is a closed region of a ambient Riemannian  manifold bounded by a smooth hypersurface $\partial M$.
+Denote by $\S^+ \partial M$ the set of unit vectors at points on $\partial M$ that point in $M$;
+$\S^+ \partial M$ is a bundle over $\partial M$ with fibers formed by closed half-spheres.
+
+Consider a geodesic $\gamma_{\vec u}$ in the direction of a vector $\vec u\in \S^+ \partial M$.
+Suppose that $\gamma_{\vec u}$ hits the boundary again; 
+denote by $\ell_{\vec u}$ the first \emph{hitting time}, so $\gamma_{\vec u}(\ell_{\vec u})\in \partial M$.
+Note that in this case $\vec v=-\gamma'(\ell)\in \S^+ \partial M$.
+Note that $\vec u\mapsto \vec v$ describes a partially defined involution on $\S M$ which we will call \emph{return map}.
+
+Suppose that $M$ and $\bar M$ be two compact connected Riemannian manifolds with boundary such that a neighborhood of $\partial M$ can be isometrically identified with a neighborhood of $\partial \bar M$,
+and moreover, the return maps in $M$ and $\bar M$ are identical.
+In this case we say that $M$ and $\bar M$ are \emph{visually identical}.
+
+Notice that a complement of a small ball in the standard sphere $\SSS^n$ is visually identical to the complement of identical ball in the projective space $\RP^n=\SSS^n/\ZZ_2$.
+
+Note that the hitting time functions for the constructed pair of manifolds are not identical.
+No examples of nonisometric visually identical manifolds with identical hitting time seems to be known.
+
+\begin{thm}{Exercise}
+Construct a pair of diffeomorphic visually identical Riemannian manifolds.
+\end{thm}
+
+\parit{Hint:}
+Attach two examples as above by a smooth tubes to you favorite Riemannian manifold.
+
+
+\begin{thm}{Theorem}\label{thm:magic-cloak}
+Let $M$ be a connected compact region of Euclidean space of dimension at least 2 cut by a smooth hypersurface.
+Then any visually identical manifold to $M$ is isometric to $M$.
+\end{thm}
+
+\begin{thm}{Corollary}
+Suppose a Riemannian metric $g$ on $\RR^n$ coincides with Euclidean metric $g_0$ outside of a compact set $K$.
+Suppose that that the complement $\gamma\backslash K$ of any $g$-geodesic $\gamma$ coincides with the complement of a line.
+Then $(\RR^n,g)$ is isometric to the Euclidean space.
+\end{thm}
+
+Note that one cannot claim that $g=g_0$.
+Indeed for any diffeomorphism $\phi\:\RR^n\to\RR^n$ that is identical outside $K$ the metric $g=\phi_*g$ satisfies the assumption in the corollary.
+Clearly one can choose $\phi$ so that $\phi_*g_0\ne g_0$.
+
+
+\section{Hitting time}
+
+Recall that hitting time function $\vec u\mapsto \ell(\vec u)$ returns the time when the geodesic $\gamma_{\vec u}$ first hits the boundary.
+
+\begin{thm}{Lemma}\label{lem:no-delay}
+Suppose that a manifold $\bar M$ is visually identical to a compact region $M$ in Euclidean space of dimension at least 2.
+Then $M$ and $\bar M$ have identical hitting time functions. 
+\end{thm}
+
+\parit{Proof.}
+Note that we can cut $M$ from the Euclidean space $E$ and glue $\bar M$ back in along the isometry in the definition of visually identical manifolds.
+This way we obtain a complete Riemannian manifold $\bar E$ that is Euclidean outside of a $\bar M$.
+
+Suppose that a smooth hypersurface $\Sigma$ in $E$ surronds $M$.
+Then $\Sigma$ cuts from $E$ and $\bar E$ visually identical manifolds.
+Moreover if $\bar M$ is not isometric to $M$,
+then the obtained pair of visually identical manifolds are not isometric as well.
+
+It follows that we can assume that $M$ is a ball.
+(This is true for the proof of the lemma and theorem as well.)
+
+In this case any geodesic $\bar\gamma$ in $\bar E$ visits $\bar M$ at most once.
+In other words, if $\bar\gamma$ enters $\bar M$, then the complement $\bar\gamma\backslash \bar M$ has two connected components which are parts of a line $\gamma$ in $E$.
+
+Choose a unit-speed geodesic $\bar\gamma$ that visits $\bar M$.
+Let include it in a smooth one-paremeter family of unit-speed geodescis $\bar\gamma_\tau$ for $\tau\in [0,1]$ so that $\bar\gamma_0$ does not visit $\bar M$ and $\bar \gamma_1=\bar \gamma$.
+
+We can assume that 
+the vector field $\bar{\vec i}
+=\tfrac{\partial}{\partial\tau}\gamma_\tau(t)$ is orthogonal to $\bar{\vec t}
+=\tfrac{\partial}{\partial t}\gamma_\tau(t)$ at every point $\gamma_\tau(t_0)$ for some fixed $t_0$.
+
+Observe that in this case $\langle\bar{\vec i},\bar{\vec t}\rangle=0$ at all points $\bar\gamma_\tau(t)$.
+Indeed 
+\begin{align*}
+\tfrac{\partial}{\partial t}\langle\bar{\vec i},\bar{\vec t}\rangle&=
+\bar{\vec t}\langle\bar{\vec i},\bar{\vec t}\rangle=
+\\
+&=
+\langle\nabla_{\bar{\vec t}}\bar{\vec i},\bar{\vec t}\rangle+\cancel{\langle\bar{\vec i},\nabla_{\bar{\vec t}}\bar{\vec t}\rangle}=
+\\
+&=\langle\nabla_{\bar{\vec i}}\bar{\vec t},\bar{\vec t}\rangle=
+\\
+&=\tfrac12\cdot\bar{\vec i}\langle\bar{\vec t},\bar{\vec t}\rangle=
+\\
+&=\tfrac{\partial}{\partial \tau}|\bar\gamma_\tau'(t)|^2=
+\\
+&=0.
+\end{align*}
+That is $\langle\bar{\vec i},\bar{\vec t}\rangle$ does not depend on $t$.
+Since $\langle\bar{\vec i},\bar{\vec t}\rangle=0$ at all points $\gamma_\tau(t_0)$, the same holds for all points  $\gamma_\tau(t)$.
+
+Consider family of geodesics $\gamma_\tau$ in $E$ that coincide with $\bar\gamma_\tau$ (as sets) outside of $M$.
+The same argument shows that $\langle\vec i,\vec t\rangle=0$ at all points $\gamma_\tau(t)$.
+It follows that $\bar{\vec i}=\vec i$ outside of $\bar M$ and $M$ correspondingly.
+Therefore $\gamma_\tau(t)=\bar\gamma(t)$ for any $t$ and $\tau$, provided that $\bar\gamma(t)\notin \bar M$.
+Whence the $\gamma$ spends exactly the same time in $M$ as 
+$\bar \gamma$ spends in $\bar M$ and the lemma follows.\qeds
+
+\parit{Comment.} The vector fields $\vec i$  as in the proof restricted to $\gamma_\tau$ are called \emph{Jacobi fields} along $\gamma_\tau$;
+we will see them again.
+
+\begin{thm}{Exercise}\label{ex:exit-time}
+Suppose $\bar M$ and $\bar E$ be as in the proof.
+Show that there is a universal upper bound on time that a unit-speed geodesic spends in $\bar M$.
+\end{thm}
+
+\parit{Hint:} Show that the set of vectors $\vec u\in\S \bar E$ such that $\gamma_{\vec u}([0, T])\subset \bar M$ is open and closed;
+here $T=2\cdot\diam M$ and $\gamma_{\vec u}$ is the geodesic defined by $\gamma'_{\vec u}(0)=\vec u$.
+
+\section{Volume equality}
+
+\begin{thm}{Lemma}\label{lem:vol=}
+Suppose that $M$ and $\bar M$ are visually identical.
+Then 
+\[\vol M=\vol \bar M.\]
+
+\end{thm}
+
+\parit{Proof.}
+Recall that $\bar s\:\S \bar M\to \bar M$ denotes the unit tangent bundle over $\bar M$
+and $\bar\phi^t\:\S \bar M\to \S \bar M$ denotes the geodesic flow.
+
+Set $\bar\Omega=\bar s^{-1}(\bar M)$.
+Since geodesic flow preserves the volume, we get 
+\begin{align*}
+\vol\SSS^{n-1}\cdot\vol(\bar M,g)&=\vol\bar\Omega=
+\\
+&=\vol[\bar\phi^t(\bar\Omega)].
+\end{align*}
+
+By \ref{ex:exit-time}, we can choose $t$ so that $s(\vec v)\notin \bar M$ for any $\vec v\in \phi^t(\bar\Omega)$.
+
+Repeat the same construction for $M$. 
+By \ref{lem:no-delay}, the set $\phi^t(\Omega)\z=\bar\phi^t(\bar\Omega)$.
+In particular, 
+\[
+\vol\Omega=
+\vol[\phi^t(\Omega)]=\vol[\bar\phi^t(\bar\Omega)=\vol\bar\Omega.
+\]
+whence the result follows.
+\qeds
+
+\section{Santalo formula}
+
+Santalo formula gives an expression for a volume of a Riemannian manifold with boundary in terms of hitting times of its geodesics.
+It provides a more direct proof of \ref{lem:vol=}.
+
+Suppose $M$ is a Reimannian manifold with nonempty boundary $\partial M$.
+Recall that 
+\begin{itemize}
+\item $\S M$ denotes the unit tangent bundle of a Reimannian manifold $M$.
+\item $\S^+ \partial M$ denotes by the set of unit vectors at points on $\partial M$ that point in $M$.
+\item $\ell\:\S^+ \partial M\to [0,\infty]$ denoted the hitting time.
+\end{itemize}
+
+\begin{thm}{Theorem}
+Let $M$ be an $n$-dimensional Riemannian manifold with nonempty boundary.
+Suppose that any unit-speed geodesic in $M$ hits its boundary in finite time.
+Then for any smooth function $f\:\S M$ the following identity holds:
+\[\int_{\vec w\in \S M}f(\vec w)
+=
+\int_{\vec u\in \S^+ \partial M} 
+\int_0^{\ell(\vec u)} f[\gamma'_{\vec u}(t)]\cdot dt.\]
+
+In particular, by taking $f\equiv 1$, we get
+\[\vol\SSS^{n-1}\cdot\vol M=\int_{\vec u\in \S^+ \partial M} \ell(\vec u).\]
+
+\end{thm}
+
+\begin{thm}{Exercise}
+Construct two Reimannian metrics $g_0$ and $g_1$ on the disc $\DD$ that coincide near the boundary and such that 
+\[\area (\DD,g_0)>\area (\DD,g_1),\]
+but 
+\[\ell_0(\xi)<\ell_1(\xi),\]
+where $\ell_i(\xi)$ denotes hitting time of $g_i$-geodesic in the direction $\xi$;
+that is, 
+$\ell_i(\xi)$ is the length of $g_i$-geodesic that starts at a point $p\in \partial \DD$ in the direction $\xi$.
+
+Why this example does not contradicts the Santalo's formula?
+\end{thm}
+
+\section{More exercises}
+
+Two Riemannian metrics $g_0$ and $g_1$ on $M$ are called \emph{conformally equivalent} if there is a function $\lambda$ such that $g_1=\lambda^2\cdot g_0$.
+In this case the function $\lambda$ is called \emph{conformal factor}.
+Note that for any $g_0$-unit-speed curve $\gamma\:[a,b]\to M$ 
+we have
+\[\length_{g_1}\gamma=\int_a^b\lambda\circ\gamma(t)\cdot dt\]
+
+\begin{thm}{Exercie}
+Let $g_0$ be the canonical metric on the projective space $\RP^n$; 
+that is, $(\RP^n,g_0)$ is isometric to the quotient space of the unit sphere $\SSS^n$ by central symmetry.
+Suppose that $g_1$ is conformally equivalent to $g_0$.
+Denote by $\ell_0$ and $\ell_1$ the length of shortest noncontractible closed curves in $(\RP^n,g_0)$ and $(\RP^n,g_1)$ respectively (so $\ell_0=\pi$).
+Show that 
+\[\frac{\vol(\RP^n,g_1)}{\ell_1^n}\ge \frac{\vol(\RP^n,g_0)}{\ell_0^n}.\]
+\end{thm}
+
+\parit{Hint:} Use that geodesic flow preserves volume of the unit tangent bundle to rewrite the integral of conformal factor over $(\RP^n,g_0)$ and interpret the result.
+
+\bigskip
+
+Let $(M,g)$ be a Riemannian manifold.
+The Sasaki metric is a natural choice of Riemannian metric $\hat g$ on the total space of the tangent bundle $\tau\:\T M\to M$ defined the following way:
+
+Identify the tangent space 
+$\T_u[\T M]$ for any $u\z\in \T_p M$ with the direct sum of vertical and horizontal subspaces $\T_p M\z\oplus \T_p M$.
+The projection of this splitting is defined by the differential $d\tau\:\T\T M\to \T M$
+and we assume that the velocity of a curve in $\T M$ formed by a parallel field along a curve in $M$ is horizontal.
+Then $\T_u[\T M]$ is equipped with the metric $\hat g$ defined by
+\[\hat g(X,Y)=g(X^V,Y^V)+g(X^H,Y^H),\]
+where $X^V$ and $X^H\in\T_pM$ denote the vertical and horizontal components of $X\in\T_u[\T M]$.
+
+
+
+\begin{thm}{Exercise}
+Let $g$ be the canonical Riemannian metric on the sphere $\mathbb{S}^2$.
+Consider the tangent bundle $\T \mathbb{S}^2$ 
+equipped with the induced Sasaki metric $\hat g$.
+Let $S_R$ be the hypersurface in $\T \mathbb{S}^2$ of vectors with norm $R$;
+we assume that $S_R$ is equipped with induced Riemannian metric.
+
+Show that $\vol S_R\to \infty$ as $R\to\infty$,
+but $\diam S_R$ stays bounded for all $R$.
+\end{thm}
+
+
+
+\section{Remarks}
+
+Theorem \ref{thm:magic-cloak} was was proved by Mikhael Gromov \cite{gromov-1983}.
+It has number of variations and generalizations.
+In particular an analog of this theorem holds in the following cases:
+\begin{itemize}
+\item For 2-dimensional Riemannian manifolds with unique geodesic between any two points \cite{pestov-uhlmann}.
+\item In hyperbolic space \cite{besson-courtois-gallot-1995, } and for  regions in a round  hemisphere \cite{michel-1981}.
+\item If $M$ is a Riemannian manifolds with unique geodesic between any two points, then the theorem holds for the product $\RR\times M$ \cite{croke-kleiner-1998}.
+\item For any Riemannian manifold, provided that the metric tensor is modified to in a sufficiently small region \cite{burago-ivanov-2010}.
+\end{itemize}
+
+

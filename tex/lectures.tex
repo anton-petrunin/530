@@ -1,0 +1,41 @@
+%\RequirePackage{snapshot}
+\documentclass[twoside]{book}
+
+\usepackage{lectures}
+\usepackage[colorlinks=true,
+citecolor=black,
+linkcolor=black,
+anchorcolor=black,
+filecolor=black,
+menucolor=black,
+urlcolor=black,
+pdftitle={No-magic-cloak theorem},
+pdfsubject={Geometry},
+pdfauthor={Anton Petrunin}
+]{hyperref}
+\makeindex
+
+\begin{document}
+ 
+%\title{No-magic-cloak theorem}
+%\author{Anton Petrunin}
+%\date{}
+%\maketitle
+
+
+%\thispagestyle{empty}
+%\tableofcontents
+%\thispagestyle{empty}
+
+\include{magic-cloak}
+
+{\small\sloppy
+\input{lectures.ind}
+
+\printbibliography[heading=bibintoc]
+\fussy
+}
+
+
+
+\end{document}
