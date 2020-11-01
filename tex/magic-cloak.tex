@@ -1,36 +1,35 @@
 \chapter{Magic cloaks}
 
-This lecture is based on a lecture of Sergei Ivanov \cite{ivanov-2012}.
+Based on a lecture of Sergei Ivanov \cite{ivanov-2012}.
 
 \section{Scattering data}
 
 Given a Riemannian manifold $M$ denote by $\S M$ its unit tangent bundle
 \[\S M=\set{\vec v\in \T M}{|v|=1}.\]
-Recall that geodesic flow $\phi^t$ preserves the natural volume on $\S M$.
+Recall that by \epmph{Liouville's theorem}, the geodesic flow $\phi^t$ preserves the natural volume on $\S M$ in its domain of definition.
 
 Suppose $M$ has nonempty boundary $\partial M$;
-in other words, $M$ is a closed region of a ambient Riemannian  manifold bounded by a smooth hypersurface $\partial M$.
+in other words, $M$ is a closed region of an ambient Riemannian  manifold bounded by a smooth hypersurface $\partial M$.
 Denote by $\S^+ \partial M$ the set of unit vectors at points on $\partial M$ that point in $M$;
 $\S^+ \partial M$ is a bundle over $\partial M$ with fibers formed by closed half-spheres.
 
 Consider a geodesic $\gamma_{\vec u}$ in the direction of a vector $\vec u\in \S^+ \partial M$.
 Suppose that $\gamma_{\vec u}$ hits the boundary again; 
-denote by $\ell_{\vec u}$ the first \emph{hitting time}, so $\gamma_{\vec u}(\ell_{\vec u})\in \partial M$.
-Note that in this case $\vec v=-\gamma'(\ell)\in \S^+ \partial M$.
+denote by $\ell(\vec u)$ the first \emph{hitting time}, so $\gamma_{\vec u}(\ell(\vec u))\in \partial M$.
+Note that in this case the vector $\vec v=-\gamma'(\ell)$ lies in $\S^+ \partial M$.
 Note that $\vec u\mapsto \vec v$ describes a partially defined involution on $\S M$ which we will call \emph{scattering map}.
 
 Suppose that $M$ and $\bar M$ be two compact connected Riemannian manifolds with boundary such that a neighborhood of $\partial M$ can be isometrically identified with a neighborhood of $\partial \bar M$,
 and moreover, the scattering maps in $M$ and $\bar M$ are identical.
 In this case we say that $M$ and $\bar M$ have identical  \emph{scattering data}.
-If in addition the hitting time functions coincide then they are said to have the same \emph{lens data}.
+If in addition their hitting time functions  coincide (that is, if $\ell(\vec u)\equiv\bar\ell(\vec u)$), then we say that $M$ and $\bar M$ have the identical \emph{lens data}.
 
-Notice that a complement of a small ball in the standard sphere $\SSS^n$ is visually identical to the complement of identical ball in the projective space $\RP^n=\SSS^n/\ZZ_2$.
+Notice that if a manifold contains a copy of a round hemispher, then cutting it and cluing the opposite points of its boundary produces a manifold with identical scattering data.
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=.7]{pics/sphere.png}
 \end{figure}
-
-Note that the lens data for the constructed pair of manifolds are not identical.
+The lens data for the constructed pair of manifolds are not same.
 An example of nonisometric manifolds with identical lens data can be found among surfaces of revolution which look like cylinders with bumps on them that are shifted and otherwise look the same.
 \begin{figure}[h!]
 \centering
@@ -50,24 +49,27 @@ that is, any manifold with scattering data identical to $M$ is isometric to $M$.
 
 \begin{thm}{Corollary}
 Suppose a Riemannian metric $g$ on $\RR^n$ coincides with Euclidean metric $g_0$ outside of a compact set $K$.
-Suppose that that the complement $\gamma\backslash K$ of any $g$-geodesic $\gamma$ coincides with the complement of a line (as sets).
+Suppose that that the complement $\gamma\backslash K$ of any nontrivial $g$-geodesic $\gamma$ coincides with the complement of a line (as sets).
 Then $(\RR^n,g)$ is isometric to the Euclidean space.
 \end{thm}
 
 Note that one cannot claim that $g=g_0$.
 Indeed for any diffeomorphism $\phi\:\RR^n\to\RR^n$ that is identical outside $K$ the metric $g=\phi_*g$ satisfies the assumption in the corollary.
-Clearly one can choose $\phi$ so that $\phi_*g_0\ne g_0$.
+Clearly one can choose $\phi$ so that $g\ne g_0$.
 
 
-\section{Lens data}
+\section{Identical lens data}
 
 \begin{thm}{Lemma}\label{lem:no-delay}
 Suppose that a manifold $\bar M$ has identical scattering data with a compact region $M$ in Euclidean space of dimension at least 2.
 Then $M$ and $\bar M$ have identical lens data. 
 \end{thm}
 
+The Euclidean space can be exchanged to a Riemannian manifold with unique geodesic between any pair of points; the proof is the same.
+
 \parit{Proof.}
-Note that we can cut $M$ from the Euclidean space $E$ and glue $\bar M$ back in along the isometry in the definition of scattering data.
+Denote by $W$ the complement of the interior of $M$ in the Euclidean space $E$.
+Note that we glue $\bar M$ to $W$ along the isometry in the definition of scattering data.
 This way we obtain a complete Riemannian manifold $\bar E$ that is Euclidean outside of a $\bar M$.
 
 Suppose that a smooth hypersurface $\Sigma$ in $E$ surrounds $M$.
@@ -86,8 +88,8 @@ Let include it in a smooth one-parameter family of unit-speed geodescis $\bar\ga
 
 We can assume that 
 the vector field $\bar{\vec i}
-=\tfrac{\partial}{\partial\tau}\gamma_\tau(t)$ is orthogonal to $\bar{\vec t}
-=\tfrac{\partial}{\partial t}\gamma_\tau(t)$ at every point $\gamma_\tau(t_0)$ for some fixed $t_0$.
+=\tfrac{\partial}{\partial\tau}\bar\gamma_\tau(t)$ is orthogonal to $\bar{\vec t}
+=\tfrac{\partial}{\partial t}\bar\gamma_\tau(t)$ at every point $\bar\gamma_\tau(t_0)$ for some fixed $t_0$.
 
 Observe that in this case $\langle\bar{\vec i},\bar{\vec t}\rangle=0$ at all points $\bar\gamma_\tau(t)$.
 Indeed 
@@ -107,16 +109,24 @@ Indeed
 &=0.
 \end{align*}
 That is $\langle\bar{\vec i},\bar{\vec t}\rangle$ does not depend on $t$.
-Since $\langle\bar{\vec i},\bar{\vec t}\rangle=0$ at all points $\gamma_\tau(t_0)$, the same holds for all points  $\gamma_\tau(t)$.
+Since $\langle\bar{\vec i},\bar{\vec t}\rangle=0$ at all points $\bar\gamma_\tau(t_0)$, the same holds for all points  $\bar\gamma_\tau(t)$.
 
 Consider a family of geodesics $\gamma_\tau$ in $E$ that coincide with $\bar\gamma_\tau$ (as sets) outside of $M$.
-The same argument shows that $\langle\vec i,\vec t\rangle=0$ at all points $\gamma_\tau(t)$.
-It follows that $\bar{\vec i}=\vec i$ outside of $\bar M$ and $M$ correspondingly.
-Therefore $\gamma_\tau(t)=\bar\gamma(t)$ for any $t$ and $\tau$, provided that $\bar\gamma(t)\notin \bar M$.
+The same argument shows that $\langle\vec i,\vec t\rangle=0$ for the corresponding vector fields ${\vec i}
+=\tfrac{\partial}{\partial\tau}\gamma_\tau(t)$ and $\vec t
+=\tfrac{\partial}{\partial t}\gamma_\tau(t)$
+at all points $\gamma_\tau(t)$.
+
+By assumption, $\bar{\vec t}=\vec t$ and
+$\bar{\vec i}-\vec i$ is proprtional to $\vec t$ in $W$.
+It follows that $\bar{\vec i}=\vec i$ in $W$.
+Therefore $\gamma_\tau(t)=\bar\gamma_\tau(t)$ for any $t$ and $\tau$, provided that $\bar\gamma(t)\in W$.
 Whence the $\gamma$ spends exactly the same time in $M$ as 
 $\bar \gamma$ spends in $\bar M$ and the lemma follows.\qeds
 
-\parit{Comment.} The vector fields $\vec i$  as in the proof restricted to $\gamma_\tau$ are called \emph{Jacobi fields} along $\gamma_\tau$;
+\parit{Comment.}
+The vector fields $\vec i$  as in the proof restricted to $\gamma_\tau$ describe a variation of a geodesics.
+These fields are called \emph{Jacobi fields} along $\gamma_\tau$;
 we will see them again.
 
 \begin{thm}{Exercise}\label{ex:exit-time}
@@ -124,13 +134,13 @@ Suppose $\bar M$ and $\bar E$ be as in the proof.
 Show that there is a universal upper bound on time that a unit-speed geodesic spends in $\bar M$.
 \end{thm}
 
-\parit{Hint:} Show that the set of vectors $\vec u\in\S \bar E$ such that $\gamma_{\vec u}([0, T])\subset \bar M$ is open and closed;
+\parit{Hint:} Show that the set of vectors $\vec u\in\S \bar E$ such that the arc $\gamma_{\vec u}|_{[0, T]}$ lies in $\bar M$ is open and closed;
 here $T=2\cdot\diam M$ and $\gamma_{\vec u}$ is the geodesic defined by $\gamma'_{\vec u}(0)=\vec u$.
 
 \section{Volume equality}
 
 \begin{thm}{Lemma}\label{lem:vol=}
-Suppose that $M$ and $\bar M$ have identical scattering data.
+Suppose that a manifold $\bar M$ has identical scattering data with a compact region $M$ in Euclidean space of dimension at least 2.
 Then 
 \[\vol M=\vol \bar M.\]
 
@@ -151,37 +161,40 @@ Since geodesic flow preserves the volume, we get
 By \ref{ex:exit-time}, we can choose $t$ so that $s(\vec v)\notin \bar M$ for any $\vec v\in \phi^t(\bar\Omega)$.
 
 Repeat the same construction for $M$. 
-By \ref{lem:no-delay}, the set $\phi^t(\Omega)\z=\bar\phi^t(\bar\Omega)$.
+By \ref{lem:no-delay}, $\phi^t(\Omega)\z=\bar\phi^t(\bar\Omega)$.
 In particular, 
 \[
 \vol\Omega=
-\vol[\phi^t(\Omega)]=\vol[\bar\phi^t(\bar\Omega)=\vol\bar\Omega.
+\vol[\phi^t(\Omega)]=
+\vol[\bar\phi^t(\bar\Omega)]=
+\vol\bar\Omega.
 \]
 whence the result follows.
 \qeds
 
-\section{Santalo formula}
+\section{Santal\'{o} formula}
 
-Santalo formula gives an expression for a volume of a Riemannian manifold with boundary in terms of hitting times of its geodesics.
+Santal\'{o} formula is a simple corollary the Liouville's theorem --- geodesic flow preserves the volume.
+It gives an expression for a volume of a Riemannian manifold with boundary in terms of hitting times of its geodesics.
 It provides a more direct proof of \ref{lem:vol=}.
 
 Suppose $M$ is a Reimannian manifold with nonempty boundary $\partial M$.
 Recall that 
 \begin{itemize}
-\item $\S M$ denotes the unit tangent bundle of a Reimannian manifold $M$.
-\item $\S^+ \partial M$ denotes by the set of unit vectors at points on $\partial M$ that point in $M$.
+\item $\S M$ denotes the unit tangent bundle over $M$.
+\item $\S^+ \partial M$ denotes by the bundle of unit vectors at points on $\partial M$ that point in $M$.
 \item $\ell\:\S^+ \partial M\to [0,\infty]$ denoted the hitting time.
 \end{itemize}
 
 \begin{thm}{Theorem}
 Let $M$ be an $n$-dimensional Riemannian manifold with nonempty boundary.
 Suppose that any unit-speed geodesic in $M$ hits its boundary in finite time.
-Then for any smooth function $f\:\S M$ the following identity holds:
+Then for any smooth function $f\:\S M\to\RR$ the following identity holds:
 \[\int_{\vec w\in \S M}f(\vec w)
 =
 \int_{\vec u\in \S^+ \partial M} 
 \int_0^{\ell(\vec u)} f[\gamma'_{\vec u}(t)]\cdot\langle\vec u,\vec n\rangle\cdot dt,\]
-where $\vec n$ denotes the unit vector field normal to $\partial M$ that points inside~$M$
+where $\vec n$ denotes the unit vector field normal to $\partial M$ that points inside~$M$ and $\gamma_{\vec u}$ denotes the geodesic in $M$ defined by $\gamma'_{\vec u}=\vec u$.
 
 In particular, by taking $f\equiv 1$, we get
 \[\vol\SSS^{n-1}\cdot\vol M=\int_{\vec u\in \S^+ \partial M} \ell(\vec u)\cdot\langle\vec u,\vec n\rangle.\]
@@ -192,12 +205,12 @@ In particular, by taking $f\equiv 1$, we get
 Construct two Reimannian metrics $g_0$ and $g_1$ on the disc $\DD$ that coincide near the boundary and such that 
 \[\area (\DD,g_0)>\area (\DD,g_1),\]
 but 
-\[\ell_0(\xi)<\ell_1(\xi),\]
-where $\ell_i(\xi)$ denotes hitting time of $g_i$-geodesic in the direction $\xi$;
+\[\ell_0(\vec u)<\ell_1(\vec u),\]
+where $\ell_i(\vec u)$ denotes hitting time of $g_i$-geodesic in the direction $\vec u$;
 that is, 
-$\ell_i(\xi)$ is the length of $g_i$-geodesic that starts at a point $p\in \partial \DD$ in the direction $\xi$.
+$\ell_i(\vec u)$ is the length of $g_i$-geodesic that starts at a point $p\in \partial \DD$ in the direction $\vec u\in \S^+ \partial \DD$.
 
-Why does this example  not contradict Santalo's formula?
+Why does this example not contradict Santal\'{o} formula?
 \end{thm}
 
 \section{More exercises}
@@ -212,7 +225,7 @@ we have
 Let $g_0$ be the canonical metric on the projective space $\RP^n$; 
 that is, $(\RP^n,g_0)$ is isometric to the quotient space of the unit sphere $\SSS^n$ by central symmetry.
 Suppose that $g_1$ is conformally equivalent to $g_0$.
-Denote by $\ell_0$ and $\ell_1$ the length of shortest noncontractible closed curves in $(\RP^n,g_0)$ and $(\RP^n,g_1)$ respectively (so $\ell_0=\pi$).
+Denote by $\ell_0$ and $\ell_1$ the \emph{systoles} --- the lengths of shortest noncontractible closed curves in $(\RP^n,g_0)$ and $(\RP^n,g_1)$ respectively (so $\ell_0=\pi$).
 Show that 
 \[\frac{\vol(\RP^n,g_1)}{\ell_1^n}\ge \frac{\vol(\RP^n,g_0)}{\ell_0^n}.\]
 \end{thm}
@@ -256,10 +269,11 @@ Theorem \ref{thm:magic-cloak} proved by Mikhael Gromov \cite{gromov-1983}.
 It has a number of variations and generalizations.
 In particular an analog of this theorem holds in the following cases:
 \begin{itemize}
-\item For 2-dimensional Riemannian manifolds with unique geodesic between any two points \cite{pestov-uhlmann}.
-\item In hyperbolic space \cite{besson-courtois-gallot-1995, } and for  regions in a round  hemisphere \cite{michel-1981}.
-\item If $M$ is a Riemannian manifold with unique geodesic between any two points, then the theorem holds for the product $\RR\times M$ \cite{croke-kleiner-1998}.
-\item For any Riemannian manifold, provided that the metric tensor is modified to in a sufficiently small region \cite{burago-ivanov-2010}.
+\item For regions in 2-dimensional Riemannian manifolds with unique geodesic between any two points; proved by Leonid Pestov and Gunther Uhlmann \cite{pestov-uhlmann}.
+\item For regions in a round  hemispheres; proved by Ren\'{e} Michel \cite{michel-1981}.
+\item For regions in hyperbolic spaces; it follows from the result of Gérard Besson, Gilles Courtois, and Sylvestre Gallot \cite{besson-courtois-gallot-1995}.
+\item For regions in the product space $\RR\times M$, where $M$ is a Riemannian manifold with unique geodesic between any two points; proved by Christopher Croke and Bruce Kleiner \cite{croke-kleiner-1998}.
+\item For small regions in any Riemannian manifold; proved by Dmitri Burago and Sergei Ivanov \cite{burago-ivanov-2010}.
 \end{itemize}
 
 
