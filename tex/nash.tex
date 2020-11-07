@@ -1,0 +1,30 @@
+\chapter{Fundamental theorem}
+
+\section{Formulation}
+
+The name \emph{Fundamental theorem of Riemannian geometry} can be used for two results: the theorem on existence and uniqueness of Levi-Civita connection on Riemannian manifold and the following theorem proved by John Nash \cite{nash}:
+
+\begin{thm}{Theorem}
+Any $n$-dimensional Riemannian manifold $(M,g)$ admits a smooth length-preserving embedding in a Euclidean space of sufficiently large dimension $q$.
+\end{thm}
+
+The dimension $q$ can be found explicitly in terms of $n$.
+For example, any $q\ge n^2+10\cdot n+3$ will do, but we will not try to get close to the best known bound.
+
+Suppose that $\bm{f}\:M\to \RR^q$ is a smooth map;
+denote its coordinate functions by $f_1,\dots,f_q$.
+Note that $\bm{f}$ is length-preserving if and only if 
+\[g=(df_1)^2+\dots+(df_q)^2.\]
+Therefore the theorem can be reformulated the following way:
+
+\begin{thm}{Reformulation}
+For any Riemannian metric $g$ on a smooth manifold $M$ there are smooth functions $f_1,\dots,f_q\:M\to\RR$ such that 
+\[g=(df_1)^2+\dots+(df_q)^2.\]
+
+\end{thm}
+
+\begin{thm}{Exercise}\label{ex:nash}
+Show that for any Riemannian metric $g$ on a smooth manifold $M$ there are smooth functions $\phi_1,\dots,\phi_q,f_1,\dots,f_q\:M\to\RR$ such that 
+\[g=(\phi_1\cdot df_1)^2+\dots+(\phi_q\cdot df_q)^2.\]
+
+\end{thm}

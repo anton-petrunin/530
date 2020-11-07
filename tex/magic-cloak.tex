@@ -4,32 +4,38 @@ Based on a lecture of Sergei Ivanov \cite{ivanov-2012}.
 
 \section{Scattering data}
 
-Given a Riemannian manifold $M$ denote by $\S M$ its unit tangent bundle
-\[\S M=\set{\vec v\in \T M}{|v|=1}.\]
-Recall that by \epmph{Liouville's theorem}, the geodesic flow $\phi^t$ preserves the natural volume on $\S M$ in its domain of definition.
+Given a Riemannian manifold $M$ denote by $\tau\:\S M\to M$ its unit tangent bundle
+\[\S M=\set{\vec v\in \T M}{|\vec v|=1}.\]
+
+Recall that by \emph{Liouville's theorem}, the geodesic flow $\phi^t$ preserves the natural volume on $\S M$ in its domain of definition.
+Denote by $\vec g$ the vector field on $\S M$ that defines the geodesic flow $\phi^t$.
 
 Suppose $M$ has nonempty boundary $\partial M$;
 in other words, $M$ is a closed region of an ambient Riemannian  manifold bounded by a smooth hypersurface $\partial M$.
-Denote by $\S^+ \partial M$ the set of unit vectors at points on $\partial M$ that point in $M$;
-$\S^+ \partial M$ is a bundle over $\partial M$ with fibers formed by closed half-spheres.
+Denote by $\partial_+\S  M$ the set of unit vectors at points on $\partial M$ that point in $M$;
+$\partial_+\S  M$ is a bundle over $\partial M$ with fibers formed by closed half-spheres.
+The set $\partial_+ \S M$ is a subset of $\partial \S M$ that can be also defined as the closure of the subset at which the geodesic flow enters $\S M$.
 
-Consider a geodesic $\gamma_{\vec u}$ in the direction of a vector $\vec u\in \S^+ \partial M$.
-Suppose that $\gamma_{\vec u}$ hits the boundary again; 
-denote by $\ell(\vec u)$ the first \emph{hitting time}, so $\gamma_{\vec u}(\ell(\vec u))\in \partial M$.
-Note that in this case the vector $\vec v=-\gamma'(\ell)$ lies in $\S^+ \partial M$.
-Note that $\vec u\mapsto \vec v$ describes a partially defined involution on $\S M$ which we will call \emph{scattering map}.
+
+Consider a geodesic $\gamma_{\vec u}$ in the direction of a vector $\vec u\in \partial_+\S  M$.
+Suppose that $\gamma_{\vec u}$ hits the boundary again.
+In other words, $\gamma_{\vec u}(t)=\tau\circ \phi^t(\vec u)$.
+Denote by $\ell(\vec u)$ the first \emph{hitting time}, so $\gamma_{\vec u}(\ell(\vec u))\in \partial M$.
+Note that in this case the vector $\vec v=-\gamma'(\ell)$ lies in $\partial_+\S  M$.
+The map $s\:\vec u\mapsto \vec v$ is defined if $\ell(\vec u)<\infty$;
+it is a partially defined involution on $\S M$ which we will call \emph{scattering map}.
 
 Suppose that $M$ and $\bar M$ be two compact connected Riemannian manifolds with boundary such that a neighborhood of $\partial M$ can be isometrically identified with a neighborhood of $\partial \bar M$,
 and moreover, the scattering maps in $M$ and $\bar M$ are identical.
 In this case we say that $M$ and $\bar M$ have identical  \emph{scattering data}.
 If in addition their hitting time functions  coincide (that is, if $\ell(\vec u)\equiv\bar\ell(\vec u)$), then we say that $M$ and $\bar M$ have the identical \emph{lens data}.
 
-Notice that if a manifold contains a copy of a round hemispher, then cutting it and cluing the opposite points of its boundary produces a manifold with identical scattering data.
+Notice that if a manifold contains a copy of a round hemisphere, then cutting it and cluing the opposite points of its boundary produces a manifold with identical scattering data.
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=.7]{pics/sphere.png}
 \end{figure}
-The lens data for the constructed pair of manifolds are not same.
+The lens data for the constructed pair of manifolds are not identical.
 An example of nonisometric manifolds with identical lens data can be found among surfaces of revolution which look like cylinders with bumps on them that are shifted and otherwise look the same.
 \begin{figure}[h!]
 \centering
@@ -39,8 +45,13 @@ An example of nonisometric manifolds with identical lens data can be found among
 \begin{thm}{Exercise}
 Check that the described examples have identical lens data.
 
-Construct a nonisometric pair of Riemannian metrics on the disc with identical lens data.
+Construct pair of nonisometric Riemannian metrics on the disc with identical lens data.
 \end{thm}
+
+\section{Main theorem}
+
+The following theorem proved by Mikhael Gromov \cite{gromov-1983};
+it is the main subject of this lecture.
 
 \begin{thm}{Theorem}\label{thm:magic-cloak}
 Any connected compact region $M$ of Euclidean space of dimension at least 2 cut by a smooth hypersurface is \emph{scattering rigid};
@@ -49,12 +60,12 @@ that is, any manifold with scattering data identical to $M$ is isometric to $M$.
 
 \begin{thm}{Corollary}
 Suppose a Riemannian metric $g$ on $\RR^n$ coincides with Euclidean metric $g_0$ outside of a compact set $K$.
-Suppose that that the complement $\gamma\backslash K$ of any nontrivial $g$-geodesic $\gamma$ coincides with the complement of a line (as sets).
+Suppose that the complement $\gamma\backslash K$ of any nontrivial $g$-geodesic $\gamma$ coincides with the complement of a line (as sets).
 Then $(\RR^n,g)$ is isometric to the Euclidean space.
 \end{thm}
 
-Note that one cannot claim that $g=g_0$.
-Indeed for any diffeomorphism $\phi\:\RR^n\to\RR^n$ that is identical outside $K$ the metric $g=\phi_*g$ satisfies the assumption in the corollary.
+Note that in the corollary we cannot claim that $g=g_0$.
+Indeed for any diffeomorphism $\phi\:\RR^n\to\RR^n$ that is identical outside $K$ the metric $g=\phi_*g_0$ satisfies the assumption in the corollary.
 Clearly one can choose $\phi$ so that $g\ne g_0$.
 
 
@@ -65,11 +76,11 @@ Suppose that a manifold $\bar M$ has identical scattering data with a compact re
 Then $M$ and $\bar M$ have identical lens data. 
 \end{thm}
 
-The Euclidean space can be exchanged to a Riemannian manifold with unique geodesic between any pair of points; the proof is the same.
+The Euclidean space can be exchanged to any complete Riemannian manifold with unique geodesic between any pair of points; the proof is the same.
 
 \parit{Proof.}
 Denote by $W$ the complement of the interior of $M$ in the Euclidean space $E$.
-Note that we glue $\bar M$ to $W$ along the isometry in the definition of scattering data.
+Let us glue $\bar M$ to $W$ along the isometry in the definition of scattering data.
 This way we obtain a complete Riemannian manifold $\bar E$ that is Euclidean outside of a $\bar M$.
 
 Suppose that a smooth hypersurface $\Sigma$ in $E$ surrounds $M$.
@@ -77,14 +88,15 @@ Then $\Sigma$ cuts from $E$ and $\bar E$ manifolds with identical scattering dat
 Moreover if $\bar M$ and $M$ are not isometric,
 then the obtained pair is not isometric as well.
 
-It follows that we can assume that $M$ is a ball.
-(This is true for the proof of the lemma and theorem as well.)
-
+It follows that we can assume that $M$ is a ball.%
+\footnote{This is true for the proof of the lemma and theorem as well.}
 In this case any geodesic $\bar\gamma$ in $\bar E$ visits $\bar M$ at most once.
 In other words, if $\bar\gamma$ enters $\bar M$, then the complement $\bar\gamma\backslash \bar M$ has two connected components which are parts of a line $\gamma$ in $E$.
 
+%%%???+PIC
+
 Choose a unit-speed geodesic $\bar\gamma$ that visits $\bar M$.
-Let include it in a smooth one-parameter family of unit-speed geodescis $\bar\gamma_\tau$ for $\tau\in [0,1]$ so that $\bar\gamma_0$ does not visit $\bar M$ and $\bar \gamma_1=\bar \gamma$.
+Let include it in a smooth one-parameter family of unit-speed geodesics $\bar\gamma_\tau$ for $\tau\in [0,1]$ so that $\bar\gamma_0$ does not visit $\bar M$ and $\bar \gamma_1=\bar \gamma$.
 
 We can assume that 
 the vector field $\bar{\vec i}
@@ -108,7 +120,7 @@ Indeed
 \\
 &=0.
 \end{align*}
-That is $\langle\bar{\vec i},\bar{\vec t}\rangle$ does not depend on $t$.
+That is, $\langle\bar{\vec i},\bar{\vec t}\rangle$ does not depend on $t$.
 Since $\langle\bar{\vec i},\bar{\vec t}\rangle=0$ at all points $\bar\gamma_\tau(t_0)$, the same holds for all points  $\bar\gamma_\tau(t)$.
 
 Consider a family of geodesics $\gamma_\tau$ in $E$ that coincide with $\bar\gamma_\tau$ (as sets) outside of $M$.
@@ -124,8 +136,9 @@ Therefore $\gamma_\tau(t)=\bar\gamma_\tau(t)$ for any $t$ and $\tau$, provided t
 Whence the $\gamma$ spends exactly the same time in $M$ as 
 $\bar \gamma$ spends in $\bar M$ and the lemma follows.\qeds
 
-\parit{Comment.}
-The vector fields $\vec i$  as in the proof restricted to $\gamma_\tau$ describe a variation of a geodesics.
+\parit{Comments.}
+The identity $\langle\vec i,\vec t\rangle=0$ is proved the same way as the \emph{Gauss lemma}.
+The vector fields as $\vec i$ in the proof restricted to $\gamma_\tau$ describe a variation of a geodesics.
 These fields are called \emph{Jacobi fields} along $\gamma_\tau$;
 we will see them again.
 
@@ -147,10 +160,10 @@ Then
 \end{thm}
 
 \parit{Proof.}
-Recall that $\bar s\:\S \bar M\to \bar M$ denotes the unit tangent bundle over $\bar M$
-and $\bar\phi^t\:\S \bar M\to \S \bar M$ denotes the geodesic flow.
+We will denote by $\bar \tau\:\S \bar M\to \bar M$ the unit tangent bundle over $\bar M$
+and by $\bar\phi^t\:\S \bar M\to \S \bar M$ its the geodesic flow.
 
-Set $\bar\Omega=\bar s^{-1}(\bar M)$.
+Set $\bar\Omega=\bar \tau^{-1}(\bar M)$.
 Since geodesic flow preserves the volume, we get 
 \begin{align*}
 \vol\SSS^{n-1}\cdot\vol(\bar M,g)&=\vol\bar\Omega=
@@ -158,10 +171,10 @@ Since geodesic flow preserves the volume, we get
 &=\vol[\bar\phi^t(\bar\Omega)].
 \end{align*}
 
-By \ref{ex:exit-time}, we can choose $t$ so that $s(\vec v)\notin \bar M$ for any $\vec v\in \phi^t(\bar\Omega)$.
+By \ref{ex:exit-time}, we can choose $t$ so that $\tau(\vec v)\notin \bar M$ for any $\vec v\in \phi^t(\bar\Omega)$.
 
 Repeat the same construction for $M$. 
-By \ref{lem:no-delay}, $\phi^t(\Omega)\z=\bar\phi^t(\bar\Omega)$.
+By \ref{lem:no-delay} and \ref{ex:exit-time}, $\phi^t(\Omega)\z=\bar\phi^t(\bar\Omega)$.
 In particular, 
 \[
 \vol\Omega=
@@ -174,7 +187,7 @@ whence the result follows.
 
 \section{Santal\'{o} formula}
 
-Santal\'{o} formula is a simple corollary the Liouville's theorem --- geodesic flow preserves the volume.
+Santal\'{o} formula is a simple corollary of Liouville's theorem --- geodesic flow preserves the volume.
 It gives an expression for a volume of a Riemannian manifold with boundary in terms of hitting times of its geodesics.
 It provides a more direct proof of \ref{lem:vol=}.
 
@@ -182,24 +195,55 @@ Suppose $M$ is a Reimannian manifold with nonempty boundary $\partial M$.
 Recall that 
 \begin{itemize}
 \item $\S M$ denotes the unit tangent bundle over $M$.
-\item $\S^+ \partial M$ denotes by the bundle of unit vectors at points on $\partial M$ that point in $M$.
-\item $\ell\:\S^+ \partial M\to [0,\infty]$ denoted the hitting time.
+\item $\phi^t$ denotes geodesic flow.
+In particular, if $\gamma_{\vec u}$ is the geodesic in $M$ defined by $\gamma'_{\vec u}(0)=\vec u$, then $\gamma'_{\vec u}(t)=\phi^t(\vec u)$.
+\item Let $\ell\:\S M\to [0,\infty]$ denoted the hitting time of $\gamma_{\vec u}$ in the boundary of $M$.
+\item $\partial_+\S  M$ denotes by the bundle of unit vectors at points on $\partial M$ that point in $M$. It can be defined as the closure of the subset of $\partial \S M$ at which the geodesic flow enters $\S M$.
+
 \end{itemize}
 
-\begin{thm}{Theorem}
+\begin{thm}{Theorem}\label{thm:santalo}
 Let $M$ be an $n$-dimensional Riemannian manifold with nonempty boundary.
 Suppose that any unit-speed geodesic in $M$ hits its boundary in finite time.
 Then for any smooth function $f\:\S M\to\RR$ the following identity holds:
 \[\int_{\vec w\in \S M}f(\vec w)
 =
-\int_{\vec u\in \S^+ \partial M} 
-\int_0^{\ell(\vec u)} f[\gamma'_{\vec u}(t)]\cdot\langle\vec u,\vec n\rangle\cdot dt,\]
-where $\vec n$ denotes the unit vector field normal to $\partial M$ that points inside~$M$ and $\gamma_{\vec u}$ denotes the geodesic in $M$ defined by $\gamma'_{\vec u}=\vec u$.
+\int_{\vec u\in \partial_+\S  M} 
+\langle\vec u,\vec n\rangle\cdot
+\int_0^{\ell(\vec u)} f\circ\phi^t(\vec u)\cdot dt,\]
+where $\vec n$ denotes the unit vector field normal to $\partial M$ that points inside~$M$.
 
 In particular, by taking $f\equiv 1$, we get
-\[\vol\SSS^{n-1}\cdot\vol M=\int_{\vec u\in \S^+ \partial M} \ell(\vec u)\cdot\langle\vec u,\vec n\rangle.\]
+\[\vol\SSS^{n-1}\cdot\vol M=\int_{\vec u\in \partial_+\S  M} \ell(\vec u)\cdot\langle\vec u,\vec n\rangle.\]
 
 \end{thm}
+
+\parit{Proof.}
+Note that any vector $\vec w\in\S M$ can be uniquely described as $\phi^t(\vec u)$ for some $\vec u\in \partial_+\S  M$ and $0\le t\le \ell(\vec u)$.
+In other words $\S M$ can be identified with the subgraph 
+\[\Phi=\set{(\vec u,t)\in (\partial_+\S  M)\times \RR}{0\le t\le \ell(\vec u)}.\]
+
+The subgraph $\Phi$ has two volume forms: the first, say $\omega$, is the pull back of the volume form  on $\S M$;
+the the second $\chi=dt \wedge \alpha$, where $\alpha$ is the volume form on $\partial_+\S  M$.
+
+
+
+
+
+Note that both forms are invariant with respect to shifts along $\RR$.
+For $\omega$ it is true by Liouville's theorem;
+for $\chi$ it follows from the definition.
+
+Set $r(\vec v)=\distfun_{\partial M}\circ \tau (\vec v)$;
+note that $r$ is a smooth function near $\partial \S M$.
+Observe that $dr=\langle\vec u,\vec n\rangle\cdot dt$ on $\partial \S M$.
+Extend $\alpha$ to $\S M$ arbitrary.
+Note that the equality $\omega=dr\wedge \alpha$ holds on $\partial \S M$.
+Whence 
+\[\omega =\langle\vec u,\vec n\rangle\cdot \chi\eqlbl{eq:omega/chi}\]
+on $\partial \S M$.
+Since both forms are invariant with respect to vertical shifts, we get that \ref{eq:omega/chi} holds everywhere in $\Phi$.
+\qeds
 
 \begin{thm}{Exercise}
 Construct two Reimannian metrics $g_0$ and $g_1$ on the disc $\DD$ that coincide near the boundary and such that 
@@ -208,10 +252,279 @@ but
 \[\ell_0(\vec u)<\ell_1(\vec u),\]
 where $\ell_i(\vec u)$ denotes hitting time of $g_i$-geodesic in the direction $\vec u$;
 that is, 
-$\ell_i(\vec u)$ is the length of $g_i$-geodesic that starts at a point $p\in \partial \DD$ in the direction $\vec u\in \S^+ \partial \DD$.
+$\ell_i(\vec u)$ is the length of $g_i$-geodesic that starts at a point $p\in \partial \DD$ in the direction $\vec u\in \partial_+\S  \DD$.
 
-Why does this example not contradict Santal\'{o} formula?
+Why does this example not contradict the Santal\'{o} formula?
 \end{thm}
+
+
+\begin{thm}{Exercise}\label{ex:satalo-form}
+Denote by $\omega$ the volume form on $\S M$ and by $\vec g$ the vector field on $\S M$ that describes the geodesic flow.
+Given a function $f\:\S M\to\RR$, consider the function $F\:\S M\to\RR$ defined by
+\[F(\vec u)=-\int_0^{\ell(\vec u)}f\circ\phi^t(\vec u)\cdot dt.\]
+
+Prove the Santal\'o formula applying Stokes' theorem to form
+$\iota_{\vec g}(F\cdot \omega)$.
+\end{thm}
+
+\section{Differentiability of distance function}
+
+\begin{thm}{Theorem}\label{thm:differentiability}
+For any closed set $A$ in a complete Riemannian manifold $M$ and any point $x\notin A$
+the differential $d_xf$ of the distance function $f=\distfun_A$ is defined if and only if there is a unique minimizing geodesic $\gamma$ from $x$ to $A$.
+
+Moreover, if $\vec u\in\T_x$ is the unit vector points in the direction of the unique geodesic $\gamma$, then 
+\[d_xf(\vec w)=-\langle\vec u,\vec w\rangle\]
+for any $\vec w\in\T_x$;
+or, equivalently,
+\[\nabla_xf=-\vec u.\]
+
+\end{thm}
+
+\parit{Proof; only-if part.}
+Choose 
+\begin{itemize}
+\item a closed set $A$, a point $x\notin A$, and $\eps>0$,
+\item a unit-speed minimizing geodesic $\gamma$ from $x$ to $A$,
+\item a smooth unit-speed curve $\alpha$ that such that $\alpha(0)=x$, and set $\vec w=\alpha'(0)$.
+\end{itemize}
+Observe that 
+\begin{align*}
+\dist{\gamma(\tfrac t\eps)}{\alpha(t)}{M}&= 
+t\cdot\sqrt{\tfrac {1}{\eps^2}-2\cdot\langle\vec u,\vec w\rangle\cdot \tfrac {1}\eps+1}+o(t)=
+\\
+&=\tfrac{1}{\eps}\cdot t-\langle\vec u,\vec w\rangle\cdot t +O(\eps\cdot t).
+\end{align*}
+Since $\eps>0$ is arbitrary,
+the triangle inequality implies that
+\[f\circ \alpha(t)\le \dist{p}{x}{}+t\cdot\langle\vec u,\vec w\rangle+o(t).\]
+In particular,
+\[(f\circ\alpha)'(0)=-\langle\vec u,\vec w\rangle\eqlbl{f'=<u,v>}\]
+if the left hand side is defined.
+
+Observe that if $d_xf$ is defined, then $(f\circ\alpha)'(0)=d_xf(\vec w)$.
+Therefore 
+\[d_xf(\vec w)\le-\langle\vec u,\vec w\rangle\]
+for any $\vec w\in\T_x$.
+Since both sides of the last inequality are linear, we get that the equality  
+\[d_xf(\vec w)=-\langle\vec u,\vec w\rangle\]
+holds for any $\vec w\in\T_x$.
+
+Suppose that $\gamma_1$ is another minimizing geodesic from $x$ to $A$;
+set $\vec u_1=\gamma_1'(0)$.
+If $d_xf$ is defined, then we have 
+\[-\langle\vec u,\vec w\rangle=d_xf(\vec w)=-\langle\vec u_1,\vec w\rangle;\]
+that is, $\vec u_1=\vec u$ and therefore $\gamma_1=\gamma$.
+
+\parit{If part.}
+Suppose that $\gamma$ is a unique geodesic from $x$ to $A$.
+Choose $\alpha$ as above.
+For each $t$ choose a minimizing geodesic $\gamma_t$ from $\alpha(t)$ to $A$;
+Set $\vec u(t)=\gamma_t'(0)$ and $\vec w(t)=\alpha'(t)$.
+
+Recall that $f$ and $\alpha$ are Lipschitz. 
+By Rademacher's theorem and \ref{f'=<u,v>}, we have that 
+\[(f\circ\alpha)'(t)\aall -\langle\vec u(t),\vec w(t)\rangle;\]
+moreover
+\[f\circ\alpha(\tau)-f\circ\alpha(0)
+=
+-\int_0^\tau\langle\vec u(t),\vec w(t)\rangle\cdot t.\]
+It remains to show that $\langle\vec u(t),\vec w(t)\rangle\to\langle\vec u,\vec w\rangle$ as $t\to 0$.
+
+The latter follows if $\vec u(t)\to \vec u$ as $t\to 0$.
+Assume the contrary, then there is a sequence $t_n\to 0$ such that $\vec u(t_n)$ converges to a
+unit vector $\vec v\in \T_x$ that is distinct from $\vec u$.
+The minimizing geodesics $\gamma_{t_n}$ converge to a geodesic from $x$ to $A$ that runs in the direction $\vec v$.
+Since $\vec v\ne \vec u$,
+this geodesic is distinct from $\gamma$ --- a contradiction.
+\qeds
+
+\begin{thm}{Exercise}\label{ex:simple-mnfld}
+Suppose that $M$ is a compact Riemannian manifold with convex boundary $\partial M$;
+that is, any shortest path in $M$ may only have its endpoints on $\partial M$.
+Assume that for any $p\in \partial M$ the function $\distfun_p$ is differentiable on $\partial M\backslash\{p\}$.
+
+Prove the following statements:
+
+\begin{subthm}{}
+Any geodesic in $M$ is minimizing.
+\end{subthm}
+
+\begin{subthm}{}
+For any $p\in M$ the distance function $\distfun_p$ is differentiable in $M\backslash\{p\}$.
+\end{subthm}
+
+\begin{subthm}{}
+Show that $M$ is homeomorphic to a ball.
+\end{subthm}
+
+\begin{subthm}{}
+The restriction of the distance function to $\partial M$ determines the lens data of $M$.
+\end{subthm}
+
+
+\end{thm}
+
+
+
+
+
+\section{Besicovitch inequality}
+
+The following theorem was proved by Abram Besicovitch \cite{besicovitch}.
+
+\begin{thm}{Theorem}\label{thm:besikovitch}
+Let $g$ be a metric tensor on a unit $n$-dimensional cube $\square$.
+Suppose that the $g$-distances between the opposite facets of $\square$ are at least $1$; that is, any Lipschitz curve that connects opposite faces has $g$-length at least $1$.
+Then $\vol(\square, g)\ge 1$.
+\end{thm}
+
+The following statement is assumed to be known.
+
+\begin{thm}{Coarea inequality}\label{cor:area-inequality}
+Let $f\:\spc{M}\to\spc{N}$ be a locally Lipschitz map between $n$-dimensional Riemannian manifolds.
+Suppose that $|\jac_p f|\z\le 1$ almost everywhere in $A$, then 
+\[\vol A \ge \vol[f(A)].\]
+\end{thm}
+
+\parit{Proof.}
+We will consider the case $n=2$; the other cases are proved the same way.
+
+\begin{wrapfigure}{r}{30mm}
+\vskip-0mm
+\centering
+\includegraphics{mppics/pic-5}
+\end{wrapfigure}
+
+Denote by $A$, $A'$, and $B$, $B'$ the opposite facets of the square~$\square$.
+Consider two functions
+\begin{align*}
+f_A(x)&\df\min\{\,\distfun_A(x)_g,1\,\},
+\\
+f_B(x)&\df\min\{\,\distfun_B(x)_g,1\,\}.
+\end{align*}
+Let $f\:\square\to\square$ be the map with coordinate functions $f_A$ and $f_B$;
+that is, $f(x)\df(f_A(x), f_B(x))$.
+
+Observe that $f$ maps each face to itself.
+Indeed, 
+\[x\in A \quad\Longrightarrow\quad \distfun_A(x)_g=0 \quad\Longrightarrow\quad f_A(x)=0 \quad\Longrightarrow\quad f(x)\in A.\]
+Similarly, if $x\in B$, then $f(x)\in B$.
+Further, 
+\[x\in A'
+\quad\Longrightarrow\quad 
+\distfun_A(x)_g\ge 1 
+\quad\Longrightarrow\quad 
+f_A(x)=1 
+\quad\Longrightarrow\quad 
+f(x)\in A'.\]
+Similarly, if $x\in B'$, then $f(x)\in B'$.
+
+Therefore 
+\[f_t(x)= t\cdot x + (1-t)\cdot f(x)\]
+defines a homotopy of maps of the pair of spaces $(\square,\partial \square)$ from $f$ to the identity map.
+It follows that degree of $f$ is $1$; that is, $f$ sends the fundamental class of $(\square,\partial \square)$ to itself.
+In particular $f$ is onto.
+
+Suppose that Jacobian  matrix $\Jac_pf$ of $f$ is defined at $p\in \square$.
+Choose an orthonormal frame in $\T_p$ with respect to $g$ and the standard frame in the target $\square$.
+Observe that the differentials $d_pf_A$ and $d_pf_B$ written in these frames are the rows of $\Jac_pf$.
+Evidently $|d_pf_A|\le 1$ and $|d_pf_B|\le 1$.
+Since the determinant of a matrix is the volume of the parallelepiped spanned on its rows, we get 
+\[|\jac_p f|\le |d_pf_A|\cdot|d_pf_B|\le 1.\]
+Since $f\:\square\to\square$ is a Lipschitz onto map, the area inequality (\ref{cor:area-inequality}) implies that 
+\[\vol(\square,g)\ge \vol\square=1.\]
+\qedsf
+
+The following theorem can be proved along the same lines.
+
+
+\begin{thm}{Theorem}\label{thm:besikovitch+}
+Let $(M,g)$ be an $n$-dimensional Riemannian manifold.
+Suppose that there is a degree 1 map from its boundary $\partial M$ to the surface of $n$-dimensional cube $\square$;
+denote by $d_1,\dots, d_n$ the distances between the inverse images of pairs of opposite facets of $\square$ in $\partial M$.
+Then 
+\[\vol(M,g)\ge d_1\cdots d_n.\]
+\end{thm}
+
+\begin{thm}{Exercise}\label{ex:hexagon}
+Suppose $g$ is a metric tensor on a regular hexagon $\textbf{\hexagon}$ such that $g$-distances between the opposite sides are at least $1$.
+Is there a positive lower bound on $\area(\textbf{\hexagon},g)$?
+\end{thm}
+
+
+
+\begin{thm}{Exercise}\label{ex:gadograph}
+Let $V$ be a compact set in the $n$-dimensional Euclidean space $\EE^n$ bounded by a hypersurface $\Sigma$.
+Suppose $g$ is a Riemannian metric on $V$ such that 
+\[\dist{p}{q}{g}\ge\dist{p}{q}{\EE^n}\]
+for any two points $p,q\in \Sigma$.
+Show that
+\[\vol(V,g)\ge \vol(V)_{\EE^n}.\]
+ 
+\end{thm}
+
+\section{Equality case}
+
+\begin{thm}{Theorem}\label{thm:besicovitch=}
+Suppose that equality holds in \ref{thm:besikovitch+},
+then $\vol(M,g)$ is isometric to the product $[0,d_1]\times\dots\times[0,d_n]$.
+\end{thm}
+ 
+\parit{Proof.}
+We will prove the 2-dimensional case, assuming that $d_1=d_2=1$;
+the general case can be proved along the same lines.
+Let us use the same notation as in the proof of \ref{thm:besikovitch}.
+
+Consider the map $s\:x\mapsto(\distfun_A(x)_g,\distfun_B(x)_g)$.
+From the proof of \ref{thm:besikovitch} we get that $\Im s\supset \square$.
+Observe that in the case of equality we have that $\Im s= \square$.
+Indeed,
+the same argument shows that 
+\[\vol(s^{-1}(\square),g)\ge \vol\square=1.\]
+The set $s^{-1}(\RR^2\backslash \square)$ is an open subset of $\square$.
+If it is nonempty, then it has positive volume.
+In this case
+\[\vol(\square,g)>\vol(s^{-1}(\square),g)\ge 1\]
+--- a contradiction.
+
+Summarizing: there is a geodesic path of $g$-length $1$ connecting any point on one face of the cube to a point on the opposite face.
+
+Moreover, for any pair of opposite facets and a point $p\in\square$, there is a unique geodesic path of $g$-length $1$ from one face to the other that passes thru $p$.
+The latter can be shown by cutting $\square$ into two rectangles by a level set of $\distfun_A$ thru $p$,
+applying the above statement to both rectangles and taking the concatenation of the obtained geodesic paths with end at $p$.
+If such a path is not unique, then one could make a shortcut near $p$ --- a contradiction.
+
+Let $\gamma$ be such a geodesic path from $A$ to $A'$.
+By \ref{thm:differentiability}, $\gamma'(t)\z=\nabla_{\gamma(t)}\distfun_A$.
+Therefore $\distfun_A$ is differentiable at every point $p\in \square$.
+It follows that the map $s$ is differentiable.
+
+Further, checking the equality case in each inequality in the proof of \ref{thm:besikovitch}, we get that $s$ is a bijection and the equalities
+\[|d_{p}\distfun_A|= 1,\quad|d_{p}\distfun_B|=1,\quad \text{and}\quad \langle d_{p}\distfun_A,d_{p}\distfun_B\rangle= 0\]
+hold for almost all $p\in\square$.
+Since $d_{p}\distfun_A$ and $d_{p}\distfun_B$ are well defined, we get that the equalities hold everywhere.
+That is, $s$ is an isometry.
+\qeds
+
+
+\section{Proof assembling}
+
+\parit{Proof of \ref{thm:magic-cloak}.}
+Suppose that $\bar M$ and $M$ have identical scattering data.
+By \ref{lem:no-delay} $\bar M$ and $M$ have identical lens data.
+Further, by \ref{lem:vol=} (or by Santal\'{o} formula \ref{thm:santalo}), we have
+\[\vol M=\vol \bar M.\]
+
+Without loss of generality we may assume that $M$ lies in a unit cube $\square$.
+Cut from $\square$ the manifold $M$ and glue in $\bar M$ by the isometry provided by the definition of scattering data; denote the obtained modified cube by $\bar\square$. 
+Note that the distances between points on the boundary of $\bar\square$ remain unchanged.
+The latter follows that distance is the length of a minimizing geodesic between a pair of points and the geodesics in $\square$ and $\bar\square$ behave exactly the same way and they spend exactly the same time in $M$ and $\bar M$ respectively.
+
+It follows that in the Besicovitch inequality, an equality holds for $\bar\square$.
+By \ref{thm:besicovitch=}, $\bar\square$ is isometric to $\square$;
+whence $\bar M$ is isometric to $M$.
+\qeds
 
 \section{More exercises}
 
@@ -221,7 +534,7 @@ Note that for any $g_0$-unit-speed curve $\gamma\:[a,b]\to M$
 we have
 \[\length_{g_1}\gamma=\int_a^b\lambda\circ\gamma(t)\cdot dt\]
 
-\begin{thm}{Exercise}
+\begin{thm}{Exercise}\label{ex:systole=}
 Let $g_0$ be the canonical metric on the projective space $\RP^n$; 
 that is, $(\RP^n,g_0)$ is isometric to the quotient space of the unit sphere $\SSS^n$ by central symmetry.
 Suppose that $g_1$ is conformally equivalent to $g_0$.
@@ -231,6 +544,39 @@ Show that
 \end{thm}
 
 \parit{Hint:} Use that geodesic flow preserves volume of the unit tangent bundle to rewrite the integral of conformal factor over $(\RP^n,g_0)$ and interpret the result.
+
+\begin{thm}{Definition}
+A compact Riemannian manifold $M$ with nonempty boundary $\partial M$ is called \emph{simple} if any geodesic in $M$ is minimizing and
+its boundary is convex;
+that is, any shortest path in $M$ may only have its endpoints on $\partial M$.
+
+\end{thm}
+
+Note that \ref{ex:simple-mnfld} provides a condition on a manifold with boundary that guarantees its simplicity.
+
+\begin{thm}{Exercise}\label{ex:conformal}
+Let $(M,g_0)$ be a simple Riemannian manifold.
+Suppose that a conformally equivalent metric $g_1=\lambda^2\cdot g_0$ on $M$ induce the same distances on the boundary $\partial M$;
+that is,
+\[|x-y|_{g_1}=|x-y|_{g_0}\]
+for any $x,y\in\partial M$.
+Show that $\lambda\equiv 1$; that is, $g_1=g_0$.
+\end{thm}
+
+\parit{Hint:}
+Apply \ref{ex:simple-mnfld} plus the Santal\'{o} formula \ref{thm:santalo} and argue similarly to \ref{ex:systole=}.
+
+\begin{thm}{Conjecture}
+Let $(M,g_0)$ be a simple Riemannian manifold and $g_1$ is another Reimannian metric on $M$.
+Suppose that the metric induced by $g_1$ on $\partial M$ is at least as large as the metric induced by $g_0$;
+that is,
+\[|x-y|_{g_1}\ge|x-y|_{g_0}\]
+for any $x,y\in\partial M$.
+Then 
+\[\vol (M,g_1)\ge \vol (M,g_0).\]
+
+\end{thm}
+
 
 \bigskip
 
@@ -265,8 +611,7 @@ but $\diam S_R$ stays bounded for all $R$.
 The fact that not all manifolds are scattering rigid was pointed out by Christopher Croke \cite{croke-1991}.
 More examples constructed by Christopher Croke and Bruce Kleiner \cite{croke-kleiner-1994}.
 
-Theorem \ref{thm:magic-cloak} proved by Mikhael Gromov \cite{gromov-1983}.
-It has a number of variations and generalizations.
+Theorem \ref{thm:magic-cloak} has a number of variations and generalizations.
 In particular an analog of this theorem holds in the following cases:
 \begin{itemize}
 \item For regions in 2-dimensional Riemannian manifolds with unique geodesic between any two points; proved by Leonid Pestov and Gunther Uhlmann \cite{pestov-uhlmann}.
@@ -275,6 +620,7 @@ In particular an analog of this theorem holds in the following cases:
 \item For regions in the product space $\RR\times M$, where $M$ is a Riemannian manifold with unique geodesic between any two points; proved by Christopher Croke and Bruce Kleiner \cite{croke-kleiner-1998}.
 \item For small regions in any Riemannian manifold; proved by Dmitri Burago and Sergei Ivanov \cite{burago-ivanov-2010}.
 \end{itemize}
+
 
 
 
