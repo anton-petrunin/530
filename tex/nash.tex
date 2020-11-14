@@ -1,30 +1,304 @@
 \chapter{Fundamental theorem}
 
+This lecture is based on a tiny piece from the book by Mikhael Gromov~\cite{gromov-1986}.
+
 \section{Formulation}
 
-The name \emph{Fundamental theorem of Riemannian geometry} can be used for two results: the theorem on existence and uniqueness of Levi-Civita connection on Riemannian manifold and the following theorem proved by John Nash \cite{nash}:
+The name \emph{Fundamental theorem of Riemannian geometry} can be used for two results: the theorem on existence and uniqueness of Levi-Civita connection on Riemannian manifold and the following theorem proved by John Nash \cite{nash-1956}:
 
-\begin{thm}{Theorem}
-Any $n$-dimensional Riemannian manifold $(M,g)$ admits a smooth length-preserving embedding in a Euclidean space of sufficiently large dimension $q$.
+\begin{thm}{Fundamental theorem}\label{thm:nash}
+Any $n$-dimensional Riemannian manifold $(M,g)$ admits a smooth length-preserving embedding into a Euclidean space of sufficiently large dimension $q$.
 \end{thm}
+
+We will prove this result modulo the so-called  Nash--Moser implicit function theorem.
+We will assume that $M$ is compact, but it is not all a principle assumption.
 
 The dimension $q$ can be found explicitly in terms of $n$.
-For example, any $q\ge n^2+10\cdot n+3$ will do, but we will not try to get close to the best known bound.
+For example, any $q=100\cdot n^2$ will do, but we will only show that there is $q$ that depends on $M$.
 
-Suppose that $\bm{f}\:M\to \RR^q$ is a smooth map;
-denote its coordinate functions by $f_1,\dots,f_q$.
-Note that $\bm{f}$ is length-preserving if and only if 
+
+\section{Induced metric}
+
+Recall that a field $g$ of bilinear forms on the $M$ is called \emph{metric tensor}.
+A metric tenor $g$ is called \emph{Riemannian} if it is positive definite;
+that is, $g(\vec v,\vec v)>0$ for any $\vec v\ne 0$.
+
+Let $\bm{f}\:M\to\RR^q$ be a smooth map defined on a manifold $M$; here we consider $\RR^q$ with standard Euclidean metric.
+We say that a metric tenor $g$ is induced by $\bm{f}$ if
+\[g(\vec v,\vec w)=\langle \vec v\bm{f},\vec w\bm{f}\rangle,
+\quad\text{or, equivalently}\quad
+g(\vec v,\vec w)=\langle (d\bm{f})\vec v,(d\bm{f})\vec w\rangle\]
+
+Note that $\bm{f}\:(M,g)\to\RR^q$ is length-preserving if and only if 
+\[g(\vec v,\vec v)=|\vec v\bm{f}|^2\]
+for any tangent vector $\vec v$.
+
+Recall that any bilinear form $g$ completely determined by the corresponding quadratic form; 
+that is, if we know $g(\vec v,\vec v)$ for any vector $\vec v$, then we know $g(\vec v,\vec w)$ for any pair of vectors $\vec v,\vec w$.
+The latter is proved by the following identity:
+\[g(\vec v,\vec w)=\tfrac12\cdot\left[ g(\vec v+\vec w,\vec v+\vec w)-g(\vec v,\vec v)-g(\vec w,\vec w)\right].\]
+Therefore $\bm{f}\:(M,g)\to\RR^q$ is length-preserving if and only if
+\[g(\vec v,\vec w)=\langle \vec v\bm{f},\vec w\bm{f}\rangle.\]
+
+Assume that $f_1,\dots,f_q$ are coordinate functions of $\bm{f}$.
+Then the latter identity can be written as
+\[g=(df_1)^2+\dots+(df_q)^2,\]
+where $(df_i)^2$ is a shortcut for the metric tenor $b_i$ defined by
+\[b_i(\vec v,\vec w)\df df_i(\vec v)\cdot d f_i(\vec w)=(\vec vf_i)\cdot (\vec wf_i).\]
+
+
 \[g=(df_1)^2+\dots+(df_q)^2.\]
-Therefore the theorem can be reformulated the following way:
 
-\begin{thm}{Reformulation}
-For any Riemannian metric $g$ on a smooth manifold $M$ there are smooth functions $f_1,\dots,f_q\:M\to\RR$ such that 
-\[g=(df_1)^2+\dots+(df_q)^2.\]
+Let us show that the fundamental theorem can be reduced to the following statement (as always, in the compact case).
 
+\begin{thm}{Reformulation}\label{thm:nash-reformulation}
+For any Riemannian metric $g$ on a compact smooth manifold $M$ there are smooth functions $f_1,\dots,f_q\:M\to\RR$ such that 
+\[g=(df_1)^2+\dots+(df_q)^2.\eqlbl{eq:g=(df)^2}\]
 \end{thm}
+
+
+
+\parit{Proof of equivalence in the compact case.}
+If $\bm{f}\:(M,g)\to \RR^q$ is a smooth length-preserving map, then, as it was shown above, $g$ is induced by $\bm{f}$ and \ref{eq:g=(df)^2} holds for the coordinate functions $f_1,\dots, f_q$ of $\bm{f}$.
+
+Now, assume the reformulation (\ref{thm:nash-reformulation}) is proved.
+Consider a smooth embedding $\bm{h}\:M\to \RR^{2\cdot n+1}$ provided by the Whitney embedding theorem.
+Denote by $g_0$ the Riemannian metric on $M$ induced by $\bm{h}$;
+that is,  
+\[g_0=(dh_1)^2+\dots+(dh_{2\cdot n+1})^2,\]
+where $h_1,\dots,h_{2\cdot n+1}$ are coordinate functions of $\bm{h}$.
+Passing to an scaled embedding $\eps\cdot \bm{h}$ for some small $\eps>0$, we can assume that $g>g_0$; that is, $\bar g=g-g_0$ is a Riemannian metric on $M$.
+(Here we used compactness of $M$, but \emph{not} in an essential way.)
+
+Applying the reformulation (\ref{thm:nash-reformulation}) to $(M,\bar g)$ we get a smooth length-preserving immersion $\bm{f}\:(M,\bar g)\to\RR^q$.
+It remains to observe that the smooth embedding $M\to \RR^{2\cdot n+1}\oplus\RR^q$ defined by
+$x\mapsto (\bm{h}(x),\bm{f}(x))$ has induced metric tensor $g=g_0+\bar g$;
+therefore it is length-preserving.
+\qeds
+
+\section{Nash's twist}
+
+The following exercise is a weaker form of \ref{thm:nash-reformulation}; it will play a key role in this section.
 
 \begin{thm}{Exercise}\label{ex:nash}
-Show that for any Riemannian metric $g$ on a smooth manifold $M$ there are smooth functions $\phi_1,\dots,\phi_q,f_1,\dots,f_q\:M\to\RR$ such that 
-\[g=(\phi_1\cdot df_1)^2+\dots+(\phi_q\cdot df_q)^2.\]
+Show that for any Riemannian metric $g$ on a smooth compact manifold $M$ there are smooth functions 
+\[\phi_1,\dots,\phi_q,f_1,\dots,f_q\:M\to\RR\]
+such that 
+\[g=(\phi_1)^2 \cdot (df_1)^2+\dots+(\phi_q)^2\cdot (df_q)^2.\]
 
 \end{thm}
+
+Let $\phi$ and $f$ be smooth functions on a smooth manifold $M$.
+Given $\eps>0$, denote by $\SSS^1_\eps$ the circle of radius $\eps$ in $\RR^2$;
+consider an length-preserving map $\ell_\eps\:\RR\to\SSS^1_\eps$, say 
+\[\ell_\eps(x)=(\eps\cdot\cos\tfrac x\eps,\eps\cdot\sin\tfrac x\eps).\]
+Then the map $F\:M\to \RR^2$ defined by
+\[F(x)=\phi(x)\cdot (\ell_\eps\circ f(x))\]
+is called \emph{Nash's twist} for the triple $(\eps,\phi,f)$.
+
+Suppose that $\vec v$ is a tangent vector on $M$, then
+\begin{align*}
+\vec vF&=\vec v(\phi\cdot \ell_\eps\circ f)=
+\\
+&=(\vec v\phi)\cdot(\ell_\eps\circ f) + \phi\cdot (\ell_\eps'\circ f)\cdot(\vec vf)=
+\\
+&=d\phi(\vec v)\cdot (\ell_\eps\circ f)+\phi\cdot df(\vec v)\cdot (\ell_\eps'\circ f).
+\end{align*}
+
+Observe that $|\ell_\eps|=\eps$, $|\ell'_\eps|=1$, and $\ell_\eps\perp \ell'_\eps$.
+\[\langle \vec vF,\vec wF\rangle =\eps^2\cdot d\phi(\vec v)\cdot d\phi(\vec w)+\phi^2\cdot df(\vec v)\cdot df(\vec w).\]
+Whence we get the following:
+
+\begin{thm}{Claim}\label{clm:twist}
+The metric tensor $\phi^2\cdot (df)^2+\eps^2\cdot(d\phi)^2$
+is induced by a Nash's twist for $(\eps,\phi,f)$.
+
+\end{thm}
+
+
+\begin{thm}{Approximation theorem}\label{thm:approx}
+Let $(M,g)$ be a compact Riemannian manifold.
+Then there are smooth functions $\phi_1,\dots \phi_q$ on $M$ such that 
+for any $\eps>0$ the metric tensor 
+\[h=(d\phi_1)^2+\dots+(d\phi_q)^2\]
+the following condition holds:
+
+For any $\eps>0$, the metric tensor $g+\eps^2\cdot h$ is induced by a smooth map $\bm{F}_\eps\:M\to \RR^{2\cdot q}$ to a Euclidean space.
+\end{thm}
+
+\parit{Proof.}
+Let $\phi_1,f_1,\dots ,\phi_q,f_q$ be the functions on $M$ provided by \ref{ex:nash}.
+
+Choose $\eps>0$. 
+Consider the Nash's twist $F_i$ for each triple $(\eps,\phi_i,f_i)$.
+Denote by $\bm{F}_\eps$ the map $M\to\RR^{2\cdot q}$ with pairs of coordinate functions as in $F_1,\dots, F_q$.
+
+By \ref{clm:twist}, the metric tensor $g+\eps^2\cdot h$ is induced by $\bm{F}_\eps$.
+\qeds
+
+\section{Pseudoeuclidean case}
+
+Denote by $\RR^{r,s}$ the pseudoeuclidean space with signature $(r,s)$;
+that is the space $\RR^{r+s}$ with scalar product defined by
+\[\langle\bm{x},\bm{y}\rangle=x_1\cdot y_1+\dots+x_s\cdot y_s-x_{s+1}\cdot y_{s+1}-\dots-x_{s+r}\cdot y_{s+r},\]
+where $x_i$ and $y_i$ denote the coordinates of vectors $\bm{x}$ and $\bm{y}$ in $\RR^{r+s}$.
+
+The induced metric tensor for a map to a pseudoeuclidean space can be defined the same way.
+
+\begin{thm}{Theorem}
+Any metric tensor $g$ on a compact smooth manifold $M$ is induced by a smooth map $\bm{f}\:M\to \RR^{r,s}$ for some positive integers $r$ and $s$;
+in other words, 
+\[g=(df_1)^2+\dots+(df_r)^2-(df_{r+1})^2+\dots+(df_{r+s})^2\]
+for some smooth functions $f_1,\dots,f_{r+s}$ on $M$.
+\end{thm}
+
+\parit{Proof.}
+Note that any metric tensor on $M$ can be expressed as a difference of two Riemannian tenors.
+Therefore we can assume that $g$ is Riemannian.
+
+Suppose that $\bm{F}_\eps\:M\to \RR^{2\cdot q}$ and $\phi_1,\dots,\phi_{q}$ are provided by the approximation theorem (\ref{thm:approx}).
+Consider the map $\bm{\phi}\:M\to \RR^q$  with coordinate functions $\phi_1,\dots,\phi_q$.
+
+Consider the map $\bm{f}\:M\to \RR^{2\cdot q}\oplus \RR^{q}=\RR^{2\cdot q,q}$
+defined by
+$\bm{f}\:x\z\mapsto (\bm{F}_{\eps}(x),\eps\cdot\bm{\phi}(x))$.
+Its induced metric tensor is $g=g+\eps\cdot h\z-\eps\cdot h$.
+\qeds
+
+\begin{thm}{Exercise}\label{ex:gromov-p222}
+Let $\bm{f}\:(M,g)\to \SSS^{q-1}$ be a smooth length-preserving embedding.
+Construct a smooth length-preserving embedding of any conformally equivalent manifold into $\RR^{q,1}$.
+
+That is, given a smooth positive function $\phi$ on $M$, construct a smooth map $\bm{F}\:M\to \RR^{q,1}$
+with induced metric tensor $\phi^2\cdot g$.
+\end{thm}
+
+
+\section{Free maps}
+
+Let $\bm{f}\:M\to \RR^q$ be a smooth map defined on a smooth $n$-dimensional manifold $M$.
+
+Recall that $\bm{f}$ is called \emph{regular} if $d\bm{f}$ has rank $n$ at each point.
+In other words, for any local coordinates $(x_1,\dots,x_n)$ on $M$ all first order partial derivatives
+\[\tfrac{\partial}{\partial x_1}\bm{f},\dots,\tfrac{\partial}{\partial x_n}\bm{f}\]
+are linearly independent at each point $p\in M$.
+
+A map $\bm{f}\:M\to \RR^q$ is called \emph{free} if an analogous property holds for first \emph{and second} partial derivatives;
+that is, if all $\tfrac{n\cdot(n+3)}{2}$ vectors
+\[\tfrac{\partial}{\partial x_1}\bm{f},
+\dots,
+\tfrac{\partial}{\partial x_n}\bm{f},
+\tfrac{\partial^2}{\partial x_1^2}\bm{f},
+\tfrac{\partial^2}{\partial x_1\partial x_2}\bm{f},
+\dots,
+\tfrac{\partial^2}{\partial x_n^2}\bm{f}\]
+are linearly independent at each point $p\in M$.
+Observe that any free map is regular.
+
+\begin{thm}{Exercise}\label{ex:free-def}
+Show that the definition of free map does not depend on the choice of local coordinates. 
+\end{thm}
+
+\begin{thm}{Exercise}\label{ex:free-twists}
+Consider the $(x,y)$-plane $\RR^2$.
+Let $F_x$, $F_y$, and $F_{x+y}$ are Nash's twists $\RR^2\to \RR^2$ for the triples $(1,1,x)$, $(1,1,y)$, and $(1,1,x\z+y)$.
+Show that the map $\RR^2\to \RR^6=\RR^2\oplus\RR^2\oplus\RR^2$ defined by $p\z\mapsto (F_x(p), F_y(p),F_{x+y}(p))$ is free.
+
+Generalize the statement to maps $\RR^n\to \RR^{n\cdot(n+1)}$. 
+\end{thm}
+
+\begin{thm}{Exercise}\label{ex:free-composition}
+Let $\bm{f}\:M\hookrightarrow \RR^q$ is a regular smooth embedding and $\bm{F}\:\RR^q\z\hookrightarrow \RR^Q$ is a free smooth embedding.
+Show that the composition $\bm{F}\circ\bm{f}\:M\hookrightarrow \RR^Q$ is free.
+
+Use \ref{ex:free-twists} to conclude that any smooth manifold admits a free embedding into a Euclidean space.
+\end{thm}
+
+
+
+
+If $\bm{f}\:M\to \RR^q$ is a smooth embedding, then the smooth manifold $M$ with its image $\bm{f}(M)$.
+If $\bm{f}$ is free, than we say that $M$ is a \emph{free submanifold}.
+
+The space spanned by the first and second partial derivatives of $\bm{f}$ at $p$ will be denoted by $\T^2_p=\T^2_pM$.
+The ortogonal complement of the tangent space $\T_p$ in $\T^2_p$ will be called \emph{binormal space} and denoted by $\BN_p=\BN_pM$; in other words,
+\[\BN_p=\T^2_p\cap\N_p,\]
+where $\N_p$ denotes the normal space to $M$ at $p$.
+
+Recall that second fundamental form $S$ is a field of symmetric quadratic forms on $\T M$  with values in $\N M$ that defined by 
+\[S(\vec v,\vec w)=\nabla_{\vec v}\vec w-\bar\nabla_{\vec v}\vec w,\]
+where $\nabla$ and $\bar \nabla$ denote the Levi-Civita connection on $M$ and the ambient manifold;
+in this particular case, $\bar \nabla$ is defined by the parallel translations on the Euclidean space.
+Observe that the values of $S$ lie in binormal bundle $\BN M$.
+
+\begin{thm}{Exercise}\label{ex:binormal}
+Suppose that $M$ is a free submanifold of $\RR^q$.
+Show that for any metric tensor $h$ on $M$ there is a unique binormal field $\vec n$ such  that 
+\[h(\vec v,\vec w)=\langle S(\vec v,\vec w),\vec n\rangle\]
+for any vector fields $\vec v,\vec w$ on $M$.
+
+Given $h$, consider the one-parameter family of maps $\bm{f}_t\:M\to \RR^q$ defined by 
+\[\bm{f}_t(p)= p+t\cdot \vec n(p);\]
+let $g(t)$ be the metric tensor induced by $\bm{f}_t$.
+Show that $g'(0)=h$.
+\end{thm}
+
+The exercise says that a free embedding can be perturbed so that the induced metric tensor moves in a given direction $h$.
+Note that freeness of embedding is an \emph{open condition};
+namely, if $M$ is a free compact submanifold then any $C^2$-close embedding of $M$ is free as well.
+One may think that these two properties \emph{easily} imply the following statement,
+but that is not at all easy;
+it is a consequence of a deep result --- the so-called Nash--Moser theorem.
+
+\begin{thm}{Perturbation theorem}\label{thm:perturbation}
+Let $\bm{f}\:M\hookrightarrow\RR^q$ be a free embedding, $g$ is the Riemannian metric induced by $\bm{f}$ and $h$ is another metric tensor on $M$.
+Then for any $t$ sufficiently close to $0$, there is a free embedding of $\bm{f}_t\:M\hookrightarrow\RR^q$ with  induced metric tensor $g+t\cdot h$.  
+\end{thm}
+
+\parit{Proof of \ref{thm:nash-reformulation} modulo the perturbation theorem.}
+Choose a free embedding $\bm{f}\: M\hookrightarrow\RR^s$;
+it exists by \ref{ex:free-composition}.
+Denote by $g_0$ its induced metric.
+
+Scaling down $\bm{f}$ if necessary, we can assume that $g>g_0$;
+that is the metric tensor $\bar g= g-g_0$ is Riemannian.
+
+Applying the approximation theorem (\ref{thm:approx}) we get a one parameter family of maps $\bm{F_\eps}\:M\to \RR^q$ with induced metrics $\bar g+\eps^2\cdot h$ for a fixed metric tensor $h$.
+
+By the perturbation theorem (\ref{thm:perturbation}) there is a one parameter family of embedding $\bm{f}_t\:M\to \RR^s$ with induced metric $g_0+t\cdot h$.
+
+Choose sufficiently small $\eps>0$ so that $\bm{f}_t$ is defined for $t=-\eps^2$.
+Consider the map $M\to \RR^s\times\RR^q$ defined by 
+$x\mapsto (\bm{f}_t(x),\bm{F}_\eps(x))$.
+Observe that the induced metric of this map is
+\[g_0+t\cdot h+\bar g+\eps^2\cdot h=g.\]
+\qedsf
+
+\section{Remarks}
+
+Let us state another closely related result that shows a huge difference between $C^1$ and $C^2$ isometric embeddings.
+For example, it implies that the unit sphere admits $C^1$ length-preserving embedding into an arbitrarily small ball in Euclidean 3-space.
+There is no such $C^2$-embedding since Gauss curvature of the unit sphere is 1, but at an extremal point it must be at least $\tfrac1{r^2}$, where $r$ is the radius of the ball.
+
+\begin{thm}{Nash--Kuiper theorem}
+Let $(M,g)$ be a $n$-dimensional Riemannian manifold and $f\:(M,g)\to \RR^q$ be a short smooth regular map.
+Suppose that $q\ge n+1$.
+Then for any $\eps>0$ there is an $C^1$-smooth length-preserving maps $f_\eps\:(M,g)\to \RR^q$ that is $\eps$ close to $f$;
+that is, $|f_\eps(x)-f(x)|<\eps$ for any $x\in M$.
+
+Moreover if $f$ is an embedding then we can assume that so is $f_\eps$.
+
+\end{thm}
+
+
+It was originally proved by John Nash \cite{nash-1954} with the condition $q\z\ge n+2$ and improved to $q\ge n+1$ by Nicolaas Kuiper \cite{kuiper-1955}.
+The original proof uses Nash's twist in a different way. Both papers are reader-friendly, it is better to start with the paper of Nash.
+One may also start with lectures by Allan Yashinski and the author \cite{petrunin-yashinski} where related results were obtained using an alternative approach.
+
+The discussed result formed a part of foundations of the so-called \emph{homotopy principle}, or \emph{h-principle}; an excellent introduction is given in the book by Yakov Eliashberg and Nikolai Mishachev \cite{eliashberg-mishachev}.
+
+
+
+
+
+
