@@ -1,0 +1,82 @@
+\chapter{Second variation}
+
+\section{Exercises}
+
+Use the formulas from the next section to solve the following exercises:
+
+\begin{thm}{Exercise}\label{ex:scalar}
+Let $M$ be a closed $n$-dimensional Riemannian manifold with injectivity radius at least $\pi$ at each point.
+
+\begin{subthm}{}
+Choose two orthonormal vectors $\vec v,\vec t\in\T_pM$.
+Consider geodesic $\gamma\:[0,\pi]$ in the direction of $\vec t$.
+Denote by $\vec v(t),\vec t(t)\in\T_{\gamma(t)}$ the parallel translations of $\vec v$ and $\vec t$ along $\gamma$, so $\vec t=\gamma'$.
+Denote by $\kappa(\vec v,\vec t)$
+the average value of $\sec(\vec v(t)\wedge \vec t(t))\cdot\sin^2(t)$ for $t\in[0,\pi]$.
+Show that 
+\[\kappa(\vec v,\vec t)\le \tfrac12\]
+for any $p\in M$ and any orthonormal pair $\vec v,\vec t\in\T_pM$.
+\end{subthm}
+
+\begin{subthm}{} Apply Liouville's theorem to show that the average of sectional curvature on $M$ is at most 1.
+ Conclude that $M$ has a point with scalar curvature at most $n\cdot (n-1)$. 
+\end{subthm}
+
+\end{thm}
+
+\begin{thm}{Exercise (Syng's theorem)}\label{ex:syng}
+Let $\gamma$ be a closed simple geodesic on Riemannian manifold $M$.
+Suppose that either a neighborhood of $g$ is orientable and dimension of $M$ is even, or a neighborhood of $g$ is nonorientable and dimension of $M$ is odd.
+
+\begin{subthm}{ex:syng:parallel}
+Show that there is a parallel unit vector field $\vec w$ on $\gamma$ that is orthogonal to $\gamma$.
+Conclude that $\gamma$ admits a length-decreasing homotopy.
+\end{subthm}
+
+\begin{subthm}{ex:syng:odd}
+Use part \ref{SHORT.ex:syng:parallel} to show that if $M$ is oriented and has even dimension, then it is simply connected.
+\end{subthm}
+
+\begin{subthm}{ex:syng:even}
+Use part \ref{SHORT.ex:syng:parallel} to show that if $M$  has odd dimension, then it is oriented.
+\end{subthm}
+
+\end{thm}
+
+A submanifold $M$ of Riemannian menifold $\bar M$ is called \emph{totally geodesic} if for every point $p\in M$ and any tangent vector $\vec v\in\T_pM$, the geodesic $\gamma$ with initial value $\gamma'(0)=\vec v$ lies in $M$.
+
+\begin{thm}{Exercise (Frankel's theorem)}\label{ex:frankel}
+Let $M$ and $N$ be two totally geodesic submanifolds in a closed $n$-dimensional Riemannian manifold with positive sectional curvature.
+Suppose that $\dim M+\dim N>n$.
+Show that $M$ meets $N$ at some point.
+
+\end{thm}
+
+\section{Equations}
+
+\parbf{Jacobi equation.}
+Suppose $\vec j$ is a Jacobi field along a geodesic $\gamma$ and $\vec t=\gamma'$.
+Then
+\[\vec j''+R(\vec j,\vec t)\vec t=0;\]
+here we use shortcut notation $\vec j'=\nabla_{\vec t}$.
+
+\parbf{Riccati equation.}
+Let $\gamma$ be a unit-speed geodesic.
+Suppose a smooth function $f$ is defined in its neighborhood and satisfies the following conditions:
+\[f\circ \gamma(t)\equiv t,\quad |\nabla f|\equiv 1.\]
+Set $\vec t=\nabla f$, note that this vector field extends $\gamma'$.
+Let $S$ be the shape operator of the level sets of $f$; that is
+\[S(\vec v)=\nabla_{\vec v} \vec t.\]
+Then the following identity holds:
+\[S'+S^2+R(\cdot,\vec t)\vec t=0;\]
+as before we write $S$ in a parallel frame on $\gamma$, so $S'$ is a shortcut for $\nabla_{\vec t}S$.
+In other words, if $\vec v$ is a parallel vector field along $\gamma$, then 
+\[S'(\vec v)+S^2(\vec v)+R(\vec v,\vec t)\vec t=0.\]
+
+\parbf{Second variation formula.}
+Let $\vec w$ be a vector field normal to geodesic $\gamma\:[a,b]\to M$.
+As before $\vec t=\gamma'$ and $\vec w'$ is a shortcut for $\nabla_{\vec t}\vec w$.
+
+Family of curves $\gamma_t=\exp_{\gamma(t)}(t\cdot \vec w)$, set $L(t)=\length\gamma_t$.
+Then 
+\[L''(0)=\int_a^b|\vec w'|^2-K(\vec w,\vec t).\]
