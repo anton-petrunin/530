@@ -18,8 +18,8 @@ The set $\partial_+ \S M$ is a subset of $\partial \S M$ that can be also define
 
 
 Consider a geodesic $\gamma_{\vec u}$ in the direction of a vector $\vec u\in \partial_+\S  M$.
-Suppose that $\gamma_{\vec u}$ hits the boundary again.
 In other words, $\gamma_{\vec u}(t)=\tau\circ \phi^t(\vec u)$.
+Suppose that $\gamma_{\vec u}$ hits the boundary again.
 Denote by $\ell(\vec u)$ the first \emph{hitting time}, so $\gamma_{\vec u}(\ell(\vec u))\in \partial M$.
 Note that in this case the vector $\vec v=-\gamma'(\ell)$ lies in $\partial_+\S  M$.
 The map $s\:\vec u\mapsto \vec v$ is defined if $\ell(\vec u)<\infty$;
@@ -30,7 +30,7 @@ and moreover, the scattering maps in $M$ and $\bar M$ are identical.
 In this case we say that $M$ and $\bar M$ have identical  \emph{scattering data}.
 If in addition their hitting time functions  coincide (that is, if $\ell(\vec u)\equiv\bar\ell(\vec u)$), then we say that $M$ and $\bar M$ have the identical \emph{lens data}.
 
-Notice that if a manifold contains a copy of a round hemisphere, then cutting it and cluing the opposite points of its boundary produces a manifold with identical scattering data.
+Notice that if a manifold contains a copy of a round hemisphere, then cutting it and gluing the opposite points of its boundary produces a manifold with identical scattering data.
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=.7]{pics/sphere.png}
@@ -65,7 +65,7 @@ Then $(\RR^n,g)$ is isometric to the Euclidean space.
 \end{thm}
 
 Note that in the corollary we cannot claim that $g=g_0$.
-Indeed for any diffeomorphism $\phi\:\RR^n\to\RR^n$ that is identical outside $K$ the metric $g=\phi_*g_0$ satisfies the assumption in the corollary.
+Indeed for any diffeomorphism $\phi\:\RR^n\to\RR^n$ that is identical outside $K$ the metric $g=\phi^*g_0$ satisfies the assumption in the corollary.
 Clearly one can choose $\phi$ so that $g\ne g_0$.
 
 
@@ -121,7 +121,7 @@ Indeed
 &=0.
 \end{align*}
 That is, $\langle\bar{\vec i},\bar{\vec t}\rangle$ does not depend on $t$.
-Since $\langle\bar{\vec i},\bar{\vec t}\rangle=0$ at all points $\bar\gamma_\tau(t_0)$, the same holds for all points  $\bar\gamma_\tau(t)$.
+Since $\langle\bar{\vec i},\bar{\vec t}\rangle=0$ at $\bar\gamma_\tau(t_0)$, the same holds for all points  $\bar\gamma_\tau(t)$.
 
 Consider a family of geodesics $\gamma_\tau$ in $E$ that coincide with $\bar\gamma_\tau$ (as sets) outside of $M$.
 The same argument shows that $\langle\vec i,\vec t\rangle=0$ for the corresponding vector fields ${\vec i}
@@ -187,7 +187,7 @@ whence the result follows.
 
 \section{Santal\'{o} formula}
 
-Santal\'{o} formula is a simple corollary of Liouville's theorem --- geodesic flow preserves the volume.
+Santal\'{o} formula is a corollary of Liouville's theorem --- geodesic flow preserves the volume.
 It gives an expression for a volume of a Riemannian manifold with boundary in terms of hitting times of its geodesics.
 It provides a more direct proof of \ref{lem:vol=}.
 
@@ -224,11 +224,7 @@ In other words $\S M$ can be identified with the subgraph
 \[\Phi=\set{(\vec u,t)\in (\partial_+\S  M)\times \RR}{0\le t\le \ell(\vec u)}.\]
 
 The subgraph $\Phi$ has two volume forms: the first, say $\omega$, is the pull back of the volume form  on $\S M$;
-the the second $\chi=dt \wedge \alpha$, where $\alpha$ is the volume form on $\partial_+\S  M$.
-
-
-
-
+the the second $\chi=dt \wedge \alpha$, where $\alpha$ is the volume form on $\partial\S  M$.
 
 Note that both forms are invariant with respect to shifts along $\RR$.
 For $\omega$ it is true by Liouville's theorem;
@@ -237,7 +233,6 @@ for $\chi$ it follows from the definition.
 Set $r(\vec v)=\distfun_{\partial M}\circ \tau (\vec v)$;
 note that $r$ is a smooth function near $\partial \S M$.
 Observe that $dr=\langle\vec u,\vec n\rangle\cdot dt$ on $\partial \S M$.
-Extend $\alpha$ to $\S M$ arbitrary.
 Note that the equality $\omega=dr\wedge \alpha$ holds on $\partial \S M$.
 Whence 
 \[\omega =\langle\vec u,\vec n\rangle\cdot \chi\eqlbl{eq:omega/chi}\]
