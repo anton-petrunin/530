@@ -281,9 +281,9 @@ english]{babel}
 
 
 %THEOREM
-\newcounter{thm}[chapter]
-\renewcommand{\thethm}{\thechapter.\arabic{thm}}
-\newcommand\claim[2][{}]{\par\medskip\noindent\refstepcounter{thm}\hbox{\bf \thechapter.\arabic{thm}. #2.#1}
+\newcounter{thm}[section]
+\renewcommand{\thethm}{\thesection\arabic{thm}}
+\newcommand\claim[2][{}]{\par\medskip\noindent\refstepcounter{thm}\hbox{\bf \thesection\arabic{thm}. #2.#1}
 \it\ %\ignorespaces
 }
 \def\endclaim{
@@ -336,7 +336,6 @@ english]{babel}
 
 \newcommand{\qcomma}{\ooalign{\hss,\kern.03em\hss\cr?}}
 
-\makeatletter\renewcommand{\p@section}{\thechapter}\makeatother
 \renewcommand{\thesection}{\Alph{section}}
 
 \hyphenation{ 

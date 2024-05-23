@@ -1,0 +1,461 @@
+\chapter{Algebra of curvature}
+
+The curvature of a Riemannian manifold is described by a tensor, not just a number.
+This is one of the principle differences between differential geometry of surfaces and higher-dimensional differential geometry.
+
+In this lecture we will give an outline of algebra related to curvature tensor.
+Most of the statements come without proofs, but everything can be proved by straightforward calculations (which are often tedious).
+
+Most proofs can be found in \cite[Chapters 4+6]{do-carmo} and \cite[Chapter 3]{cheeger-ebin}.
+
+\section{Definition}
+Let $\vec x$, $\vec y$, $\vec v$, and $\vec w$ be vector fields on a Riemannian manifold $(M,g)$.
+Recall that $\nabla$ denotes the Levi-Civita connection on $M$.
+
+The \index{curvature tensor}\emph{Riemannian curvature tensor} $\Rm$ is defined by%
+\footnote{Many authors (for example do Carmo) define it with opposite sign.
+If you see notation $\mathop{\rm Rm}$ then most likely the sign is opposite.
+This convention fits better with an earlier convention that sphere has positive Gauss curvature.}
+\[\Rm(\vec x,\vec y)\vec v
+=
+\nabla_{\vec x}\nabla_{\vec y}\vec v
+-\nabla_{\vec y}\nabla_{\vec x}\vec v
+-\nabla_{[\vec x,\vec y]}\vec v.\]
+It has valence 4 ---
+it takes 3 vectors and spits another vector.
+We do not need to specify covariance/contravariance type of the tensor since 
+the metric tensor identifies tangent and cotangent bundles.
+
+By the definition, one sees that the curvature tensor depends linearly on vector fields.
+But it is indeed a tensor --- that is,  the vector $\Rm(\vec x,\vec y)\vec v$ depends only on the tangent vectors $\vec x$, $\vec y$, and $\vec v$ at the point.
+The latter follows from the following identities: 
+\begin{align*}
+f\cdot \Rm(\vec x,\vec y)(\vec v)&=\Rm(f\cdot \vec x,\vec y)(\vec v)=
+\\
+&=\Rm(\vec x,f\cdot \vec y)(\vec v)=
+ \\
+&=\Rm(\vec x,\vec y)(f\cdot \vec v).
+\end{align*}
+for any vector fields $\vec x$, $\vec y$, $\vec v$ and a function $f$.
+All of them can be proved by straightforward computations.
+
+\section{Curvatuere transformation}
+
+For given tangent vectors $\vec x$ and $\vec y$ at a point the linear map 
+\[\Rm(\vec x,\vec y)\:\T\z\to\T\] is called \emph{curvature transformation}; some authors prefer to denote it by $\Rm_{\vec x,\vec y}$.
+It has the following geometric meaning:
+
+Let $\gamma$ be the contour of small parallelogram spanned by vectors $\vec x$ and $\vec y$ at a point $p$.
+Let us denote by $\iota_\gamma\:\T_p\to\T_p$ the parallel transport along $\gamma$.
+Denote by $a$ the area of parallelogram.
+Then 
+\[\iota_\gamma=\id+a\cdot \Rm(\vec x,\vec y) +o(a).\]
+where $\id$ denotes the identity map on $\T_p$.
+
+\begin{thm}{Exercise}
+Suppose that parallel transport $\T_p\to \T_q$ in a Riemannian manifold $(M,g)$ does not depend on a path connecting $p$ to $q$.
+Show that $(M,g)$ is \emph{flat}; that is, its curvature tensor vanish at all points.
+\end{thm}
+
+
+\section{Symmetries}
+
+Set 
+\[\hat\Rm(\vec x,\vec y,\vec v,\vec w)
+\df
+\langle \Rm(\vec x,\vec y)\vec v,\vec w\rangle.\]
+Note that $\hat\Rm$ remembers everything about the curvature tenor $\Rm$ (assuming that metric tensor is known).
+The $\hat \Rm$-form of $\Rm$ is more convenient to describe the symmetries of curvature tensor:
+\[
+\begin{aligned}
+\hat\Rm(\vec x,\vec y,\vec v,\vec w)
+=
+-\hat\Rm(\vec y,\vec x,\vec v,\vec w)
+=-\hat\Rm(\vec x,\vec y,\vec w,\vec v&),
+\\
+0=\hat\Rm(\vec x,\vec y,\vec v,\vec w)
++
+\hat\Rm(\vec y,\vec v,\vec x,\vec w)
++
+\hat\Rm(\vec v,\vec x)\vec y,\vec w&).
+\end{aligned}
+\eqlbl{eq:symR}
+\]
+The last identity is called the \emph{algebraic Bianchi identity} or \emph{first Bianchi identity} (and it was \emph{not} discovered by Bianchi).
+
+These identities can be proved by straightforward computations.
+Latter we will show that these symmetries provide a complete list; that is, given a tensor that satisfies these identiries, thare is a Riemannian manifold with such curvature tensor at some point.
+
+The following equality follows from the main symmetries
+\[
+\hat \Rm(\vec x,\vec y,\vec v,\vec w)
+=
+\hat \Rm(\vec v,\vec w,\vec x,\vec y).
+\eqlbl{eq:symR+}
+\]
+
+\section{Space of curvature tensors}\label{sec:A4}
+
+Let us denote by $\A^4\T$ the space of all \emph{algebraic }curvature tensors on $\T$;
+that is, $\A^4\T$ all valence 4 tenors with the symmetries \ref{eq:symR}.
+
+Given a Euclidean space $E$, we denote by $\S^nE$ and $\Lambda^nE$ the space of symmetric and antisymmetric  tensors of valence $n$ over $E$.
+
+Note that \ref{eq:symR+} and the first line in \ref{eq:symR} imply that 
+\[\A^4\T\subset \S^2\Lambda^2\T.\]
+In other words, a curvature tensor can be discribed as a symmetric bilinear form on the space of bivectors $\Lambda^2\T$;
+or as the so-called \emph{curvature operator} --- a linear operator $\Rop\:\Lambda^2\T\z\to \Lambda^2\T$ defined by%
+\footnote{If $\{\vec e_i\}$ is an orthonormal basis of $\T$,
+then the scalar product on $\Lambda^2\T$ is defined by stating that it has an orthonormal basis $\{\vec e_i\wedge \vec e_j\}_{i>j}$.
+
+Alternatively, the scalar product in $\Lambda^2\T$ can be also defined on simple bivectros $\vec x\wedge \vec y$ and $\vec v\wedge \vec w$ by stating that 
+\[\langle\vec x\wedge \vec y,\vec v\wedge \vec w\rangle=\langle\vec x,\vec v\rangle\cdot \langle\vec y,\vec w\rangle-\langle\vec x,\vec w\rangle\cdot \langle\vec y,\vec v\rangle\]
+and extended linearly to whole $\Lambda^2\T$.
+} 
+\[\langle \Rop(\vec x\wedge\vec y),\vec v\wedge\vec w\rangle=-\langle \Rm(\vec x,\vec y)\vec v,\vec w\rangle.\]
+The symmetry \ref{eq:symR+} implies that $\Rop$ is self-adjoint; that is,
+\[\langle\Rop\phi,\psi\rangle=\langle\phi,\Rop\psi\rangle\]
+for any bivectors $\phi,\psi\in\Lambda^2\T$.
+
+The algebraic Bianchi identity implies that complete antisymmetrization of $\hat \Rm$ vanish. 
+More precisely, if $\alpha\:\S^2\Lambda^2\T\to\Lambda^4\T$ denotes the complete anysymmetrization then space of curvature tensors is the kernel of $\alpha$.%
+\footnote{As far as I see, the following property is absolutely useless, but it is funny.
+Given a curvature tenor $\Rm$ consider the tensor 
+\[\Ya(\vec x,\vec v,\vec y,\vec w)\df\langle \Rm(\vec x,\vec y)\vec v,\vec w\rangle+\Rm(\vec v,\vec y)\vec x,\vec w\rangle.\]
+Then the linear transformation $\Rm\to \Ya$ describes an isomorphism 
+\[\S^2\Lambda^2\T\ominus\Lambda^4\T
+\longleftrightarrow
+\S^2\S^2\T\ominus\S^4\T.\]
+That is, curvature tensor can described as quadratic forms on quadratic forms that lie in the kernal of complete symmetrization $\sigma\:\S^2\S^2\T\z\to \S^4\T$;
+in other words $\Ya$ satisfies the following symmetries:
+\begin{align*}
+\Ya(\vec x,\vec v,\vec y,\vec w)
+=
+\Ya(\vec v,\vec x,\vec y,\vec w)
+&=
+\Ya(\vec x,\vec v,\vec w,\vec y)=\Ya(\vec y,\vec w,\vec x,\vec v),
+\\
+0&=\Ya(\vec x,\vec x,\vec x,\vec x).
+\end{align*}
+}
+The latter can be written as 
+\[\A^4\T=\S^2\Lambda^2\T\ominus\Lambda^4\T
+\quad\text{or}\quad
+\A^4\T=\S^2\Lambda^2\T\cap(\Lambda^4\T)^\perp,\]
+where $L^\perp$ stands for the orthogonal complement $L$ in the Euclidean metric on $\S^2\Lambda^2\T$ induced from $\T$.
+
+If $n=\dim\T$ then the dimension of the space of curvature tensors over $\T$ can be easily calculated:
+\[\dim (\S^2\Lambda^2\T)- \dim(\Lambda^4\T)=
+\binom{\binom n2+1}2-\binom n4=\frac{n^2\cdot(n^2-1)}{12}.\]
+
+\begin{thm}{Exercise}\label{ex:all-tensors}
+Suppose $\Rop_\phi:\Lambda^2\T\to\Lambda^2\T$ is an othogonal projection to a 1-dimnsional subspace spanned by a bivector $\phi\in \Lambda^2\T$.
+Show that $\Rop$ is a curvature operator if and only if $\phi$ is a simple bivector;
+that is, if $\phi=\vec x\wedge\vec y$ for some $\vec x,\vec y\in\T$.
+
+Show that in this case $\Rop$ is the curvature operator of $\SSS^2\times \RR^{n-2}$.
+
+Use the results in Section \ref{sec:submanifolds} to show that any algebraic curvature tensor can appear as a curvature tensor of a Riemannian manifold.
+\end{thm}
+
+
+
+\section{Sectional curvature}
+
+Let $p$ be a point in a Riemannian manifold $(M,g)$.
+Choose a plane $\sigma$ in the tangent space $\T_p$. 
+Consider a surface $\Sigma$ in $M$ sweeped by short geodesics from $p$ in the directions on $\sigma$.
+The Gauss curvature of $\Sigma$ at $p$ is called \emph{sectional curvature} and denoted by $\sec\sigma$;
+the plane $\sigma$ is called \emph{sectional direction}.
+
+If the sectional direction $\sigma$ is spanned by vectors $\vec x$ and $\vec y$, then
+\begin{align*}
+\sec\sigma&=\frac{\langle \Rm(\vec x,\vec y)\vec y,\vec x\rangle}{|\vec x|^2\cdot|\vec y|^2-\langle\vec x,\vec y\rangle^2}=
+\\
+&=\frac{K(\vec x,\vec y)}{|\vec x\wedge\vec y|^2};
+\end{align*}
+in the last expression we use shortcut
+\[K(\vec x,\vec y)=\langle \Rm(\vec x,\vec y)\vec y,\vec x\rangle=-\langle \Rm(\vec x,\vec y)\vec x,\vec y\rangle=\langle\Rop(\vec x\wedge\vec y),\vec x\wedge\vec y\rangle;\]
+note that $K$ is quadratic in both arguments.
+
+The formula above implies that sectional curvature can be recovered from curvature tensor.
+
+The curvature tensor can be expressed using sectional curvature as well.
+Indeed, once we know curvature in any sectional direction, we can use the above formula to find $K(\vec x,\vec y)$ for any tangent vectors $\vec x,\vec y\in\T_p$.
+After that one could apply the following  formula:
+\begin{align*}
+6\cdot \Rm(\vec x,\vec y)\vec v,\vec w\rangle&=
+[K(\vec x+\vec v,\vec y+\vec w)
++K(\vec x,\vec w)
++K(\vec y,\vec v)-\\
+-K(\vec x&+\vec v,\vec y)
+-K(\vec x+\vec v,\vec w)
+-K(\vec x,\vec y+\vec w)
+-K(\vec v,\vec y+\vec w)
+]-
+\\
+&-[K(\vec x+\vec w,\vec y+\vec v)
++K(\vec y,\vec w)
++K(\vec x,\vec v)
+\\
+-K(\vec x&+\vec w,\vec y)
+-K(\vec x+\vec w,\vec v)
+-K(\vec x,\vec y+\vec v)
+-K(\vec w,\vec y+\vec v)].
+\end{align*}
+The formula is scary, but it is very similar to recovery of a symmetric bilinear form its quadratic form.
+
+\begin{thm}{Exercise}\label{ex:sec/Rop}
+Let $\dim\T=3$.
+Suppose that a a curvature tenor $\Rm\in\A^4\T$ has positive sectional curvature in all directions.
+Show that the corresponding curvature operator is positive;
+that is $\langle\Rop\phi,\phi\rangle>0$ is for any $\phi\in\Lambda^2\T$. 
+
+Show that if $\dim\T=4$, then analogous statement does not hold.
+\end{thm}
+
+
+\section{Ricci decomposition}
+
+Let ${\vec e_i}$ be an orthonormal basis at a point $p$ of Riemannian manifold.
+The so called \emph{Ricci curvature tensor} is a linerar transformation, $\Ric\:\T_p\to\T_p$ defined as
+\[\langle\Ric\vec x,\vec x\rangle=\sum_i K(\vec x,\vec e_i).\]
+Further, the \emph{scalar curvature} $\Sc$ is defined by 
+\[\Sc=\sum_{i,j} K(\vec e_i,\vec e_j)=\sum_{j}\langle\Ric \vec e_j,\vec e_j\rangle=2\cdot\trace \Rop.\]
+
+If $|\vec x|=1$ then the value $\langle\Ric(\vec x),\vec x\rangle$ is called \emph{Ricci curvature} in the direction $\vec x$.
+For example $n$-dimensional unit sphere has sectional curvature 1, Ricci curvature $n-1$ in all directions and scalar curvature $n\cdot(n-1)$.
+
+The action of orthogonal group $O(\T)$ can be extended to $\A^4\T$.
+Evidently the kernels of $\Rm\to \Ric$ and $\Rm\to\Sc$ and their orthogonal complements are invariant with respect to this action.
+In other words, Ricci tenor $\Ric$ and scalar curvature $\Sc$ do not depend on the choice of the orthonormal basis ${\vec e_i}$.
+
+It turns out that these are the only subspaces of $\A^4\T$ that invariant with respect to $O(\T)$.
+In other words, the decomposition 
+\[\A^4\T=U\oplus V \oplus W\]
+with the subspaces $U$, $V$, and $W$ described below is the maximal $O(\T)$-invarint decomposition of $\A^4\T$.
+\begin{itemize}
+\item $W$ is the kernel of $\Rm\to \Ric$; the orthogonal projection to $W$ of the curvature tensor is called its \emph{Weil tensor}.
+\item $V$ is the intersection of the kernel $\Rm\to\Sc$ and the orthogonal complement of $W$. The projection to $V$ is completely determined by the \emph{traceless Ricci tenor} $\Ric_0=\Ric-\tfrac1n\cdot \Sc\cdot g$.
+\item $U$ is a one-dimensional subset of curvature tenors with constant sectional curvatures; so the curvature operator is proportional to the identity.
+\end{itemize}
+
+ 
+
+
+
+\section{Curvature bounds}
+
+The following theorem is a classical result in Riemannian geometry with long history.
+
+\begin{thm}{Quarter-pinched sphere theorem}
+Suppose that $(M,g)$ is a simply connected Riemannian manifold with sectional curvature strictly between $1$ and $4$ at each point.
+Then $M$ is diffeomorphic to a sphere.
+\end{thm}
+
+It gives an example of the so called \emph{local-to-global theorems}.
+Its assumption is a local property that is given by a curvature bounds at each point.
+The conclusion says something about global structure of the manifold; in this example it says something about its topological type.
+
+Riemannian geometry has other types of theorems\footnote{for example \emph{rigidity theorems} say that a Riemannian manifold with given property must be isometric to some known manifold (typically a round sphere).}, but nothing else makes Riemannian geometer nearly as happy as the local-to-global results.
+
+Typically the local condition is given by restriction on curvature tensor of Riemannian manifold;
+that is, we specify a subset $\Omega\subset \A^4\T$ and assume that curvature tensor of a Riemannian manifold belongs to $\Omega$ at each point.
+Most of the time the set $\Omega\subset \A^4\T$ is open or at least has nonempty interior.\footnote{There are exceptions, for example Einstein manifolds defined by an equation on curvature tensor.
+But this subject lies on a half way from differential geometry to partial differential equations.}
+
+It is reasonable to assume that $\Omega$ is convex (or at least connected).
+If $\dim\T=2$, then $\dim\A^4\T=1$;
+in this case we do not have much choice --- we might consider curvature bounded above, or below, or from both sides.
+That what we did for surfaces.
+
+Starting from dimension 3, things getting more complicated --- it is reasonable to assume in addition that $\Omega$ is invariant with respect to rotations of the tangent space;
+in other words $\Omega$ has to be invariant with respect to action of the orthonormal group $O(\T)$ of the space $\T$ extended to $\A^4\T$.
+But still, we have huge family of curvature conditions.
+
+The Ricci flow technique deals with few families of curvature bounds in the proofs.
+Couple of dozens of curvature bounds made it to a formulation a meaningful theorem.
+The champions seem to be upper, lower, and bilateral bounds on sectional curvature, lower bounds on Ricci curvature, and lower bounds on scalar curvature.%
+\footnote{As far as I see, the following property is absolutely useless, but it is funny.
+The cone of curvature tensors with nonnegative (or nonpositive) sectional curvature is a maximal $\GL(\T)$-invariant subsets of $A^4(\T)$.}
+ 
+\section{Submanifolds}\label{sec:submanifolds}
+
+Suppose $M$ is a submanifold in a Riemannian manifold $(\bar M,g)$.
+Recall that restricting $g$ to the tangent bundle over $M$ produce a Riemannian metric on $M$.
+Let us denote by $\bar\nabla $ and $\nabla$ the Levi-Civita connction on $\bar M$ and $M$ respectively.
+
+Recall that second fundamental form $S$ of $M$ is defined by
+\[S(\vec x,\vec y)=\nabla_{\vec x}\vec y-\bar\nabla_{\vec x}\vec y;\]
+it takes two tangent vectors on $M$ and spits a normal vector;
+so is a tensor in $\S^2\T M\otimes \N M$ (here we identify tangent/cotangent normal/conormal bundles as usual).
+
+Again straightforward computations show that that $S$ is indeed a tensor --- one has to show that 
+\[f\cdot S(\vec x,\vec y)=S(f\cdot \vec x,\vec y)=S(\vec x,f\cdot \vec y)\]
+for any tangent vector fields $\vec x$, $\vec y$, and a smooth function $f$ on $M$.
+
+The following formula gives a relation between curvature tensors $\Rm$ and $\bar \Rm$ of $M$ and $\bar M$ respectively:
+\begin{align*}
+\langle \Rm(\vec x,\vec y)\vec v,\vec w\rangle
+&=
+\langle \bar \Rm(\vec x,\vec y),\vec v,\vec w\rangle
++
+\\
+&+
+\langle S(\vec x,\vec w),S(\vec y,\vec v)\rangle
+-
+\langle S(\vec x,\vec v),S(\vec y,\vec w)\rangle
+.\end{align*}
+In particular, using the shortcut $K(\vec x,\vec y)=\langle \Rm(\vec x,\vec y)\vec y,\vec x\rangle$, we can write
+\[K(\vec x,\vec y)=\bar K(\vec x,\vec y)+\langle S(\vec x,\vec x),S(\vec y,\vec y)\rangle
+-
+|S(\vec x,\vec y)|^2.\]
+
+This is a generalization of the formula for Gauss curvature of surface in the Euclidean space:
+\[K=\ell\cdot n-m^2,\]
+where $\ell$, $m$, and $n$ are components of Hessian matrix at $p$ in an othonormal basis.
+Indeed, if $\vec x,\vec y$ is an orthonormal frame at a point in a surface, then $K=K(\vec x,\vec y)$ is its Gauss curvature, and
+\begin{align*}
+S(\vec x,\vec x)&=\ell\cdot\Norm,
+&
+S(\vec x,\vec y)&=m\cdot\Norm,
+&
+S(\vec y,\vec y)&=n\cdot\Norm,
+\end{align*}
+where $\Norm$ is a unit normal vector at $p$.
+
+\begin{thm}{Exercise}\label{ex:4-hypersurface}
+Show that there is a 4-dimensional Riemannian manfifold $(M,g)$ such that no neighborhood of a point $p$ in $M$ admits a smooth length-preserving embedding in $\RR^5$.
+\end{thm}
+
+\parit{Hint:} Count dimensions of second fundamental form and curvature tensor at $p$ and apply the formula.
+
+\begin{thm}{Exercise}\label{ex:codim=2}
+Let $M$ be a smooth submanifold of a Euclidean space.
+Assume $\codim M=2$.
+Show that if sectional curvature of $M$ is positive, then so is its curvature operator.
+
+An analogues statement for submanifolds of codimension 3 does not hold --- try to guess why.
+\end{thm}
+
+\parit{Hint:} 
+Show first that 
+$\langle S(\vec x,\vec x),S(\vec y,\vec y)\rangle> 0$
+for any two nonvanishing tangent vectors $\vec x$, $\vec y$ at any point $p\in M$. 
+Furhter, show and use that if $\codim M=2$, then the normal space admits an orthonormal basic $\vec u_1,\vec u_2$ such that both quadratic forms
+$s_i(\vec x,\vec y)\df\langle S(\vec x,\vec y),\vec u_i\rangle$
+are positive definite. 
+
+
+\section{Submersions}
+
+Let $s\:\bar M\to M$ be a submersion between smooth manifolds.
+Suppose that manifolds $\bar M$ and $M$ are equipped with Riemannian metrics.
+
+Suppose that $s(\bar p)=p$.
+
+The kernel of the differential $ds\:\T_{\bar p} \bar M\to \T_p M$ will be called \emph{vertical subspace};
+it will be denoted by $\V_{\bar p}$.
+The orthogonal complement of $\V_{\bar p}$ in $\T_{\bar p}$ will be called \emph{horisontal subspace} at ${\bar p}$;
+it will be denoted by $\Hor_{\bar p}$.
+
+The submersion $s$ is called \emph{Riemannian} if the restriction of $ds$ to $\Hor$ is an isometry.
+
+Note that $\T_{\bar p}=\Hor_{\bar p}\oplus \V_{\bar p}$.
+In particular, any tangent vector $\vec x\z\in\T\bar M$ can be spitted into its vertical and horizontal part denoted by $\vec x^\Hor$ and $\vec x^\V$, so 
+\[\vec x=\vec x^{\Hor}+\vec x^\V.\]
+
+By the definition of Riemannian submersion,
+for any vector $\vec x\in\T_p$ there is a unique vector $\bar{\vec x}\in\Hor_{\bar p}$ such that 
+$\vec x=ds(\bar{\vec x})$.
+
+The curvature of $ M$ can be found using the so called \emph{O'Neil formula}:
+\[K(\vec x,\vec y)=\bar K(\bar{\vec x},\bar{\vec y})+\tfrac34\cdot|[\bar{\vec x},\bar{\vec y}]^\V|^2.\]
+
+The notion of Riemannian submersion is a dual to submanifold ($\approx$ lenght-preserving immersion).
+The tensor $A$ defined by
+\[A(\bar{\vec x},\bar{ \vec y})=[\bar{\vec x},\bar{ \vec y}]^\V\]
+is indeed a tensor in $\Lambda^2\Hor\otimes\V$ (it is proved the usual way).
+This tensor plays a role similar to the second fundamental form of a submanifold.
+
+
+\begin{thm}{Exercise}\label{ex:4-form}
+Let $\bar M\to M$ be a Riemannian submersion.
+Suppose that $\bar M$ has nonnegative curvature operator at all points.
+Show that at any point of $M$ there is a 4-vector $\eta$  such that 
+\[\langle\Rop \phi,\phi\rangle+\langle\eta,\phi\wedge\phi\rangle\ge 0\]
+for any 2-vector $\phi$.
+\end{thm}
+
+\parit{Hint:} Use Section~\ref{sec:A4}.
+
+\section{Lie groups}
+
+Suppose $G$ is a Lie group with biinvariant metric.
+By straightforward comutations, one gets the following identities for left-invariant vector fields on $G$:
+\begin{align*}
+\nabla_{\vec x}\vec y&=\tfrac12\cdot[\vec x,\vec y]
+\\
+\langle\Rm(\vec x,\vec y)\vec v,\vec w\rangle&=\tfrac14\cdot(\langle [\vec x,\vec w],[\vec y,\vec v]\rangle-\langle[\vec x,\vec v],[\vec y,\vec w]\rangle)
+\\
+K(\vec x,\vec y)&=\tfrac14\cdot|[\vec x,\vec y]|^2
+\end{align*}
+
+Note that the first identity implies that $\nabla_{\vec x}\vec x=0$.
+Therefore homomorphisms $\RR\to G$ are geodesics.
+
+
+\section{Cheeger's trick}
+
+Suppose a Lie group $G$ acts isometrically on a Riemannian manifold $M=(M,g)$.
+Suppose that a $G$ admits a bi-invarinat metric (this is alway the case if $G$ is compact).
+
+Consider the diagonal action of $G$ on the product $G\times M$;
+that is, $a\cdot (b,x)\df(a\cdot b, a\cdot x)$ for any $a,b\in G$ and $x\in M$.
+Note that this action is isometric and free.
+Therefore the quotient map $(\lambda\cdot G)\times M\to (M,g_\lambda)$ is a Riemannian sumersion for some metric $g_\lambda$.
+This way we obtain a one parameter family $g_\lambda$ of Riemannian metrics on $M$.
+Note that $g_\lambda\to g$ as $\lambda\to \infty$.
+
+This procedure is called \emph{Cheeger's trick} and the obtained family is called \emph{Cheeger's deformation}.
+(Jeff Cheeger found number of applications of this trick, but it was invented earlier.)
+
+By O'Nail formula, if $(M,g)$ had a nonnegative (respectively positive) sectional curvature, then so does $(M,g_\lambda)$ for any $\lambda>0$.
+
+\section{Berger spheres}
+
+Applying the Cheegers to the isometric action of $\SSS^1$ on $\SSS^3$ by complex multiplication one gets \emph{Berger spheres} --- a family of metrics $g_\lambda$ on $\SSS^3$ with positive sectional curvature.
+
+The Berger spheres can be also described as certain left-invariant metrics on on the Lie group $\SSS^3=\Spin(4)$.
+There are explicit formulas for connection and curvature in such metrics.
+
+It is an important example in Riemannian geometry.
+(It could be compared to the Cantor set in analysis.)
+
+\begin{thm}{Exercise}
+Suppose $(\SSS^3,g_\lambda)$ denotes Berger spheres with parameter $\lambda$.
+Set $\ell=\lambda/\sqrt{1+\lambda^2}$.
+
+Show that
+
+\begin{subthm}{}
+$(\SSS^3,g_\lambda)$ are foliated by closed geodesics of length $2\cdot\pi\cdot\ell$
+and 
+\[\vol(\SSS^3,g_\lambda)=\ell\cdot\vol\SSS^3.\]
+\end{subthm}
+
+\begin{subthm}{}
+Show that the curvature tensor of $(\SSS^3,g_\lambda)$ converges to the curvature tensor of $\SSS^2_{\frac12}\times\RR$ as $\lambda\to0$, where $\SSS^2_{\frac12}$ denotes a round sphere of radius $\tfrac 12$.
+(One has to find right sense for term ``converge'' here.)
+\end{subthm}
+
+\begin{subthm}{}
+Try to visualize what happens with  $(\SSS^3,g_\lambda)$ as $\lambda\to0$.
+\end{subthm}
+
+
+ \end{thm}
+
+
+
+

@@ -2,6 +2,420 @@
 
 
 
+\begin{thm}{Nash's lemma}\label{lem:nash}
+Let $f$ be a free map from a smooth manifold $\Omega$ to $\RR^q$.
+Then for any metric tensor $h$ on $\Omega$ there is unique vector field $w=M(h)$ in $\N\Omega$ such that 
+\[2\cdot Q(f,w)=h.\]
+In other words, the linear operator $L\:w\mapsto 2\cdot Q(f,w)$
+has a unique right inverse $M$
+such that if $\langle M(h),\partial_if\rangle=0$ for any local cart and any $i$.
+
+Moreover, 
+\[\|Mh\|_{2,k}\le C\cdot\|h\|_{2,k}\]
+for some fixed constant $C$.
+\end{thm}
+
+\parit{Proof.}
+Chose local coordinates in $\Omega$.
+For any smooth map $w\:\Omega\to\RR^q$, we have
+\begin{align*}
+L_{ij}(w)&=2\cdot Q_{ij}(f,w)=
+\\
+&=\langle\partial_if,\partial_jw\rangle+\langle\partial_jf,\partial_iw\rangle=
+\\
+&=\partial_j\langle\partial_if,w\rangle+\partial_i\langle\partial_jf,w\rangle -2\cdot \langle\partial_{ij}f,w\rangle.
+\end{align*}
+
+Now choose a metric tensor $h$ on $\Omega$.
+Since all $\partial_if$,
+$\partial_{ij}f$
+are linearly independent,
+the following identities define uniquely  a field $w$ in $\T^2\Omega$
+\begin{align*}
+\langle\partial_{i}f,w\rangle&=0,
+&
+\langle\partial_{ij}f,w\rangle&=h_{ij}
+\end{align*}
+for all $i$ and $j$.
+
+The identities $\langle\partial_{i}f,w\rangle=0$ hold if and only if $w(p)\in \N_p$ for any $p\z\in \Omega$.
+Further, note that $w(p)$ does not depend on the choice of local coordinates,
+and it defines the needed right inverse $M\:h\mapsto w$.
+\qeds
+
+\begin{thm}{Exercise}
+Let $f$ be a free map from a smooth manifold $\Omega$ to $\RR^q$.
+Given a vector field $u$ in $\T\Omega$, construt a map 
+vector field $w$ in $\N\Omega$ such that 
+\[2\cdot Q(f,v+w)=h.\]
+\end{thm}
+
+
+The following exercise describes the geometric meaning of the constructed right inverse $M$;
+it should help to build right intuition, but we will not use it further.
+
+Let $f\:\Omega\to \RR^q$ be a smooth immersion.
+Recall that \emph{second fundamental form} $\2_f$ is a field of symmetric bilinear forms on the tangent bundle $\T\Omega $ with values in the normal bundle $\T^\perp\Omega$ that is defined by 
+$\2_f(\vec x,\vec y)=\nabla_{\vec x}\vec y-\bar\nabla_{\vec x}\vec y$,
+where $\nabla$ and $\bar \nabla$ denote the Levi-Civita connection on $\Omega$ and the ambient space;
+in this particular case, $\bar \nabla$ is defined by the parallel translations on the Euclidean space.
+
+
+\begin{thm}{Exercise}
+Show that a regular immersion $f\:\Omega\to\RR^q$ is free if and only if for any metric tensor $h$ on $\Omega$, there is a smooth map $w\:\Omega\to \RR^q$ such that 
+\[\langle \2_f(\vec x,\vec y),w\rangle\equiv h(\vec x,\vec y).\]
+Moreover, if $M$ is provided by Nash's lemma, then $|w|\ge |M(h)|$ at any point $p\in\Omega$.  
+\end{thm}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Frame of proof}
+
+Let $\Omega$ be a smooth manifold.
+Given two $C^1$-maps $v,w\:\Omega \to\RR^q$, set 
+\[g(\vec x,\vec y)=\tfrac12\cdot[\langle d v(\vec x),dw(\vec y)\rangle+\langle d v(\vec y),dw(\vec x)\rangle]\]
+Note that $Q\:(v,w)\mapsto g$ is a bilinear operator and $Q(v,v)$ is the metric induced by $v\:\Omega \to\RR^q$.
+
+We need to solve the quadratic equation
+\[Q(v,v)=g\]
+for a given smooth Riemannian metric $g$ on $\Omega$.
+
+
+
+
+
+In the proof we will use the following weaker statement.
+Suppose $v$ is free and $Q(v,v)=g$.
+Then for any $C^{k,\alpha}$ metric tensor $h$ and all small $t>0$ there is $C^{k,\alpha}$ map 
+$w\:\Omega \to \RR^q$ such that
+\[Q(v+w,v+w)=g+t\cdot h,\]
+or equivalently
+\[L(w)+Q(w,w)=t\cdot h,\]
+where $L=2\cdot Q(v,w)$ which is a linear operator.
+
+
+
+Note that there is a bilinear operator $Q$ that takes two $C^1$-maps $v,w\:\Omega \to\RR^q$ and returns a metric tensor on $\Omega$ such that $Q(v,v)$ is the metric induced by $v\:\Omega \to\RR^q$.
+
+
+Let $\Omega$ be a bounded domain in $\RR^n$ with smooth boundary $\partial\Omega$.
+Fix a free embedding $f\:\RR^n\to\RR^q$.
+
+Let $g=Q(f,f)$ and $h$ be another metric tensor on $\Omega$.
+
+Consider another smooth map $w\:\Omega\to \RR^q$.
+Note that $f+w$ induce $g+h$ if and only if
+\[h=L(w)+Q(w,w),\eqlbl{eq:L+Q}\]
+where $L(w)=2\cdot Q(f,w)$;
+note that $L$ is linear.
+
+Suppose we have another bilinear opearator $\tilde Q$ such that 
+$L\tilde Q=Q$, so the equation \ref{eq:L+Q} can be reqritten as 
+\[h=L[w+\tilde Q(w,w)].\]
+For example one can take $\tilde Q=MQ$, but there is a better choie.
+
+Let $M$ be the right inverse of $L$ provided by \ref{lem:nash}.
+Then any solution of the following equation also solves \ref{eq:L+Q}
+\[w=Mh-\tilde Q(w,w).\]
+Indeed, applying $L$ to both sides of this equation we get  \ref{lem:nash}.
+
+\begin{thm}{G\"{u}nther's lemma}\label{lem:guenther}
+Let $f\:\TT^n\to \RR^q$ be a free immersion.
+Suppose that $L$ and $Q$ ad in ... 
+Then there is a bilinear opearator $\tilde Q$ and constants $A,B_3,B_4,\dots$ such that
+\begin{align*}
+L\tilde Q&=Q,
+\\
+|\tilde Q(w,w)|_{2,\alpha}&\le A\cdot  |w|^2_{2,\alpha},
+\\
+|\tilde Q(w,w)|_{k,\alpha}
+&\le A\cdot |w|_{2,\alpha}\cdot |w|_{k,\alpha}
++
+B_k\cdot |w|_{k-1,\alpha}^2.
+\end{align*}
+for any integer $k\ge 3$.
+
+\end{thm}
+
+
+
+
+
+
+Let $w_0=0$, consider the sequence of maps $w_0,w_1,\dots\:\Omega\to \RR^q$ defined recurcevely by
+\[w_{n+1}=Mh-\tilde Q(w_n,w_n).\]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+If $f\:\Omega \to \RR^q$ is a smooth embedding, then the smooth manifold $\Omega$ with its image $f(\Omega )$.
+If $f$ is free, than we say that $\Omega$ is a \emph{free submanifold}.
+
+The space spanned by the first and second partial derivatives of $f$ at $p$ will be denoted by $\T^2_p=\T^2_p\Omega$.
+The ortogonal complement of the tangent space $\T_p$ in $\T^2_p$ will be called \emph{binormal space} and denoted by $\BN_p=\BN_p\Omega$; in other words,
+\[\BN_p=\T^2_p\cap\N_p,\]
+where $\N_p$ denotes the normal space to $\Omega$ at $p$.
+
+Recall that second fundamental form $S$ is a field of symmetric quadratic forms on $\T \Omega$  with values in $\N \Omega$ that defined by 
+\[S(\vec x,\vec y)=\nabla_{\vec x}\vec y-\bar\nabla_{\vec x}\vec y,\]
+where $\nabla$ and $\bar \nabla$ denote the Levi-Civita connection on $\Omega$ and the ambient manifold;
+in this particular case, $\bar \nabla$ is defined by the parallel translations on the Euclidean space.
+Observe that the values of $S$ lie in binormal bundle $\BN \Omega$.
+
+\begin{thm}{Exercise}\label{ex:binormal}
+Suppose that $\Omega$ is a free submanifold of $\RR^q$.
+Show that for any metric tensor $h$ on $\Omega$ there is a unique binormal field $\vec n$ such  that 
+\[h(\vec x,\vec y)=\langle S(\vec x,\vec y),\vec n\rangle\]
+for any vector fields $\vec x,\vec y$ on $\Omega$.
+
+Given $h$, consider the one-parameter family of maps $f_t\:\Omega \to \RR^q$ defined by 
+\[f_t(p)= p+t\cdot \vec n(p);\]
+let $g(t)$ be the metric tensor induced by $f_t$.
+Show that $g'(0)=2\cdot h$.
+\end{thm}
+
+The exercise says that a free embedding can be perturbed so that the induced metric tensor moves in a given direction $h$.
+Note that freeness of embedding is an \emph{open condition};
+namely, if $\Omega$ is a free compact submanifold then any $C^2$-close embedding of $\Omega$ is free as well.
+One may think that these two properties \emph{easily} imply the following statement,
+but that is not at all easy;
+it is a consequence of a deep result --- the so-called Nash--Moser theorem \cite{moser-1961}.
+A simplified proof was obtained by Matthias G\"{u}nther \cite{gunter}.
+
+\begin{thm}{Perturbation theorem}\label{thm:perturbation}
+Let $f\:\Omega \hookrightarrow\RR^q$ be a free embedding, $g$ is the Riemannian metric induced by $f$ and $h$ is another metric tensor on $\Omega$.
+Then for any $t$ sufficiently close to $0$, there is a free embedding of $f_t\:\Omega \hookrightarrow\RR^q$ with  induced metric tensor $g+t\cdot h$.  
+\end{thm}
+
+\parit{Proof of \ref{thm:nash-reformulation} modulo the perturbation theorem.}
+Choose a free embedding $f\: \Omega \hookrightarrow\RR^s$;
+it exists by \ref{ex:free-composition}.
+Denote by $g_0$ its induced metric.
+
+Scaling down $f$ if necessary, we can assume that $g>g_0$;
+that is the metric tensor $\bar g= g-g_0$ is Riemannian.
+
+Applying the approximation theorem (\ref{thm:approx}) we get a one parameter family of maps $F_\eps\:\Omega \to \RR^q$ with induced metrics $\bar g+\eps^2\cdot h$ for a fixed metric tensor $h$.
+
+By the perturbation theorem (\ref{thm:perturbation}) there is a one parameter family of embedding $f_t\:\Omega \to \RR^s$ with induced metric $g_0+t\cdot h$.
+
+Choose sufficiently small $\eps>0$ so that $f_t$ is defined for $t=-\eps^2$.
+Consider the map $\Omega \to \RR^s\times\RR^q$ defined by 
+$x\mapsto (f_t(x),F_\eps(x))$.
+Observe that the induced metric of this map is
+\[g_0+t\cdot h+\bar g+\eps^2\cdot h=g.\]
+\qedsf
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Pseudoeuclidean case}
+
+Denote by 
+
+The induced metric tensor for a map to a pseudoeuclidean space can be defined the same way.
+
+\begin{thm}{Theorem}
+Any metric tensor $g$ on a compact smooth manifold $\Omega$ is induced by a smooth map $f\:\Omega \to \RR^{r,s}$ for some positive integers $r$ and $s$;
+in other words, 
+\[g=(df_1)^2+\dots+(df_r)^2-(df_{r+1})^2+\dots+(df_{r+s})^2\]
+for some smooth functions $f_1,\dots,f_{r+s}$ on $\Omega$.
+\end{thm}
+
+\parit{Proof.}
+Note that any metric tensor on $\Omega$ can be expressed as a difference of two Riemannian tenors.
+Therefore we can assume that $g$ is Riemannian.
+
+Suppose that $\bm{F}_\eps\:\Omega \to \RR^{2\cdot q}$ and $\phi_1,\dots,\phi_{q}$ are provided by the approximation theorem (\ref{thm:approx}).
+Consider the map $\bm{\phi}\:\Omega \to \RR^q$  with coordinate functions $\phi_1,\dots,\phi_q$.
+
+Consider the map $f\:\Omega \to \RR^{2\cdot q}\oplus \RR^{q}=\RR^{2\cdot q,q}$
+defined by
+$f\:x\z\mapsto (\bm{F}_{\eps}(x),\eps\cdot\bm{\phi}(x))$.
+Its induced metric tensor is $g=g+\eps\cdot h\z-\eps\cdot h$.
+\qeds
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{thm}{Approximation theorem}\label{thm:approx}
+Let $(\Omega ,g)$ be a compact Riemannian manifold.
+Then there are smooth functions $\phi_1,\dots, \phi_q$ on $\Omega$ such that 
+for any $\eps>0$ the metric tensor 
+\[h=(d\phi_1)^2+\dots+(d\phi_q)^2\]
+the following condition holds:
+
+For any $\eps>0$, the metric tensor $g+\eps^2\cdot h$ is induced by a smooth map $\bm{F}_\eps\:\Omega \to \RR^{2\cdot q}$ to a Euclidean space.
+\end{thm}
+
+\parit{Proof.}
+Let $\phi_1,f_1,\dots ,\phi_q,f_q$ be the functions on $\Omega$ provided by \ref{ex:nash}.
+
+Choose $\eps>0$. 
+Consider the Nash's twist $F_i$ for each triple $(\eps,\phi_i,f_i)$.
+Let
+\[F_\eps=\bigoplus_i F_i,\]
+that is, $F_\eps(p)=(F_1(p),\dots, F_q(p))\in \RR^2\oplus\dots\oplus\RR^2$.
+Denote by $\bm{F}_\eps$ the map $\Omega \to\RR^{2\cdot q}$ with pairs of coordinate functions as in $F_1,\dots, F_q$.
+
+By \ref{clm:twist}, the metric tensor $g+\eps^2\cdot h$ is induced by $\bm{F}_\eps$.
+\qeds
+
+\begin{thm}{Corollary}
+Given a compact Riemannian manifold $(\Omega,g)$ there is a positive integer $q$ and a metric tensor $h$ on $\Omega$ such that for any $t>0$ the metric tensor $g+t\cdot h$ is induced by a  
+ smooth immersion $\Omega\looparrowright \RR^q$.
+\end{thm}
+
+Again the compactness condition in this corollary is not necessary.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{???}
+
+Let us show that the fundamental theorem can be reduced to the following statement (as always, in the compact case).
+
+\begin{thm}{Reformulation}\label{thm:nash-reformulation}
+For any Riemannian metric $g$ on a compact smooth manifold $\Omega $ there are smooth functions $f_1,\dots,f_q\:\Omega \to\RR$ such that 
+\[g=(df_1)^2+\dots+(df_q)^2.\eqlbl{eq:g=(df)^2}\]
+\end{thm}
+
+Note that the map $f\:\Omega \to\RR^q$ with coordinate functions $f_1,\dots,f_q$ provided by \ref{thm:nash-reformulation} is length-preserving, but it might fail to be embedding.
+???
+
+\parit{Proof of equivalence in the compact case.}
+If $f\:(\Omega ,g)\to \RR^q$ is a smooth length-preserving map, then, as it was shown above, $g$ is induced by $f$ and \ref{eq:g=(df)^2} holds for the coordinate functions $f_1,\dots, f_q$ of $f$.
+
+Now, assume the reformulation (\ref{thm:nash-reformulation}) is proved.
+Consider a smooth embedding $\bm{h}\:\Omega \to \RR^{2\cdot n+1}$ provided by the Whitney embedding theorem.
+Denote by $g_0$ the Riemannian metric on $\Omega $ induced by $\bm{h}$;
+that is,  
+\[g_0=(dh_1)^2+\dots+(dh_{2\cdot n+1})^2,\]
+where $h_1,\dots,h_{2\cdot n+1}$ are coordinate functions of $\bm{h}$.
+Passing to an scaled embedding $\eps\cdot \bm{h}$ for some small $\eps>0$, we can assume that $g>g_0$; that is, $\bar g=g-g_0$ is a Riemannian metric on $\Omega $.
+(Here we used compactness of $\Omega$, but \emph{not} in an essential way.)
+
+Applying the reformulation (\ref{thm:nash-reformulation}) to $(\Omega ,\bar g)$ we get a smooth length-preserving immersion $f\:(\Omega ,\bar g)\to\RR^q$.
+It remains to observe that the smooth embedding
+\[\Omega \hookrightarrow \RR^{2\cdot n+q+1}=\RR^{2\cdot n+1}\oplus\RR^q\] defined by
+$x\mapsto (\bm{h}(x),f(x))$ has induced metric tensor $g=g_0+\bar g$;
+therefore it is length-preserving.
+\qeds
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \begin{thm}{Exercise}\label{ex:Rop-Li}
 Show that curvature operator of an $n$-dimensional Lie group with biinvariant metric has rank at most $n$ and nonnegative.

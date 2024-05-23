@@ -1,0 +1,33 @@
+\documentclass[twoside]{book}
+
+\usepackage{lectures}
+\usepackage[colorlinks=true,
+citecolor=black,
+linkcolor=black,
+anchorcolor=black,
+filecolor=black,
+menucolor=black,
+urlcolor=black,
+pdftitle={Riemannian geometry: extra topics},
+pdfsubject={Geometry},
+pdfauthor={Anton Petrunin}
+]{hyperref}
+\makeindex
+
+\begin{document}
+
+\include{magic-cloak}
+\include{nash}
+\include{curvature}
+\include{second-variation}
+
+{\small\sloppy
+\input{lectures.ind}
+
+\def\emph{\textit}
+
+\printbibliography[heading=bibintoc]
+\fussy
+}
+
+\end{document}

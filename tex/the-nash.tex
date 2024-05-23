@@ -1,7 +1,6 @@
-%\RequirePackage{snapshot}
 \documentclass[twoside]{book}
 
-\usepackage{lectures}
+\usepackage{lecture}
 \usepackage[colorlinks=true,
 citecolor=black,
 linkcolor=black,
@@ -9,32 +8,29 @@ anchorcolor=black,
 filecolor=black,
 menucolor=black,
 urlcolor=black,
-pdftitle={Riemannian geometry: extra topics},
+pdftitle={Lecture on Nash's embedding theorem},
 pdfsubject={Geometry},
 pdfauthor={Anton Petrunin}
 ]{hyperref}
 \makeindex
 
 \begin{document}
-%\pagestyle{empty}
- 
-%\title{No-magic-cloak theorem}
-%\author{Anton Petrunin}
-%\date{}
-%\maketitle
 
+\title{Lecture on Nash's embedding theorem}
+\author{Anton Petrunin}
+\date{}
+\maketitle
 
-%\thispagestyle{empty}
-%\tableofcontents
-%\thispagestyle{empty}
-%\include{HWA}
-\include{magic-cloak}
 \include{nash}
-\include{curvature}
-\include{second-variation}
+
+\appendix
+
+\include{nash-sol}
 
 {\small\sloppy
 \input{lectures.ind}
+
+\def\emph{\textit}
 
 \printbibliography[heading=bibintoc]
 \fussy

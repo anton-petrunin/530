@@ -7,14 +7,16 @@ Based on a lecture of Sergei Ivanov \cite{ivanov-2012}.
 Given a Riemannian manifold $M$ denote by $\tau\:\S M\to M$ its unit tangent bundle
 \[\S M=\set{\vec v\in \T M}{|\vec v|=1}.\]
 
-Recall that by \emph{Liouville's theorem}, the geodesic flow $\phi^t$ preserves the natural volume on $\S M$ in its domain of definition.
+Recall that by \emph{Liouville's theorem}, the geodesic flow $\phi^t\:\S M\z\to \S M$ preserves the natural volume on $\S M$ in its domain of definition.
 Denote by $\vec g$ the vector field on $\S M$ that defines the geodesic flow $\phi^t$.
 
 Suppose $M$ has nonempty boundary $\partial M$;
 in other words, $M$ is a closed region of an ambient Riemannian  manifold bounded by a smooth hypersurface $\partial M$.
-Denote by $\partial_+\S  M$ the set of unit vectors at points on $\partial M$ that point in $M$;
-$\partial_+\S  M$ is a bundle over $\partial M$ with fibers formed by closed half-spheres.
+Denote by $\partial_+\S  M$ the set of unit vectors at points on $\partial M$ that point in $M$.
+Note that $\partial_+\S  M$ is a bundle over $\partial M$ with fibers formed by closed half-spheres.
 The set $\partial_+ \S M$ is a subset of $\partial \S M$ that can be also defined as the closure of the subset at which the geodesic flow enters $\S M$.
+The full boundary $\partial\S M$ is a sphere bundle over $\partial M$;
+it contains $\partial_+ \S M$ as a subbundle.
 
 
 Consider a geodesic $\gamma_{\vec u}$ in the direction of a vector $\vec u\in \partial_+\S  M$.
@@ -23,12 +25,12 @@ Suppose that $\gamma_{\vec u}$ hits the boundary again.
 Denote by $\ell(\vec u)$ the first \emph{hitting time}, so $\gamma_{\vec u}(\ell(\vec u))\in \partial M$.
 Note that in this case the vector $\vec v=-\gamma'(\ell)$ lies in $\partial_+\S  M$.
 The map $s\:\vec u\mapsto \vec v$ is defined if $\ell(\vec u)<\infty$;
-it is a partially defined involution on $\S M$ which we will call \emph{scattering map}.
+so $s$ is a partially defined involution on $\S M$ which we will call \emph{scattering map}.
 
 Suppose that $M$ and $\bar M$ be two compact connected Riemannian manifolds with boundary such that a neighborhood of $\partial M$ can be isometrically identified with a neighborhood of $\partial \bar M$,
 and moreover, the scattering maps in $M$ and $\bar M$ are identical.
 In this case we say that $M$ and $\bar M$ have identical  \emph{scattering data}.
-If in addition their hitting time functions  coincide (that is, if $\ell(\vec u)\equiv\bar\ell(\vec u)$), then we say that $M$ and $\bar M$ have the identical \emph{lens data}.
+If in addition their hitting time functions  coincide (that is, if $\ell(\vec u)\equiv\bar\ell(\vec u)$ for any $\vec u\in \partial_+ \S M$), then we say that $M$ and $\bar M$ have the identical \emph{lens data}.
 
 Notice that if a manifold contains a copy of a round hemisphere, then cutting it and gluing the opposite points of its boundary produces a manifold with identical scattering data.
 \begin{figure}[h!]
@@ -48,6 +50,11 @@ Check that the described examples have identical lens data.
 Construct a pair of nonisometric Riemannian metrics on the disc with identical lens data.
 \end{thm}
 
+\begin{thm}{Exercise}
+Show that the above construction does not work if instead of bump we use a dimple.
+\end{thm}
+
+
 \section{Main theorem}
 
 The following theorem proved by Mikhael Gromov \cite{gromov-1983};
@@ -60,7 +67,7 @@ that is, any manifold with scattering data identical to $M$ is isometric to $M$.
 
 \begin{thm}{Corollary}
 Suppose a Riemannian metric $g$ on $\RR^n$ coincides with Euclidean metric $g_0$ outside of a compact set $K$.
-Suppose that the complement $\gamma\backslash K$ of any nontrivial $g$-geodesic $\gamma$ coincides with the complement of a line (as sets).
+Suppose that the complement $\gamma\setminus K$ of any nontrivial $g$-geodesic $\gamma$ coincides with the complement of a line (as sets).
 Then $(\RR^n,g)$ is isometric to the Euclidean space.
 \end{thm}
 
@@ -91,12 +98,13 @@ then the obtained pair is not isometric as well.
 It follows that we can assume that $M$ is a ball.%
 \footnote{This is true for the proof of the lemma and theorem as well.}
 In this case any geodesic $\bar\gamma$ in $\bar E$ visits $\bar M$ at most once.
-In other words, if $\bar\gamma$ enters $\bar M$, then the complement $\bar\gamma\backslash \bar M$ has two connected components which are parts of a line $\gamma$ in $E$.
+In other words, if $\bar\gamma$ enters $\bar M$, then the complement $\bar\gamma\setminus \bar M$ has two connected components which are parts of a line $\gamma$ in $E$.
 
 %%%???+PIC
 
 Choose a unit-speed geodesic $\bar\gamma$ that visits $\bar M$.
 Let us include it in a smooth one-parameter family of unit-speed geodesics $\bar\gamma_\tau$ for $\tau\in [0,1]$ so that $\bar\gamma_0$ does not visit $\bar M$ and $\bar \gamma_1=\bar \gamma$.
+(Here we use that $\dim M\ge 2$.)
 
 We can assume that 
 the vector field $\bar{\vec i}
@@ -138,17 +146,18 @@ $\bar \gamma$ spends in $\bar M$ and the lemma follows.\qeds
 
 \parit{Comments.}
 The identity $\langle\vec i,\vec t\rangle=0$ is proved the same way as the \emph{Gauss lemma}.
-The vector fields as $\vec i$ in the proof restricted to $\gamma_\tau$ describe a variation of a geodesics.
-These fields are called \emph{Jacobi fields} along $\gamma_\tau$;
-we will see them again.
+The vector fields as $\vec i$ is an example of the so-called \emph{Jacobi fields} along $\gamma_\tau$;
+they describe a variation of a geodesics, and we will see them again.
 
 \begin{thm}{Exercise}\label{ex:exit-time}
-Suppose $\bar M$ and $\bar E$ be as in the proof.
-Show that there is a universal upper bound on time that a unit-speed geodesic spends in $\bar M$.
+Let $M$ be a connected manifold with boundary.
+Assume that hitting time in $M$ is bounded by $\ell$;
+that is, any geodesic that has one end on $\partial M$ has length at most $\ell$.
+Show that any geodesic in $M$ has length at most $\ell$.
 \end{thm}
 
-\parit{Hint:} Show that the set of vectors $\vec u\in\S \bar E$ such that the arc $\gamma_{\vec u}|_{[0, T]}$ lies in $\bar M$ is open and closed;
-here $T=2\cdot\diam M$ and $\gamma_{\vec u}$ is the geodesic defined by $\gamma'_{\vec u}(0)=\vec u$.
+\parit{Hint:} Show that the set of vectors $\vec u\in\S M$ such that the arc $\gamma_{\vec u}|_{[0, \ell]}$ lies in $M$ is open and closed;
+here the geodesic $\gamma_{\vec u}$ defined by $\gamma'_{\vec u}(0)=\vec u$.
 
 \section{Volume equality}
 
@@ -161,15 +170,16 @@ Then
 
 \parit{Proof.}
 We will denote by $\bar \tau\:\S \bar M\to \bar M$ the unit tangent bundle over $\bar M$
-and by $\bar\phi^t\:\S \bar M\to \S \bar M$ its the geodesic flow.
+and by $\bar\phi^t\:\S \bar M\to \S \bar M$ its the geodesic flow for time $t$.
 
 Set $\bar\Omega=\bar \tau^{-1}(\bar M)$.
 Since geodesic flow preserves the volume, we get 
 \begin{align*}
 \vol\SSS^{n-1}\cdot\vol(\bar M,g)&=\vol\bar\Omega=
 \\
-&=\vol[\bar\phi^t(\bar\Omega)].
+&=\vol[\bar\phi^t(\bar\Omega)]
 \end{align*}
+for any $t$.
 
 By \ref{ex:exit-time}, we can choose $t$ so that $\tau(\vec v)\notin \bar M$ for any $\vec v\in \phi^t(\bar\Omega)$.
 
@@ -197,7 +207,7 @@ Recall that
 \item $\S M$ denotes the unit tangent bundle over $M$.
 \item $\phi^t$ denotes geodesic flow.
 In particular, if $\gamma_{\vec u}$ is the geodesic in $M$ defined by $\gamma'_{\vec u}(0)=\vec u$, then $\gamma'_{\vec u}(t)=\phi^t(\vec u)$.
-\item Let $\ell\:\S M\to [0,\infty]$ denoted the hitting time of $\gamma_{\vec u}$ in the boundary of $M$.
+\item $\ell\:\S M\to [0,\infty]$ denotes the hitting time of $\gamma_{\vec u}$ in the boundary of $M$.
 \item $\partial_+\S  M$ denotes by the bundle of unit vectors at points on $\partial M$ that point in $M$. It can be defined as the closure of the subset of $\partial \S M$ at which the geodesic flow enters $\S M$.
 
 \end{itemize}
@@ -212,21 +222,27 @@ Then for any smooth function $f\:\S M\to\RR$ the following identity holds:
 \langle\vec u,\vec n\rangle\cdot
 \int_0^{\ell(\vec u)} f\circ\phi^t(\vec u)\cdot dt,\]
 where $\vec n$ denotes the unit vector field normal to $\partial M$ that points inside~$M$.
-
-In particular, by taking $f\equiv 1$, we get
-\[\vol\SSS^{n-1}\cdot\vol M=\int_{\vec u\in \partial_+\S  M} \ell(\vec u)\cdot\langle\vec u,\vec n\rangle.\]
-
 \end{thm}
 
+By taking $f\equiv 1$ in the above theorem, we get the following.
+
+
+\begin{thm}{Corollary}
+If $M$ is as in the theorem, then
+ \[\vol\SSS^{n-1}\cdot\vol M=\int_{\vec u\in \partial_+\S  M} \ell(\vec u)\cdot\langle\vec u,\vec n\rangle.\]
+\end{thm}
+
+
 \parit{Proof.}
-Note that any vector $\vec w\in\S M$ can be uniquely described as $\phi^t(\vec u)$ for some $\vec u\in \partial_+\S  M$ and $0\le t\le \ell(\vec u)$.
+Since any unit-speed geodesic in $M$ hits its boundary in finite time,
+any vector $\vec w\in\S M$ can be uniquely described as $\phi^t(\vec u)$ for some $\vec u\in \partial_+\S  M$ and $0\le t\le \ell(\vec u)$.
 In other words $\S M$ can be identified with the subgraph 
 \[\Phi=\set{(\vec u,t)\in (\partial_+\S  M)\times \RR}{0\le t\le \ell(\vec u)}.\]
 
 The subgraph $\Phi$ has two volume forms: the first, say $\omega$, is the pull back of the volume form  on $\S M$;
 the the second $\chi=dt \wedge \alpha$, where $\alpha$ is the volume form on $\partial\S  M$.
 
-Note that both forms are invariant with respect to shifts along $\RR$.
+Note that both forms are invariant with respect to vertical shifts (along $\RR$).
 For $\omega$ it is true by Liouville's theorem;
 for $\chi$ it follows from the definition.
 
@@ -237,7 +253,7 @@ Note that the equality $\omega=dr\wedge \alpha$ holds on $\partial \S M$.
 Whence 
 \[\omega =\langle\vec u,\vec n\rangle\cdot \chi\eqlbl{eq:omega/chi}\]
 on $\partial \S M$.
-Since both forms are invariant with respect to vertical shifts, we get that \ref{eq:omega/chi} holds everywhere in $\Phi$.
+Since both forms $\omega$ and $\alpha$ are invariant with respect to vertical shifts, we get that \ref{eq:omega/chi} holds everywhere in $\Phi$.
 \qeds
 
 \begin{thm}{Exercise}
@@ -268,7 +284,7 @@ $\iota_{\vec g}(F\cdot \omega)$.
 For any closed set $A$ in a complete Riemannian manifold $M$ and any point $x\notin A$
 the differential $d_xf$ of the distance function $f=\distfun_A$ is defined if and only if there is a unique minimizing geodesic $\gamma$ from $x$ to $A$.
 
-Moreover, if $\vec u\in\T_x$ is the unit vector points in the direction of the unique geodesic $\gamma$, then 
+Moreover, if a unit vector $\vec u\in\T_x$  points in the direction of the unique geodesic $\gamma$, then 
 \[d_xf(\vec w)=-\langle\vec u,\vec w\rangle\]
 for any $\vec w\in\T_x$;
 or, equivalently,
@@ -277,31 +293,35 @@ or, equivalently,
 \end{thm}
 
 \parit{Proof; only-if part.}
-Choose 
-\begin{itemize}
-\item a closed set $A$, a point $x\notin A$, and $\eps>0$,
-\item a unit-speed minimizing geodesic $\gamma$ from $x$ to $A$,
-\item a smooth unit-speed curve $\alpha$ that such that $\alpha(0)=x$, and set $\vec w=\alpha'(0)$.
-\end{itemize}
+Choose a closed set $A$, a point $x\notin A$.
+Let $\gamma$ be a unit-speed minimizing geodesic from $x$ to $A$; denote by $y\in A$ the other end of $\gamma$.
+
+Choose a smooth unit-speed curve $\alpha$ that such that $\alpha(0)=x$, and set $\vec w=\alpha'(0)$.
 Observe that 
 \begin{align*}
 \dist{\gamma(\tfrac t\eps)}{\alpha(t)}{M}&= 
 t\cdot\sqrt{\tfrac {1}{\eps^2}-2\cdot\langle\vec u,\vec w\rangle\cdot \tfrac {1}\eps+1}+o(t)=
 \\
-&=\tfrac{1}{\eps}\cdot t-\langle\vec u,\vec w\rangle\cdot t +O(\eps\cdot t).
+&=\tfrac{1}{\eps}\cdot t-\langle\vec u,\vec w\rangle\cdot t +O(\eps\cdot t)
 \end{align*}
-Since $\eps>0$ is arbitrary,
-the triangle inequality implies that
-\[f\circ \alpha(t)\le \dist{p}{x}{}+t\cdot\langle\vec u,\vec w\rangle+o(t).\]
-In particular,
-\[(f\circ\alpha)'(0)=-\langle\vec u,\vec w\rangle\eqlbl{f'=<u,v>}\]
+for any fixed $\eps>0$.
+Applying the triangle inequality for $y$, $\gamma(\tfrac t\eps)$, and $\alpha(t)$, we get  that
+\begin{align*}
+f\circ \alpha(t)&=\dist{y}{\alpha(t)}{M}\le
+\\
+&\le \dist{y}{\gamma(\tfrac t\eps)}{M}+\dist{\gamma(\tfrac t\eps)}{\alpha(t)}{M}\le
+\\
+&\le\dist{p}{x}{}-t\cdot\langle\vec u,\vec w\rangle+O(\eps\cdot t).
+\end{align*}
+Passing to the limit as $\eps\to0$, we get
+\[(f\circ\alpha)'(0)\le-\langle\vec u,\vec w\rangle\eqlbl{f'=<u,v>}\]
 if the left hand side is defined.
 
 Observe that if $d_xf$ is defined, then $(f\circ\alpha)'(0)=d_xf(\vec w)$.
 Therefore 
 \[d_xf(\vec w)\le-\langle\vec u,\vec w\rangle\]
 for any $\vec w\in\T_x$.
-Since both sides of the last inequality are linear, we get that the equality  
+Since both sides of the last inequality are linear in $\vec w$, we get that the equality  
 \[d_xf(\vec w)=-\langle\vec u,\vec w\rangle\]
 holds for any $\vec w\in\T_x$.
 
@@ -337,7 +357,7 @@ this geodesic is distinct from $\gamma$ --- a contradiction.
 \begin{thm}{Exercise}\label{ex:simple-mnfld}
 Suppose that $M$ is a compact Riemannian manifold with convex boundary $\partial M$;
 that is, any shortest path in $M$ may only have its endpoints on $\partial M$.
-Assume that for any $p\in \partial M$ the function $\distfun_p$ is differentiable on $\partial M\backslash\{p\}$.
+Assume that for any $p\in \partial M$ the function $\distfun_p$ is differentiable on $\partial M\setminus\{p\}$.
 
 Prove the following statements:
 
@@ -346,7 +366,7 @@ Any geodesic in $M$ is minimizing.
 \end{subthm}
 
 \begin{subthm}{}
-For any $p\in M$ the distance function $\distfun_p$ is differentiable in $M\backslash\{p\}$.
+For any $p\in M$ the distance function $\distfun_p$ is differentiable in $M\setminus\{p\}$.
 \end{subthm}
 
 \begin{subthm}{}
@@ -376,7 +396,7 @@ Then $\vol(\square, g)\ge 1$.
 
 The following statement is assumed to be known.
 
-\begin{thm}{Coarea inequality}\label{cor:area-inequality}
+\begin{thm}{Area inequality}\label{cor:area-inequality}
 Let $f\:\spc{M}\to\spc{N}$ be a locally Lipschitz map between $n$-dimensional Riemannian manifolds.
 Suppose that $|\jac_p f|\z\le 1$ almost everywhere in $A$, then 
 \[\vol A \ge \vol[f(A)].\]
@@ -391,7 +411,7 @@ We will consider the case $n=2$; the other cases are proved the same way.
 \includegraphics{mppics/pic-5}
 \end{wrapfigure}
 
-Denote by $A$, $A'$, and $B$, $B'$ the opposite facets of the square~$\square$.
+Denote by $A$, $A'$, and $B$, $B'$ the opposite sides of the square~$\square$.
 Consider two functions
 \begin{align*}
 f_A(x)&\df\min\{\,\distfun_A(x)_g,1\,\},
@@ -443,8 +463,8 @@ Then
 \end{thm}
 
 \begin{thm}{Exercise}\label{ex:hexagon}
-Suppose $g$ is a metric tensor on a regular hexagon $\textbf{\hexagon}$ such that $g$-distances between the opposite sides are at least $1$.
-Is there a positive lower bound on $\area(\textbf{\hexagon},g)$?
+Suppose $g$ is a metric tensor on a regular hexagon $\text{\rm\hexagon}$ such that $g$-distances between the opposite sides are at least $1$.
+Is there a positive lower bound on $\area(\text{\rm\hexagon},g)$?
 \end{thm}
 
 
@@ -477,15 +497,15 @@ Observe that in the case of equality we have that $\Im s= \square$.
 Indeed,
 the same argument shows that 
 \[\vol(s^{-1}(\square),g)\ge \vol\square=1.\]
-The set $s^{-1}(\RR^2\backslash \square)$ is an open subset of $\square$.
+The set $s^{-1}(\RR^2\setminus \square)$ is an open subset of $\square$.
 If it is nonempty, then it has positive volume.
 In this case
 \[\vol(\square,g)>\vol(s^{-1}(\square),g)\ge 1\]
 --- a contradiction.
 
-Summarizing: there is a geodesic path of $g$-length $1$ connecting any point on one face of the cube to a point on the opposite face.
+Summarizing: there is a geodesic path of unit $g$-length connecting any point on one side of the square to a point on the opposite side.
 
-Moreover, for any pair of opposite facets and a point $p\in\square$, there is a unique geodesic path of $g$-length $1$ from one face to the other that passes thru $p$.
+Moreover, for any pair of opposite facets and an interior point $p\in\square$, there is a unique geodesic path of unit $g$-length from one face to the other that passes thru $p$.
 The latter can be shown by cutting $\square$ into two rectangles by a level set of $\distfun_A$ thru $p$,
 applying the above statement to both rectangles and taking the concatenation of the obtained geodesic paths with end at $p$.
 If such a path is not unique, then one could make a shortcut near $p$ --- a contradiction.
@@ -603,8 +623,8 @@ but $\diam S_R$ stays bounded for all $R$.
 
 \section{Remarks}
 
-The fact that not all manifolds are scattering rigid was pointed out by Christopher Croke \cite{croke-1991}.
-More examples constructed by Christopher Croke and Bruce Kleiner \cite{croke-kleiner-1994}.
+The fact that not all manifolds are scattering rigid was pointed out by Christopher Croke \cite{croke-1991};
+jointly with  Bruce Kleiner, he constructed more examples \cite{croke-kleiner-1994}.
 
 Theorem \ref{thm:magic-cloak} has a number of variations and generalizations.
 In particular an analog of this theorem holds in the following cases:
