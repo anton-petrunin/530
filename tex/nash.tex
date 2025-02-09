@@ -4,13 +4,11 @@ In particular, Riemannian manifold can be defined as a submanifold of Euclidean 
 
 We will prove Nash's theorem for compact manifolds (\ref{thm:nash-compact}).
 This case is leading;
-the general case requires a sequence of additional elementary statements that is outlined in Exercise ???.
+the general case requires a sequence of additional elementary statements that is outlined in exercises \ref{ex:plus-oplus} ???.
 
 In the proof we use the so-called Günther trick --- an essential simplification of the original proof that was found by Matthias Günther \cite{gunter}.
 We also use several minor improvements found by Deane Yang, Terence Tao, and Ralph Howard
  \cite{yang,tao,howard}.
-
-
 
 
 \section{Induced metric}
@@ -32,8 +30,7 @@ g(\vec x,\vec y)=\langle \vec xw,\vec yw\rangle
 \]
 for any two tangent vectors $\vec x,\vec y\in\T_p\Omega$ at any point $p\in \Omega$.
 
-More generally, 
-suppose $v,w\:\Omega\to\RR^q$ are two smooth maps.
+Suppose $v,w\:\Omega\to\RR^q$ are two smooth maps.
 Let us write $g=Q(v,w)$ if
 \[
 g(\vec x,\vec y)
@@ -43,8 +40,11 @@ g(\vec x,\vec y)
 The operator $Q$ is symmetric and bilinear; it takes two smooth maps $v,w\:\Omega\to\RR^q$ and spits a metric tensor $g=Q(v,w)$ on $\Omega$.
 
 Note that if $v$ and $w$ are $C^k$-smooth, then $Q(v,w)$ is $C^{k-1}$-smooth.
-Observe that \textit{a metric tensor $g$ is induced by a smooth map $w\:\Omega\to\RR^q$
-if and only if $g=Q(w,w)$}.
+
+\begin{thm}{Observation}
+A metric tensor $g$ is induced by a smooth map $w\:\Omega\to\RR^q$
+if and only if $g=Q(w,w)$.
+\end{thm}
 
 The components of $g=Q(w,w)$ in a local chart
 can be written as 
@@ -59,7 +59,8 @@ that is, if
 for any curve $\gamma$ in $\Omega$.
 \end{thm}
 
-The map $w\:(\Omega,g)\to \RR^q$ as in the exercise are often called \emph{isometric}, but this term might be for other types of maps.
+If $g$ is induced by $w$, then the map $w\:(\Omega,g)\to \RR^q$ is often called \emph{isometric},
+but we will not use this term since it is very ambiguous.
 
 Let $\Omega$ be a smooth manifold.
 Given two smooth maps $v_1\:\Omega\to\RR^{q_1}$ and $v_2\:\Omega\to\RR^{q_2}$, denote by $w=v_1\oplus v_2$ the map 
@@ -97,8 +98,14 @@ Construct a metric tensor $g$ on the torus $\mathbb{T}^2=\mathbb{S}^1\times \mat
 \end{thm}
 
 \begin{thm}{Exercise}\label{ex:embedding}
-Apply \ref{thm:nash-compact} and the Whitney embedding theorem to show that in \ref{thm:nash-compact} one can assume that $w$ is an embedding.
-In other words, any compact Riemannian manifold is isometric to a submanifold in a Euclidean space.
+Use \ref{thm:nash-compact} together with the Whitney embedding theorem to prove the following stronger version of Theorem~\ref{thm:nash-compact}.
+
+\end{thm}
+
+\begin{thm}{Theorem}\label{thm:nash-compact}
+Let $(\Omega,g)$ be a compact Riemannian manifold.
+Then, for sufficiently large integer $q$, there is a smooth embedding $w\:\Omega \to \RR^q$ such that
+\[g=Q(w,w).\]
 \end{thm}
 
 \section{Free maps}
@@ -108,7 +115,7 @@ As before, $\Omega$ is a smooth $n$-dimensional manifold.
 Recall that a $C^1$ map $f\:\Omega \to \RR^q$ is called \emph{regular} if its differential $df$ has rank $n$ at each point.
 In other words, for any point $p\in \Omega$ and some (and therefore any) local coordinates at $p$ all $n$ first-order partial derivatives $\partial_1f,\dots,\partial_nf$ are linearly independent.
 
-A $C^2$ map $f\:\Omega \to \RR^q$ is called \emph{free} (also known as \emph{two-regular}) if an analogous property holds for first \textit{and second} partial derivatives;
+A $C^2$ map $f\:\Omega \to \RR^q$ is called \emph{free} (or \emph{two-regular}) if an analogous property holds for first \textit{and second} partial derivatives;
 that is, for any point $p\in \Omega$ and some (and therefore any) local coordinates at $p$ all $n+\tfrac{n\cdot(n+1)}{2}$ partial derivatives 
 $\partial_if$,
 $\partial_{ij}f$ for $i\le j$
@@ -150,8 +157,6 @@ Apply the Whitney embedding theorem and \ref{ex:free-twists} to conclude that an
 
 \section{Key lemmas: formulations}
 
-In this section we recall the definition of Hölder norm for functions on torus and formulate the Nash's and Günther's lemma.
-
 Let us denote by $\TT^n=\RR^n/\ZZ^n$ the $n$-dimensional torus.
 The torus comes with a global system of periodic coordinates which can be used to define the partial derivatives $\partial_1,\dots,\partial_n$.
 A metric tensor on $\TT^n$ can be also written in these coordinates;
@@ -183,9 +188,7 @@ Let
 \[\|u\|_{k,\alpha}\df\max_i \{\,\|u_1\|_{k,\alpha},\dots,\|u_q\|_{k,\alpha} \,\},\]
 where $u_1,\dots, u_q$ are the coordinate functions of $u$.
 
-
-In the following two lemmas we
-fix a smooth free map $f\:\TT^n \to\RR^q$ and let 
+From now on, let us fix a smooth free map $f\:\TT^n \to\RR^q$ and let
 \[L(w)\df 2\cdot Q(f,w).\]
 
 \begin{thm}{Nash's lemma}\label{lem:nash-guenter:nash}
@@ -217,19 +220,20 @@ for any integer $k\ge 3$ and some fixed constants $b_2,b_3,\dots$
 
 \section{Perturbation}
 
+Recall that $f\:\TT^n \to\RR^q$ is a fixed smooth free map and
+\[L(w)\df 2\cdot Q(f,w).\]
+
 \begin{thm}{Perturbation lemma}\label{lem:perturb}
-Let $f \:\TT^n\to\RR^q$ be a smooth free map.
-Suppose $L(w)\df 2\cdot Q(f,w)$.
-Then there is  $r>0$ 
+There is  $r>0$
 such that the equation 
 \[L(w)+Q(w,w)=h\eqlbl{eq:L+Q=h}\]
-has a smooth solution $w\:\TT^n\to\RR^q$ for any smooth metric $h$ with $\|h\|_{2,\alpha}<r$.
+has a smooth solution $w\:\TT^n\to\RR^q$ for any smooth metric $h$ such that $\|h\|_{2,\alpha}<r$.
 Moreover, we can assume that
 \[\|w\|_{2,\alpha}\le C\cdot \|h\|_{2,\alpha},\]
 for some constant $C$. 
 \end{thm}
 
-Suppose that a metric tensor $g$ is induced by a free map $f \:\TT^n\z\to\RR^q$.
+Suppose that a metric tensor $g$ is induced by $f$.
 Note that the equation
 \[Q(f+w,f+w)=g+h\]
 is equivalent to \ref{eq:L+Q=h}.
@@ -352,25 +356,35 @@ Let $\N_p=\T^2_p\cap\T_p^\perp$.
 Note that that if $f$ is free, then $\T^2_p$ and $\N_p$ are respectively $(n\z+\tfrac{n\cdot(n+1)}{2})$
 and
 $\tfrac{n\cdot(n+1)}{2}$-dimensional at any point $p$.
-In this case we will denote by $\T^2\Omega$ and $\N\Omega$ the corresponding bundles over $\Omega$.
+In this case we will denote by $\T^2=\T^2\TT^n$ and $\N=\N\TT^n$ the corresponding bundles over $\TT^n$.
 
 Suppose $w=Mh$ as in the proof above.
-Since $\langle\partial_{i}f,w\rangle=0$ for every $i$, we have $w(p)\in \N_p$ at any point $p\in\Omega$.
+Since $\langle\partial_{i}f,w\rangle=0$ for every $i$, we get the following.
+
+\begin{thm}{Observation}
+The inverse $M$ in Nash's lemma (\ref{lem:nash-guenter:nash}) can be choosen so that
+$Mh(p)\in \N_p$ for any $p\in \TT^n$.
+\end{thm}
+
 
 \begin{thm}{Exercise}\label{ex:Mv}
-Let $f\:\Omega\to\RR^q$ be a free map.
-Given a vector field $v$ in $\T\Omega$ and a metric tensor $h$ on $\Omega$, show that there is a unique 
-vector field $w$ in $\N\Omega$ such that 
+Let $f\:\TT^n\to\RR^q$ be a free map.
+Given a vector field $v$ in $\T\TT^n$ and a metric tensor $h$ on $\TT^n$, show that there is a unique
+vector field $w$ in $\N\TT^n$ such that
 \[2\cdot Q(f,v+w)=h.\]
-In other words, given $v$, there is a right inverse $M_v\:h\mapsto v+w$ of $L$ with $w$ in $\N\Omega$.
+In other words, given $v$, there is a right inverse $M_v\:h\mapsto v+w$ of $L$ with $w$ in $\N\TT^n$.
 \end{thm}
 
 \section{Proof of Günther's lemma}
 
-Note that many symmetric bilinear opearators $\tilde Q$ satisfy $L\tilde Q=Q$.
+Many symmetric bilinear opearators $\tilde Q$ satisfy $L\tilde Q=Q$.
 In particular, one can take $\tilde Q=MQ$, where $M$ is provided by Nash's lemma (\ref{lem:nash-guenter:nash}).
-However, this choice of $\tilde Q$ does not satisfy the inequalities in the Günther lemma.
-The actual construction of $\tilde Q$ uses the extra freedom in choosing $M$ that comes from \ref{ex:Mv}.
+However, this choice of $\tilde Q$ does not satisfy the required inequalities in Günther's lemma.
+
+The actual construction of $\tilde Q$ relies on extra freedom provided by \ref{ex:Mv}.
+It says that, given a tangent vector field $v$ we may choose $M$ so that
+$Mh-v\in \N\TT^n$.
+
 
 Recall that we use global system of periodic coordinates on $\TT^n$ to define the partial derivatives $\partial_1,\dots,\partial_n$.
 In particular, we can define the Laplacian
@@ -390,7 +404,8 @@ has a Lipschitz inverse
 \[(\Delta-1)^{-1}\:C^{k-2,\alpha}(\TT^n)\to C^{k,\alpha}(\TT^n)\eqlbl{eq:Lap-1-1}\]
 \end{thm}
 
-By \ref{eq:Lap-1-1}, $(\Delta-1)^{-1}$ is a smoothing operator it swallows $C^{k-2,\alpha}$ and spits $C^{k,\alpha}$.
+The operator $(\Delta-1)^{-1}$ smooths function --- it swallows a $C^{k-2,\alpha}$-function and spits a $C^{k,\alpha}$-function.
+
 Note that $(\Delta-1)^{-1}$ commutes with partial derivatives; that is, 
 \[(\Delta-1)^{-1}\partial_i
 =
@@ -492,7 +507,7 @@ Combining \ref{eq:L-def2}, \ref{eq:tildeQ}, and \ref{eq:Delta}, we get
 L\tilde Q=Q.
 \] 
 
-Denote by $e_i$ and $e_{ij}$ the frame dual to $\partial_if$ and $\partial_{ij}f$ for all $i\le j$ in the space spanned by these partial derivatives.
+Let $\{e_i,e_{ij}\}_{i\le j}$ be the dual frame to $\{\partial_if,\partial_{ij}f\}_{i\le j}$ in $\T^2$.
 Note that  
 \[\tilde Q(w,w)=\sum_i(\Delta-1)^{-1} A_i(w)\cdot e_i-\tfrac12\cdot\sum_{i\le j}A_{ij}(w)\cdot e_{ij}.\]
 Since the maps $e_i,e_{ij}\:\TT^n\to \RR^q$ are smooth, \ref{eq:AB=<C} and \ref{ex:hoelder-norm} imply the last inequality in the lemma for each integer $k\ge 3$.
@@ -588,12 +603,12 @@ for all $i\ne j$ and any point in $U$.
 
 Observe that
 \[\pm dx_i\cdot dx_j=\tfrac12\cdot (dx_i\pm dx_j)^2-\tfrac12\cdot(dx_i)^2-\tfrac12\cdot(dx_j)^2.\]
-Let us plugin this formula in \ref{g=sum} and take \ref{alpha=1} into account, assuming that $\eps$ is small.
+Plug this formula in \ref{g=sum} and take \ref{alpha=1} into account, assuming that $\eps$ is small.
 We get that $g$ is a linear combination with positive coefficents of the metric tensors 
 $(dx_i)^2$ and $(dx_i\pm dx_j)^2$ for all $i$ and $j$.
 In other words, we can take the functions $x_i$ and $x_i\pm x_j$ for all $i$ and $j$ as our functions $f_1,\dots,f_q$ and find $\phi_1,\dots,\phi_q$ such that \ref{eq:g=phidf} holds in a neighborhood of $p$.
 
-By the partition-of-unity, we get the global statement.
+Applying a partition-of-unity argument, we get the global statement.
 \qeds
 
 In the presented proof, it is sufficient to take $2\cdot n^2$ functions in each chart;
@@ -619,17 +634,19 @@ $h=(d\phi_1)^2+\dots+(d\phi_q)^2$.
 \begin{thm}{Advanced exercise}
 Show that \ref{prop:approx-nash} holds for noncompact connected manifolds.
 Moreover, given any positive smooth function $f$ on $\Omega$, we can assume that $h$ is bounded by $f\cdot g$;
-that is, $0\le h(\vec x,\vec x)\le f\cdot g(\vec x,\vec x)$ for any tangent vector $\vec x$ on $\Omega$.
+that is, $0\le h(\vec x,\vec x)\z\le f\cdot g(\vec x,\vec x)$ for any tangent vector $\vec x$ on $\Omega$.
 \end{thm}
 
 
-\section{Proof assembling}
+\section{Reduction to torus}
 
 \begin{thm}{Exercise}\label{ex:torus-riemn}
 Let $\Omega$ be a submanifold in the torus $\TT^n$.
 Show that for any Riemannian metric on $\Omega$ is a restriction of a Riemannian metric on $\TT^n$.
 \end{thm}
 
+
+\section{Proof assembling}
 
 \parit{Proof of \ref{thm:nash-compact}.}
 By the Whitney embedding theorem, any smooth $n$-dimensional manifold $\Omega$ admits an immesion $\iota$ into $\RR^{2\cdot n+1}$.
@@ -638,8 +655,7 @@ if not, then we can pass to the rescaling of $\eps\cdot\iota$ for small $\eps>0$
 Composing $\iota$ with the covering map $\RR^{2\cdot n+1}\to \TT^{2\cdot n+1}$, we get an embedding 
 $\Omega\hookrightarrow\TT^{2\cdot n+1}$.
 
-So from now on, we can assume that $\Omega$ is a compact submanifold of a torus.
-
+In particular, we can assume that $\Omega$ is a compact submanifold of a torus.
 By \ref{ex:torus-riemn}, any Riemannian metric $g$ on $\Omega$ is the restriction of a Riemannian metric on the torus.
 Therefore,
 
@@ -689,7 +705,8 @@ Moreover if $f$ is an embedding then we can assume that so is $f_\eps$.
 
 
 It was originally proved by John Nash \cite{nash-1954} with the condition $q\z\ge n+2$ and improved to $q\ge n+1$ by Nicolaas Kuiper \cite{kuiper-1955}.
-The original proof uses Nash's twist in a different way. Both papers are reader-friendly, it is better to start with the paper of Nash.
+The original proof uses Nash's twist in a different way.
+Both papers are reader-friendly.
 One may also start with lectures by Allan Yashinski and the author \cite{petrunin-yashinski} where related results were obtained using an alternative approach.
 
 The discussed result formed a part of foundations of the so-called \emph{homotopy principle}, or \emph{h-principlee}; an excellent introduction is given in the book by Yakov Eliashberg and Nikolai Mishachev \cite{eliashberg-mishachev}.
