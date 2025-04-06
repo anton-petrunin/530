@@ -185,6 +185,8 @@ english]{babel}
 \hbox{$<$}\vskip-0.75ex\hbox{$>$}}}}
 \renewcommand*\vec[1]{\text{\rm \textsc{#1}}}
 
+
+
 \def\spc#1{\mathcal{#1}}
 \def\oBall{\mathrm{B}{}}
 \def\cBall{\overline{\mathrm{B}}{}}
@@ -228,6 +230,18 @@ english]{babel}
 \newcommand*\Alex[1]{\CBB(#1)}
 \def\modtrig{\tilde\triangle}
 \def\mangle{\measuredangle}
+
+\def\Xint#1{\mathchoice
+   {\XXint\displaystyle\textstyle{#1}}%
+   {\XXint\textstyle\scriptstyle{#1}}%
+   {\XXint\scriptstyle\scriptscriptstyle{#1}}%
+   {\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+   \!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$}
+     \vcenter{\hbox{$#2#3$}}\kern-.5\wd0}}
+\def\ddashint{\Xint=}
+\def\dashint{\Xint{\hskip.0em\diagup}}
+\def\xint{\mathop{\dashint}}
 
 \def\lege{\lessgtr}
 
@@ -281,9 +295,9 @@ english]{babel}
 
 
 %THEOREM
-\newcounter{thm}[section]
-\renewcommand{\thethm}{\thesection\arabic{thm}}
-\newcommand\claim[2][{}]{\par\medskip\noindent\refstepcounter{thm}\hbox{\bf \thesection\arabic{thm}. #2.#1}
+\newcounter{thm}
+\renewcommand{\thethm}{\arabic{thm}}
+\newcommand\claim[1]{\par\medskip\noindent\refstepcounter{thm}\hbox{\bf \arabic{thm}. #1.}
 \it\ %\ignorespaces
 }
 \def\endclaim{
