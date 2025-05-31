@@ -8,13 +8,19 @@
 \usepackage{graphicx}
 \usepackage{epsfig,lpic,wrapfig}
 \usepackage{ushort}
+\usepackage{mathrsfs}
 \usepackage[integrals]{wasysym} 
 \usepackage{xfrac}
 \usepackage{gensymb}%degree
 \usepackage[normalem]{ulem}%striking thru text horizontally \sout
-\usepackage[makeroom]{cancel}% provides \cancel
 \usepackage{caption}
+\usepackage{multicol}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
 
+\newenvironment{Figure}
+  {\par\medskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}
 
 \usepackage{titling}
 \newcommand{\subtitle}[1]{%
@@ -23,6 +29,12 @@
 \begin{center}\large#1\end{center}
 \vskip0.5em}%
 }
+
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,german,english]{babel}
+%\DeclareUnicodeCharacter{2010}{-}% support older LaTeX versions
+%\DeclareUnicodeCharacter{0301}{*************************************}
 
 \usepackage[
 sorting=debug,
@@ -35,25 +47,20 @@ doi=false,
 url=false,
 style=numeric-comp,
 isbn=false]{biblatex}
+
 \usepackage{csquotes}
 \AtEveryBibitem{\clearlist{language}}
 \AtEveryBibitem{\clearlist{note}}
 \renewbibmacro{in:}{}
-\renewcommand*{\bibfont}{\scriptsize}
+\renewcommand*{\bibfont}{\footnotesize}
 \addbibresource{library.bib}
-
-\usepackage[russian,
-german,
-english]{babel}
-\usepackage[T1,T2A]{fontenc}
-\usepackage[utf8]{inputenc}
-%\DeclareUnicodeCharacter{2010}{-}% support older LaTeX versions
-%\DeclareUnicodeCharacter{0301}{*************************************}
 
 
 \DeclareFieldFormat{postnote}{#1}
 \DeclareFieldFormat{multipostnote}{#1}
 \DeclareFieldFormat{pages}{#1}
+
+\addto\captionsenglish{\renewcommand{\chaptername}{Lecture}}
 
 \usepackage{accsupp}
 \usepackage{soulutf8}
@@ -67,8 +74,13 @@ english]{babel}
 
 \def\emph{\ann}
 
-\addto\captionsenglish{\renewcommand{\chaptername}{Lecture}}
-
+\usepackage{titletoc}% http://ctan.org/pkg/titletoc
+\titlecontents*{section}[.5em]
+  {\small}
+  {\thecontentslabel.~{}}
+  {}
+  { \textbf{\thecontentspage}}
+  [; ][.]
 
 %LIST STILES
 \renewcommand{\@listI}{%
@@ -110,7 +122,6 @@ english]{babel}
 
 \def\NN{\mathbb{N}}%  
 \def\RR{\mathbb{R}}% 
-\def\S{\mathrm{S}}
 \def\SSS{\mathbb{S}}
 \def\TT{\mathbb{T}}%
 \def\T{\mathrm{T}}%
@@ -119,6 +130,8 @@ english]{babel}
 \def\QQ{\mathbb{Q}}% 
 \def\II{\mathbb{I}}%
 \def\2{\mathrm{I{\hskip-.1em}I}}
+\def\T{\operatorname{\rm T}}
+\def\N{\operatorname{\rm N}}
 
 \def\RP{\RR\mathrm{P}}%
 \def\CP{\CC\mathrm{P}}%
@@ -131,7 +144,7 @@ english]{babel}
 \def\SO{\mathrm{SO}}%
 \def\SU{\mathrm{SU}}%
 \def\SL{\mathrm{SL}}
-\newcommand{\KN}{\mathbin{\bigcirc\mspace{-15mu}\wedge\mspace{3mu}}}
+\def\UU{\mathbb{U}}% 
 
 \def\eps{\varepsilon}%  
 \def\ge{\geqslant}%
@@ -147,8 +160,7 @@ english]{babel}
 \def\liminf{\varliminf}
 
 %operators
-
-\def\Const{\operatorname{\rm Const}\nolimits}
+\def\const{\operatorname{\rm const}\nolimits}
 \def\area{\operatorname{\rm area}\nolimits}
 \def\perim{\operatorname{\rm perim}\nolimits}
 \def\acts{\curvearrowright}
@@ -171,11 +183,9 @@ english]{babel}
 \def\length{\operatorname{\rm length}\nolimits}
 \def\pack{\operatorname{\rm pack}\nolimits}
 \def\Ric{\operatorname{\rm Ric}\nolimits}
-\def\Rm{\operatorname{\rm R}\nolimits}
-\def\Rop{\operatorname{\bf R}\nolimits}
-\def\Spin{\operatorname{\rm Spin}\nolimits}
+\def\Rm{\operatorname{\rm Rm}\nolimits}
+\def\supp{\operatorname{\rm supp}\nolimits}
 \def\Tor{\operatorname{\rm Tor}\nolimits}
-\def\trace{\operatorname{\rm trace}\nolimits}
 \def\VolPro{\operatorname{\rm VolPro}\nolimits}
 \def\Wass{\operatorname{\rm Wass}\nolimits}
 \def\width{\operatorname{\rm width}\nolimits}
@@ -183,9 +193,6 @@ english]{babel}
 \renewcommand*{\lg}{%
 \mathrel{\vcenter{\offinterlineskip
 \hbox{$<$}\vskip-0.75ex\hbox{$>$}}}}
-\renewcommand*\vec[1]{\text{\rm \textsc{#1}}}
-
-
 
 \def\spc#1{\mathcal{#1}}
 \def\oBall{\mathrm{B}{}}
@@ -203,18 +210,8 @@ english]{babel}
 \def\sys{\mathop{\rm sys}\nolimits}
 \def\Dom{\mathop{\rm Dom}\nolimits}
 \def\Lip{L}
-\def\V{{\operatorname{\rm V}}}
-\def\Hor{{\operatorname{\rm H}}}
-\def\T{\operatorname{\rm T}}
-\def\N{\operatorname{\rm N}}
-\def\A{\operatorname{\rm A}}
-\def\BN{\mathrm{BN}}
-\def\GL{\mathrm{GL}}
+\def\T{\mathrm{T}}
 \def\0{0}
-\def\Norm{\nu}
-
-\def\Ya{\textrm{Я}}
-
 
 
 
@@ -230,18 +227,7 @@ english]{babel}
 \newcommand*\Alex[1]{\CBB(#1)}
 \def\modtrig{\tilde\triangle}
 \def\mangle{\measuredangle}
-
-\def\Xint#1{\mathchoice
-   {\XXint\displaystyle\textstyle{#1}}%
-   {\XXint\textstyle\scriptstyle{#1}}%
-   {\XXint\scriptstyle\scriptscriptstyle{#1}}%
-   {\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
-   \!\int}
-\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$}
-     \vcenter{\hbox{$#2#3$}}\kern-.5\wd0}}
-\def\ddashint{\Xint=}
-\def\dashint{\Xint{\hskip.0em\diagup}}
-\def\xint{\mathop{\dashint}}
+\renewcommand*\vec[1]{\text{\rm \textsc{#1}}}
 
 \def\lege{\lessgtr}
 
@@ -295,9 +281,9 @@ english]{babel}
 
 
 %THEOREM
-\newcounter{thm}[section]
-\renewcommand{\thethm}{\arabic{section}.\arabic{thm}}
-\newcommand\claim[1]{\par\medskip\noindent\refstepcounter{thm}\hbox{\bf \arabic{section}.\arabic{thm}. #1.}
+\newcounter{thm}[chapter]
+\renewcommand{\thethm}{\thechapter.\arabic{thm}}
+\newcommand\claim[2][{}]{\par\medskip\noindent\refstepcounter{thm}\hbox{\bf \thechapter.\arabic{thm}. #2.#1}
 \it\ %\ignorespaces
 }
 \def\endclaim{
@@ -350,24 +336,28 @@ english]{babel}
 
 \newcommand{\qcomma}{\ooalign{\hss,\kern.03em\hss\cr?}}
 
-\renewcommand{\thesection}{\arabic{section}}
+\makeatletter\renewcommand{\p@section}{\thechapter}\makeatother
+\renewcommand{\thesection}{\Alph{section}}
 
 \hyphenation{ 
 Alex-an-drov 
 Ber-ger
-anti-sym-met-ri-za-tion
 geo-de-sic
 geo-de-sics
 half-space 
 ho-mo-mor-phism 
 ho-meo-mor-phisms
+Bow-ditch
 Ca-me-ron
-Gün-ther
 Kar-sten
 Kirsz-braun 
 Ku-ra-tow-ski 
+Mi-kha-el
 Lyt-chak 
 Mat-ve-yev
+Pol-te-ro-vich
+Ury-sohn
+co-bound-ed
 dif-feo-mor-phisms 
 para-met-rized 
 pin-ched

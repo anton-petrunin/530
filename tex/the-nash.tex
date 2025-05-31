@@ -1,6 +1,8 @@
 \documentclass[twoside]{book}
 
-\usepackage{lecture}
+\def\thetitle{Nash's theorem via Günther's trick:\\ three lectures}
+
+\usepackage{lectures1}
 \usepackage[colorlinks=true,
 citecolor=black,
 linkcolor=black,
@@ -8,7 +10,7 @@ anchorcolor=black,
 filecolor=black,
 menucolor=black,
 urlcolor=black,
-pdftitle={Lecture on Nash's embedding theorem},
+pdftitle={\thetitle},
 pdfsubject={Geometry},
 pdfauthor={Anton Petrunin}
 ]{hyperref}
@@ -16,19 +18,19 @@ pdfauthor={Anton Petrunin}
 
 \begin{document}
 
-\title{Lecture on Nash's embedding theorem}
+\title{\thetitle}
 \author{Anton Petrunin}
 \date{}
 \maketitle
 
 \include{nash}
 
-\appendix
+
 
 \include{nash-sol}
 
 {\small\sloppy
-\input{lectures.ind}
+\input{the-nash.ind}
 
 \def\emph{\textit}
 
