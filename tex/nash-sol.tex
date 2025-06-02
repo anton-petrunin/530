@@ -4,129 +4,164 @@
 \parbf{\ref{ex:n(n+1)/2}.}
 Choose a point $p\in\Omega$ and a chart at $p$.
 
-Assume that the main theorem holds for $d$.
-Then components $g_{ij}=g(\partial_i,\partial_j)$ of any Riemannian metric can be written as
+Assume that the main theorem holds for some dimension $d$.
+Then the components $g_{ij}=g(\partial_i,\partial_j)$ of any Riemannian metric can be written as
 \[
 \langle \partial_i w, \partial_j w \rangle = g_{ij},
 \eqlbl{eq:<ww>=g}
 \]
 for some smooth map $w\:\Omega \to \RR^d$.
 
-We have $\tbinom{n+1}{2}=n\cdot (n+1)/2$ components $g_{ij}$; each of them is a smooth function on $\Omega$.
-The equation has $d$ unknowns; these are the coordinate functions of $w$.
-This might convince you that $d$ should be at least $\tbinom{n+1}{2}$.
-To prove this formally we will reduce the problem to an ordinary system of equtions between \emph{jet-spaces} of $w$ and $g$ at the point $p$; the jet-space is the same as space of Taylor polynomials of a given degree at $p$.
+There are $\tbinom{n+1}{2}=n\cdot (n+1)/2$ components $g_{ij}$, each of which is a smooth function on~$\Omega$.
+The equation \ref{eq:<ww>=g} has $d$ unknowns; namely, the coordinate functions of~$w$.
+This suggests that $d$ should be at least $\tbinom{n+1}{2}$.
+The remaining proof is very standard, we reduce the problem to an algebraic system between the \emph{jet spaces} of $w$ and $g$ at the point $p$; the jet space corresponds to the space of Taylor polynomials of a given degree at~$p$.
 
-Denote by $J^m(g)$ the Taylor polynomial of $g$ at $p$ of degree $m$.
-Note that this polynomial has $\tbinom{m+n}{n}$ coefficients from $n\cdot (n+1)/2$-dimensional space.
-(Each coefficient is proportional to certain partial derivatives of $g$ of order at most $m$ at $p$.)
-Such polinomials form an open subset in a $\tbinom{n+1}{2}\cdot\tbinom{m+n}{n}$-dimenional space.
+Denote by $J^m(g)$ the degree-$m$ Taylor polynomial of $g$ at~$p$.
+This polynomial has $\tbinom{m+n}{n}$ coefficients in an $n \cdot (n+1)/2$-dimensional space.
+(Each coefficient corresponds to a certain partial derivative of $g$ of order at most $m$ at $p$.)
+Such polynomials form an open subset of a $\tbinom{n+1}{2} \cdot \tbinom{m+n}{n}$-dimensional space.
 
-Analogousely, let $J^m(w)$ be the Taylor polynomial of $w$ at $p$ of degree $m$.
-Again, this polynomial has $\tbinom{m+n}{n}$ coefficients from $d$-dimensional space;
-therefore such polinomials from a space of dimension $d\cdot\tbinom{m+n}{n}$.
+Similarly, let $J^m(w)$ be the degree-$m$ Taylor polynomial of $w$ at $p$.
+This polynomial has $\tbinom{m+n}{n}$ coefficients in a $d$-dimensional space;
+hence these polynomials form a space of dimension $d \cdot \tbinom{m+n}{n}$.
 
 The equations \ref{eq:<ww>=g} define a smooth map $J^{m+1}(w)\mapsto J^m(g)$.
-In other words, any partial derivatives of $g$ of degree at most $m$ can be expressed thru partial derivatives of $w$ of degree at most $m+1$.
-Since the system of equations \ref{eq:<ww>=g} have a solution for any metric $g$, there is $J^{m+1}(w)$ that maps to $J^m(g)$.
-Therefore, Sard's lemma implies that
+In other words, any partial derivative of $g$ of degree at most $m$ can be expressed in terms of partial derivatives of $w$ of degree at most $m+1$.
+Since the system \ref{eq:<ww>=g} admits a solution for any metric $g$, there exists a $J^{m+1}(w)$ mapping to any given $J^m(g)$.
+By Sard’s lemma,
 \[
 d \cdot \tbinom{m+n+1}{n} \ge \tbinom{n+1}{2} \cdot  \tbinom{m+n}{n}.
 \]
 Since
-$\tbinom{m+n+1}{n}/\tbinom{m+n}{n} \to 1$ as  $m \to \infty$, we get $d \ge \tbinom{n+1}{2}$.
+$\tbinom{m+n+1}{n}/\tbinom{m+n}{n} \to 1$ as  $m \to \infty$, we conclude that $d \ge \tbinom{n+1}{2}$.
 
-\parit{Remark.} The equation \ref{eq:<ww>=g} makes perfect sense for $C^1$-smooth $w$, but in the proof we essentially used that $w$ is $C^m$-smooth for sufficiently large $m$.
-Without this assumtion, the statement does not hold.
+\parit{Remark.}
+Equation \ref{eq:<ww>=g} makes perfect sense for $C^1$-smooth maps $w$, but the above proof essentially uses that $w$ is $C^m$-smooth for sufficiently large $m$.
+Without this assumption, the statement does not hold.
 
-Indeed Nash--Kuiper theorem \cite{nash-1954,kuiper-1955} says that \ref{eq:<ww>=g} has $C^1$-smooth solution $w$ if $d=n+1$.
-Note that this is the optimal bound as if $d=n$, then the metric $g$ is flat, which is not the case in general.
+Indeed, the Nash--Kuiper theorem \cite{nash-1954,kuiper-1955} states that equation \ref{eq:<ww>=g} admits a $C^1$-smooth solution $w$ if $d = n+1$.
+This bound is optimal, since if $d=n$, then the metric $g$ must be flat, which is not the case in general.
+Note that for $d = n+1$, the system \ref{eq:<ww>=g} is overdetermined, yet still admits a $C^1$-smooth solution.
+
 
 
 \parbf{\ref{ex:notinduced}.}
 Consider square of a parallel 1-form $\alpha$ on $\mathbb{T}^2$ with kernel in irrational direction.
 
-
 \parbf{\ref{ex:length-preserving}.} The only-if part is trivial.
 
-Applying the length-preserving property to all arcs of curves in the coordinate directions,
-show that the equality
+Apply the length-preserving property to all arcs of curves in the coordinate directions to show that the equality
 \[g_{ii}=\langle \partial_i w, \partial_i w\rangle\]
 holds almost everywhere, and therefore everywhere.
 
 Observe that
 \[2\cdot g_{ij}=g(\partial_i+\partial_j,\partial_i+\partial_j)-g(\partial_i,\partial_i)-g(\partial_j,\partial_j).\]
-Using this formula with the argument above for curves in the direction $\partial_i$, $\partial_j$ and $\partial_i+\partial_j$, show that the equality
+Using this formula together with the argument above for curves in the direction $\partial_i$, $\partial_j$ and $\partial_i+\partial_j$, show that the equality
 \[g_{ij}=\langle \partial_i w, \partial_j w\rangle\]
 holds almost everywhere, and therefore everywhere.
 
-\parbf{\ref{ex:oplus}+\ref{ex:plus-oplus}.} Spell the definitions.
+\parbf{\ref{ex:R2->R}.} Assume the contrary;
+let $w\:\RR^2\to \RR$ be a length-preserving map.
 
-\parbf{\ref{ex:f-ominus-phi}.} Straighforwad calculations.
+Note that $w$ is Lipschitz.
+By Rademacher's theorem \cite{rademacher}, the differential $d_xw$ is defined for  almost all $x$.
+Argue as in \ref{ex:length-preserving} to show that $|\partial_1w|=|\partial_2w|=1$, but $\partial_1w\cdot \partial_2w=0$ almost everywhere and arrive at a contradiction.
+
+\parit{Remark.} This argument also shows that there is no length-preserving map from an $n$-dimensional Riemannian manifold to $\RR^{n-1}$.
+On the other hand, a theorem of Mikhael Gromov \cite[Section~2.4.11]{gromov-1986} implies that \textit{any $n$-dimensional Riemannian manifold admits a length-preserving map into $\RR^n$}.
+This is a close relative of the Nash--Kuiper theorem \cite{nash-1954,kuiper-1955}.
+Another proof of Gromov's theorem is outlined in the previously mentioned lecture notes \cite{petrunin-yashinski}.
+
+\parbf{\ref{ex:oplus}+\ref{ex:plus-oplus}.} Spell out the definitions.
+
+\parbf{\ref{ex:f-ominus-phi}.}
+Straightforward calculations.
+
 
 \parbf{\ref{ex:torus-riemn}.}
-By the definition of submanifold, we can cover $\Omega$ by a rectangular charts where $\Omega$ is written as the coordinate subspace of the first $k=\dim \Omega$ coordinates.
-Note that in each chart we can present the metric on $\Omega$ as a restriction of a Riemannian metric on the whole chart.
+By the definition of a submanifold, we can cover $\Omega$ by rectangular charts in which $\Omega$ is expressed as the coordinate subspace of the first $k=\dim \Omega$ coordinates.
+Note that in each such chart, the metric on $\Omega$ can be written as the restriction of a Riemannian metric on the entire chart.
 
-Extend this collection of charts to an atlass of $\TT^n$ such that the images of the remaining charts do not intersect $\Omega$.
-Equipp these new charts with a constant Riemannian metric.
+Extend this collection of charts to an atlas of $\TT^n$ such that the images of the remaining charts do not intersect $\Omega$.
+Equip these new charts with constant Riemannian metrics.
 
-Choose a partition of unitiy subordinate to the covering by charts and use it to mix the metrics on the charts into a metric on $\TT^n$.
-
+Choose a partition of unity subordinate to the chart covering, and use it to patch together the local metrics into a smooth Riemannian metric on $\TT^n$.
 
 \parbf{\ref{ex:short-embedding}.}
-Let $\iota\:\Omega\to\RR^d$ be an embedding provided by the Whitney theorem.
-Let us think that $\RR^d$ is an affine subspace $x_{d+1}=1$ in $\RR^{d+1}$.
-The needed embedding can be found among maps $x\mapsto \phi\cdot\iota$, where $\phi\:\Omega\to\RR$ is a smooth positive function.
+Let $\iota\:\Omega\to\RR^d$ be an embedding provided by Whitney’s theorem.
+Think of $\RR^d$ as the affine subspace $\{x_{d+1} = 1\}$ in $\RR^{d+1}$.
+The desired embedding can be found among maps of the form $x \mapsto \phi \cdot \iota(x)$, where $\phi\:\Omega \to \RR$ is a smooth positive function.
 
-Try to write down the necessary conditions and convince yourself that there is such function $\phi$.
-
+Try writing down the necessary conditions and convince yourself that such a function $\phi$ exists.
 
 \parbf{\ref{ex:sum}.}
-Let $\DD\subset\RR^n$ be the unit $n$-disc and $\DD^\circ$ is its interior.
-Construct a smooth map $r\:\RR^n\to \SSS^n$ such that $r|_{\DD^\circ}$ is a smooth embedding
-and the set $\RR^n\setminus \DD^\circ$ is mapped to the south pole.
+Let $\DD \subset \RR^n$ be the unit $n$-disc, and let $\DD^\circ$ denote its interior.
+Construct a smooth map $r\:\RR^n \to \SSS^n$ such that $r|_{\DD^\circ}$ is a smooth embedding, and the set $\RR^n \setminus \DD^\circ$ is mapped to the south pole.
 
-Since $D_{\mathfrak{i}}$ is a smooth $n$-disc, there is a diffeomorphism $\iota_{\mathfrak{i}}\:\DD\to D_{\mathfrak{i}} $.
-The composition $r_{\mathfrak{i}}=r\circ \iota_{\mathfrak{i}}^{-1}$ satisfies all the first two conditions.
+Since each $D_{\mathfrak{i}}$ is a smooth $n$-disc, there exists a diffeomorphism $\iota_{\mathfrak{i}}\:\DD \to D_{\mathfrak{i}}$.
+Then the composition $r_{\mathfrak{i}} = r \circ \iota_{\mathfrak{i}}^{-1}$ satisfies the first two conditions.
 
-It remains to choose a metric $h_{\mathfrak{i}}$ on $\SSS^n$ for each $\mathfrak{i}$ that meets the last condition.
+Now, let us construct a metrics $h_{\mathfrak{i}}$ on $\SSS^n$ that meet the last condition.
+Start by choosing sufficiently small metrics $\hat h_{\mathfrak{i}}$ on $\SSS^n$ such that
+\[
+g > \hat g = \sum_{\mathfrak{i}} r_{\mathfrak{i}}^* \hat h_{\mathfrak{i}},
+\]
+and let $g_1 = g - \hat g$.
 
-Choose sufficienly small metrics $\hat h_{\mathfrak{i}}$ on $\SSS^n$ so that
-\[g>\hat g=\sum_{\mathfrak{i}} r_{\mathfrak{i}}^*\hat h_{\mathfrak{i}}.\]
-Let $g_1=g-\hat g$.
-Choose a partition of unitiy $\phi_{\mathfrak{i}}$ that is subordant to the covering $\{D_{\mathfrak{i}}\}$;
-that is, $\sum\phi_{\mathfrak{i}}=1$ and the support of $\phi_{\mathfrak{i}}$ lies in $D_{\mathfrak{i}}$ for each $\mathfrak{i}$.
-Observe that $h_{\mathfrak{i}}=\hat h_{\mathfrak{i}}+\iota_{\mathfrak{i}}^*(\phi_{\mathfrak{i}}\cdot g_1)$ meets the last condition.
+Choose a partition of unity $\phi_{\mathfrak{i}}$ subordinate to the covering $\{D_{\mathfrak{i}}^\circ\}$;
+that is, $\sum \phi_{\mathfrak{i}} = 1$, each $\phi_{\mathfrak{i}} \ge 0$, and the support of $\phi_{\mathfrak{i}}$ lies in $D_{\mathfrak{i}}^\circ$ for each~$\mathfrak{i}$.
+Denote by $s_{\mathfrak{i}}$ the inverse of the restriction $r_{\mathfrak{i}}|_{D_{\mathfrak{i}}^\circ}$.
+
+Observe that $s_{\mathfrak{i}}^*(\phi_{\mathfrak{i}} \cdot g_1)$ is a nonnegative metric on $\SSS^n$ and $\phi_{\mathfrak{i}} \cdot g_1\z=r_{\mathfrak{i}}^*s_{\mathfrak{i}}^*(\phi_{\mathfrak{i}} \cdot g_1)$ for each~$\mathfrak{i}$.
+Therefore, the metric
+\[
+h_{\mathfrak{i}} = \hat h_{\mathfrak{i}} + s_{\mathfrak{i}}^*(\phi_{\mathfrak{i}} \cdot g_1)
+\]
+is Riemannian.
+Verify that each $h_{\mathfrak{i}}$ satisfies the last condition.
+
 
 \parbf{\ref{ex:free-free}.}
-Show and use that a smooth map $f\:\Omega\to\RR^d$ is free at $p\in\Omega$ if there is no affine subspace $A$ of dimension less than $\tfrac{n\cdot (n+3)}2$ that has \emph{the second order contact} with $f$ at $p$;
+Show and use that a smooth map $f\:\Omega\to\RR^d$ is free at $p\in\Omega$ if there is no affine subspace $A$ of dimension less than $\tfrac{n\cdot (n+3)}2$ that has \emph{second-order contact} with $f$ at $p$;
 that is,
 \[\rho\circ f(x)=o(|p-x|^2),\]
 where $\rho(z)$ denotes the distance from $z$ to $A$.
 
-Alternatively, express the partial derivatives in one chart thru the partial derivatives in the other chart and make a conclusion.
+Alternatively, express the partial derivatives in one chart in terms of the partial derivatives in another chart and draw the conclusion.
 
 \parbf{\ref{ex:free-dim}.}
-The definition of free map requres linear independance of certian partial derivatives.
+The definition of a free map requires the linear independence of certain partial derivatives.
 Count them.
 
 \parbf{\ref{ex:free-sum}.}
 Spell the definition.
 
 \parbf{\ref{ex:free-twists}.}
-This can be done by calculating the partial derivatives. Alternatively, one may apply the observation with contanct order with an affine subspace from \ref{ex:free-free}.
+This can be done by computing the partial derivatives.
+Alternatively, one may use the observation about the order of contact with an affine subspace from \ref{ex:free-free}.
 
-In the higher dimensional case, one may take
+In the higher-dimensional case, one may take
 \[\bigoplus_{i\le j}\Theta_{x_i+x_j},\]
 where $x_i$ are coordinate functions.
-The same proof should work.
+The same argument should work.
 
 \parbf{\ref{ex:free-composition}.} Use the definition of free map and \ref{ex:free-free}.
 
 \parbf{\ref{ex:hoelder-norm}.} Apply the product rule for derivatives.
 
-\parbf{\ref{ex:Mv}.} Note that the equation can be written as  $L(w)=\hat h$, where $\hat h=h-L(v)$.
-It remains to apply the Nash's lemma.
+\parbf{\ref{ex:embedding-in-ball}.}
+Check that all constructions in the proof of the main theorem can be carried out in an arbitrarily small neighborhood of the origin.
 
-%\parbf{\ref.}
+\begin{wrapfigure}{r}{32mm}
+\vskip-2mm
+\centering
+\includegraphics{mppics/pic-20}
+\end{wrapfigure}
+
+Alternatively, construct an isometric embedding of $\RR^d$ into a small neighborhood of the origin in $\RR^{2 \cdot d}$ (take product of embeddings $\RR\hookrightarrow\RR^2$ shown on the picture)
+and compose it with an isometric embedding $(\Omega, g) \hookrightarrow \RR^d$ provided by the main theorem.
+
+\parbf{\ref{ex:Mv}.}
+Note that the equation can be written as $L(w)=\hat h$, where $\hat h=h-L(v)$.
+Then argue as in Nash’s lemma.

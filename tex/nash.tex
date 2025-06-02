@@ -1,54 +1,59 @@
 \thispagestyle{empty}
-These are polished version of my lecture notes.
-The reader is assumed to be familiar with smooth manifolds (charts, atlas, coverings, partitions of unity, and tensor fields);
-we also use Schauder estimates for solutions of elliptic partial differential equations, but they could be used as a black box.
-I want to thank Michael Gromov, Fedor Nazarov, and Deane Yang for their help.
+
+These are polished versions of my lecture notes.
+The reader is assumed to be familiar with smooth manifolds (charts, atlases, coverings, partitions of unity, and tensor fields).
+We also use
+Schauder estimates,
+Whitney embedding theorem,
+and the existence of fine triangulations of smooth manifolds,
+but these results may be treated as a black box.
+I would like to thank Michael Gromov, Fedor Nazarov, and Deane Yang for their help.
 
 \tableofcontents
 
 \chapter{Formulation and approximation}
 
 Riemannian geometry has two fundamental theorems.
-One is about the existence and uniqueness of Levi-Civita connection and the other refers to the result of John Nash \cite{nash-1956} that \textit{any Riemannian manifold is isometric to a smooth submanifold in a Euclidean space}.
-In other words, Riemannian manifolds can be defined as a submanifolds of Euclidean space.
+One is about the existence and uniqueness of the Levi-Civita connection, and the other is a result of John Nash~\cite{nash-1956}, which states that \textit{any Riemannian manifold is isometric to a smooth submanifold of Euclidean space}.
+In other words, Riemannian manifolds can be defined as submanifolds of Euclidean space.
 
-We will present a simplified proof discovered by Matthias Gün\-ther~\cite{gunter} with minor improvements due to
+We present a simplified proof discovered by Matthias Gün\-ther~\cite{gunter}, with minor improvements by
 Deane Yang,
 Terence Tao, and
-Ralph Howard \cite{yang,tao,howard}.
-Günther's approach was also used in books by Michael Taylor \cite{taylor} and by Qing Han and Jia-Xing Hong \cite{han-hong}.
-
+Ralph Howard~\cite{yang,tao,howard}.
+Günther's approach has also been used in books by Michael Taylor~\cite{taylor} and by Qing Han and Jia-Xing Hong~\cite{han-hong}, but our presentation should be more accessible to students.
 
 \section{Induced metric}
 
-Given a smooth $n$-dimensional manifold $\Omega$, we will denote by $\T\Omega$ and $\T_p\Omega$
-its tangent bundle and tangent space at a point $p\in \Omega$, respectively.
+Given a smooth $n$-dimensional manifold $\Omega$, we denote by $\T\Omega$ and $\T_p\Omega$
+its tangent bundle and the tangent space at a point $p \in \Omega$, respectively. \index{4t@$\T\Omega$, $\T_p\Omega$}
 
-Recall that a \index{metric tensor}\emph{metric tensor}, say $g$, on $\Omega$ is a smooth field of bilinear symmetric forms on  $\T\Omega$.
+Recall that a \index{metric tensor}\emph{metric tensor}, say $g$, on $\Omega$ is a smooth field of symmetric bilinear forms on $\T\Omega$.
 Here and further, \textit{smooth} means~$C^\infty$.
 
-Let $\bar \Omega$ be another smoth manifold and let $w\:\Omega\to\bar\Omega$ be a smooth map.
-Recall that derivative of $w$ in direction of a tangent vector $\vec x\in\T_p\Omega$ is denoted by $\vec x w$ and \index{$\vec x w$}\index{$dw$}\index{$w*g$}
-\[\vec x w =dw(\vec x);\] that is, the derivative of $w$ in the direction $\vec x$ is the \index{differential}\emph{differential} $dw\:\T\Omega\to \T\bar\Omega$ of $w$ evaluated at $\vec x$.
-Note that $\vec x w\in \T_{w(p)}\bar\Omega$.
+Let $\bar\Omega$ be another smooth manifold, and let $w\:\Omega \to \bar\Omega$ be a smooth map.
+Recall that the derivative of $w$ in the direction of a tangent vector $\vec x \in \T_p\Omega$ is denoted by $\vec x w$, and \index{4d@$w^*$, $dw$, $\vec x w$}
+\[\vec x w = dw(\vec x);\]
+that is, the derivative of $w$ in the direction $\vec x$ is the \index{differential}\emph{differential} $dw\:\T\Omega \to \T\bar\Omega$ of $w$, evaluated at $\vec x$.
+Note that $\vec x w \in \T_{w(p)}\bar\Omega$.
 
-Suppose that $\bar \Omega$ is equipped with a metric tensor $\bar g$.
-The metric tensor $g$ on $\Omega$ defined by
-\[g(\vec x,\vec y)=\bar g(\vec x w,\vec yw)\]
-will be is called \index{induced metric tensor}\emph{induced} metric tensor, or \index{pullback}\emph{pullback} of $\bar g$ to $\Omega$.
-This relation can be also written as $g=w^*\bar g$.
-Equivalently, we can say that $w$ is an \index{isometric map}\emph{isometric map} from $(\Omega,g)$ to $(\bar\Omega,\bar g)$.
+Suppose that $\bar\Omega$ is equipped with a metric tensor $\bar g$.
+Then the metric tensor $g$ on $\Omega$ defined by
+\[g(\vec x, \vec y) = \bar g(\vec x w, \vec y w)\]
+is called the \index{induced metric tensor}\emph{induced} metric tensor, or the \index{pullback}\emph{pullback} of $\bar g$ to $\Omega$.
+This relation can also be written as $g = w^*\bar g$.
+Equivalently, we may say that $w$ is an \index{isometric map}\emph{isometric map} from $(\Omega, g)$ to $(\bar\Omega, \bar g)$.
 
 A metric tensor $g$ is called \index{Riemannian metric tensor}\emph{Riemannian} if it is \textit{positive};
-that is, $g(\vec x,\vec x)>0$ for any tangent vector $\vec x\ne 0$.
-A smooth maniflod equipped with a Riemannian metric is called \index{Riemannian manifold}\emph{Riemannian manifold}.
+that is, $g(\vec x, \vec x) > 0$ for any nonzero tangent vector $\vec x$.
+A smooth manifold equipped with a Riemannian metric is called a \index{Riemannian manifold}\emph{Riemannian manifold}.
 
-Note that if $g=w^*\bar g$ is Riemannian metric, then $w$ has to be regular; that is, the differential $d_pw$ has rank $n$ at any point $p\in \Omega$.
+Note that if $g = w^* \bar g$ is a Riemannian metric, then $w$ must be regular; that is, the differential $d_p w$ has rank $n$ at every point $p \in \Omega$.
 In particular, $w$ is an immersion.
 
-The space $\RR^d$ will be considered with metric tensor defined by the standard scalar product defined by
-\[\bar g(\vec x,\vec y)\df\langle x,y\rangle=x_1\cdot y_1+\dots+x_d\cdot y_d,\]
-where $x_i$ and $y_i$ denote the coordinates of vectors $x,y\in\RR^d$.
+We consider the space $\RR^d$ equipped with the metric tensor defined by the standard scalar product:
+\[\bar g(\vec x, \vec y) \df \langle x, y \rangle = x_1 \cdot y_1 + \dots + x_d \cdot y_d,\]
+where $x_i$ and $y_i$ denote the coordinates of vectors $x, y \in \RR^d$.
 Note that $\bar g$ is Riemannian.
 
 \begin{thm}{Main theorem}\label{thm:main}
@@ -58,50 +63,55 @@ Moreover, $d$ can be bounded in terms of $n$.
 
 We will not make any effort to optimize the bound on $d$ in terms of $n$.
 Tracing the estimates in our argument yields $d \le 10 \cdot n^3$.
-The lower bound from the following exercise might be optimal, the known upper bounds are not that far today. %???
+The lower bound given in the following exercise may be optimal; known upper bounds are not much larger.
 
 \begin{thm}{Exercise}\label{ex:n(n+1)/2}
-Show that $d$ in the main theorem has to be at least $n\cdot (n+1)/2$.
+Show that $d$ in the main theorem must be at least $n \cdot (n+1)/2$.
 \end{thm}
 
-
 \begin{thm}{Exercise}\label{ex:notinduced}
-Construct a metric tensor $g$ on the torus $\mathbb{T}^2=\mathbb{S}^1\times \mathbb{S}^1$ such that $g(\vec x,\vec x)\ge 0$ for any tangent vector $\vec x$, but there is no smooth map $w\:\mathbb{T}^2\to \RR^{10}$ with the induced metric $g$.
+Construct a metric tensor $g$ on the torus $\mathbb{T}^2 = \mathbb{S}^1 \times \mathbb{S}^1$ such that $g(\vec x, \vec x) \ge 0$ for all tangent vectors $\vec x$,
+but no smooth map $w\:\mathbb{T}^2 \to \RR^{10}$ induces $g$.
 \end{thm}
 
 \begin{thm}{Exercise}\label{ex:length-preserving}
-Let $w$ be a smooth map from a smooth Riemannian manifold $(\Omega,g)$ to the Euclidean space $\RR^d$.
-Show that $w$ is isometric if and only if it is \index{length-preserving}\emph{length-preserving};
+Let $w$ be a smooth map from a smooth Riemannian manifold $(\Omega, g)$ to $\RR^d$.
+Show that $w$ is isometric if and only if it is \index{length-preserving map}\emph{length-preserving};
 that is, if
-\[\length\gamma=\length(w\circ\gamma)\]
-for any curve $\gamma$ in $\Omega$.
+\[\length \gamma = \length(w \circ \gamma)\]
+for every curve $\gamma$ in $\Omega$.
 \end{thm}
+
+\begin{thm}{Exercise}\label{ex:R2->R}
+Show that there is no length-preserving map $\RR^2\to\RR$.
+\end{thm}
+
 
 \section{Q-form}
 
 Recall that $\Omega$ is a smooth $n$-dimensional manifold.
 
-Let us define a symmetric bilinear form $Q$ that swallows two $C^1$-smooth maps $v,w\:\Omega\to\RR^d$ and spits
-the following metric tensor on~$\Omega$
+We define a symmetric bilinear form $Q$\index{1Q@$Q(v,w)$, $Q_{ij}(v,w)$} that takes two $C^1$-smooth maps $v, w\:\Omega \to \RR^d$ and returns the following metric tensor on~$\Omega$:
 \[
-g(\vec x,\vec y)
+g(\vec x, \vec y)
 \equiv
-\tfrac12\cdot[\langle \vec xv,\vec yw\rangle+\langle \vec xw,\vec yv\rangle].
+\tfrac{1}{2} \cdot [\langle \vec x v, \vec y w \rangle + \langle \vec x w, \vec y v \rangle].
 \]
-Note that if the maps $v$ and $w$ are $C^k$-smooth, then $g=Q(v,w)$ is $C^{k-1}$-smooth.
+Note that if the maps $v$ and $w$ are $C^k$-smooth, then $g = Q(v, w)$ is $C^{k-1}$-smooth.
 
 \begin{thm}{Observation}
-A metric tensor $g$ is induced by a smooth map $w\:\Omega\to\RR^d$
-if and only if $g=Q(w,w)$.
+A metric tensor $g$ is induced by a smooth map $w\:\Omega \to \RR^d$
+if and only if $g = Q(w, w)$.
 \end{thm}
 
-The components of $g=Q(w,w)$ in a local chart
-can be written as
-\[g_{ij}=Q_{ij}(w,w)=\langle \partial_iw,\partial_jw\rangle.\]
-
+The components of $g = Q(w, w)$ in a local chart can be written as
+\[
+g_{ij} = Q_{ij}(w, w) = \langle \partial_i w, \partial_j w \rangle.
+\]
 
 Let $\Omega$ be a smooth manifold.
-Given two smooth maps $v_1\:\Omega\to\RR^{d_1}$ and $v_2\:\Omega\to\RR^{d_2}$, denote by $w=v_1\oplus v_2$ the map
+The direct sum of two maps $v_1\:\Omega\z\to\RR^{d_1}$ and $v_2\:\Omega\z\to\RR^{d_2}$ will be denoted by $w=v_1\oplus v_2$\index{3a@$\RR^r\oplus\RR^s$, $v\oplus w$};
+it is the map
 \[w\:\Omega\to\RR^{d_1+d_2}=\RR^{d_1}\oplus\RR^{d_2}\]
 defined by
 $w\:p\mapsto (v_1(p),v_2(p))$.
@@ -112,88 +122,105 @@ Show that
 for any two smooth maps $v_1\:\Omega\to \RR^{d_1}$ and $v_2\:\Omega\to \RR^{d_2}$.
 \end{thm}
 
-Recall that \index{support}\emph{support} of a map is the closure of the set of its arguments with nonzero values.
+Recall that the \index{support}\emph{support} of a map is the closure of the set where it takes nonzero values.
 
 \begin{thm}{Exercise}\label{ex:plus-oplus}
-Let $v_1,v_2\:\Omega\to \RR^{d}$ be smooth maps defined on a smooth manifold $\Omega$.
-Suppose $v_1$ and $v_2$ have disjoint supports.
+Let $v_1, v_2\:\Omega \to \RR^d$ be smooth maps defined on a smooth manifold $\Omega$.
+Suppose that $v_1$ and $v_2$ have disjoint supports.
 Show that
 \[Q(v_1+ v_2,v_1+ v_2)=Q(v_1,v_1)+Q(v_2,v_2).\]
 \end{thm}
 
 \section{Disc covering}
 
-
-
 Let $\Omega$ be a smooth $n$-dimensional manifold.
-A subset $D$ in $\Omega$ will be called \index{smooth $n$-disc}\emph{smooth $n$-disc} if there is a neighborhood $N$ of $D$ and a smooth embedding $N\to \RR^n$ that sends $D$ to the unit ball.
+A subset $D \subset \Omega$ is called a \index{smooth $n$-disc}\emph{smooth $n$-disc} if there exists a neighborhood $N$ of $D$ and a smooth embedding $N \to \RR^n$ that sends $D$ to the unit ball.
 
 \begin{thm}{Claim}\label{clm:cover}
 Let $\{U_\alpha\}$ be an open cover of a smooth $n$-dimensional manifold $\Omega$.
-Then there is a countable collection of smooth $n$-discs $\{D_{\mathfrak{i}}\}$ in $\Omega$
-such that the following conditon hold.
+Then there exists a countable collection of smooth $n$-discs $\{D_{\mathfrak{i}}\}$ in $\Omega$ such that the following conditions hold:
 
 \begin{subthm}{clm:cover:cover}
-The interiors $D_{\mathfrak{i}}^\circ$ of $D_{\mathfrak{i}}$ cover the whole $\Omega$.
+The interiors $D_{\mathfrak{i}}^\circ$ cover the entire manifold $\Omega$.
 \end{subthm}
 
 \begin{subthm}{clm:cover:inscribed}
-For each $D_{\mathfrak{i}}$ there is $\alpha$ such that $D_{\mathfrak{i}}\subset U_\alpha$.
+For each $D_{\mathfrak{i}}$, there exists $\alpha$ such that $D_{\mathfrak{i}} \subset U_\alpha$.
 \end{subthm}
 
 \begin{subthm}{clm:cover:color}
-The collection $\{D_{\mathfrak{i}}\}$ can be colored into $n+1$ colors such that distinct $n$-discs of the same color are disjoint.
-More presicely, the index set $\mathfrak{I}$ of $\{D_{\mathfrak{i}}\}$ can be subdivided into $n+1$ subsets $\mathfrak{I}_0,\dots,\mathfrak{I}_n$ such that for any $\mathfrak{I}_i$ and any disticnt $\mathfrak{i},\mathfrak{j}\in \mathfrak{I}_i$ we have
-$D_{\mathfrak{i}}\cap D_{\mathfrak{j}}=\emptyset$.
+The collection $\{D_{\mathfrak{i}}\}$ can be colored with $n+1$ colors such that any two distinct $n$-discs of the same color are disjoint.
+More precisely, the index set $\mathfrak{I}$ of $\{D_{\mathfrak{i}}\}$ can be partitioned into $n+1$ subsets $\mathfrak{I}_0, \dots, \mathfrak{I}_n$ such that for any fixed $k$ and any distinct $\mathfrak{i}, \mathfrak{j} \z\in \mathfrak{I}_k$, we have
+$D_{\mathfrak{i}} \cap D_{\mathfrak{j}} = \emptyset$.
 \end{subthm}
 
 \end{thm}
 
-\parit{Proof.}
-Recall that a \index{star}\emph{star} of a vertex $\mathfrak{i}$ in a simplicial complex is a union of all open simplices that have $\mathfrak{i}$ as a vertex.
+\parit{Sketch of proof.}
+Recall that the \index{star}\emph{star} of a vertex $\mathfrak{i}$ in a simplicial complex is the union of all open simplices that have $\mathfrak{i}$ as a vertex.
 
-Choose a triangluation $\tau$ of $\Omega$ such that each star of $\tau$ lies in some of $U_\alpha$.
-(To prove the existance, we may use that any smooth manifold admits a triangulation and then apply \cite[Theorem 35]{whitehead}.)
-Let $\tau'$ be the baricetric subdivision of $\tau$.
+Choose a triangulation $\tau$ of $\Omega$ such that the star of each vertex of $\tau$ lies in some $U_\alpha$.
+(To prove the existence, we may use that any smooth manifold admits a triangulation and then apply \cite[Theorem 35]{whitehead}.)
+Let $\tau'$ be the barycentric subdivision of $\tau$.
 
-Choose a vertex $\mathfrak{i}$ of $\tau'$.
-Note that the star of $\mathfrak{i}$ admits a smooth parametization by an open $n$-disc.
-Passing to a slightly smaller disc in this parametrization produce a smooth $n$-disc $D_{\mathfrak{i}}$.
-This procedures can be arranged in such a way that the ineriors $D_{\mathfrak{i}}^\circ$ for all verteses $\mathfrak{i}$ of $\tau'$ cover $\Omega$.
-Since $D_{\mathfrak{i}}$ lies in the star of $\mathfrak{i}$, we have condition \ref{SHORT.clm:cover:inscribed}.
+{
+
+\begin{wrapfigure}{r}{27mm}
+\vskip-6mm
+\centering
+\includegraphics{mppics/pic-10}
+\caption*{Colored discs in a triangle of $\tau$.}
+\end{wrapfigure}
+
+For each vertex $\mathfrak{i}$ of $\tau'$, observe that its star can be smoothly parametrized by an open $n$-disc.
+By choosing a slightly smaller disc within this parametrization, we obtain a smooth $n$-disc $D_{\mathfrak{i}}$.
+This construction can be done so that the interiors $D_{\mathfrak{i}}^\circ$, for all vertices $\mathfrak{i}$ of $\tau'$, cover $\Omega$.
+Since each $D_{\mathfrak{i}}$ lies within the star of $\mathfrak{i}$, condition \ref{SHORT.clm:cover:inscribed} is satisfied.
+
+}
 
 Recall that each vertex of $\tau'$ corresponds to a simplex in $\tau$.
-Let us color the vertices of $\tau'$ into $n+1$ colors $0,\ldots,n$ so that
-vertex of color $k$ correspond to a $k$-simplex in $\tau$.
-Observe that the induced coloration of the $n$-discs satisffies the condition \ref{SHORT.clm:cover:color}.
+We now color the vertices of $\tau'$ with $n+1$ colors labeled $0, \ldots, n$, assigning color $k$ to each vertex corresponding to a $k$-simplex of $\tau$.
+Observe that this coloring induces a coloring of the $n$-discs that meets condition~\ref{SHORT.clm:cover:color}.
 \qeds
+
+Our sketch relied on the existence of a triangulation of a smooth manifold, which has a tedious proof.
+Alternatively, one can choose a Riemannian metric on $\Omega$, inscribe a covering of small, almost Euclidean balls into $\{U_\alpha\}$, and then argue as in the Besicovitch covering lemma.
+This approach yields a version of the claim with $q$ colors instead of $n+1$, where $q$ depends only on $n$.
+It serves as a replacement for Claim~\ref{clm:cover} in the remainder of our argument.
+
 
 \section{Nash's twist}
 
+\begin{wrapfigure}{r}{30mm}
+\vskip-8mm
+\centering
+\includegraphics{mppics/pic-15}
+\end{wrapfigure}
+
 Let $\phi$ and $\psi$ be smooth functions on a smooth manifold $\Omega$.
 Given $r>0$, denote by $\SSS^1_r$ the circle of radius $r$ in $\RR^2$.
-The \index{Nash's twist}\emph{Nash's twist} $\Theta\:\Omega \to \RR^2$ of the triple $(r,\phi,\psi)$ is defined as the composition
+\index{Nash's twist}\emph{Nash's twist} $\Theta\:\Omega \to \RR^2$ of the triple $(r,\phi,\psi)$ is defined as the composition
 \[\Omega\xrightarrow{\psi}\RR\xrightarrow{\ell_r}\SSS^1_r\xrightarrow{\times \phi}\RR^2,\]
 where $\ell_r\:\RR\to\SSS^1_r$ is a length-preserving covering map, say
 \[\ell_r(x)=(r\cdot\cos\tfrac xr,r\cdot\sin\tfrac xr),\]
-and $\times \phi$ denotes the multiplication by $\phi$; so
+and $\times \phi$ denotes multiplication by $\phi$; so
 \[\Theta(x)
 \df
 \phi(x)\cdot (\ell_r\circ \psi(x)).\]
 
-Let us denote by \index{$(d\psi)^2$}$(d\psi)^2$ the metric tensor induced by
+Let us denote by \index{4d@$(d\psi)^2$}$(d\psi)^2$ the metric tensor induced by
 $\psi\:\Omega\to\RR$; that is,
 \[(d\psi)^2(\vec x,\vec y)\df d\psi(\vec x)\cdot d \psi(\vec y)=(\vec x\psi)\cdot (\vec y\psi).\]
 
-
 \begin{thm}{Claim}\label{clm:twist}
-The Nash's twist $\Theta$ for triple $(r,\phi,\psi)$ induces the metric
+Nash's twist $\Theta$ for the triple $(r,\phi,\psi)$ induces the metric
 \[g=\phi^2\cdot (d\psi)^2+r^2\cdot(d\phi)^2.\]
 
 \end{thm}
 
 \parit{Computations.}
-Suppose that $\vec x$ is a tangent vector on $\Omega$, then
+Suppose that $\vec x$ is a tangent vector on $\Omega$. Then,
 \begin{align*}
 \vec x\Theta&=\vec x(\phi\cdot \ell_r\circ \psi)=
 \\
@@ -211,24 +238,24 @@ The following statement can be regarded as an approximate version of the main th
 
 \begin{thm}{Proposition}\label{prop:approx-nash}
 Let $g$ be a Riemannian metric on a smooth $n$-manifold $\Omega$.
-Then there is a metric tensor $h$ on $\Omega$ and one-parameter family of smooth maps $w_t\:\Omega\to \RR^d$
+Then there exists a metric tensor $h$ on $\Omega$ and a one-parameter family of smooth maps $w_t\:\Omega \to \RR^d$
 such that
 \[Q(w_t,w_t)=g+t\cdot h\]
 for any $t>0$.
 \end{thm}
 
-Note that $Q(w_t,w_t)$ converges to $g$ as $t\to0$.
-Therefore, it is tempting to pass to the limit of $w_t$ as $t\to 0$.
-However, as you will see, the maps $w_t$ constructed in the proof converge to a constant;
-so the limit map does not solve \ref{thm:main}.
+Note that $Q(w_t, w_t)$ converges to $g$ as $t \to 0$.
+Therefore, one might be tempted to take the limit of $w_t$ as $t \to 0$.
+However, as we will see, the maps $w_t$ constructed in the proof converge to a constant;
+thus, the limit does not solve \ref{thm:main}.
 
-Let $w\:\Omega\to \RR^d$ be a smooth map.
-Suppose that $w_1,\dots,w_d$ are coordinate functions of $w$.
+Let $w\:\Omega \to \RR^d$ be a smooth map.
+Suppose that $w_1,\dots,w_d$ are the coordinate functions of $w$.
 Then the induced metric tensor $g$ can be written as
 \[g=Q(v,w)=(dw_1)^2+\dots+(dw_d)^2.\eqlbl{eq:nash=dw^2}\]
 
-In order to prove the main theorem, we need to find functions $w_1,\dots,w_d\:\Omega\to\RR$ that solves \ref{eq:nash=dw^2} for a given Riemannian metric.
-The weaker form \ref{eq:g=phidf} of \ref{eq:nash=dw^2} will play a key role in the proof of \ref{prop:approx-nash}.
+In the main theorem, we need to find functions $w_1, \z\dots, w_d \: \Omega \to \RR$ that satisfy equation~\ref{eq:nash=dw^2} for a given Riemannian metric $g$.
+The weaker form \ref{eq:g=phidf} of this equition will play a key role in the proof of \ref{prop:approx-nash}.
 
 \begin{thm}{Proposition}\label{prop:phi-f}
 Let $(\Omega,g)$ be a compact $n$-dimensional Riemannian manifold.
@@ -240,19 +267,19 @@ such that
 Moreover, we can assume that $d\le 2\cdot (n+1)\cdot n^2$.
 \end{thm}
 
-
 \parit{Proof.}
-The metric tensor $g$ can be written in local cart $(x_1,\dots,x_n)$
-as
-\[g=\sum_{i, j}g_{ij}\cdot dx_i\cdot dx_j,
-\eqlbl{g=sum}\]
-where $g_{ij}=g_{ji}$ are smooth functions of $(x_1,\dots,x_n)$.
+The metric tensor $g$ can be written in local coordinates $(x_1,\dots,x_n)$ as
+\[
+g = \sum_{i, j} g_{ij} \cdot dx_i \cdot dx_j,
+\eqlbl{g=sum}
+\]
+where $g_{ij} = g_{ji}$ are smooth functions of $(x_1,\dots,x_n)$.
 
-Since $g$ is Riemannian, at a given point $p\in\Omega$, we can choose a chart so that $\partial_i$ are orthonormal at $p$;
-in other words, $g_{ii}=1$ and
-$g_{ij}=0$ at $p$ for all $i\ne j$.
-Since $g_{ij}$ are smooth, given $\eps>0$, we can choose a neighborhood $U\ni p$ such that
-\[g_{ii}\lessgtr 1\pm \eps
+Since $g$ is Riemannian, at any point $p \in \Omega$, we can choose a chart so that the vectors $\partial_i$ are orthonormal at $p$;
+that is, $g_{ii} = 1$ and $g_{ij} = 0$ at $p$ for all $i \ne j$.
+Because the functions $g_{ij}$ are smooth, for any $\eps > 0$, we can find a neighborhood $U \ni p$ such that
+\[
+g_{ii} \lessgtr 1 \pm \eps
 \quad\text{and}\quad
 g_{ij}\lessgtr \pm \eps
 \eqlbl{alpha=1}\]
@@ -262,16 +289,16 @@ Observe that
 \[\pm dx_i\cdot dx_j=\tfrac12\cdot (dx_i\pm dx_j)^2-\tfrac12\cdot(dx_i)^2-\tfrac12\cdot(dx_j)^2.\]
 Let us plug this formula in \ref{g=sum} and take \ref{alpha=1} into account.
 Assuming that $\eps$ is small, we will get that $g$ is a linear combination with positive coefficents of the metric tensors
-$(dx_i)^2$ and $(dx_i\pm dx_j)^2$ for all $i$ and $j$.
-In other words, we can take the functions $x_i$ and $x_i\pm x_j$ for all $i< j$ as our functions $\psi_1,\dots,\psi_d$ (these should be extened smoothly to the whole manifold)
+$(dx_i)^2$ and $(dx_i\pm dx_j)^2$ for all $i$ and~$j$.
+In other words, we can take the functions $x_i$ and $x_i\pm x_j$ for all $i< j$ as our functions $\psi_1,\dots,\psi_d$ (these should be extended smoothly to the whole manifold)
 and find $\phi_1,\dots,\phi_d$ such that \ref{eq:g=phidf} holds in a neighborhood of~$p$.
 
 Applying a partition-of-unity argument, we get the global statement.
 
-Note that it is sufficient to take $n^2$ functions in each chart;
-so, if $\Omega$ is covered by $m$ charts, then one can take $d=n^2\cdot m$ functions.
-Moreover, the same holds if the charts can be colored in $m$ colors such that distinct chars of the same color do not intersect.
-Therefore, Claim~\ref{clm:cover} implies that $d= n^2\cdot (n+1)$ is sufficient.
+It suffices to take $n^2$ functions in each chart.
+So, if $\Omega$ is covered by $m$ charts, then we may take $d = n^2 \cdot m$.
+Moreover, the same bound applies if the charts can be colored using $m$ colors such that charts of the same color are disjoint.
+Therefore, Claim~\ref{clm:cover} implies that $d \z= n^2 \cdot (n+1)$ suffices.
 \qeds
 
 \parit{Proof of \ref{prop:approx-nash}.}
@@ -286,7 +313,7 @@ $h=(d\phi_1)^2+\dots+(d\phi_d)^2$.
 
 \section{A pseudoeuclidean degression}
 
-Let us denote by $\RR^r\ominus\RR^s$ the pseudoeuclidean space with signature $(r,s)$;
+Let us denote by $\RR^r\ominus\RR^s$\index{3c@$\RR^r\ominus\RR^s$, $v\ominus w$} the pseudoeuclidean space with signature $(r,s)$;
 that is, the space $\RR^{r+s}$ with the scalar product
 \[\langle x,y\rangle=x_1\cdot y_1+\dots+x_s\cdot y_s-x_{s+1}\cdot y_{s+1}-\dots-x_{s+r}\cdot y_{s+r},\]
 where $x_i$ and $y_i$ denote the coordinates of vectors $x$ and $y$ in $\RR^{r+s}$.
@@ -295,19 +322,18 @@ where $x_i$ and $y_i$ denote the coordinates of vectors $x$ and $y$ in $\RR^{r+s
 Show that any metric $g$ on a smooth manifold $\Omega$ is induced by a smooth embedding $\Omega\to \RR^r\ominus\RR^s$ for some large $r$ and $s$.
 \end{thm}
 
-
 \parit{Solution based on Nash's theorem.}
-Note that $g=g_1-g_2$ for two Riemannian metrics $g_1$ and $g_2$ on $\Omega$.
-By Nash's theorem, we can find two smooth embeddings $w_1$ and $w_2$ of $\Omega$ to $\RR^d$ with induced metrics $g_1$ and $g_2$ respectively.
+Note that any metric $g$ can be written as the difference $g = g_1 - g_2$ of two Riemannian metrics $g_1$ and $g_2$ on $\Omega$.
+By Nash's theorem, we can find two smooth embeddings $w_1, w_2 \: \Omega \to \RR^d$ whose induced metrics are $g_1$ and $g_2$, respectively.
 It remains to observe that $g$ is induced by
 \[w_1\ominus w_2\:p\mapsto(w_1(p),w_2(p))\in \RR^d\ominus\RR^d.\]
 \qedsf
 
-The above solution uses the main theorem, which we did not prove.
-The following solution is more direct; it uses only Nash's twist.
+The above solution uses the main theorem, which we have not yet proved.
+The following solution is more direct and relies only on Nash's twist.
 
 \parit{Simpler solution.}
-Assume $g$ is Reimannian and $\phi_1,\z\dots,\phi_d,\psi_1,\z\dots,\psi_d$ are provided by \ref{prop:phi-f}.
+Assume $g$ is Riemannian, and let $\phi_1,\z\dots,\phi_d,\psi_1,\z\dots,\psi_d$ be provided by \ref{prop:phi-f}.
 Let $\Theta_i$ be Nash's twist for the triple $(1,\phi_i,\psi_i)$, and
 \begin{align*}
 h&=(d\phi_1)^2+\dots+(d\phi_d)^2,
@@ -316,67 +342,71 @@ h&=(d\phi_1)^2+\dots+(d\phi_d)^2,
 \\
 \phi&=\phi_1\oplus \dots\oplus \phi_d\:\Omega\to \RR^{d}.
 \end{align*}
-According to \ref{clm:twist}, $\Theta$ induces $g+h$.
+According to \ref{clm:twist}, the map $\Theta$ induces $g+h$.
 Note that $\phi$ induces $h$.
 Therefore $w=\Theta\ominus \phi\:\Omega\to \RR^{2\cdot d}\ominus\RR^d$ induces $g$.
 
-To solve the general case, present the metric as a difference of two Reiamannian metrics $g=g_1-g_2$.
-From above, there are a smooth embeddings $w_1$ and $w_2$ into pseudoeuclidean spaces that induces $g_1$ and $g_2$ respectively.
-It remains to observe that $w_1\ominus w_2$ induces $g$.
+To handle the general case, express the metric as a difference of two Riemannian metrics: $g = g_1 - g_2$.
+As shown above, there exist smooth embeddings $w_1$ and $w_2$ into pseudoeuclidean spaces inducing $g_1$ and $g_2$, respectively.
+It follows that $w_1 \ominus w_2$ induces $g$.
 \qeds
 
 \begin{thm}{Exercise}\label{ex:f-ominus-phi}
-Let $\psi$ be a smooth isometric immersion of a Reimannian menifold $(\Omega ,g)$ into the sphere $\SSS^{d-1}\subset\RR^d$ and let $\phi\:\Omega \z\to \RR$ is a smooth function.
-Show that $\phi^2\cdot g$ is induced by $\phi\cdot \psi\ominus \phi$.
+Let $\psi$ be a smooth isometric immersion of a Riemannian manifold $(\Omega, g)$ into the sphere $\SSS^{d-1} \subset \RR^d$, and let $\phi \: \Omega \to \RR$ be a smooth function.
+Show that $\phi^2 \cdot g$ is induced by the map $\phi \cdot \psi \ominus \phi$.
 \end{thm}
 
 \chapter{Reductions}
 
 In this lecture, we reduce the main theorem (\ref{thm:main}) to its restricted version (\ref{thm:restricted}),
-which is immersion theorem for very special metrics on tori.
-The reducton is made in the follwing steps:
+which is an immersion theorem for very special metrics on tori.
+The reduction proceeds in the following steps:
 
-\begin{itemize}
-\item In Section~\ref{sec:any-metric}, we show that the restricted theorem (\ref{thm:restricted}) implies the immersion theorem for any metric on torus (\ref{thm:any-metric}).
-\item In Section~\ref{thm:embedding}, we show that immersion theorem for torus (\ref{thm:any-metric}) implies the embeding theorem for torus (\ref{clm:embedding}).
-\item In Section~\ref{thm:compact}, we show that if main theorem holds for tori (\ref{clm:embedding}), then it holds for any compact manifolds (\ref{clm:compact}).
-\item In Section~\ref{sec:compact>noncompact}, we show that if the main theorem holds for compact manifolds (\ref{clm:compact}), then it holds all manifolds.
-\end{itemize}
-
+\begin{center}
+Restricted theorem (\ref{thm:restricted}) \\
+$\Big\Downarrow$ \ref{sec:any-metric}\\
+Immersion theorem for tori (\ref{thm:any-metric})\\
+$\Big\Downarrow$ \ref{thm:embedding}\\
+Embeding theorem for tori (\ref{clm:embedding})\\
+$\Big\Downarrow$ \ref{thm:compact}\\
+Embeding theorem for compact manifolds (\ref{clm:compact})\\
+$\Big\Downarrow$ \ref{sec:compact>noncompact}\\
+The main theorem (\ref{thm:main})
+\end{center}
 
 \section{Restricted theorem}
 
 Let us denote by $\TT^n=\RR^n/\ZZ^n$ the $n$-dimensional torus.
 
 The torus is a smooth manifold;
-it comes with a global periodic coordinates which can be used to define the partial derivatives $\partial_1,\dots,\partial_n$.
+it comes with global periodic coordinates, which can be used to define the partial derivatives $\partial_1, \dots, \partial_n$.
 A metric tensor on $\TT^n$ can be written in these coordinates;
-so we can (and will) think that a metric tensor is a smooth map $g\:\TT^n\to\RR^N$;
-here and further $N\df\frac{n\cdot(n+1)}2$.
-These observations make it easier to work with torus, then with general manifold.
+therefore, we can (and will) regard a metric tensor as a smooth map $g\:\TT^n \to \RR^N$,
+where $N \df \frac{n(n+1)}{2}$.
+These observations make it easier to work with the torus than with a general manifold.
 
 \begin{thm}{Restricted theorem}\label{thm:restricted}
-There is a Riemannian metric $g_0$ on $\TT^n$ such that for any metric tensor $h$ on $\TT^n$
- the metric $g_0+t\cdot h$ is induced by a smooth map $\TT^n\z\to \RR^d$ for any sufficiently small $t>0$.
+There exists a Riemannian metric $g_0$ on $\TT^n$ such that, for any metric tensor $h$ on $\TT^n$,
+the metric $g_0+t \cdot h$ is induced by a smooth map $\TT^n\to \RR^d$ for all sufficiently small $t > 0$.
 Moreover, the dimension $d$ can be bounded in terms of~$n$.
 \end{thm}
 
 This theorem will be proved in the next lecture; see Section~\ref{sec:perturbation}.
 
-\section{General metric on torus}\label{sec:any-metric}
+\section{General metric on the torus}\label{sec:any-metric}
 
 \begin{thm}{Claim}\label{thm:any-metric}
-Given a Riemannian metric $g$ on $\TT^n$ there is an isometric immersion $(\TT^n,g)\z\looparrowright\RR^d$ for some $d$ that depends only on~$n$.
+Given a Riemannian metric $g$ on $\TT^n$, there exists an isometric immersion $(\TT^n, g) \looparrowright \RR^d$ for some $d$ depending only on~$n$.
 \end{thm}
 
-\parit{Proof.}
+\parit{Reduction of \ref{thm:any-metric} to \ref{thm:restricted}.}
 Let $g_0$ be the metric from \ref{thm:restricted}.
-Applying rescaling if nesesaury, we can assume that $g_0<g$; that is, $g_0(\vec x,\vec x)<g(\vec x,\vec x)$ for any tangent vector $\vec x\ne 0$.
-In particular, $g_1=g-g_0$ is a Riemannian metric.
+After rescaling if necessary, we may assume that $g_0<g$; that is, $g_0(\vec x,\vec x)<g(\vec x,\vec x)$ for any nonzero tangent vector $\vec x$.
+In particular, the difference $g_1=g-g_0$ is a Riemannian metric.
 
-By \ref{prop:approx-nash}, we have a metric $h$ such that for any $t>0$ there is a smooth map $w_1\:\TT^n\to \RR^{d_1}$ that induces $g_1+t\cdot h$.
+By \ref{prop:approx-nash}, there exists a metric tensor $h$ such that for any $t>0$, there is a smooth map $w_1\:\TT^n\to \RR^{d_1}$ that induces $g_1+t\cdot h$.
 
-By \ref{thm:restricted}, for any small $t>0$ there is a smooth map $w_0\:\TT^n\to \RR^{d_0}$ such that induce metric $g_0-t\cdot h$.
+By \ref{thm:restricted}, for any small $t>0$, there is a smooth map $w_0\:\TT^n\to \RR^{d_0}$ that induces the metric $g_0-t \cdot h$.
 
 By \ref{ex:oplus}, the metric tensor
 \[g=g_0-t\cdot h+g_1+t\cdot h\]
@@ -386,16 +416,16 @@ is induced by the map $w_0\oplus w_1$.
 \section{From immersion to embedding}\label{thm:embedding}
 
 \begin{thm}{Claim}\label{clm:embedding}
-Given a Riemannian metric $g$ on $\TT^n$, there is an isometric embedding $(\TT^n,g)\z\hookrightarrow\RR^d$ for some $d$ that depends only on~$n$.
+Given a Riemannian metric $g$ on $\TT^n$, there is an isometric embedding $(\TT^n,g)\hookrightarrow\RR^d$ for some $d$ depending only on~$n$.
 \end{thm}
 
-\parit{Proof.}
+\parit{Reduction of \ref{clm:embedding} to \ref{thm:any-metric}.}
 Choose your favorite smooth embedding $w_1\:\TT^n\to \RR^{n+1}$.
 Let $g_1\z=Q(w_1,w_1)$; in other words, $g_1$ is the metric induced by $w_1$.
 Since $w_1$ is an embedding, $g_1$ must be Riemannian.
 
 We can assume that $g>g_1$; in other words the metric $g_2=g-g_1$ is Riemannian.
-If this is not the case, pass to a rescaling $\eps\cdot w_1$ of $w_1$ for small $\eps>0$.
+If this is not the case, replace $w_1$ with its rescaling $\varepsilon \cdot w_1$ for sufficiently small $\varepsilon > 0$.
 
 By~\ref{thm:any-metric}, we have a smooth isometric immersion $w_2\:(\TT^n,g_2)\to \RR^d$.
 Note that
@@ -407,56 +437,53 @@ Indeed, $w$ is isometric by \ref{ex:oplus}, and it is an embedding since $w_1$ i
 \section{From torus to compact}\label{thm:compact}
 
 \begin{thm}{Claim}\label{clm:compact}
-Any compact $n$-dimensional Riemannian manifold $(\Omega,g)$ admits an isometric embeddng into $\RR^d$ for some $d$ that depends only on $n$.
+Any compact $n$-dimensional Riemannian manifold $(\Omega,g)$ admits an isometric embedding into $\RR^d$ for some $d$ that depends only on $n$.
 \end{thm}
 
-This part of reduction relies on the following exercise.
+This step in the reduction relies on the following exercise:
 
 \begin{thm}{Exercise}\label{ex:torus-riemn}
-Let $\Omega$ be a closed submanifold in the torus $\TT^n$.
-Show that any Riemannian metric on $\Omega$ is a restriction of a Riemannian metric on $\TT^n$.
+Let $\Omega$ be a closed submanifold of the torus $\TT^n$.
+Show that any Riemannian metric on $\Omega$ is the restriction of a Riemannian metric on $\TT^n$.
 \end{thm}
 
-\parit{Reduction \ref{clm:compact} to \ref{clm:embedding}.}
-Since $\Omega$ is compact, it can be smoothly embedded in $\TT^{2\cdot n+1}$.
+\parit{Reduction of \ref{clm:compact} to \ref{clm:embedding}.}
+Since $\Omega$ is compact, it can be smoothly embedded into $\TT^{2n+1}$.
 
 Indeed, by the Whitney embedding theorem, there is a smooth embedding $\iota\:\Omega\z\to \RR^{2\cdot n+1}$.
 Let $g_1$ be the metric on $\Omega$ induced by $\iota$.
-Since $\Omega$ is compact, we can assume in addition that $g>g_1$ (that is, $g-g_1$ is Riemannian) and its image lies in a small ball;
-if not, then pass to the rescaling $\eps\cdot\iota$ of $\iota$ for small $\eps>0$.
-Composing $\iota$ with the covering map $\RR^{2\cdot n+1}\to \TT^{2\cdot n+1}$, we get the required embedding.
+Since $\Omega$ is compact, we can assume (after rescaling if necessary) that $g>g_1$; that is, $g-g_1$ is Riemannian, and the image lies in a small ball.
+Composing $\iota$ with the covering map $\RR^{2\cdot n+1}\to \TT^{2\cdot n+1}$, we obtain the required embedding into the torus.
 
-Now, we can assume that $\Omega$ is a compact submanifold of $\TT^{2\cdot n+1}$.
+Thus, we may  assume that $\Omega$ is a compact submanifold of $\TT^{2\cdot n+1}$.
 By \ref{ex:torus-riemn}, any Riemannian metric $g$ on $\Omega$ is the restriction of a Riemannian metric, say $\bar g$, on $\TT^{2\cdot n+1}$.
 
-Choose an isometric smooth embedding $w\: (\TT^{2\cdot n+1},\bar g)\to\RR^d$ provided by \ref{clm:embedding}.
-Observe that the composition $f\circ\iota\:(\Omega,g)\to \RR^d$ is isometric.
+Let $w\: (\TT^{2\cdot n+1}, \bar g) \to \RR^d$ be an isometric smooth embedding provided by \ref{clm:embedding}.
+Then the composition $f = w \circ \iota\:(\Omega, g) \to \RR^d$ is an isometric embedding.
 \qeds
 
-\section{From compact to noncomapct}\label{sec:compact>noncompact}
+\section{From compact to noncompact}\label{sec:compact>noncompact}
 
-
-This part is  known as \index{Nash's reduction}\emph{Nash's reduction};
-it appears in \cite[Part D]{nash-1956}
-Let us start with two exercises.
+This step is known as \index{Nash's reduction}\emph{Nash's reduction};
+it appears in \cite[Part D]{nash-1956}.
+Let us begin with two exercises.
 
 \begin{thm}{Exercise}\label{ex:short-embedding}
 Let $\Omega$ be a connected noncompact manifold.
-Show that it admits a smooth proper bounded embedding in $\RR^d\setminus\{0\}$.
+Show that it admits a smooth, proper, bounded embedding into $\RR^d\setminus\{0\}$.
 Moreover, given a Riemannian metric $g$ on $\Omega$, we can assume that the induced metric of this embedding is smaller than $g$.
 \end{thm}
 
 \begin{thm}{Exercise}\label{ex:sum}
-Suppose that $\{D_{\mathfrak{i}}\}$ is a collection of smooth $n$-discs on a smooth $n$-dimensional maifold $\Omega$
-provided by \ref{clm:cover}.
-Show that for any Riemannian metric $g$ on $\Omega$ there is a collection of Riemannian metrics Riemannian metric $h_{\mathfrak{i}}$ on $\SSS^n$ and a smooth maps $r_h\:\Omega\to \SSS^n$ such that
+Suppose $\{D_{\mathfrak{i}}\}$ is a collection of smooth $n$-discs in a smooth $n$-dimensional manifold $\Omega$ provided by \ref{clm:cover}.
+Show that for any Riemannian metric $g$ on $\Omega$, there exists a collection of Riemannian metrics $h_{\mathfrak{i}}$ on $\SSS^n$ and smooth maps $r_{\mathfrak{i}}\:\Omega \to \SSS^n$ such that:
 
 \begin{subthm}{}
-The restriction $r_{\mathfrak{i}}|_{D_{\mathfrak{i}}^\circ}$ is a smooth embeeding,
+The restriction $r_{\mathfrak{i}}|_{D_{\mathfrak{i}}^\circ}$ is a smooth embedding.
 \end{subthm}
 
 \begin{subthm}{}
-$r_{\mathfrak{i}}$ maps $\Omega\setminus D_{\mathfrak{i}}^\circ$ to the south pole of $\SSS^n$
+$r_{\mathfrak{i}}$ maps $\Omega\setminus D_{\mathfrak{i}}^\circ$ to the south pole of $\SSS^n$.
 \end{subthm}
 
 \begin{subthm}{}
@@ -465,17 +492,17 @@ $g=\sum_{\mathfrak{i}} r_{\mathfrak{i}}^*h_{\mathfrak{i}}$.
 \end{thm}
 
 \parit{Reduction of \ref{thm:main} to \ref{clm:compact}.}
-Let $w\:\Omega\to\RR^d$ be an embedding provided by \ref{ex:short-embedding} for metric $\tfrac12\cdot g$.
+Let $w\:\Omega\to\RR^d$ be an embedding provided by \ref{ex:short-embedding} for the metric $\tfrac12\cdot g$.
 Let $g_0$ be the metric induced by $w$;
 note that $g_1=g-g_0$ is Riemannian.
 
-Let us apply \ref{ex:sum} to $(\Omega,g_1)$;
-denote by $r_{\mathfrak{i}}$, $h_{\mathfrak{i}}$, and $D_{\mathfrak{i}}$ the obtained maps, metrics and smooth $n$-discs.
-Since $\SSS^n$ is compact, there is an isometric embedding $w_{\mathfrak{i}}\:(\SSS^n,h_{\mathfrak{i}})\z\to \RR^d$;
-we can assume that $w_{\mathfrak{i}}\circ r_{\mathfrak{i}}$ maps all points in $\Omega\setminus D_{\mathfrak{i}}^\circ$ to the origin on $\RR^d$;
-in particular, each composition $w_{\mathfrak{i}}\circ r_{\mathfrak{i}}$ has compact support in $D_{\mathfrak{i}}^\circ$.
+Apply \ref{ex:sum} to $(\Omega,g_1)$;
+let $r_{\mathfrak{i}}$, $h_{\mathfrak{i}}$, and $D_{\mathfrak{i}}$ be the resulting maps, metrics, and smooth $n$-discs.
+Since $\SSS^n$ is compact, there exists an isometric embedding $w_{\mathfrak{i}}\: (\SSS^n, h_{\mathfrak{i}}) \to \RR^d$;
+we may assume that $w_{\mathfrak{i}} \circ r_{\mathfrak{i}}$ maps all points in $\Omega\setminus D_{\mathfrak{i}}^\circ$ to the origin in $\RR^d$.
+In particular, each composition $w_{\mathfrak{i}} \circ r_{\mathfrak{i}}$ has compact support in $D_{\mathfrak{i}}^\circ$.
 
-Let $\mathfrak{I}_0,\dots,\mathfrak{I}_{n}$ be the coloring of the index set provided by \ref{clm:cover}.
+Let $\mathfrak{I}_0,\dots,\mathfrak{I}_n$ be the coloring of the index set provided by \ref{clm:cover}.
 Set
 \[s_i=\sum_{\mathfrak{i}\in \mathfrak{I}_i} w_{\mathfrak{i}}\circ r_{\mathfrak{i}}
 \quad\text{and}\quad
@@ -491,50 +518,47 @@ Q(w\oplus s,w\oplus s)&=Q(w,w)+\sum_i Q(s_i,s_i)=
 \\
 &=g_0+g_1=g.
 \end{align*}
-Since $w$ is an emebdding, so is $w\oplus s$, hence the result.
+Since $w$ is an embedding, so is $w \oplus s$, and the result follows.
 \qeds
 
-\chapter{The proofs}
+\chapter{Perturbation}
 
-In this lecture we formulate and prove three lemmas that imply therestricted version of the main theorem \ref{thm:restricted} and therefore the main theorem \ref{thm:main}.
+In this lecture, we formulate and prove three lemmas that imply the restricted version of the main theorem (\ref{thm:restricted}), and therefore the main theorem (\ref{thm:main}).
 
-\section{Free maps}
+\section{Free Maps}
 
-As before, $\Omega$ is a smooth $n$-dimensional manifold.
+As before, let $\Omega$ be a smooth $n$-dimensional manifold.
 
-Recall that a $C^1$-map $f\:\Omega \to \RR^d$ is called \index{regular map}\emph{regular} if its differential $df$ has rank $n$ at each point.
-In other words, for any point $p\in \Omega$ and some (and therefore any) local coordinates at $p$ all first-order partial derivatives $\partial_1f,\dots,\partial_nf$ are linearly independent.
+Recall that a $C^1$-map $f\:\Omega \to \RR^d$ is called a \index{regular map}\emph{regular map} if its differential $df$ has rank $n$ at every point.
+In other words, for any point $p\in \Omega$ and for some (and therefore any) choice of local coordinates at $p$, the first-order partial derivatives $\partial_1 f,\dots,\partial_n f$ are linearly independent.
 
-A $C^2$-map $f\:\Omega \to \RR^d$ is called \index{free map}\emph{free} (or \emph{two-regular}) if an analogous property holds for first \textit{and second} partial derivatives;
-that is, for any point $p\in \Omega$ and some (and therefore any) local coordinates at $p$ all $n+\tfrac{n\cdot(n+1)}{2}$ partial derivatives 
+A $C^2$ map $f\:\Omega \to \RR^d$ is called a \index{free map}\emph{free map} (or \emph{two-regular map}) if an analogous property holds for both first- and second-order partial derivatives:
+that is, for any point $p\in \Omega$ and for some (and therefore any) local coordinates at $p$, the collection of $n + \tfrac{n(n+1)}{2}$ partial derivatives
 $\partial_if$,
 $\partial_{ij}f$ for $i\le j$
 are linearly independent.
 
-
 \begin{thm}{Exercise}\label{ex:free-free}
-Show that freeness of map $f\:\Omega \to \RR^d$ is independed on choice of charts on $\Omega$.
+Show that the freeness of a map $f\:\Omega \to \RR^d$ does not depend on the choice of charts on $\Omega$.
 \end{thm}
 
-
 \begin{thm}{Exercise}\label{ex:free-dim}
-Show that there is no free map $\mathbb{S}^2
-\to \RR^4$.
+Show that there is no free map $\mathbb{S}^2\to \RR^4$.
 \end{thm}
 
 \begin{thm}{Exercise}\label{ex:free-sum}
 Let $f\:\Omega\to \RR^{d_1}$ and $w\:\Omega\to \RR^{d_2}$ be smooth maps defined on a smooth manifold $\Omega$.
-Show that if $f$ is free, then so is $f\oplus w$.
+Show that if $f$ is free, then so is the map $f \oplus w$.
 \end{thm}
 
-Let $\psi$ be a smooth function on a manifold $\Omega$.
-Denote by $\Theta_\psi$ the smooth map $\Omega\to \RR^2$, defined by
+Let $\psi$ be a smooth function on $\Omega$.
+Define the map $\Theta_\psi\:\Omega \to \RR^2$ by
 \[\Theta_\psi(x)=(\cos [\psi(x)],\sin [\psi(x)]).\]
+
 In other words, $\Theta_\psi$ is the composition of two maps
 \[\Omega\xrightarrow{\psi}\RR\xrightarrow{\ell}\SSS^1\subset\RR^2,\]
-where $\ell\:\RR\to\SSS^1$ is the natural covering maps $y\mapsto (\cos y,\sin y)$.
-Note that $\Theta_\psi$ is the Nash's twist for the triple $(1,1,\psi)$.
-
+where $\ell\:\RR\to\SSS^1$ is the natural covering map $y\mapsto (\cos y,\sin y)$.
+Note that $\Theta_\psi$ is Nash's twist for the triple $(1,1,\psi)$.
 
 \begin{thm}{Exercise}\label{ex:free-twists}
 Consider the $(x,y)$-plane $\RR^2$.
@@ -542,56 +566,52 @@ Show that the map
 \[\Theta_x\oplus \Theta_y\oplus \Theta_{x+y}\:\RR^2\to \RR^6=\RR^2\oplus\RR^2\oplus\RR^2\]
 is free.
 
-Generalize the statement to maps $\RR^n\to \RR^{n\cdot(n+1)}$. 
+Generalize this statement to maps $\RR^n\to \RR^{n(n+1)}$.
 \end{thm}
 
 \begin{thm}{Exercise}\label{ex:free-composition}
-Let $w\:\Omega \to \RR^s$ be a regular smooth map and $f\:\RR^s\z\to \RR^d$ is free.
+Let $w\:\Omega \to \RR^s$ be a regular smooth map, and let $f\:\RR^s\z\to \RR^d$ be a free map.
 Show that the composition $f\circ w\:\Omega \to \RR^d$ is free.
 
 Apply the Whitney embedding theorem and \ref{ex:free-twists} to conclude that any smooth manifold admits a free embedding into a Euclidean space.
 \end{thm}
 
-\section{Formulations}
+\section{Key lemmas}
 
-
-Recall that our torus $\TT^n=\RR^n/\ZZ^n$ is equipped with of periodic coordinates and
-globally defined partial derivatives $\partial_1,\dots,\partial_n$;
-furthermore, a metric tensor on $\TT^n$ can be described by a smooth map $g\:\TT^n\to\RR^N$, where $N\df\frac{n\cdot(n+1)}2$.
+Recall that our torus $\TT^n=\RR^n/\ZZ^n$ is equipped with periodic coordinates and globally defined partial derivatives $\partial_1,\dots,\partial_n$.
+Furthermore, a metric tensor on $\TT^n$ can be described by a smooth map $g\:\TT^n\to\RR^N$, where $N\df\frac{n\cdot(n+1)}2$.
 
 Fix $\alpha\in(0,1)$, say $\alpha=\tfrac12$.
 Denote by $|x-y|_{\TT^n}$ the standard distance between points $x,y\z\in\TT^n$.
-Let us recall the definition of Hölder norms of a function $u\:\TT^n\to \RR$
+Let us recall the definition of the Hölder norms of a function $u\:\TT^n\to \RR$
 \begin{align*}
 \|u\|_{0,\alpha}&\df\sup_{x\in \TT^n}\{\,|u(x)|\,\}+\sup_{x,y\in \TT^n}\left\{\,\frac{|u(x)-u(y)|}{|x-y|_{\TT^n}^\alpha}\,\right\},
 \\
 \|u\|_{k,\alpha}&\df\max_{|\mathcal{I}|\le k}\left\{\,\|\partial_{\mathcal{I}}u\|_{0,\alpha}\,\right\},
 \end{align*}
 where $\mathcal{I} = (i_1,\dots,i_n)$ denotes multi-index; so, $\partial_{\mathcal{I}}\df \partial_1^{i_1}\dots\partial_n^{i_n}$ and $|\mathcal{I}| \df i_1 +\dots+i_n$.
-The space of functions with finite norm $\|\ \|_{k,\alpha}$ is called the $(k,\alpha)$-Hölder space;
-it will be denoted by $C^{k,\alpha}(\TT^n,\RR)$.
+The space of functions with finite $\|\ \|_{k,\alpha}$-norm is called the $(k,\alpha)$-Hölder space and is denoted by $C^{k,\alpha}(\TT^n,\RR)$. \index{$C^{k,\alpha}(\TT^n,\RR)$, $\Arrowvert u\Arrowvert_{k,\alpha}$}
 
 \begin{thm}{Exercise}\label{ex:hoelder-norm}
 Let $v\in  C^\infty(\TT^n,\RR)$.
 Show that there is a constant $c$ such that
 \[\|u\cdot v\|_{k,\alpha}\le c\cdot\|u\|_{k,\alpha}\]
-for any $u\in  C^{k,\alpha}(\TT^n,\RR)$.
+for any $u\in C^{k,\alpha}(\TT^n,\RR)$.
 \end{thm}
 
-
-Let us define $C^{k,\alpha}(\TT^n,\RR^d)$ as the space of functions $u\:\TT^n\z\to \RR^d$ with all coordinate functions $u_1,\dots, u_d$ from $C^{k,\alpha}(\TT^n,\RR)$,
+Now define $C^{k,\alpha}(\TT^n,\RR^d)$ as the space of functions $u\:\TT^n\z\to \RR^d$ whose coordinate functions $u_1,\dots, u_d$ belong to $C^{k,\alpha}(\TT^n,\RR)$,
 and set
 \[\|u\|_{k,\alpha}\df\max_i \{\,\|u_1\|_{k,\alpha},\dots,\|u_d\|_{k,\alpha} \,\}.\]
 
 From now on, fix a smooth free map $f\:\TT^n \to\RR^d$;
 it exists by \ref{ex:free-composition}.
-Furthermore, let
+Furthermore, define
 \[L(w)\df 2\cdot Q(f,w).\]
 
 \begin{thm}{Nash's lemma}\label{lem:nash-guenter:nash}
 The linear operator 
 \[L\:C^\infty(\TT^n,\RR^d)\to C^\infty(\TT^n,\RR^N)\]
-has a right inverse 
+admits a right inverse \index{1Q@$L(w)$, $M(h)$}
 \[M\:C^\infty(\TT^n,\RR^N)\to C^\infty(\TT^n,\RR^d)\]
 such that
 \[\|Mh\|_{2,\alpha}\le a\cdot \|h\|_{2,\alpha}\]
@@ -599,7 +619,7 @@ for some constant $a$.
 \end{thm}
 
 \begin{thm}{Günther's lemma}\label{lem:nash-guenter:guenter}
-There is a symmetric bilinear form
+There exists a symmetric bilinear form \index{1Q@$\tilde Q(v,w)$}
 \[\tilde Q\:C^\infty(\TT^n,\RR^d)\times C^\infty(\TT^n,\RR^d) \to C^\infty(\TT^n,\RR^d)\]
  such that
 \begin{align*}
@@ -612,36 +632,41 @@ L\tilde Q&=Q,
 +
 b_k\cdot \|w\|_{k-1,\alpha}^2
 \end{align*}
-for any integer $k\ge 3$ and some fixed constants $b_2,b_3,\dots$
+for any integer $k\ge 3$ and for some fixed constants $b_2,b_3,\dots$
 \end{thm}
-
 
 \section{Perturbation}\label{sec:perturbation}
 
-Now we will finish the proof of Nash's theorem modulo the two lemmas formulated in the previous section.
+We now complete the proof of Nash's theorem, modulo the two lemmas stated in the previous section.
 Recall that $f\:\TT^n \to\RR^d$ is a fixed smooth free map and $L(w)\df 2\cdot Q(f,w)$.
 
 \begin{thm}{Perturbation lemma}\label{lem:perturb}
-There is  $r>0$
-such that the equation
+There exists  $r>0$ such that the equation
 \[L(w)+Q(w,w)=h\eqlbl{eq:L+Q=h}\]
-has a smooth solution $w\:\TT^n\to\RR^d$ for any smooth metric $h$ such that $\|h\|_{2,\alpha}<r$.
+admits a smooth solution $w\:\TT^n\to\RR^d$ for any smooth metric $h$ with $\|h\|_{2,\alpha}<r$.
 Moreover, we can assume that
-\[\|w\|_{2,\alpha}\le c\cdot \|h\|_{2,\alpha},\]
+\[\|w\|_{2,\alpha}\le c\cdot \|h\|_{2,\alpha}\]
 for some constant $c$.
 \end{thm}
 
-Let $g$ be the metric tensor $g$ induced by $f$.
+In the previous lecture, we showed that the restricted theorem (\ref{thm:restricted}) implies the main theorem (\ref{thm:main}).
+Now we will show that the perturbation lemma implies the restricted theorem (\ref{thm:restricted}), and therefore the main theorem (\ref{thm:main}).
+
+\parit{Proof of \ref{thm:restricted} modulo \ref{lem:perturb}.}
+Let $g$ be the metric tensor induced by $f$.
 Note that the equation
-\[Q(f+w,f+w)=g+h\]
+\[
+Q(f+w, f+w) = g + h
+\]
 is equivalent to \ref{eq:L+Q=h}.
 Indeed,
 \begin{align*}
-Q(f+w,f+w)&=Q(f,f)+2\cdot Q(f,w)+Q(w,w)
-\\
-&=g+L(w)+Q(w,w).
+Q(f+w, f+w) &= Q(f, f) + 2 \cdot Q(f, w) + Q(w, w) \\
+            &= g + L(w) + Q(w, w).
 \end{align*}
-Therefore, the perturbation lemma implies the restricted theorem (\ref{thm:restricted}), which in turn implies the main theorem (\ref{thm:main}).
+Hence, the restricted theorem (\ref{thm:restricted}) follows. \qeds
+
+In the proof of the perturbation lemma, we will follow the argument of the classical inverse function theorem in Banach spaces; see, for example, \cite{lang}.
 
 
 \parit{Proof of \ref{lem:perturb}.}
@@ -650,41 +675,38 @@ Set $R=\tfrac1{10\cdot b_2}$ and $r=\tfrac R{10\cdot a}$.
 Assume $\|h\|_{2,\alpha}\le r$.
 By \ref{lem:nash-guenter:guenter},
 \[\Phi\:w\mapsto Mh-\tilde Q(w,w)\]
-is a contraction map from the closed ball $\cBall[0,R]\subset {C^{2,\alpha}(\TT^n,\RR^d)}$ to itself.
+is a contraction on the closed ball $\cBall[0,R]\subset {C^{2,\alpha}(\TT^n,\RR^d)}$.
 
-Consider the sequence of maps $w_0,w_1,\dots\:\TT^n\to\RR^d$ such that $w_0=0$ and $w_{n+1}=\Phi(w_n)$ for any $n$.
-Note that $w_n$ is smooth for each~$n$.
+Consider the sequence of maps $w_0,w_1,\dots\:\TT^n\to\RR^d$ defined by $w_0=0$ and $w_{n+1}=\Phi(w_n)$ for all $n$.
+Note that each $w_n$ is smooth.
 Since $\Phi$ is a contraction, $w_n$ converges in $C^{2,\alpha}(\TT^n,\RR^d)$ as $n\to\infty$;
 denote its limit by $w$.
-Note that
+Then
 \[\|w\|_{2,\alpha}\le R
 \qquad\text{and}\qquad
 w= Mh-\tilde Q(w,w).\]
 
-Since $LM=\id$ and $L\tilde Q=Q$,
-applying $L$ to both sides of the last equation, we get that
-$w$ solves \ref{eq:L+Q=h}.
+Since $LM=\id$ and $L\tilde Q=Q$, applying $L$ to both sides yields that $w$ solves \ref{eq:L+Q=h}.
 
-To finish the proof it is sufficient to show the following.
+To finish the proof, it remains to show the following claim:
 \begin{clm}{}\label{clm:wn-bounded}
 The sequence $\|w_n\|_{k,\alpha}$ is bounded for every integer $k\ge 2$.
 \end{clm}
 
 Indeed, since
 \[\|w\|_{k,\alpha}\le \liminf_{n\to\infty}\|w_n\|_{k,\alpha}\]
-it follows that $w\in C^{k,\alpha}$ for any $k$;
-hence $w\in C^{\infty}$.
+it follows that $w\in C^{k,\alpha}$ for every $k$;
+hence $w\in C^\infty$.
 
-Claim \ref{clm:wn-bounded} will be proved by induction on $k$.
+We prove \ref{clm:wn-bounded} by induction on $k$.
 The base case $k=2$ is proved already.
 
 By the induction hypothesis, $\|w_n\|_{k-1,\alpha}$ is bounded.
 In particular, there is a constant $c$ such that
 \[\|Mh\|_{k-1,\alpha}+b_k\cdot \|w_n\|_{k-1,\alpha}^2\le c\]
-for any $n$;
-here $b_k$ is the constant from \ref{lem:nash-guenter:guenter}.
+for all $n$; here $b_k$ is the constant from \ref{lem:nash-guenter:guenter}.
 
-By the second estimate in \ref{lem:nash-guenter:guenter}, we get
+Using the second estimate in \ref{lem:nash-guenter:guenter}, we get
 \begin{align*}
 \|w_{n+1}\|_{k,\alpha}
 &\le
@@ -703,39 +725,38 @@ In particular,
 \qquad\Longrightarrow\qquad
 \|w_{n+1}\|_{k,\alpha}\le 2\cdot c
 \]
-for any $n$.
-Since  $w_0=0$, Claim \ref{clm:wn-bounded} holds for $k$.
+for all $n$.
+Since $w_0=0$, Claim~\ref{clm:wn-bounded} follows.
 \qeds
 
+\begin{thm}{Exercise}\label{ex:embedding-in-ball}
+Show that any $n$-dimensional Riemannian manifold admits an isometric embedding into an arbitrarily small ball in $\RR^d$ for some $d$ depending only on~$n$.
+\end{thm}
 
 \section{Proof of Nash's lemma}\label{sec:proof(nash)}
 
-Recall that $f\:\TT^n \to \RR^d$ is a fixed free map;
-in particular, $f$ is regular and smooth.
+Recall that $f\:\TT^n \to \RR^d$ is a fixed free map; in particular, $f$ is regular and smooth.
 
 The tangent space $\T_p$ is the $n$-dimensional space spanned by the first-order partial derivatives $\partial_1f,\z\dots, \partial_nf$ at~$p$.
-Denote by $\T_p^\perp$ the normal complement of $\T_p$ in $\RR^d$.
-Further, denote by $\T^2_p$ the osculating space spanned by all first and second-order partial derivatives $\partial_if$,
-$\partial_{ij}f$ at~$p$,
-and let $\N_p\z=\T^2_p\cap\T_p^\perp$.
+Let $\T_p^\perp$ denote the orthogonal complement of $\T_p$ in $\RR^d$.
+Further, define the osculating space $\T^2_p$ as the span of all first- and second-order partial derivatives $\partial_i f$ and $\partial_{ij} f$ at $p$, and set $\N_p \df \T^2_p \cap \T_p^\perp$.
 
-Since $f$ is free, the dimensions of $\T_p$, $\T_p^\perp$, $\T^2_p$ and $\N_p$ are $n$, $d-n$, $(n\z+\tfrac{n\cdot(n+1)}{2})$,
-and
-$\tfrac{n\cdot(n+1)}{2}$, respectively.
-We will write $\T$, $\T^\perp$, $\T^2$, and $\N$ for the corresponding bundles over $\TT^n$.
+Since $f$ is free, the dimensions of the spaces $\T_p$, $\T_p^\perp$, $\T^2_p$, and $\N_p$ are $n$, $d - n$, $n + \tfrac{n(n+1)}{2}$, and $\tfrac{n(n+1)}{2}$, respectively.
+We will write $\T$, $\T^\perp$, $\T^2$, and $\N$ for the corresponding vector bundles over $\TT^n$.
+\index{4t@$\T$, $\T^\perp$, $\T^2$, $\N$}
 
 \parit{Proof of \ref{lem:nash-guenter:nash}.}
-Recall that we have global periodic coordinates on $\TT^n$.
+Recall that $\TT^n$ has global periodic coordinates.
 
 Choose a metric tensor $h$ on $\TT^n$.
 Since all $\partial_if$,
 $\partial_{ij}f$
 are linearly independent,
-the equalities
+the equations
 $\langle\partial_{ij}f,w\rangle=h_{ij}$
 for all $i$ and $j$
 uniquely define a $\N$-vector field $w$.
-Alternatively, $w$ can be defined as a linerar combination of $\partial_if$,
+Equivalently, $w$ can be defined as a linear combination of $\partial_if$,
 $\partial_{ij}f$ such that
 \[
 \begin{aligned}
@@ -755,14 +776,14 @@ L_{ij}(w)&=2\cdot Q_{ij}(f,w)=
 \\
 &=\partial_j\langle\partial_if,w\rangle+\partial_i\langle\partial_jf,w\rangle -2\cdot \langle\partial_{ij}f,w\rangle.
 \end{align*}
-By \ref{eq:w(h)}, $M\:h\mapsto w$ is the desired right inverse.
+By \ref{eq:w(h)}, the operator $M\: h \mapsto w$ serves as the desired right inverse.
 \qeds
 
-Note that the proof implies the following.
+This proof implies the following.
 
 \begin{thm}{Observation}
-The inverse $M$ in Nash's lemma (\ref{lem:nash-guenter:nash}) can be choosen so that $Mh$ is an $\N$-field;
-that is, $Mh(p)\in \N_p$ for any $p\in \TT^n$.
+The inverse $M$ in Nash's lemma (\ref{lem:nash-guenter:nash}) can be chosen so that $Mh$ is an \index{N-field@$\N$-field}\emph{$\N$-field};
+that is, $Mh(p)\in \N_p$ for all $p\in \TT^n$.
 \end{thm}
 
 The following exercise provides a key to proof of Günther's lemma.
@@ -770,41 +791,43 @@ The following exercise provides a key to proof of Günther's lemma.
 \begin{thm}{Exercise}\label{ex:Mv}
 Let $f\:\TT^n\to\RR^d$ be a free map.
 Given a tangent vector field $v$ on $\TT^n$ and a metric tensor $h$ on $\TT^n$, show that there is a unique
-vector $\N$-field $w$ such that
+$\N$-field $w$ such that
 \[L(v+w)=h.\]
-In other words, given $v$, there is a right inverse $M_v\:h\mapsto v+w$ of $L$ with an $\N$-field $w$.
+In other words, given $v$, there is a right inverse $M_v\:h\mapsto v+w$ of $L$, where $w$ is an $\N$-field.
 \end{thm}
 
 \section{Proof of Günther's lemma}
 
-Many symmetric bilinear forms solve the equation $L\tilde Q = Q$.
+There are many symmetric bilinear forms that solve the equation $L\tilde Q = Q$.
 In particular, one can take $\tilde Q = MQ$, where $M$ is provided by Nash's lemma~(\ref{lem:nash-guenter:nash}).
-However, this choice of $\tilde Q$ does not satisfy the inequalities in Günther's lemma.
-These inequalies are important, they made it possible to use the contraction mapping theorem in the proof of perturbation lemma (\ref{lem:perturb}).
+However, this choice of $\tilde Q$ does not satisfy the inequalities required by Günther's lemma.
+These inequalities are essential; they enable the use of the contraction mapping theorem in the proof of the perturbation lemma (\ref{lem:perturb}).
 
-The actual construction of $\tilde Q$ relies on Exercise~\ref{ex:Mv}, which states that, given a tangent vector field $v$, we may choose $M$ such that
+The actual construction of $\tilde Q$ relies on Exercise~\ref{ex:Mv}, which states that, given a tangent vector field $v$, we can choose $M$ such that
 $w \z= Mh - v$ is an $\N$-field.
 The choice of $v$ provides additional freedom, which might seem unnecessary at first.
-Indeed, moving the map in a tangent direction does not change the Riemannian metric to first order; it only affects the parametrization.\footnote{Compare to the DeTurck trick used for the Ricci flow.}
-However, as we will see, one can use $v$ to hide the high-frequency terms (see \ref{eq:Delta} and \ref{eq:tildeQ} below), these terms are the central difficulty in Nash's original proof.
+
+Indeed, moving the map in a tangential direction does not affect the Riemannian metric to first order;
+it only changes the parametrization.\footnote{Compare this to the DeTurck trick used in the Ricci flow.}
+However, as we will see, $v$ can be used to absorb high-frequency terms (see \ref{eq:Delta} and \ref{eq:tildeQ} below), which desolves the loss-of-derivatives problem---the main difficulty in Nash's original proof.
+
 
 \medskip
 
-The Laplacian is defined by
+The Laplacian is defined by \index{4d@$\Delta u$}
 \[\Delta u=\sum_s\partial_{ss}u,\]
-where $\partial_1,\dots,\partial_n$ our standard choice of partial derivatives on $\TT^n$.
+where $\partial_1,\dots,\partial_n$ are our standard partial derivatives on $\TT^n$.
 
-Let $k \ge 2$ be an integer and let $v \in C^{k-2,\alpha}(\TT^n,\RR)$.
-Fourier analysis implies the existence of a weak solution $u$ to the equation $\Delta u - u = v$.
-By the \index{Schauder estimate}\emph{Schauder estimate}, it follows that $u \in C^{k,\alpha}(\TT^n,\RR)$, and we obtain the following proposition.%
-\footnote{A  proof of the Schauder estimates can be found in \cite[Chapter 3]{ladyzhenskaya-uraltseva}; some parts of it can be omitted in our case.}
+Let $k \ge 2$ be an integer and let $v \in C^{k-2,\alpha}(\TT^n, \RR)$.
+Fourier analysis guarantees the existence of a weak solution $u$ to the equation $\Delta u - u = v$.
+By the \index{Schauder estimate}\emph{Schauder estimate}, it follows that $u \in C^{k,\alpha}(\TT^n, \RR)$, and we obtain the following proposition.\footnote{A proof of the Schauder estimates can be found in \cite[Chapter 3]{ladyzhenskaya-uraltseva}; some parts can be omitted in our case.}
 
 \begin{thm}{Proposition}
-Recall that $\alpha\in(0,1)$ is a fixed number, say $\alpha=\tfrac12$.
+Recall that $\alpha\in(0,1)$ is a fixed constant, say $\alpha=\tfrac12$.
 Let $k\ge 2$ be an integer.
-Then
+Then the operator
 \[(\Delta-1)\:C^{k,\alpha}(\TT^n,\RR)\to C^{k-2,\alpha}(\TT^n,\RR).\]
-is a bi-Lipschitz isomorphism.
+is bi-Lipschitz.
 In particular, the linear operator 
 \[(\Delta-1)\:u\z\mapsto \Delta u-u\]
 has a Lipschitz inverse 
@@ -812,11 +835,11 @@ has a Lipschitz inverse
 \end{thm}
 
 Note that $(\Delta-1)^{-1}$ is a smoothing operator; it swallows a $C^{k-2,\alpha}$-function and spits a $C^{k,\alpha}$-function.
-Furthermore, $(\Delta-1)^{-1}$ commutes with partial derivatives; that is,
+Moreover, $(\Delta-1)^{-1}$ commutes with partial derivatives; that is,
 \[(\Delta-1)^{-1}\partial_i
 =
 \partial_i(\Delta-1)^{-1}.\]
-These two properties of $(\Delta-1)^{-1}$ will play the key role in the following proof.
+These two properties of $(\Delta-1)^{-1}$ will play a key role in the proof that follows.
 
 \parit{Proof of \ref{lem:nash-guenter:guenter}.}
 Recall that 
@@ -836,9 +859,9 @@ w&\mapsto \langle\partial_{ab}w,\partial_{cd}w\rangle.
 \end{aligned}
 \eqlbl{eq:forms}
 \]
-for all possible indexes $a,b,c,d$.
+for all indices $a, b, c, d$.
 
-Indeed, 
+Indeed,
 \begin{align*}
 (1&-\Delta) Q_{ij}(w,w)=\langle\partial_{i} w,\partial_{j}w\rangle-
 \\
@@ -861,10 +884,10 @@ Indeed,
 &\quad-\partial_i\langle\Delta w,\partial_{j}w\rangle
 -\partial_j\langle\Delta w,\partial_{i} w\rangle.
 \end{align*}
-Whence \ref{eq:Delta} follows.
+This proves \ref{eq:Delta}.
 
-Choose $A=A_{i}$ or $A=A_{ij}$ for some $i$ and $j$.
-Note that 
+Now choose $A=A_i$ or $A=A_{ij}$ for some $i$ and $j$.
+Note that
 \[
 \begin{aligned}
 \|A(w)\|_{0,\alpha}&\le c_2\cdot \|w\|^2_{2,\alpha},
@@ -873,7 +896,7 @@ Note that
 \end{aligned}
 \eqlbl{eq:A=<C}\]
 for some fixed constants $c_2,c_3,\dots$
-Indeed, it is sufficient to check inequalities \ref{eq:A=<C} for each form in \ref{eq:forms}, and the latter is straightforward.
+These inequalities follow by checking each form in \ref{eq:forms}, which is straightforward.
 
 Applying \ref{eq:Lap-1-1}, we get
 \[
@@ -883,10 +906,9 @@ Applying \ref{eq:Lap-1-1}, we get
 \|(1-\Delta)^{-1}A(w)\|_{k,\alpha}&\le c_2\cdot \|w\|_{k,\alpha}\cdot \|w\|_{2,\alpha} +c_{k}\cdot\|w\|_{k-1,\alpha}^2;
 \end{aligned}
 \eqlbl{eq:AB=<C}\]
-the constants $c_2,c_3,\dots$ might be different from those above, but each of them depends only on $f$.
+these constants $c_2, c_3, \dots$ here may differ from those above, but each depends only on the map~$f$.
 
-
-Further, recall that
+Recall also that
 \[
 L_{ij}(w)=-2\cdot\langle\partial_{ij} f,w\rangle
 +\partial_{i}\langle\partial_{j} f,w\rangle
@@ -908,7 +930,7 @@ such that
 \eqlbl{eq:tildeQ}
 \]
 for all $i$ and $j$.
-Since $f$ is free, $\tilde Q$ is well defined.
+Since $f$ is free, $\tilde Q$ is well-defined.
 Combining \ref{eq:L-def2}, \ref{eq:tildeQ}, and \ref{eq:Delta}, we get
 \[
 L\tilde Q=Q.
@@ -917,6 +939,5 @@ L\tilde Q=Q.
 Let $\{e_i,e_{ij}\}_{i\le j}$ be the dual frame to $\{\partial_if,\partial_{ij}f\}_{i\le j}$ in osculating bundle $\T^2$.
 Note that  
 \[\tilde Q(w,w)=\sum_i(\Delta-1)^{-1} A_i(w)\cdot e_i-\tfrac12\cdot\sum_{i\le j}A_{ij}(w)\cdot e_{ij}.\]
-Since the maps $e_i,e_{ij}\:\TT^n\to \RR^d$ are smooth, \ref{eq:AB=<C} and \ref{ex:hoelder-norm} imply the last inequality in the lemma for each integer $k\ge 3$.
+Since the maps $e_i, e_{ij}\: \TT^n \to \RR^d$ are smooth, \ref{eq:AB=<C} together with \ref{ex:hoelder-norm} imply the final inequality in the lemma for all integers $k \ge 3$.
 \qeds
-
