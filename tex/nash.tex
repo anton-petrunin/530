@@ -845,7 +845,7 @@ These two properties of $(\Delta-1)^{-1}$ will play a key role in the proof that
 Recall that 
 $Q_{ij}(w,w)=\langle\partial_i w,\partial_jw\rangle$.
 Let us show that 
-\[(1-\Delta) Q_{ij}(w,w)=A_{ij}(w)
+\[(\Delta-1) Q_{ij}(w,w)=A_{ij}(w)
 +\partial_iA_j(w)
 +\partial_j A_i(w),\eqlbl{eq:Delta}\]
 where each $A_{ij}$, $A_{i}$ and $A_{j}$ is a linear combination of the following quadratic forms
@@ -863,9 +863,9 @@ for all indices $a, b, c, d$.
 
 Indeed,
 \begin{align*}
-(1&-\Delta) Q_{ij}(w,w)=\langle\partial_{i} w,\partial_{j}w\rangle-
+(\Delta&-1) Q_{ij}(w,w)=-\langle\partial_{i} w,\partial_{j}w\rangle+
 \\
-&\quad-
+&\quad+
 \sum_s\left[
 2\cdot \langle\partial_{is} w,\partial_{js}w\rangle
 +
@@ -874,15 +874,15 @@ Indeed,
 \langle\partial_{i} w,\partial_{jss}w\rangle
 \right]=
 \\
-&=\langle\partial_{i} w,\partial_{j}w\rangle
--
+&=-\langle\partial_{i} w,\partial_{j}w\rangle
++
 2\cdot \sum_s
 \langle\partial_{is} w,\partial_{js}w\rangle
-+
-2\cdot \langle\Delta w,\partial_{ij}w\rangle -
+-
+2\cdot \langle\Delta w,\partial_{ij}w\rangle +
 \\
-&\quad-\partial_i\langle\Delta w,\partial_{j}w\rangle
--\partial_j\langle\Delta w,\partial_{i} w\rangle.
+&\quad+\partial_i\langle\Delta w,\partial_{j}w\rangle
++\partial_j\langle\Delta w,\partial_{i} w\rangle.
 \end{align*}
 This proves \ref{eq:Delta}.
 
@@ -938,6 +938,6 @@ L\tilde Q=Q.
 
 Let $\{e_i,e_{ij}\}_{i\le j}$ be the dual frame to $\{\partial_if,\partial_{ij}f\}_{i\le j}$ in osculating bundle $\T^2$.
 Note that  
-\[\tilde Q(w,w)=\sum_i(\Delta-1)^{-1} A_i(w)\cdot e_i-\tfrac12\cdot\sum_{i\le j}A_{ij}(w)\cdot e_{ij}.\]
+\[\tilde Q(w,w)=\sum_i(\Delta-1)^{-1} A_i(w)\cdot e_i-\tfrac12\cdot\sum_{i\le j}(\Delta-1)^{-1}A_{ij}(w)\cdot e_{ij}.\]
 Since the maps $e_i, e_{ij}\: \TT^n \to \RR^d$ are smooth, \ref{eq:AB=<C} together with \ref{ex:hoelder-norm} imply the final inequality in the lemma for all integers $k \ge 3$.
 \qeds
