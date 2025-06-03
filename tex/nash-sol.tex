@@ -37,12 +37,21 @@ Since
 $\tbinom{m+n+1}{n}/\tbinom{m+n}{n} \to 1$ as  $m \to \infty$, we conclude that $d \ge \tbinom{n+1}{2}$.
 
 \parit{Remark.}
-Equation \ref{eq:<ww>=g} makes perfect sense for $C^1$-smooth maps $w$, but the above proof essentially uses that $w$ is $C^m$-smooth for sufficiently large $m$.
+The proof is taken from \cite[Appendix I]{gromov-rokhlin} and it works for general system of partial differential equations.
+
+Equation \ref{eq:<ww>=g} makes perfect sense for $C^1$-smooth maps $w$, but the above proof essentially uses that $w$ is $C^m$-smooth for sufficiently large~$m$.
 Without this assumption, the statement does not hold.
 
 Indeed, the Nash--Kuiper theorem \cite{nash-1954,kuiper-1955} states that equation \ref{eq:<ww>=g} admits a $C^1$-smooth solution $w$ if $d = n+1$.
 This bound is optimal, since if $d=n$, then the metric $g$ must be flat, which is not the case in general.
 Note that for $d = n+1$, the system \ref{eq:<ww>=g} is overdetermined, yet still admits a $C^1$-smooth solution.
+
+It might happen that the optimal dimension for $C^2$-embeddings is smaller than $\tbinom{n+1}{2}$;
+at least the our argument gives a worse bound in this case.
+This question mentioned by Mikhael Gromov and Vladimir Rokhlin \cite[]{gromov-rokhlin}.\footnote{Counting degrees of freedom of curvature tesor one can get $d\ge \tfrac1{6}\cdot n\cdot (n+5)$.
+Indeed the curvature nensor has $\tfrac1{12}\cdot n^2\cdot(n^2-1)$ idependent components, and each quadratic form has $n(n+1)$ idependent components.
+Applying Gauss formula, we get that the codimension of the embedding has to be at least $\tfrac1{6}\cdot n\cdot (n+1)$.}
+
 
 
 
