@@ -48,7 +48,7 @@ A metric tensor $g$ is called \index{Riemannian metric tensor}\emph{Riemannian} 
 that is, $g(\vec x, \vec x) > 0$ for any nonzero tangent vector $\vec x$.
 A smooth manifold equipped with a Riemannian metric is called a \index{Riemannian manifold}\emph{Riemannian manifold}.
 
-Note that if $g = w^* \bar g$ is a Riemannian metric, then $w$ must be regular; that is, the differential $d_p w$ has rank $n$ at every point $p \in \Omega$.
+Notice that if $g = w^* \bar g$ is a Riemannian metric, then $w$ must be regular; that is, the differential $d_p w$ has rank $n$ at every point $p \in \Omega$.
 In particular, $w$ is an immersion.
 
 We consider the space $\RR^d$ equipped with the metric tensor defined by the standard scalar product:
@@ -74,6 +74,23 @@ Construct a metric tensor $g$ on the torus $\mathbb{T}^2 = \mathbb{S}^1 \times \
 but no smooth map $w\:\mathbb{T}^2 \to \RR^{10}$ induces $g$.
 \end{thm}
 
+
+\begin{thm}{Exercise}\label{ex:+function}
+Let $f$ be a smooth function on a Riemannian manifold $(\Omega, g)$.
+
+\begin{subthm}{ex:+function:a}
+Suppose that $|\vec x f|^2 < g(\vec x, \vec x)$ for every nonzero tangent vector~$\vec x$.
+Use the main theorem to show that there exists an isometric embedding of $(\Omega, g)$ into $\RR^d$, for some $d$, such that $f$ is its first coordinate function.
+\end{subthm}
+
+\begin{subthm}{ex:+function:b}
+Give an example showing that \ref{SHORT.ex:+function:a} may fail if the inequality is replaced with the non-strict version $|\vec x f|^2 \le g(\vec x, \vec x)$.
+\end{subthm}
+
+\end{thm}
+
+
+
 \begin{thm}{Exercise}\label{ex:length-preserving}
 Let $w$ be a smooth map from a smooth Riemannian manifold $(\Omega, g)$ to $\RR^d$.
 Show that $w$ is isometric if and only if it is \index{length-preserving map}\emph{length-preserving};
@@ -97,7 +114,7 @@ g(\vec x, \vec y)
 \equiv
 \tfrac{1}{2} \cdot [\langle \vec x v, \vec y w \rangle + \langle \vec x w, \vec y v \rangle].
 \]
-Note that if the maps $v$ and $w$ are $C^k$-smooth, then $g = Q(v, w)$ is $C^{k-1}$-smooth.
+Notice that if the maps $v$ and $w$ are $C^k$-smooth, then $g = Q(v, w)$ is $C^{k-1}$-smooth.
 
 \begin{thm}{Observation}
 A metric tensor $g$ is induced by a smooth map $w\:\Omega \to \RR^d$
@@ -244,7 +261,7 @@ such that
 for any $t>0$.
 \end{thm}
 
-Note that $Q(w_t, w_t)$ converges to $g$ as $t \to 0$.
+Observe that $Q(w_t, w_t)$ converges to $g$ as $t \to 0$.
 Therefore, one might be tempted to take the limit of $w_t$ as $t \to 0$.
 However, as we will see, the maps $w_t$ constructed in the proof converge to a constant;
 thus, the limit does not solve \ref{thm:main}.
@@ -323,7 +340,7 @@ Show that any metric $g$ on a smooth manifold $\Omega$ is induced by a smooth em
 \end{thm}
 
 \parit{Solution based on Nash's theorem.}
-Note that any metric $g$ can be written as the difference $g = g_1 - g_2$ of two Riemannian metrics $g_1$ and $g_2$ on $\Omega$.
+Notice that any metric $g$ can be written as the difference $g = g_1 - g_2$ of two Riemannian metrics $g_1$ and $g_2$ on $\Omega$.
 By Nash's theorem, we can find two smooth embeddings $w_1, w_2 \: \Omega \to \RR^d$ whose induced metrics are $g_1$ and $g_2$, respectively.
 It remains to observe that $g$ is induced by
 \[w_1\ominus w_2\:p\mapsto(w_1(p),w_2(p))\in \RR^d\ominus\RR^d.\]
@@ -428,7 +445,7 @@ We can assume that $g>g_1$; in other words the metric $g_2=g-g_1$ is Riemannian.
 If this is not the case, replace $w_1$ with its rescaling $\varepsilon \cdot w_1$ for sufficiently small $\varepsilon > 0$.
 
 By~\ref{thm:any-metric}, we have a smooth isometric immersion $w_2\:(\TT^n,g_2)\to \RR^d$.
-Note that
+Notice that
 \[w=w_1\oplus w_2\colon (\TT^n,g=g_1+g_2)\to \RR^{d+2\cdot n+1}\]
 is an isometric embedding.
 Indeed, $w$ is isometric by \ref{ex:oplus}, and it is an embedding since $w_1$ is.
@@ -558,7 +575,7 @@ Define the map $\Theta_\psi\:\Omega \to \RR^2$ by
 In other words, $\Theta_\psi$ is the composition of two maps
 \[\Omega\xrightarrow{\psi}\RR\xrightarrow{\ell}\SSS^1\subset\RR^2,\]
 where $\ell\:\RR\to\SSS^1$ is the natural covering map $y\mapsto (\cos y,\sin y)$.
-Note that $\Theta_\psi$ is Nash's twist for the triple $(1,1,\psi)$.
+Notice that $\Theta_\psi$ is Nash's twist for the triple $(1,1,\psi)$.
 
 \begin{thm}{Exercise}\label{ex:free-twists}
 Consider the $(x,y)$-plane $\RR^2$.
@@ -654,7 +671,7 @@ Now we will show that the perturbation lemma implies the restricted theorem (\re
 
 \parit{Proof of \ref{thm:restricted} modulo \ref{lem:perturb}.}
 Let $g$ be the metric tensor induced by $f$.
-Note that the equation
+Notice that the equation
 \[
 Q(f+w, f+w) = g + h
 \]
@@ -678,7 +695,7 @@ By \ref{lem:nash-guenter:guenter},
 is a contraction on the closed ball $\cBall[0,R]\subset {C^{2,\alpha}(\TT^n,\RR^d)}$.
 
 Consider the sequence of maps $w_0,w_1,\dots\:\TT^n\to\RR^d$ defined by $w_0=0$ and $w_{n+1}=\Phi(w_n)$ for all $n$.
-Note that each $w_n$ is smooth.
+Notice that each $w_n$ is smooth.
 Since $\Phi$ is a contraction, $w_n$ converges in $C^{2,\alpha}(\TT^n,\RR^d)$ as $n\to\infty$;
 denote its limit by $w$.
 Then
@@ -768,7 +785,7 @@ $\partial_{ij}f$ such that
 \]
 at each point.
 
-Note that
+Notice that
 \begin{align*}
 L_{ij}(w)&=2\cdot Q_{ij}(f,w)=
 \\
@@ -834,7 +851,7 @@ has a Lipschitz inverse
 \[(\Delta-1)^{-1}\:C^{k-2,\alpha}(\TT^n,\RR)\to C^{k,\alpha}(\TT^n,\RR)\eqlbl{eq:Lap-1-1}\]
 \end{thm}
 
-Note that $(\Delta-1)^{-1}$ is a smoothing operator; it swallows a $C^{k-2,\alpha}$-function and spits a $C^{k,\alpha}$-function.
+Notice that $(\Delta-1)^{-1}$ is a smoothing operator; it swallows a $C^{k-2,\alpha}$-function and spits a $C^{k,\alpha}$-function.
 Moreover, $(\Delta-1)^{-1}$ commutes with partial derivatives; that is,
 \[(\Delta-1)^{-1}\partial_i
 =
@@ -863,23 +880,20 @@ for all indices $a, b, c, d$.
 
 Indeed,
 \begin{align*}
-(\Delta&-1) Q_{ij}(w,w)=-\langle\partial_{i} w,\partial_{j}w\rangle+
+(\Delta-1) Q_{ij}(w,w)&=
+\langle\partial_{i}\Delta w,\partial_jw\rangle
++\langle\partial_{i} w,\partial_{j}\Delta w\rangle+
 \\
-&\quad+
-\sum_s\left[
-2\cdot \langle\partial_{is} w,\partial_{js}w\rangle
-+
-\langle\partial_{iss} w,\partial_jw\rangle
-+
-\langle\partial_{i} w,\partial_{jss}w\rangle
-\right]=
+&\quad+2\cdot \sum_s\langle\partial_{is} w,\partial_{js}w\rangle
+-\langle\partial_{i} w,\partial_{j}w\rangle
+=
 \\
-&=-\langle\partial_{i} w,\partial_{j}w\rangle
-+
+&=
 2\cdot \sum_s
 \langle\partial_{is} w,\partial_{js}w\rangle
--
-2\cdot \langle\Delta w,\partial_{ij}w\rangle +
+-\langle\partial_{i} w,\partial_{j}w\rangle
+-2\cdot \langle\Delta w,\partial_{ij}w\rangle
++
 \\
 &\quad+\partial_i\langle\Delta w,\partial_{j}w\rangle
 +\partial_j\langle\Delta w,\partial_{i} w\rangle.
@@ -887,7 +901,7 @@ Indeed,
 This proves \ref{eq:Delta}.
 
 Now choose $A=A_i$ or $A=A_{ij}$ for some $i$ and $j$.
-Note that
+Notice that
 \[
 \begin{aligned}
 \|A(w)\|_{0,\alpha}&\le c_2\cdot \|w\|^2_{2,\alpha},
@@ -901,9 +915,9 @@ These inequalities follow by checking each form in \ref{eq:forms}, which is stra
 Applying \ref{eq:Lap-1-1}, we get
 \[
 \begin{aligned}
-\|(1-\Delta)^{-1}A(w)\|_{2,\alpha}&\le c_2\cdot \|w\|_{2,\alpha}^2,
+\|(\Delta-1)^{-1}A(w)\|_{2,\alpha}&\le c_2\cdot \|w\|_{2,\alpha}^2,
 \\
-\|(1-\Delta)^{-1}A(w)\|_{k,\alpha}&\le c_2\cdot \|w\|_{k,\alpha}\cdot \|w\|_{2,\alpha} +c_{k}\cdot\|w\|_{k-1,\alpha}^2;
+\|(\Delta-1)^{-1}A(w)\|_{k,\alpha}&\le c_2\cdot \|w\|_{k,\alpha}\cdot \|w\|_{2,\alpha} +c_{k}\cdot\|w\|_{k-1,\alpha}^2;
 \end{aligned}
 \eqlbl{eq:AB=<C}\]
 these constants $c_2, c_3, \dots$ here may differ from those above, but each depends only on the map~$f$.
@@ -937,7 +951,7 @@ L\tilde Q=Q.
 \] 
 
 Let $\{e_i,e_{ij}\}_{i\le j}$ be the dual frame to $\{\partial_if,\partial_{ij}f\}_{i\le j}$ in osculating bundle $\T^2$.
-Note that  
+Notice that
 \[\tilde Q(w,w)=\sum_i(\Delta-1)^{-1} A_i(w)\cdot e_i-\tfrac12\cdot\sum_{i\le j}(\Delta-1)^{-1}A_{ij}(w)\cdot e_{ij}.\]
 Since the maps $e_i, e_{ij}\: \TT^n \to \RR^d$ are smooth, \ref{eq:AB=<C} together with \ref{ex:hoelder-norm} imply the final inequality in the lemma for all integers $k \ge 3$.
 \qeds

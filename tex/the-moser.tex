@@ -1,0 +1,40 @@
+\documentclass[twoside]{book}
+
+\def\thetitle{Moser's trick}
+
+\usepackage{lectures1}
+\usepackage[colorlinks=true,
+citecolor=black,
+linkcolor=black,
+anchorcolor=black,
+filecolor=black,
+menucolor=black,
+urlcolor=black,
+pdftitle={\thetitle},
+pdfsubject={Geometry},
+pdfauthor={Anton Petrunin}
+]{hyperref}
+\makeindex
+
+\begin{document}
+
+\title{\thetitle}
+\author{Anton Petrunin}
+\date{}
+\maketitle
+
+\include{moser-trick}
+
+
+{\small\sloppy
+\input{the-moser.ind}
+
+\def\emph{\textit}
+
+\printbibliography[heading=bibintoc]
+\fussy
+}
+
+
+
+\end{document}

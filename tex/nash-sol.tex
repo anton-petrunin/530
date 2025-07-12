@@ -44,7 +44,7 @@ Without this assumption, the statement does not hold.
 
 Indeed, the Nash--Kuiper theorem \cite{nash-1954,kuiper-1955} states that equation \ref{eq:<ww>=g} admits a $C^1$-smooth solution $w$ if $d = n+1$.
 This bound is optimal, since if $d=n$, then the metric $g$ must be flat, which is not the case in general.
-Note that for $d = n+1$, the system \ref{eq:<ww>=g} is overdetermined, yet still admits a $C^1$-smooth solution.
+Notice that for $d = n+1$, the system \ref{eq:<ww>=g} is overdetermined, yet still admits a $C^1$-smooth solution.
 
 It might happen that the optimal dimension for $C^2$-embeddings is smaller than $\tbinom{n+1}{2}$;
 at least the our argument gives a worse bound in this case.
@@ -52,11 +52,17 @@ This question mentioned by Mikhael Gromov and Vladimir Rokhlin \cite[]{gromov-ro
 Indeed the curvature nensor has $\tfrac1{12}\cdot n^2\cdot(n^2-1)$ idependent components, and each quadratic form has $n(n+1)$ idependent components.
 Applying Gauss formula, we get that the codimension of the embedding has to be at least $\tfrac1{6}\cdot n\cdot (n+1)$.}
 
-
-
-
 \parbf{\ref{ex:notinduced}.}
 Consider square of a parallel 1-form $\alpha$ on $\mathbb{T}^2$ with kernel in irrational direction.
+
+\parbf{\ref{ex:+function}}; \ref{SHORT.ex:+function:a}.
+Show and use that $g_1 = g - (df)^2$ defines a Riemannian metric on $\Omega$.
+
+\parit{\ref{SHORT.ex:+function:b}.}
+Consider the function $f(x, y) = x$ on the $(x, y)$-plane equipped with the metric
+$(dx)^2 + \phi(x)^2 \cdot (dy)^2$,
+where $\phi$ is a nonconstant positive smooth function.
+
 
 \parbf{\ref{ex:length-preserving}.} The only-if part is trivial.
 
@@ -80,7 +86,7 @@ Argue as in \ref{ex:length-preserving} to show that $|\partial_1w|=|\partial_2w|
 \parit{Remark.} This argument also shows that there is no length-preserving map from an $n$-dimensional Riemannian manifold to $\RR^{n-1}$.
 On the other hand, a theorem of Mikhael Gromov \cite[Section~2.4.11]{gromov-1986} implies that \textit{any $n$-dimensional Riemannian manifold admits a length-preserving map into $\RR^n$}.
 This is a close relative of the Nash--Kuiper theorem \cite{nash-1954,kuiper-1955}.
-Another proof of Gromov's theorem is outlined in the previously mentioned lecture notes \cite{petrunin-yashinski}.
+Another proof of Gromov's theorem is outlined in our lecture notes \cite{petrunin-yashinski}.
 
 \parbf{\ref{ex:oplus}+\ref{ex:plus-oplus}.} Spell out the definitions.
 
@@ -90,7 +96,7 @@ Straightforward calculations.
 
 \parbf{\ref{ex:torus-riemn}.}
 By the definition of a submanifold, we can cover $\Omega$ by rectangular charts in which $\Omega$ is expressed as the coordinate subspace of the first $k=\dim \Omega$ coordinates.
-Note that in each such chart, the metric on $\Omega$ can be written as the restriction of a Riemannian metric on the entire chart.
+Notice that in each such chart, the metric on $\Omega$ can be written as the restriction of a Riemannian metric on the entire chart.
 
 Extend this collection of charts to an atlas of $\TT^n$ such that the images of the remaining charts do not intersect $\Omega$.
 Equip these new charts with constant Riemannian metrics.
@@ -172,5 +178,5 @@ Alternatively, construct an isometric embedding of $\RR^d$ into a small neighbor
 and compose it with an isometric embedding $(\Omega, g) \hookrightarrow \RR^d$ provided by the main theorem.
 
 \parbf{\ref{ex:Mv}.}
-Note that the equation can be written as $L(w)=\hat h$, where $\hat h=h-L(v)$.
+Notice that the equation can be written as $L(w)=\hat h$, where $\hat h=h-L(v)$.
 Then argue as in Nash’s lemma.

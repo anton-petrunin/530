@@ -1,0 +1,199 @@
+\addtocounter{chapter}{1}
+
+Observe that the flow for a vector field defines a diffeomorphism.
+
+Indeed, let $\vec v_t$ be a smooth time-dependent vector field on a smooth manifold $M$.
+Recall that the \index{flow}\emph{flow} $\phi^s$ of the vector field $\vec v_t$
+is defined as $\phi^s\:x(0)\mapsto x(s)$, where $x$ is a solution of the following ordinary differential equation $x'(t)=\vec v_t(x(t))$.
+By the Picard theorem, the flow $\phi^s$ is smooth in its domain of definition.
+Moreover, the same holds for its inverse $\psi^s$;
+indeed, $\psi^s$ is the flow of the vector field $-\vec v_{s-t}$.
+It follows that, $\phi^s$ is a diffeomorphism from its domain of definition to its image.
+
+\index{Moser's trick}\emph{Moser's trick} uses this source of diffeomorphism when it is needed to construct a diffeomorphism with a certain property.
+Thus, to find a diffeomorphism, we need to construct a vector field of a certain type.
+The latter problem is typically simpler.
+
+Now we will illustrate this idea with several examples.
+
+\section{Moser's theorem}
+
+Let $M$ be an $n$-dimensional smooth manifold.
+An $n$-form $\omega$ on $M$ is called a \emph{volume form} if it does not vanish at any point.
+Note that if a manifold has a volume form, then it is orientable.
+
+\begin{thm}{Theorem}
+Let $\omega_0$ and $\omega_1$ be volume forms on a closed connected oriented smooth manifold $M$.
+Assume
+\[\int_M\omega_0=\int_M\omega_1.\eqlbl{eq:int=int}\]
+Then there is a diffeomorphism $\phi\:M\to M$ such that $\omega_0=\phi^*\omega_1$.
+Moreover, we can assume that $\phi$ is \emph{isotopic} to the identity map; that is, there is a smooth map $(x,t)\mapsto \phi_t(x)$ such that $\phi_0=\id$, $\phi_1=\phi$, and $x\mapsto \phi_t(x)$ is a diffeomorphism for each $t$.
+\end{thm}
+
+\parit{Proof.}
+Observe that $\omega_t=(1-t)\cdot\omega_0+t\cdot\omega_1$ is a one-parameter family of volume forms on $M$.
+We plan to find a time-dependent vector field $\vec v_t$ such that
+\[\Lie_{\vec v_t}\omega_t+\tfrac d{dt}\omega_t=0.\eqlbl{eq:LVvol}\]
+
+If $\phi^t$ denotes the flow defined by $\vec v_t$, then
+\[\tfrac d{dt}(\phi^{t*}\omega_t)=\Lie_{\vec v_t}\omega_t+\tfrac d{dt}\omega_t.\]
+Therefore, \ref{eq:LVvol} implies that $\phi^{t*}\omega_t$ does not depend on $t$.
+In particular,
+\[\omega_0=\phi^{0*}\omega_0=\phi^{1*}\omega_1.\]
+That is, $\phi=\phi^1$ does the trick; it only remains to prove \ref{eq:LVvol}.
+
+Suppose $M$ is $n$-dimensional.
+Recall that $[\omega]\mapsto\int_M\omega$ defines an isomorphism $H^n_{dR}(M)\to\RR$.
+By \ref{eq:int=int}, $[\omega_1-\omega_0]=0\in H^n_{dR}(M)$.
+That is, $\omega_1-\omega_0$ is exact; so, there is an $(n-1)$-form $\eta$ on $M$ such that
+\[\omega_1-\omega_0=d\eta.\]
+Note that $\tfrac{d}{d t} \omega_t+\eta=0$.
+
+Since $\omega_t$ does not vanish, there is a unique vector field $\vec{v}_t$ such that
+$i_{\vec v_t}\omega_t=\eta$.
+By the magic formula,
+\[\Lie_{\vec v_t}\omega_t=di_{\vec v_t}\omega_t+i_{\vec v_t}\cancelto{{}_0}{d\omega_t}=d\eta=-\tfrac{d}{d t} \omega_t;\]
+hence \ref{eq:LVvol} follows.
+\qeds
+
+\section{Open star-shaped domains}
+
+\begin{thm}{Exercise}
+Any open star-shaped domain in $\Omega\subset\RR^n$ is diffeomorphic to $\RR^n$.
+\end{thm}
+
+\parit{Extended hint.}
+We can assume that the closed unit ball $\bar B$ lies in $\Omega$.
+Let $B$ be the interior of $\bar B$.
+It is sufficient to construct a diffeomorphism $\Omega\to B$
+
+Construct a smooth function $f\:\RR^n\to \RR$ such that
+$f(\vec x)=0$ if $\vec x\in \Omega$ and $f(\vec x)>0$ otherwise.
+Further, construct a smooth function $\phi\:\RR\to [0,1]$ such that $\phi(x)=1$ if $\le 0$ and $\phi(x)=0$ if $x\ge 1$.
+
+Consider the time-dependent vector field
+\[\vec v_t(\vec x)=-\phi((1+t)\cdot(1-|\vec x|))\cdot f(\vec x)\cdot \vec x.\]
+Let $\phi^s$ be the flow of $\vec v_t$ in the interval $[0,s]$.
+
+Prove that given $x$, the value $\phi^s(x)$ is constant for all sufficiently large $s$.
+In particular, $\phi^s(x)$ converges as $s\to\infty$ for any $x$;
+denote its limit by $\phi^\infty(x)$.
+
+Show that $\phi^\infty$ is a diffeomorphism $\Omega\to B$;
+that is, show that $\phi^\infty$ is smooth in $\Omega$, it has a smooth inverse, and $\phi^\infty(\Omega)=B$.
+\qeds
+
+\section{Morse lemma}
+
+\begin{thm}{Lemma}
+Let $p$ be a nondegenerate critical point of index $k$ of a smooth function $f$ on a smooth $n$-dimensional manifold $M$.
+Then $f$ can be wrtten as
+\[f(p)-x_1^2-\dots-x_k^2+x_{k+1}^2+\dots+x_n^2.\]
+in some local coordinates $(x_1,\dots,x_n)$ with the origin at $p$.
+\end{thm}
+
+\parit{Proof.}
+Without loss of generality we may assume that $f(p)=0$.
+Choose local coordinates with the origin at $p$; suppose they are given by a chart $s\:U\to M$ with domain $U\subset\RR^n$.
+
+Let $A_{\vec x}$ be the Hessian matrix of $f$ at ${\vec x}\in U$;
+that is,
+\[(\vec v\vec wf)(\vec x)=\langle A_{\vec x}\vec v,\vec w\rangle\]
+for any $\vec x\in U$ and $\vec v,\vec w\in \RR^n$, where $\langle\ ,\ \rangle$ denotes the standard scalar product on $\RR^n$.
+(Here and further, we use the same letter (say $\vec v$) for a vector in $\RR^n$, its corresponding point, and the corresponding parallel vector field.)
+
+Since $p$ is a nondegenerate critical point, the matrix $A_0$ is invertible.
+Applying a linear transformation to $\RR^n$, we can assume that $A_0$ is a diagonal matrix with the first $k$ elements equal to $-2$ and the remaining $n-k$ elements equal to $2$.
+Then the function $f_0(\vec x)\df\tfrac12\cdot \langle A_{0}\vec x,\vec x\rangle$ has a constant Hessian matrix $A_0$, and
+\[f_0(x_1,\dots,x_n)=-x_1^2-\dots-x_k^2+x_{k+1}^2+\dots+x_n^2.\eqlbl{eq:f_0}\]
+
+Set $h\df f-f_0$,  $f_t\df f_0+t\cdot h$, so $f=f_1$.
+We plan to find a vector field $\vec v_t$ such that for its flow $\phi^t$ the value $f_t\circ \phi^t(x)$ does not depend on $t$ (while it is defined) and $\vec v_t(0)=0$ for any $t$.
+Once it is done, we have
+\[f\circ\phi^1=f_0\]
+in a neighborhood of $p=0$.
+By \ref{eq:f_0}, $s\circ\phi^1$ will define the needed chart.
+
+Note that
+\[\tfrac d{dt}(f_t\circ \phi^t)=\vec v_tf_t+\tfrac{d}{dt}f_t=\vec v_tf_0+t\cdot\vec v_th +h.\]
+Therefore, it is sufficient to find $\vec v_t$ such that
+\[\vec v_tf_0+t\cdot\vec v_th +h=0\eqlbl{eq:vf+f'}\]
+for any $t$.
+
+Set
+\[
+B_{\vec x}\df\int_0^1(A_{t{\cdot}\vec x}-A_0)\cdot dt
+\quad\text{and}\quad
+C_{\vec x}\df\int_0^1B_{t{\cdot} {\vec x}}\cdot dt.
+\]
+Since $A_{\vec x}$ is symmetric, so are $B_{\vec x}$ and $C_{\vec x}$.
+Observe that $B_0=C_0=0$.
+Passing to a smaller subdomain of $U$, we can assume that $B_{\vec x}$ and $C_{\vec x}$ are sufficiently close to $0$;
+in particular the matrix $t\cdot B_{\vec x}+A_{0}$ is invertible for any $\vec x\in U$ and $t\in[0,1]$.
+
+Since $(\vec w h)(0)=0$ for any $\vec w\in\RR^n$,
+\[
+(\vec w h)(\vec x)= \int_0^1(\vec x\vec w (f-f_0))(t\cdot\vec x)\cdot dt=\langle B_{\vec x}\vec w,{\vec x}\rangle.
+\]
+Applying this formula for $\vec w=\vec x$, we get
+\[
+h({\vec x})= \int_0^1(\vec x h)(t\cdot\vec x)\cdot dt=\langle C_{\vec x}{\vec x},{\vec x}\rangle.
+\]
+Therefore, \ref{eq:vf+f'} can be rewritten as
+$\langle(A_{0}+t\cdot B_{\vec x})\vec v_t,\vec x\rangle=\langle t\cdot C_{\vec x} \vec x,\vec x\rangle$,
+and $\vec v_t(\vec x)=(A_{0}+t\cdot B_{\vec x})^{-1} (t\cdot C_{\vec x})\vec x$ provides the required solution.
+\qeds
+
+
+\section{Darboux's theorem}
+
+A nondegenerate closed 2-form is called \emph{symplectic}.
+In other words, a 2-form $\omega$ on a smooth manifold $M$ is symplectic if $d\omega=0$ and ${\vec x}\mapsto i_{\vec x}\omega$ defines an isomorphism $\T_p\to \T^*_p$ at each point $p\in M$.
+A manifold equipped with a symplectic form is called symplectic.
+
+\begin{thm}{Exercise}
+Show that any 2-covector can be written as  $\alpha_1\wedge\beta_1+\z\dots+\alpha_n\wedge\beta_n$ for linearly independent covectors $\alpha_1,\dots,\alpha_n,\beta_1,\dots,\beta_n$.
+Conclude that if a manifold admits a symplectic form, then it must have even dimension.
+\end{thm}
+
+
+\begin{thm}{Exercise}
+Let $\omega$ be a closed 2-form on a smooth $2\cdot n$-dimensional manifold $M$.
+Show that $\omega$ is symplectic if and only if $\omega^{\wedge n}$ does not vanish.
+\end{thm}
+
+
+\begin{thm}{Theorem}
+Let $M$ be a smooth manifold with symplectic form $\omega$.
+Then at any point $p\in M$ there are local coordinates $(x_1,\dots,x_n,y_1,\dots,y_n)$ such that
+$\omega= dx_1\wedge dy_1+\dots+dx_n\wedge dy_n$
+\end{thm}
+
+\parit{Proof.}
+Choose local coordinates $(x_1,\dots,x_n,y_1,\dots,y_n)$ with the origin at $p$.
+By the exercise, we may assume that the equality
+\[\omega=dx_1\wedge dy_1+\dots+dx_n\wedge dy_n\]
+holds at the origin.
+
+Consider the form $\omega_0=dx_1\wedge dy_1+\dots+dx_n\wedge dy_n$ in the chart.
+Observe that $\omega_0$ is symplectic.
+Passing to a domain of the chart, we may assume that $\omega_t=(1-t)\cdot\omega_0+t\cdot \omega$ is a symplectic form for each $t\in[0,1]$.
+We plan to find a time-dependent vector field $\vec v_t$ such that $\vec v_t(0)=0$ and for the flow $\phi^t$ of $\vec v_t$ we have
+\[\omega_0=\phi^{t*}\omega_t\eqlbl{eq:omega=phi*omega}\]
+for any $t\in[0,1]$.
+Once this is done, the diffeomorphism $\phi^1$ gives the needed chart in a neighborhood of $p$.
+
+Since $\omega_1-\omega_0$ is closed, we can find a 1-form $\alpha$ such that
+$d\alpha=\omega_1-\omega_0$.
+We can assume that $\alpha(0)=0$.
+
+By the magic formula,
+\[\tfrac{d}{dt}(\phi^{t*}\omega_t)
+=
+\Lie_{\vec v_t}\omega_t+\tfrac{d}{dt}\omega_t
+=
+di_{\vec v_t}\omega_t+i_{\vec v_t}\cancelto{{}_0}{d\omega_t}+d\alpha.\]
+Since $\omega_t$ is nondegenerate, there is a time-dependent vector field $\vec v_t$ such that $i_{\vec v_t}\omega=-\alpha$.
+Since $\alpha(0)=0$, we have $\vec v_t(0)=0$ for any $t$.
+\qeds
+
