@@ -165,14 +165,14 @@ The same argument should work.
 
 \parbf{\ref{ex:hoelder-norm}.} Apply the product rule for derivatives.
 
-\parbf{\ref{ex:embedding-in-ball}.}
-Check that all constructions in the proof of the main theorem can be carried out in an arbitrarily small neighborhood of the origin.
-
-\begin{wrapfigure}{r}{32mm}
-\vskip-2mm
+\begin{wrapfigure}[7]{r}{32mm}
+\vskip-8mm
 \centering
 \includegraphics{mppics/pic-20}
 \end{wrapfigure}
+
+\parbf{\ref{ex:embedding-in-ball}.}
+Check that all constructions in the proof of the main theorem can be carried out in an arbitrarily small neighborhood of the origin.
 
 Alternatively, construct an isometric embedding of $\RR^d$ into a small neighborhood of the origin in $\RR^{2 \cdot d}$ (take product of embeddings $\RR\hookrightarrow\RR^2$ shown on the picture)
 and compose it with an isometric embedding $(\Omega, g) \hookrightarrow \RR^d$ provided by the main theorem.
@@ -180,3 +180,42 @@ and compose it with an isometric embedding $(\Omega, g) \hookrightarrow \RR^d$ p
 \parbf{\ref{ex:Mv}.}
 Notice that the equation can be written as $L(w)=\hat h$, where $\hat h=h-L(v)$.
 Then argue as in Nash’s lemma.
+
+\parbf{\ref{ex:guenther}.}
+Repeat the proof of \ref{lem:nash-guenter:guenter} (page \pageref{lem:nash-guenter:guenter}) with the following modifications.
+
+Note that, by \ref{prop:Delta-1}, for any $k\ge 4$, the operator
+\[
+(\Delta - 1)^2 : C^{k, \alpha}(\TT^n, \RR) \to C^{k-4, \alpha}(\TT^n, \RR)
+\]
+is bi-Lipschitz.
+
+The quadratic forms in \ref{eq:Delta} should be of the form
+$w \mapsto \langle \partial_{\mathcal I} w, \partial_{\mathcal J} w \rangle$ with $|{\mathcal I}|, |{\mathcal J}| \le 4$, and $|{\mathcal I}|+|{\mathcal J}| \le 6$.
+One can choose \( A_i = \langle \Delta^2 w, \partial_i w \rangle \), but it is not the only option.
+
+Instead of \ref{eq:A=<C}, you should have
+\[
+\begin{aligned}
+\|A(w)\|_{k-4, \alpha} &\le c_2 \cdot \|w\|_{k, \alpha} \cdot \|w\|_{2, \alpha} + c_k \cdot \|w\|^2_{k-1, \alpha}.
+\end{aligned}
+\]
+For all $k\ge 4$ and a sequence of constants $c_2, c_4, c_5,\dots$
+
+Instead of \ref{eq:AB=<C}, you get
+\[
+\begin{aligned}
+\|(\Delta-1)^{-2}A(w)\|_{k,\alpha}&\le c_2\cdot \|w\|_{k,\alpha}\cdot \|w\|_{2,\alpha} +c_{k}\cdot\|w\|_{k-1,\alpha}^2;
+\end{aligned}
+\]
+with some other constants.
+Almost no changese needed further.
+In the new formulation of version of Günther's lemma you should shift shift $k$ up by $2$; the inequalities should look be
+\begin{align*}
+\|\tilde Q(w,w)\|_{k,\alpha}
+&\le b_2\cdot \|w\|_{2,\alpha}\cdot \|w\|_{k,\alpha}
++
+b_k\cdot \|w\|_{k-1,\alpha}^2
+\end{align*}
+for any integer $k\ge 4$ and for some fixed constants $b_2,b_4,b_5,\dots$
+This version can be used the same way.

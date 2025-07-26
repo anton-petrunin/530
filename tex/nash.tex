@@ -826,7 +826,7 @@ The choice of $v$ provides additional freedom, which might seem unnecessary at f
 
 Indeed, moving the map in a tangential direction does not affect the Riemannian metric to first order;
 it only changes the parametrization.\footnote{Compare this to the DeTurck trick used in the Ricci flow.}
-However, as we will see, $v$ can be used to absorb high-frequency terms (see \ref{eq:Delta} and \ref{eq:tildeQ} below), which desolves the loss-of-derivatives problem---the main difficulty in Nash's original proof.
+However, as we will see, $v$ can be used to absorb high-frequency terms (see \ref{eq:Delta} and \ref{eq:tildeQ} below), which desolves the loss-of-derivatives problem --- the main difficulty in Nash's original proof.
 
 
 \medskip
@@ -839,7 +839,7 @@ Let $k \ge 2$ be an integer and let $v \in C^{k-2,\alpha}(\TT^n, \RR)$.
 Fourier analysis guarantees the existence of a weak solution $u$ to the equation $\Delta u - u = v$.
 By the \index{Schauder estimate}\emph{Schauder estimate}, it follows that $u \in C^{k,\alpha}(\TT^n, \RR)$, and we obtain the following proposition.\footnote{A proof of the Schauder estimates can be found in \cite[Chapter 3]{ladyzhenskaya-uraltseva}; some parts can be omitted in our case.}
 
-\begin{thm}{Proposition}
+\begin{thm}{Proposition}\label{prop:Delta-1}
 Recall that $\alpha\in(0,1)$ is a fixed constant, say $\alpha=\tfrac12$.
 Let $k\ge 2$ be an integer.
 Then the operator
@@ -924,9 +924,9 @@ these constants $c_2, c_3, \dots$ here may differ from those above, but each dep
 
 Recall also that
 \[
-L_{ij}(w)=-2\cdot\langle\partial_{ij} f,w\rangle
-+\partial_{i}\langle\partial_{j} f,w\rangle
-+\partial_{j}\langle\partial_{i} f,w\rangle;
+L_{ij}(v)=-2\cdot\langle\partial_{ij} f,v\rangle
++\partial_{i}\langle\partial_{j} f,v\rangle
++\partial_{j}\langle\partial_{i} f,v\rangle;
 \eqlbl{eq:L-def2}
 \]
 see Section~\ref{sec:proof(nash)}.
@@ -955,3 +955,11 @@ Notice that
 \[\tilde Q(w,w)=\sum_i(\Delta-1)^{-1} A_i(w)\cdot e_i-\tfrac12\cdot\sum_{i\le j}(\Delta-1)^{-1}A_{ij}(w)\cdot e_{ij}.\]
 Since the maps $e_i, e_{ij}\: \TT^n \to \RR^d$ are smooth, \ref{eq:AB=<C} together with \ref{ex:hoelder-norm} imply the final inequality in the lemma for all integers $k \ge 3$.
 \qeds
+
+The following exercise should help you adapt to the computational steps in the proof of the lemma.
+
+\begin{thm}{Exercise}\label{ex:guenther}
+Find a weaker version of Günther's lemma that can be proved along the same lines using the operator $(\Delta - 1)^2$ and its inverse $(\Delta - 1)^{-2}$.
+\end{thm}
+
+
