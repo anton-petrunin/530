@@ -823,10 +823,10 @@ These inequalities are essential; they enable the use of the contraction mapping
 The actual construction of $\tilde Q$ relies on Exercise~\ref{ex:Mv}, which states that, given a tangent vector field $v$, we can choose $M$ such that
 $w \z= Mh - v$ is an $\N$-field.
 The choice of $v$ provides additional freedom, which might seem unnecessary at first.
-
 Indeed, moving the map in a tangential direction does not affect the Riemannian metric to first order;
-it only changes the parametrization.\footnote{Compare this to the DeTurck trick used in the Ricci flow.}
-However, as we will see, $v$ can be used to absorb high-frequency terms (see \ref{eq:Delta} and \ref{eq:tildeQ} below), which desolves the loss-of-derivatives problem --- the main difficulty in Nash's original proof.
+it only changes the parametrization.
+However, as we will see, $v$ can be used to absorb high-frequency terms (see \ref{eq:Delta} and \ref{eq:tildeQ} below), which desolves the loss-of-derivatives problem --- the main difficulty in Nash's original proof.%
+\footnote{The same idea underlies the DeTurck trick in the Ricci flow \cite[5.2]{topping} and Kuiper's improvement of Nash's $C^1$-embedding theorem \cite{kuiper-1955}.}
 
 
 \medskip
@@ -953,7 +953,7 @@ L\tilde Q=Q.
 Let $\{e_i,e_{ij}\}_{i\le j}$ be the dual frame to $\{\partial_if,\partial_{ij}f\}_{i\le j}$ in osculating bundle $\T^2$.
 Notice that
 \[\tilde Q(w,w)=\sum_i(\Delta-1)^{-1} A_i(w)\cdot e_i-\tfrac12\cdot\sum_{i\le j}(\Delta-1)^{-1}A_{ij}(w)\cdot e_{ij}.\]
-Since the maps $e_i, e_{ij}\: \TT^n \to \RR^d$ are smooth, \ref{eq:AB=<C} together with \ref{ex:hoelder-norm} imply the final inequality in the lemma for all integers $k \ge 3$.
+Since the maps $e_i, e_{ij}\: \TT^n \to \RR^d$ are smooth, \ref{eq:AB=<C} together with \ref{ex:hoelder-norm} imply the inequalities in the lemma.
 \qeds
 
 The following exercise should help you adapt to the computational steps in the proof of the lemma.
