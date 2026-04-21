@@ -1,6 +1,10 @@
-\documentclass[twoside]{book}
+\documentclass{article}
 
-\def\thetitle{Nash's theorem via Günther's trick:\\ three lectures}
+
+\newcommand{\spell}[2]{#1} %for text
+%\newcommand{\spell}[2]{#2} %for spelling
+
+\def\thetitle{Nash's theorem via Günther's trick}
 
 \usepackage{lectures1}
 \usepackage[colorlinks=true,
@@ -16,7 +20,7 @@ pdfauthor={Anton Petrunin}
 ]{hyperref}
 \makeindex
 
-%\makeatletter\let\orig@chapter\chapter\renewcommand{\chapter}[1]{\orig@chapter{#1.}}\makeatletter\let\orig@section\section\renewcommand{\section}[1]{\orig@section{#1.}}\usepackage{environ}\RenewEnviron{figure}[1][]{}\RenewEnviron{figure*}[1][]{}\RenewEnviron{wrapfigure}[1][]{}
+\spell{}{\makeatletter\usepackage{environ}\RenewEnviron{figure}[1][]{ [PICTURE] }\RenewEnviron{figure*}[1][]{ [PICTURE] }\RenewEnviron{wrapfigure}[1][]{ [PICTURE] }\RenewEnviron{Figure}[1][]{ [PICTURE] }\usepackage{emptypage}\pagestyle{empty}\makeatother\usepackage[none]{hyphenat}\def\emph{\textit}\renewcommand{\footnote}[1]{\textup{\ (#1)}}\renewcommand{\frac}[2]{(#1)/(#2)}\renewcommand{\tfrac}[2]{(#1/#2)}\everydisplay{\textstyle}}
 
 \begin{document}
 
@@ -27,13 +31,10 @@ pdfauthor={Anton Petrunin}
 \date{}
 \maketitle
 
-\include{nash}
-
-\include{nash-sol}
+\input{nash-aa}
 
 {\small\sloppy
-\input{the-nash.ind}
-
+%\input{the-nash.ind}
 \def\emph{\textit}
 
 \printbibliography[heading=bibintoc]

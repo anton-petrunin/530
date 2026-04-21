@@ -1,3 +1,533 @@
+
+Let $v$ be a smooth function on $\TT^n$.
+Fourier analysis guarantees the existence of a unique smooth solution $u$ to the equation
+\[\Delta u - u = v.\]
+By the maximum principle, we have
+\[\|u\|_{L^\infty(\TT^n)}\le\|v\|_{L^\infty(\TT^n)},\eqlbl{eq:maximum-principle}\]
+where $\|\ \|_{L^\infty(W)}$ denotes the sup-norm on $W\subset \TT^n$.
+
+Choose a $\tfrac1{10}$-ball $B$ in $\TT^n$ (with the standard metric);
+denote by $2\cdot B$ the concentric ball with twice the radius.
+Note that $2\cdot B$ is isometric to a Euclidean ball, and by a direct corollary of Schauder's estimates (see for example \cite[Lemma 6.1(a)]{gilbarg-trudinger}) we have a constant $c>0$ such that
+\begin{align*}
+\|u\|_{C^{2,\alpha}(B)}
+&\le c\cdot(\|v\|_{C^{0,\alpha}(2\cdot B)} + \|u\|_{L^\infty(2\cdot B)})\le
+\\
+&\le c\cdot(\|v\|_{C^{0,\alpha}(\TT^n)} + \|u\|_{L^\infty(\TT^n)}).
+\end{align*}
+
+Avereging these inequalities for $\tfrac1{10}$-balls in $\TT^n$ and taking \ref{eq:maximum-principle} into account, we get
+\[\|u\|_{C^{2,\alpha}(\TT^n)}\le c\cdot\|v\|_{C^{0,\alpha}(\TT^n)};\]
+here the constant $c$ differs from the one above.
+
+Since the Laplacian commutes with partial derivatives, we also get that
+\[\|u\|_{C^{k,\alpha}(\TT^n)}
+\le
+c\cdot\|v\|_{C^{k-2,\alpha}(\TT^n)}\]
+for any integer $k\ge 2$.
+We also have the following trivial inequality:
+\[\|u\|_{C^{k,\alpha}(\TT^n)}\ge \tfrac1{n+1}\cdot\|v\|_{C^{k-2,\alpha}(\TT^n)}.\]
+Since smooth functions are dense in $C^{k,\alpha}(\TT^n)$, we get the following.
+
+
+
+
+
+
+
+
+
+
+
+
+
+Define the map $\Theta_\psi\:\TT^n \to \RR^2$ by
+\[\Theta_\psi(x)=(\cos [\psi(x)],\sin [\psi(x)]).\]
+
+In other words, $\Theta_\psi$ is the composition of two maps
+\[\TT^n\xrightarrow{\psi}\RR\xrightarrow{\ell}\SSS^1\subset\RR^2,\]
+where $\ell\:\RR\to\SSS^1$ is the natural covering map $y\mapsto (\cos y,\sin y)$.
+Notice that $\Theta_\psi$ is Nash's twist for the triple $(1,1,\psi)$.
+
+\begin{thm}{Exercise}\label{ex:free-twists}
+Consider the $(x,y)$-plane $\RR^2$.
+Show that the map
+\[\Theta_x\oplus \Theta_y\oplus \Theta_{x+y}\:\RR^2\to \RR^6=\RR^2\oplus\RR^2\oplus\RR^2\]
+is free.
+
+Generalize this statement to maps $\RR^n\to \RR^{n\cdot(n+1)}$.
+\end{thm}
+
+\begin{thm}{Exercise}\label{ex:free-composition}
+Let $w\:\TT^n \to \RR^s$ be a regular smooth map, and let $f\:\RR^s\z\to \RR^d$ be a free map.
+Show that the composition $f\circ w\:\TT^n \to \RR^d$ is free.
+
+Apply the Whitney embedding theorem and \ref{ex:free-twists} to conclude that any smooth manifold admits a free embedding into a Euclidean space.
+\end{thm}
+
+
+
+
+
+
+
+
+
+
+
+
+This step in the reduction relies on the following exercise:
+
+\begin{thm}{Exercise}\label{ex:torus-riemn}
+Let $\Omega$ be a closed submanifold of the torus $\TT^n$.
+Show that any Riemannian metric on $\Omega$ is the restriction of a Riemannian metric on $\TT^n$.
+\end{thm}
+
+\parit{Reduction of \ref{clm:compact} to \ref{clm:embedding}.}
+Since $\Omega$ is compact, it can be smoothly embedded into $\TT^{2n+1}$.
+
+Indeed, by the Whitney embedding theorem, there is a smooth embedding $\iota\:\Omega\z\to \RR^{2\cdot n+1}$.
+Let $g_1$ be the metric on $\Omega$ induced by $\iota$.
+Since $\Omega$ is compact, we can assume (after rescaling if necessary) that $g>g_1$; that is, $g-g_1$ is Riemannian, and the image lies in a small ball.
+Composing $\iota$ with the covering map $\RR^{2\cdot n+1}\to \TT^{2\cdot n+1}$, we obtain the required embedding into the torus.
+
+Thus, we may  assume that $\Omega$ is a compact submanifold of $\TT^{2\cdot n+1}$.
+By \ref{ex:torus-riemn}, any Riemannian metric $g$ on $\Omega$ is the restriction of a Riemannian metric, say $\bar g$, on $\TT^{2\cdot n+1}$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+\parbf{\ref{ex:sum}.}
+Let $\DD \subset \RR^n$ be the unit $n$-disc, and let $\DD^\circ$ denote its interior.
+Construct a smooth map $r\:\RR^n \to \SSS^n$ such that $r|_{\DD^\circ}$ is a smooth embedding, and the set $\RR^n \setminus \DD^\circ$ is mapped to the south pole.
+
+Since each $D_{\mathfrak{i}}$ is a smooth $n$-disc, there exists a diffeomorphism $\iota_{\mathfrak{i}}\:\DD \to D_{\mathfrak{i}}$.
+Then the composition $r_{\mathfrak{i}} = r \circ \iota_{\mathfrak{i}}^{-1}$ satisfies the first two conditions.
+
+Now, let us construct a metrics $h_{\mathfrak{i}}$ on $\SSS^n$ that meet the last condition.
+Start by choosing sufficiently small metrics $\hat h_{\mathfrak{i}}$ on $\SSS^n$ such that
+\[
+g > \hat g = \sum_{\mathfrak{i}} r_{\mathfrak{i}}^* \hat h_{\mathfrak{i}},
+\]
+and let $g_1 = g - \hat g$.
+
+Choose a partition of unity $\phi_{\mathfrak{i}}$ subordinate to the covering $\{D_{\mathfrak{i}}^\circ\}$;
+that is, $\sum \phi_{\mathfrak{i}} = 1$, each $\phi_{\mathfrak{i}} \ge 0$, and the support of $\phi_{\mathfrak{i}}$ lies in $D_{\mathfrak{i}}^\circ$ for each~$\mathfrak{i}$.
+Denote by $s_{\mathfrak{i}}$ the inverse of the restriction $r_{\mathfrak{i}}|_{D_{\mathfrak{i}}^\circ}$.
+
+Observe that $s_{\mathfrak{i}}^*(\phi_{\mathfrak{i}} \cdot g_1)$ is a nonnegative metric on $\SSS^n$ and $\phi_{\mathfrak{i}} \cdot g_1\z=r_{\mathfrak{i}}^*s_{\mathfrak{i}}^*(\phi_{\mathfrak{i}} \cdot g_1)$ for each~$\mathfrak{i}$.
+Therefore, the metric
+\[
+h_{\mathfrak{i}} = \hat h_{\mathfrak{i}} + s_{\mathfrak{i}}^*(\phi_{\mathfrak{i}} \cdot g_1)
+\]
+is Riemannian.
+Verify that each $h_{\mathfrak{i}}$ satisfies the last condition.
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{subthm}{}
+The restriction $r_{\mathfrak{i}}|_{D_{\mathfrak{i}}^\circ}$ is a smooth embedding.
+\end{subthm}
+
+\begin{subthm}{}
+$r_{\mathfrak{i}}$ maps $\Omega\setminus D_{\mathfrak{i}}^\circ$ to the south pole of $\SSS^n$.
+\end{subthm}
+
+\begin{subthm}{}
+$g=\sum_{\mathfrak{i}} r_{\mathfrak{i}}^*h_{\mathfrak{i}}$.
+\end{subthm}
+
+Instead, he cuts \(\Omega\) into overlapping coordinate patches, and for each patch
+constructs a \emph{patch map} \(\varphi_i : \Omega \to S^n\) which is nondegenerate on \(N_i\)
+but collapses everything outside \(N_i\) to the north pole of the sphere.
+This lets him transfer a local piece of the metric on \(\Omega\) to a metric on the compact
+manifold \(S^n\). Then he applies the compact-case theorem to embed each \(S^n\) into
+Euclidean space, and pulls that embedding back to \(\Omega\) through \(\varphi_i\).
+
+The global metric is split as a sum of these localized pieces using a partition of unity.
+Because the patches can be grouped into \(n+1\) classes with no overlaps inside each class,
+all patches in one class can be realized simultaneously in one Euclidean block; then taking
+the product of the \(n+1\) blocks adds the metrics and recovers the original metric on \(\Omega\).
+So the noncompact case is reduced to repeatedly applying the compact theorem to spheres,
+at the cost of many extra dimensions.
+
+We opmit its proof
+
+
+
+
+
+\paragraph{Disc covering}
+
+Let $\Omega$ be a smooth $n$-dimensional manifold.
+A subset $D \subset \Omega$ is called a \index{smooth $n$-disc}\emph{smooth $n$-disc} if there exists a neighborhood $N$ of $D$ and a smooth embedding $N \to \RR^n$ that sends $D$ to the unit ball.
+
+\begin{thm}{Claim}\label{clm:cover}
+Let $\{U_\alpha\}$ be an open cover of a smooth $n$-dimensional manifold $\Omega$.
+Then there exists a countable collection of smooth $n$-discs $\{D_{\mathfrak{i}}\}$ in $\Omega$ such that the following conditions hold:
+
+\begin{subthm}{clm:cover:cover}
+The interiors $D_{\mathfrak{i}}^\circ$ cover the entire manifold $\Omega$.
+\end{subthm}
+
+\begin{subthm}{clm:cover:inscribed}
+For each $D_{\mathfrak{i}}$, there exists $\alpha$ such that $D_{\mathfrak{i}} \subset U_\alpha$.
+\end{subthm}
+
+\begin{subthm}{clm:cover:color}
+The collection $\{D_{\mathfrak{i}}\}$ can be colored with $n+1$ colors such that any two distinct $n$-discs of the same color are disjoint.
+More precisely, the index set $\mathfrak{I}$ of $\{D_{\mathfrak{i}}\}$ can be partitioned into $n+1$ subsets $\mathfrak{I}_0, \dots, \mathfrak{I}_n$ such that for any fixed $k$ and any distinct $\mathfrak{i}, \mathfrak{j} \z\in \mathfrak{I}_k$, we have
+$D_{\mathfrak{i}} \cap D_{\mathfrak{j}} = \emptyset$.
+\end{subthm}
+
+\end{thm}
+
+{
+
+\begin{wrapfigure}{r}{27mm}
+\vskip-6mm
+\centering
+\includegraphics{mppics/pic-10}
+\caption*{Colored discs in a triangle of $\tau$.}
+\end{wrapfigure}
+
+This claim is not very far from the fact that the
+topological dimension of an $n$-dimensional manifold equals $n$.
+The statement follows from the existence of smooth triangulation of a smooth manifold and left as an exercise.
+The picture should give a hint and
+
+
+To prove this statement, we may choose a triangulation $\tau$ of $\Omega$ such that the star of each vertex of $\tau$ lies in some $U_\alpha$.
+(To prove the existence, we may use that any smooth manifold admits a triangulation and then apply \cite[Theorem 35]{whitehead}.)
+Let $\tau'$ be the barycentric subdivision of $\tau$,
+and choose a covering of $\Omega$ by colored discs so that intersection with the a simplex of $\tau$ looks like can be guessed from the picture.
+
+}
+
+\parit{Sketch of proof.}
+Recall that the \index{star}\emph{star} of a vertex $\mathfrak{i}$ in a simplicial complex is the union of all open simplices that have $\mathfrak{i}$ as a vertex.
+
+Choose a triangulation $\tau$ of $\Omega$ such that the star of each vertex of $\tau$ lies in some $U_\alpha$.
+(To prove the existence, we may use that any smooth manifold admits a triangulation and then apply \cite[Theorem 35]{whitehead}.)
+Let $\tau'$ be the barycentric subdivision of $\tau$.
+
+
+
+For each vertex $\mathfrak{i}$ of $\tau'$, observe that its star can be smoothly parametrized by an open $n$-disc.
+By choosing a slightly smaller disc within this parametrization, we obtain a smooth $n$-disc $D_{\mathfrak{i}}$.
+This construction can be done so that the interiors $D_{\mathfrak{i}}^\circ$, for all vertices $\mathfrak{i}$ of $\tau'$, cover $\Omega$.
+Since each $D_{\mathfrak{i}}$ lies within the star of $\mathfrak{i}$, condition \ref{SHORT.clm:cover:inscribed} is satisfied.
+
+
+
+Recall that each vertex of $\tau'$ corresponds to a simplex in $\tau$.
+We now color the vertices of $\tau'$ with $n+1$ colors labeled $0, \ldots, n$, assigning color $k$ to each vertex corresponding to a $k$-simplex of $\tau$.
+Observe that this coloring induces a coloring of the $n$-discs that meets condition~\ref{SHORT.clm:cover:color}.
+\qeds
+
+
+Assume that $\Omega$ be a connected noncompact manifold.
+Note that there is a smooth, proper, bounded embedding $\Omega\hookrightarrow\RR^d\setminus\{0\}$.
+Moreover, given a Riemannian metric $g$ on $\Omega$, we can assume that the induced metric of this embedding is smaller than $g$.
+
+Start with an embedding $\iota\:\Omega\to\RR^d$ provided by Whitney's theorem.
+Think of $\RR^d$ as the affine subspace $\{x_{d+1} = 1\}$ in $\RR^{d+1}$.
+Consider an embedding $w_0$ of the form $x \mapsto \phi \cdot \iota(x)$, where $\phi\:\Omega \to \RR$ is a smooth positive function.
+Choosing $\phi$ right, one can ensure that $w_0$ is a smooth, proper, bounded embedding into $\RR^d\setminus\{0\}$.
+Moreover, given a Riemannian metric $g$ on $\Omega$, we can assume that the induced metric $g_0$ of $w_0$ is smaller than $g$.
+In particular $g_1=g-g_0$ is a Riemannian metric on $\Omega$.
+
+Once we construct an isometric immersion $w_1\:(\Omega,g_1)\to \RR^d_1$, we
+
+
+\begin{thm}{Exercise}\label{ex:sum}
+Suppose $\{D_{\mathfrak{i}}\}$ is a collection of smooth $n$-discs in a smooth $n$-dimensional manifold $\Omega$ provided by \ref{clm:cover}.
+Show that for any Riemannian metric $g$ on $\Omega$, there exists a collection of Riemannian metrics $h_{\mathfrak{i}}$ on $\SSS^n$ and smooth maps $r_{\mathfrak{i}}\:\Omega \to \SSS^n$ such that:
+
+\begin{subthm}{}
+The restriction $r_{\mathfrak{i}}|_{D_{\mathfrak{i}}^\circ}$ is a smooth embedding.
+\end{subthm}
+
+\begin{subthm}{}
+$r_{\mathfrak{i}}$ maps $\Omega\setminus D_{\mathfrak{i}}^\circ$ to the south pole of $\SSS^n$.
+\end{subthm}
+
+\begin{subthm}{}
+$g=\sum_{\mathfrak{i}} r_{\mathfrak{i}}^*h_{\mathfrak{i}}$.
+\end{subthm}
+\end{thm}
+
+\parit{Reduction of \ref{thm:main} to \ref{clm:compact}.}
+Let $w\:\Omega\to\RR^d$ be an embedding provided by \ref{ex:short-embedding} for the metric $\tfrac12\cdot g$.
+Let $g_0$ be the metric induced by $w$;
+note that $g_1=g-g_0$ is Riemannian.
+
+Apply \ref{ex:sum} to $(\Omega,g_1)$;
+let $r_{\mathfrak{i}}$, $h_{\mathfrak{i}}$, and $D_{\mathfrak{i}}$ be the resulting maps, metrics, and smooth $n$-discs.
+Since $\SSS^n$ is compact, there exists an isometric embedding $w_{\mathfrak{i}}\: (\SSS^n, h_{\mathfrak{i}}) \to \RR^d$;
+we may assume that $w_{\mathfrak{i}} \circ r_{\mathfrak{i}}$ maps all points in $\Omega\setminus D_{\mathfrak{i}}^\circ$ to the origin in $\RR^d$.
+In particular, each composition $w_{\mathfrak{i}} \circ r_{\mathfrak{i}}$ has compact support in $D_{\mathfrak{i}}^\circ$.
+
+Let $\mathfrak{I}_0,\dots,\mathfrak{I}_n$ be the coloring of the index set provided by \ref{clm:cover}.
+Set
+\[s_i=\sum_{\mathfrak{i}\in \mathfrak{I}_i} w_{\mathfrak{i}}\circ r_{\mathfrak{i}}
+\quad\text{and}\quad
+s=s_1\oplus\dots\oplus s_{n+1}.
+\]
+By \ref{ex:plus-oplus} and \ref{ex:oplus},
+\begin{align*}
+Q(w\oplus s,w\oplus s)&=Q(w,w)+\sum_i Q(s_i,s_i)=
+\\
+&=g_0+\sum_{\mathfrak{i}} Q(w_{\mathfrak{i}}\circ r_{\mathfrak{i}},w_{\mathfrak{i}}\circ r_{\mathfrak{i}})=
+\\
+&=g_0+\sum_{\mathfrak{i}} r^*_{\mathfrak{i}}h_j=
+\\
+&=g_0+g_1=g.
+\end{align*}
+Since $w$ is an embedding, so is $w \oplus s$, and the result follows.
+\qeds
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Our sketch relied on the existence of a triangulation of a smooth manifold, which has a tedious proof.
+Alternatively, one can choose a Riemannian metric on $\Omega$, inscribe a covering of small, almost Euclidean balls into $\{U_\alpha\}$, and then argue as in the Besicovitch covering lemma.
+This approach yields a version of the claim with $q$ colors instead of $n+1$, where $q$ depends only on $n$.
+It serves as a replacement for Claim~\ref{clm:cover} in the remainder of our argument.
+
+
+
+
+
+
+
+
+
+
+
+
+
+If a metric $g$ is induced by smooth map $\Omega\to \RR^d$, then of cause $g(\vec x, \vec x) \ge 0$ for all tangent vectors $\vec x$.
+On the other hand, there are nonnegative metrics that are not induced by any smooth map;
+examples can be found among metrics on the torus that vanishes on an irrational foliation.
+
+
+
+
+
+
+
+
+
+
+
+
+\section{A remark about \textit{d}}
+
+
+
+\parit{Proof.}
+Choose a point $p\in\Omega$ and a chart at $p$.
+
+Assume that the main theorem holds for some dimension $d$.
+Then the components $g_{ij}=g(\partial_i,\partial_j)$ of any Riemannian metric can be written as
+\[
+\langle \partial_i w, \partial_j w \rangle = g_{ij},
+\eqlbl{eq:<ww>=g}
+\]
+for some smooth map $w\:\Omega \to \RR^d$.
+
+There are $\tbinom{n+1}{2}$ components $g_{ij}$, each of which is a smooth function on~$\Omega$.
+The equation \ref{eq:<ww>=g} has $d$ unknowns; namely, the coordinate functions of~$w$.
+This suggests that $d$ should be at least $\tbinom{n+1}{2}$.
+The remaining proof is very standard, we reduce the problem to an algebraic system between the \emph{jet spaces} of $w$ and $g$ at the point $p$; the jet space corresponds to the space of Taylor polynomials of a given degree at~$p$.
+
+Denote by $J^m(g)$ the degree-$m$ Taylor polynomial of $g$ at~$p$.
+This polynomial has $\tbinom{m+n}{n}$ coefficients in an $\tbinom{n+1}{2}$-dimensional space.
+(Each coefficient corresponds to a certain partial derivative of $g$ of order at most $m$ at $p$.)
+Such polynomials form an open subset of a $\tbinom{n+1}{2} \cdot \tbinom{m+n}{n}$-dimensional space.
+
+Similarly, let $J^m(w)$ be the degree-$m$ Taylor polynomial of $w$ at~$p$.
+This polynomial has $\tbinom{m+n}{n}$ coefficients in a $d$-dimensional space;
+hence these polynomials form a space of dimension $d \cdot \tbinom{m+n}{n}$.
+
+The equations \ref{eq:<ww>=g} define a smooth map $J^{m+1}(w)\mapsto J^m(g)$.
+In other words, any partial derivative of $g$ of degree at most $m$ can be expressed in terms of partial derivatives of $w$ of degree at most $m+1$.
+Since the system \ref{eq:<ww>=g} admits a solution for any metric $g$, there exists a $J^{m+1}(w)$ mapping to any given $J^m(g)$.
+By Sard's lemma,
+\[
+d \cdot \tbinom{m+n+1}{n} \ge \tbinom{n+1}{2} \cdot  \tbinom{m+n}{n}.
+\]
+Since
+$\tbinom{m+n+1}{n}/\tbinom{m+n}{n} \to 1$ as  $m \to \infty$, we conclude that $d \ge \tbinom{n+1}{2}$.
+\qeds
+
+This proof is taken from \cite[Appendix I]{gromov-rokhlin} and it works for general system of partial differential equations.
+
+The system of equations \ref{eq:<ww>=g} makes perfect sense for $C^1$-smooth maps $w$, but the proof essentially uses that $w$ is $C^m$-smooth for sufficiently large $m$.
+Without this assumption, the statement does not hold.
+
+Indeed, the Nash--Kuiper theorem \cite{nash-1954,kuiper-1955} states that equation \ref{eq:<ww>=g} admits a $C^1$-smooth solution $w$ if $d = n+1$.
+This bound is optimal, since if $d=n$, then the metric $g$ must be flat, which is not the case in general.
+Notice that for $d = n+1$, the system \ref{eq:<ww>=g} is overdetermined, yet still admits a $C^1$-smooth solution.
+
+It might happen that the optimal dimension for $C^2$-embeddings is smaller than $\tbinom{n+1}{2}$;
+at least the above argument gives a worse bound in this case.
+This question mentioned by Mikhael Gromov and Vladimir Rokhlin \cite[]{gromov-rokhlin}.
+Counting degrees of freedom of curvature tesor one can get $d\ge \tfrac1{6}\cdot n\cdot (n+5)$.
+Indeed the curvature nensor has $\tfrac1{12}\cdot n^2\cdot(n^2-1)$ independent components, and each quadratic form has $\tfrac12\cdot n\cdot(n+1)$ independent components.
+Applying Gauss formula, we get that the codimension of the embedding has to be at least $\tfrac1{6}\cdot n\cdot (n-1)$.
+
+
+
+
+
+
+
+
+
+
+%\begin{thm}{Exercise}\label{ex:+function}
+%Let $f$ be a smooth function on a Riemannian manifold $(\Omega, g)$.
+
+%\begin{subthm}{ex:+function:a}
+%Suppose that $|\vec x f|^2 < g(\vec x, \vec x)$ for every nonzero tangent vector~$\vec x$.
+%Use the main theorem to show that there exists an isometric embedding of $(\Omega, g)$ into $\RR^d$, for some $d$, such that $f$ is its first coordinate function.
+%\end{subthm}
+
+%\begin{subthm}{ex:+function:b}
+%Give an example showing that \ref{SHORT.ex:+function:a} may fail if the inequality is replaced with the non-strict version $|\vec x f|^2 \le g(\vec x, \vec x)$.
+%\end{subthm}
+
+%\end{thm}
+
+
+
+
+
+
+
+
+%\begin{thm}{Exercise}\label{ex:f-ominus-phi}
+%Let $\psi$ be a smooth isometric immersion of a Riemannian manifold $(\Omega, g)$ into the sphere $\SSS^{d-1} \subset \RR^d$, and let $\phi \: \Omega \to \RR$ be a smooth function.
+%Show that $\phi^2 \cdot g$ is induced by the map $\phi \cdot \psi \ominus \phi$.
+%\end{thm}
+
+
+
+
+
+
+
+
+(Isometric embedding $w\:(\Omega, g)\to (\bar\Omega, \bar g)$ could be also defined as smooth \index{length-preserving map}\emph{length-preserving} maps, meaning that
+\[\length \gamma = \length(w \circ \gamma)\]
+for any (not necessarily smooth) curve $\gamma$ in $\Omega$.
+The reader is welcome to check equivalence of these definitions.)
+
+
+
+
+
+
+
+%\parbf{\ref{ex:+function}}; \ref{SHORT.ex:+function:a}.
+%Show and use that $g_1 = g - (df)^2$ defines a Riemannian metric on $\Omega$.
+
+%\parit{\ref{SHORT.ex:+function:b}.}
+%Consider the function $f(x, y) = x$ on the $(x, y)$-plane equipped with the metric $(dx)^2 + \phi(x)^2 \cdot (dy)^2$, where $\phi$ is a nonconstant positive smooth function.
+
+
+
+\begin{thm}{Exercise}\label{ex:length-preserving}
+Let $w$ be a smooth map from a smooth Riemannian manifold $(\Omega, g)$ to $\RR^d$.
+Show that $w$ is isometric if and only if it is \index{length-preserving map}\emph{length-preserving};
+that is, if
+\[\length \gamma = \length(w \circ \gamma)\]
+for every curve $\gamma$ in $\Omega$.
+\end{thm}
+
+\begin{thm}{Exercise}\label{ex:R2->R}
+Show that there is no length-preserving map $\RR^2\to\RR$.
+\end{thm}
+
+
+
+
+
+
+
+
+\parbf{\ref{ex:length-preserving}.} The only-if part is trivial.
+
+Apply the length-preserving property to all arcs of curves in the coordinate directions to show that the equality
+\[g_{ii}=\langle \partial_i w, \partial_i w\rangle\]
+holds almost everywhere, and therefore everywhere.
+
+Observe that
+\[2\cdot g_{ij}=g(\partial_i+\partial_j,\partial_i+\partial_j)-g(\partial_i,\partial_i)-g(\partial_j,\partial_j).\]
+Using this formula together with the argument above for curves in the direction $\partial_i$, $\partial_j$ and $\partial_i+\partial_j$, show that the equality
+\[g_{ij}=\langle \partial_i w, \partial_j w\rangle\]
+holds almost everywhere, and therefore everywhere.
+
+\parbf{\ref{ex:R2->R}.} Assume the contrary;
+let $w\:\RR^2\to \RR$ be a length-preserving map.
+
+Note that $w$ is Lipschitz.
+By Rademacher's theorem \cite{rademacher}, the differential $d_xw$ is defined for  almost all $x$.
+Argue as in \ref{ex:length-preserving} to show that $|\partial_1w|=|\partial_2w|=1$, but $\partial_1w\cdot \partial_2w=0$ almost everywhere and arrive at a contradiction.
+
+\parit{Remark.} This argument also shows that there is no length-preserving map from an $n$-dimensional Riemannian manifold to $\RR^{n-1}$.
+On the other hand, a theorem of Mikhael Gromov \cite[Section~2.4.11]{gromov-1986} implies that \textit{any $n$-dimensional Riemannian manifold admits a length-preserving map into $\RR^n$}.
+This is a close relative of the Nash--Kuiper theorem \cite{nash-1954,kuiper-1955}.
+Another proof of Gromov's theorem is outlined in our lecture notes \cite{petrunin-yashinski}.
+
+%\parbf{\ref{ex:f-ominus-phi}.} Straightforward calculations.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Our proof used the existance of triangultion of smooth manifold, which has a tedius proof.
 The following exercise provides a replacement for Claim~\ref{clm:cover} that can be used in the rest of our argument.
 

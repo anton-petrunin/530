@@ -1,0 +1,881 @@
+Nash’s theorem via Günther’s trick
+Anton Petrunin
+
+Abstract
+We present Günther’s approach to Nash’s embedding theorem
+with an emphasis on accessibility.
+
+Riemannian geometry has two fundamental theorems. One is about
+the existence and uniqueness of the Levi-Civita connection, and the
+other is a result of John Nash [11], which states that any Riemannian
+manifold is isometric to a smooth submanifold of Euclidean space. In
+other words, Riemannian manifolds can be defined as submanifolds of
+Euclidean space.
+Nash’s original proof is based on a delicate iteration scheme with
+smoothing operators to overcome the loss-of-derivatives problem. This
+construction led to the Nash–Moser inverse function theorem — a
+method, which has found many applications.
+Later, Matthias Günther discovered a magic trick [5], which opens
+a way with no loss of derivatives problem. As a result, the proof can
+be based on the standard inverse function theorem in Banach spaces,
+which is essentially a contraction argument.
+Thanks to Günther’s simplification, I was able to include this
+theorem in a differential geometry course, and I hope it is worth
+sharing. Except for the inverse function theorem, I mostly follow
+Nash’s original proof; I also use several cosmetic tweaks by Deane
+Yang [15], Terence Tao [13], and Ralph Howard [7]. Günther’s approach
+is also carefully covered in two textbooks: by Michael Taylor [14] and
+by Qing Han and Jia-Xing Hong [6].
+The reader is assumed to be familiar with smooth manifolds (charts,
+atlases, coverings, partitions of unity, and tensor fields). I use other
+results, including Schauder’s estimates and the Whitney embedding
+theorem, but they may be treated as black boxes. I would like to
+thank Mikhael Gromov, Fedor Nazarov, and Deane Yang for their
+help.
+
+We formulat the embedding problem is given in Section 1. Section
+2, introduces Nash’s twist and solve an approximate version of the
+embedding problem. Section 3 consists of several steps that reduces
+the main theorem to a perturbation problem of a metric on the torus.
+In Section 5, we introduce free maps and formulate Nash’s lemma and
+Günther’s lemma. In the following section we use these lammas to
+solve the perturbation problem and therefore the embedding problem.
+The final two sections prove the lemmas.
+Here is a list of globally fixed notation.
+v ⊕ w, 3
+v ⊖ w, 5
+dxi ⊙ dxj, 5
+(dψ)2, 4
+dw, w∗, xw, 2
+∆u, 12
+Lij, 11
+L, M, 9
+n, N, 6
+Q, Qij, 8
+Q̃, 9
+T, T⊥, T2, N, 11
+
+1
+
+Formulation
+
+Induced metric. Given a smooth n-dimensional manifold Ω, we denote
+by TΩ and Tp Ω its tangent bundle and the tangent space at a point p ∈ Ω,
+respectively.
+Recall that a metric tensor, say g, on Ω is a smooth field of symmetric bilinear
+forms on TΩ. Here and further, smooth means C ∞.
+
+Let Ω̄ be another smooth manifold, and let w : Ω → Ω̄ be a smooth map.
+Recall that the derivative of w in the direction of a tangent vector x ∈ Tp Ω is
+denoted by xw, and xw = dw(x); that is, the derivative of w in the direction x is
+the differential dw : TΩ → TΩ̄ of w, evaluated at x. Note that xw ∈ Tw(p) Ω̄.
+Suppose that Ω̄ is equipped with a metric tensor ḡ. Then the metric tensor g
+on Ω defined by
+g(x, y) = ḡ(xw, yw)
+is called the induced metric tensor, or the pullback of ḡ to Ω. This relation can
+also be written as g = w∗ ḡ. Equivalently, we may say that w : (Ω, g) → (Ω̄, ḡ) is
+an isometric.
+A metric tensor g is called Riemannian if it is positive-definite; that is, g(x, x) >
+0 for any nonzero tangent vector x. A smooth manifold equipped with a Riemannian
+metric is called a Riemannian manifold.
+Notice that if g = w∗ ḡ is a Riemannian metric, then w must be regular; that
+is, the differential dp w has rank n at every point p ∈ Ω. In particular, w is an
+immersion.
+
+We consider the space Rd equipped with the metric tensor defined by the
+standard scalar product:
+ḡ(x, y) := ⟨x, y⟩ = x1 ·y1 + · · · + xd ·yd,
+where xi and yi denote the coordinates of vectors x, y ∈ Rd.
+ Note that ḡ is
+Riemannian.
+1.1. Main theorem. Any n-dimensional Riemannian manifold (Ω, g) admits a
+smooth isometric embedding into a Euclidean space Rd for some d. Moreover, d
+can be bounded in terms of n.
+We give a complete proof only for compact manifolds and indicate reduction
+of the theorem to the compact case; see Step 4 in the next section.
+
+Remark about d. I do not make any effort to optimize the bound on d in
+terms of n. Tracing the estimates in the argument yields that d = 10·n4 suffices.
+For compact surfaces one can take d = 5; this seems to be the only nontrivial
+case when the optimal dimension is known. The existence is proved in [3, 3.2.4(D)],
+and there is no isometric embedding of RP2 with the standard metric into R4 [4,
+Appendix 4].
+
+A lower bound d ⩾ n+1
+is proved in [4, Appendix 1]. It means that the
+2
+system
+➊
+
+⟨∂i w, ∂j w⟩ = gij,
+
+cannot be overdetermined. This might be the optimal bound for large n and for
+the local version of the theorem; that is, any point in a smooth n-dimensional
+Riemannian manifold has a neighborhood U that admits an isometric embedding
+into Rd.
+
+The system ➊ makes
+perfect sense for C 1 -smooth maps w, but the proof of
+
+the bound d ⩾ n+1
+essentially
+uses that w is C m -smooth for sufficiently large m.
+2
+Without this assumption, the statement does not hold. Indeed, the Nash–Kuiper
+theorem [8, 10] states that ➊ admits a C 1 -smooth solution w if d = n + 1. For
+instance, itmight happen that the optimal dimension for C 2 -embeddings is smaller
+than n+1
+. This question was mentioned by Mikhael Gromov and Vladimir
+2
+Rokhlin in the cited paper. Counting degrees of freedom of curvature tensor gives
+a lower bound which is still quadratic in n; namely, d ⩾ (1/6)·n·(n + 5).
+
+2
+
+Approximate theorem
+
+Sum and direct sum. Consider two smooth maps v1 : Ω → Rd1 and
+v2 : Ω → Rd2.
+ The map v1 ⊕ v2 : p ↦ (v1 (p), v2 (p)) will be called the direct
+sum of v1 and v2 ; it maps Ω to Rd1 +d2 = Rd1 ⊕ Rd2.
+
+Suppose that metric tensors g, g1, and g2 are induced by v1 ⊕ v2, v1, and v2,
+respectively. Then
+g = g1 + g2.
+
+Furthermore, if d1 = d2, then we can consider the usual sum v1 + v2.
+ Recall
+that the support of a map is the closure of the set where it takes nonzero values.
+Now suppose that g, g1, and g2 are induced by v1 + v2, v1 and v2, and the maps
+v1 and v2 have disjoint supports. Then again we have
+g = g1 + g2.
+
+These two observations will be used repeatedly without notice.
+
+Nash’s twist. Let φ and ψ be smooth functions on a smooth manifold Ω.
+Given r > 0, denote by S1r the circle of radius r in R2.
+
+[PICTURE]
+Nash’s twist Θ : Ω → R2 of the triple (r, φ, ψ) is defined as the composition
+ψ
+
+ℓ
+
+×φ
+
+r
+Ω−
+→ R −→
+S1r −−→ R2,
+
+where ℓr : R → S1r is a length-preserving covering map, say
+ℓr (x) = (r· cos(x/r), r· sin(x/r)),
+and ×φ denotes multiplication by φ; so
+Θ(x) := φ(x)·(ℓr ◦ ψ(x)).
+2.1. Claim. Nash’s twist Θ for the triple (r, φ, ψ) induces the metric
+g = φ2 ·(dψ)2 + r2 ·(dφ)2.
+
+Here (dψ)2 denotes the metric tensor induced by ψ : Ω → R; that is,
+(dψ)2 (x, y) := dψ(x)·dψ(y) = (xψ)·(yψ).
+Computations. Suppose that x is a tangent vector on Ω. Then,
+xΘ = x(φ·ℓr ◦ ψ) =
+= (xφ)·(ℓr ◦ ψ) + φ·(ℓ′r ◦ ψ)·(xψ).
+Observe that |ℓr | = r, |ℓ′r | = 1, and ℓr ⊥ ℓ′r.
+ Therefore,
+g(x, y) = ⟨xΘ, yΘ⟩ = r2 ·(xφ)·(yφ) + φ2 ·(xψ)·(yψ).
+
+Approximate version. The following statement can be regarded as an
+approximate version of the main theorem (1.1). It implies in particular that the
+set of metrics induced by smooth maps into Euclidean space is dense in the space
+of all Riemannian metrics.
+2.2. Proposition. Let g be a Riemannian metric on a smooth n-manifold Ω.
+Then there exists a metric tensor h on Ω and a one-parameter family of smooth
+maps wt : Ω → Rd with the induced metrics gt = g + t·h for t > 0.
+The proof will produce a nonnegative metric tensor h, but this is not going to
+be used.
+Observe that gt → g as t → 0. Therefore, one might be tempted to take the
+limit of wt as t → 0. However, as we will see, the maps wt constructed in the proof
+converge to a constant; thus, the limit does not solve the problem.
+Let w : Ω → Rd be a smooth map. Suppose that w1,...
+, wd are the coordinate
+functions of w. Then the induced metric tensor g can be written as
+➊
+
+g = (dw1)2 + · · · + (dwd)2.
+
+
+In the main theorem, we need to find functions w1,...
+, wd : Ω → R that satisfy
+equation ➊ for a given Riemannian metric g. The following weaker form of ➊ will
+play a key role in the proof of 2.2.
+2.3. Proposition. Let (Ω, g) be a compact n-dimensional Riemannian manifold.
+Then there are smooth functions φ1,...
+, φd, ψ1,...
+, ψd on Ω such that
+➋
+
+g = φ21 ·(dψ1)2 + · · · + φ2d ·(dψd)2.
+
+Moreover, we can assume that d ⩽ 2·(n + 1)·n2.
+
+
+Proof. The metric tensor g can be written in local coordinates (x1,...
+, xn) as
+➌
+
+g=
+
+P
+
+i,j gij ·dxi ⊙ dxj,
+
+where gij = gji are smooth functions of (x1,...
+, xn) and ⊙ denotes the symmetric
+tensor product.
+Since g is Riemannian, at any point p ∈ Ω, we can choose a chart so that the
+vectors ∂i are orthonormal at p; that is, gii = 1 and gij = 0 at p for all i≠ j.
+Since gij are smooth functions, for any ε > 0, we can find a neighborhood U ∋ p
+such that
+➍
+
+gii ≶ 1 ± ε
+
+and
+
+gij ≶ ±ε
+
+for all i≠ j and any point in U.
+
+Observe that
+±dxi ⊙ dxj = (1/2)·(dxi ± dxj)2 − (1/2)·(dxi)2 − (1/2)·(dxj)2.
+
+Let us plug this formula in ➌ and take ➍ into account. Assuming that ε is small,
+we will get that g is a linear combination with positive coefficients of the metric
+tensors (dxi)2 and (dxi ± dxj)2 for all i and j. In other words, we can take the
+functions xi and xi ± xj for all i < j as our functions ψ1,...
+, ψd (these should be
+extended smoothly to the whole manifold) and find φ1,...
+, φd such that ➋ holds
+in a neighborhood of p. Applying a partition of unity, we get the global statement.
+It suffices to take n2 functions in each chart. So, if Ω is covered by m charts,
+then we may take d = n2 ·m. Moreover, the same bound applies if the charts
+can be colored using m colors such that distinct charts of the same color do not
+overlap. By the colored version of Lebesgue covering dimension [12, Theorem 2],
+we can assume that m = n + 1; therefore, d = n2 ·(n + 1) suffices.
+
+Proof
+√ of 2.2. Suppose that φ1,...
+, φd, ψ1,...
+, ψd are provided by 2.3. Let
+r=
+
+t; denote by Θi the Nash’s twist for the triple (r, φi, ψi). By 2.1,
+wt = Θ1 ⊕ · · · ⊕ Θd
+
+is the needed map with h = (dφ1)2 + · · · + (dφd)2.
+
+
+A pseudoeuclidean digression. Let us denote by Rr ⊖Rs the pseudoeuclidean
+space with signature (r, s); that is, the space Rr+s with the scalar product defined
+by
+⟨x, y⟩ = x1 ·y1 + · · · + xr ·yr − xr+1 ·yr+1 − · · · − xr+s ·yr+s,
+where xi and yi denote the coordinates of vectors x and y in Rr+s.
+
+2.4. Problem. Show that any metric g on a smooth manifold Ω is induced by
+a smooth embedding Ω,→ Rr ⊖ Rs for some large r and s.
+Solution based on Nash’s theorem. Notice that any metric g can be written as
+the difference g = g1 − g2 of two Riemannian metrics g1 and g2 on Ω. By Nash’s
+theorem, we can find two smooth embeddings w1, w2 : Ω,→ Rd whose induced
+metrics are g1 and g2, respectively. It remains to observe that g is induced by
+w1 ⊖ w2 : p ↦ (w1 (p), w2 (p)) ∈ Rd ⊖ Rd.
+
+The above solution uses the main theorem, which we have not yet proved. The
+following solution is more direct and relies only on Nash’s twist.
+
+Direct solution. Assume g is Riemannian, and let φ1,...
+, φd, ψ1,...
+, ψd be provided
+by 2.3. Let Θi be Nash’s twist for the triple (1, φi, ψi), and
+h = (dφ1)2 + · · · + (dφd)2,
+Θ = Θ1 ⊕ · · · ⊕ Θd : Ω → R2·d,
+φ = φ1 ⊕ · · · ⊕ φd : Ω → Rd.
+
+According to 2.1, the map Θ induces g + h. Note that φ induces h. Therefore
+w = Θ ⊖ φ : Ω → R2·d ⊖ Rd induces g.
+To handle the general case, express the metric as a difference of two Riemannian
+metrics: g = g1 − g2.
+ As shown above, there exist smooth embeddings w1 and
+w2 into pseudoeuclidean spaces inducing g1 and g2, respectively. It follows that
+w1 ⊖ w2 induces g.
+Finally, if w3 : Ω,→ R2·n+1 is an embedding provided by the Whitney embedding
+theorem, then (w1 ⊕ w3) ⊖ (w2 ⊕ w3) is the required smooth isometric embedding.
+
+3
+
+Reductions
+
+Torus. Let us denote by Tn = Rn /Zn the n-dimensional torus.
+The torus is a smooth manifold; it comes with global cyclic coordinates, which
+can be used to define the partial derivatives ∂1,...
+, ∂n.
+ A metric tensor on Tn can
+be written in these coordinates; therefore, we can (and will) regard a metric tensor
+as a smooth map g : Tn → RN, where
+N := (n(n + 1)/2).
+
+Perturbation. The next theorem will be proved in the following sections;
+note that this is a very special case of the main theorem.
+3.1. Theorem. There exists a Riemannian metric g0 on Tn such that any metric
+g that is sufficiently close to g0 in the C ∞ topology, is induced by a smooth map
+Tn → Rd for some d depending only on n.
+Now we will reduce the main theorem (1.1) to this restricted version. The
+reduction proceeds in several steps.
+
+Step 1. Let us get an isometric immersion for any metric on the torus; namely,
+➊ given a Riemannian metric g on Tn, there exists an isometric immersion
+(Tn, g) ↬ Rd for some d depending only on n.
+Indeed, let g0 be the metric from 3.1. After rescaling if necessary, we may
+assume that g0 < g; that is, g0 (x, x) < g(x, x) for any nonzero tangent vector x.
+In particular, the difference g1 = g − g0 is a Riemannian metric.
+By 2.2, there exists a metric tensor h such that for any t > 0, there is a smooth
+map w1 : Tn → Rd1 that induces g1 + t·h.
+By 3.1, for any small t > 0, there is a smooth map w0 : Tn → Rd0 that induces
+the metric g0 − t·h. Therefore, w0 ⊕ w1 induces
+g = g0 − t·h + g1 + t·h.
+
+Step 2. Now let us improve the statement to an embedding; namely,
+➋ given a Riemannian metric g on Tn, there is an isometric embedding (Tn, g),→
+Rd for some d depending only on n.
+Choose your favorite smooth embedding w1 : Tn,→ Rn+1.
+ Let g1 be the metric
+induced by w1.
+ Since w1 is an embedding, g1 must be Riemannian.
+We can assume that g > g1 ; in other words the metric g2 = g − g1 is
+Riemannian. If this is not the case, replace w1 with its rescaling ε·w1 for sufficiently
+small ε > 0.
+Step 1 provides an isometric immersion w2 : (Tn, g2) ↬ Rd.
+ Notice that
+w = w1 ⊕ w2 : (Tn, g = g1 + g2) → Rd+n+1
+is an isometric embedding. Indeed, w is isometric, and it is an embedding since
+w1 is.
+
+Step 3. Now we extend the statement to all compact manifolds; namely,
+➌ any compact n-dimensional Riemannian manifold (Ω, g) admits a smooth
+isometric embedding into Rd for some d that depends only on n.
+Since Ω is compact, the Whitney embedding theorem provides a smooth embedding
+ι : Ω,→ T2n+1.
+
+The Riemannian metric on Ω can be extended to a Riemannian metric on the
+torus. This follows, for example, by choosing a metric on a tubular neighborhood
+that restricts to the given one on Ω, and then patching it with any background
+metric on the torus via a partition of unity. It remains to take a smooth isometric
+embedding w : (T2·n+1, ḡ),→ Rd provided by Step 2 and observe that the composition
+w ◦ ι : (Ω, g),→ Rd is an isometric embedding.
+
+Step 4. Now we sketch reduction of the main theorem to the compact case
+provided in Step 3. A complete proof is given in [11, Part D].
+Applying an argument similar to Step 2, we can reduce the question to finding
+an isometric immersion of (Ω, g).
+Further, we need to find a sequence of maps ri : Ω → Sn and a sequence of
+Riemannian metrics hi on Sn such that ri is constant outside of a compact subset
+Ki ⊂ Ω and
+P
+g = i ri∗ hi.
+
+This part is done by applying a partition of unity.
+In addition, we have to arrange this construction so that the index set I can
+be colored into n + 1 colors such that Ki ∩ Kj = ∅ for distinct indices i and j of
+the same color. More precisely, I can be partitioned into n + 1 subsets I0,...
+, In
+such that for any k and any distinct i, j ∈ Ik, we have Ki ∩ Kj = ∅. This is very
+similar to the colored version of Lebesgue covering dimension.
+Applying the compact case of the theorem to each (Sn, hi), we get a sequence
+of isometric embeddings wi : (Sn, hi),→ Rd.
+ By shifting wi, we can assume that
+wi ◦ ri has support in Ki.
+ Now note that the map
+
+
+
+
+P
+P
+i∈I0 wi ◦ ri ⊕ · · · ⊕
+i∈In wi ◦ ri
+gives the required isometric immersion (Ω, g) ↬ R(n+1)·d.
+
+
+4
+
+Free maps and key lemmas
+
+Here we introduce free maps and formulate two key lemmas that will be used in
+the next section.
+From now on we care only about the torus case. Recall that our torus Tn =
+Rn /Zn is equipped with cyclic coordinates and globally defined partial derivatives
+∂1,...
+, ∂n.
+ Furthermore, a metric tensor on Tn can be described by a smooth map
+g : Tn → RN with components gij for 1 ⩽ i ⩽ j ⩽ n; here
+N := (n·(n + 1)/2).
+
+Free Maps. Recall that a smooth map f : Tn → Rd is regular if its differential
+
+df has rank n at every point. In other words, for any point p ∈ Tn, the first-order
+partial derivatives ∂1 f,...
+, ∂n f are linearly independent.
+A map f : Tn → Rd is called free (or two-regular) if an analogous property
+holds for both first- and second-order partial derivatives: that is, at any point
+p ∈ Tn, all n + (n(n + 1)/2) partial derivatives ∂i f, ∂ij f for i ⩽ j are linearly
+independent.
+Let ψℓ : Tn → S1 be a map induced by a linear function ℓ : Rn → R. Let us
+regard S1 as a subset of R2 and consider the map f : Tn → Rn·(n+1) defined as
+the direct sum of the maps ψxi and ψxi +xj, where xi are the coordinate functions
+on Rn and i < j. It is straightforward to check that f is free, so we proved the
+following claim.
+4.1. Claim. There is a smooth free embedding f : Tn,→ Rn·(n+1).
+
+
+Q-form. Now we introduce a fancy notation for the induced metric. We define
+a symmetric bilinear form Q that takes two smooth maps v, w : Tn → Rd and
+returns the following metric tensor on Tn :
+g(x, y) ≡ (1/2)·[⟨xv, yw⟩ + ⟨xw, yv⟩].
+Recall that the cyclic coordinates on Tn allow us to write a metric tensor as a
+smooth map Tn → RN.
+ The components of the metric tensor can be written as
+gij = Qij (v, w) = (1/2)·[⟨∂i v, ∂j w⟩ + ⟨∂i w, ∂j v⟩].
+Notice that a metric tensor g is induced by a smooth map w : Tn → Rd if and
+only if g = Q(w, w).
+
+Hölder norms. Fix α ∈ (0, 1), say α = (1/2). Denote by |x − y|Tn the
+standard distance between points x, y ∈ Tn.
+ Let us recall the definition of the
+Hölder norms on an open subset W ⊂ Tn
+∥u∥C 0,α (W) := sup { |u(x)|} + sup { (|u(x) − u(y)|)/(|x − y|α
+Tn)},
+x∈W
+
+∥u∥C k,α (W) := max
+
+|I|⩽k
+
+x,y∈W
+
+n
+
+∥∂I u∥C 0,α (W)
+
+o
+
+,
+
+in
+where I = (i1,...
+, in) denotes multi-index; so, ∂I := ∂1i1...
+ ∂n
+and |I| := i1 +
+k,α
+· · · + in.
+ The space of functions W → R with finite C
+(W)-norm is called
+the (k, α)-Hölder space and is denoted by C k,α (W); we may suppress W in this
+notation.
+Let us define C k,α (Tn, Rd) as the space of functions u : Tn → Rd whose
+coordinate functions u1,...
+, ud belong to C k,α (Tn), and set
+
+∥u∥C k,α := maxi { ∥u1 ∥C k,α,...
+, ∥ud ∥C k,α}.
+
+Key lemmas. From now on, let us fix a smooth free embedding f : Tn,→ Rd
+(which exists by 4.1) and define the linear operator
+L : C ∞ (Tn, Rd) → C ∞ (Tn, RN)
+
+by
+
+L(w) := 2·Q(f, w).
+
+4.2. Nash’s lemma. The linear operator L admits a right inverse
+M : C ∞ (Tn, RN) → C ∞ (Tn, Rd)
+such that
+∥M h∥C 2,α ⩽ a·∥h∥C 2,α
+for some constant a.
+4.3. Günther’s lemma. There exists a symmetric bilinear form
+Q̃ : C ∞ (Tn, Rd) × C ∞ (Tn, Rd) → C ∞ (Tn, Rd)
+such that LQ̃ = Q and there is a sequence of constants b2, b3,...
+ such that
+∥Q̃(w, w)∥C 2,α ⩽ b2 ·∥w∥2C 2,α,
+∥Q̃(w, w)∥C k,α ⩽ b2 ·∥w∥C 2,α ·∥w∥C k,α + bk ·∥w∥2C k−1,α.
+
+
+Remarks. As we will see soon, perturbation theorem follows if the quadratic
+equation L(w) + Q(w, w) = h has a solution for any sufficiently small metric tensor
+h.
+Note that Nash’s lemma provides a solution of the corresponding linear equation
+L(w) = h.
+There are many symmetric bilinear forms that solve the equation LQ̃ = Q.
+In particular, one can take Q̃ = M Q, where M is provided by Nash’s lemma.
+However, this choice of Q̃ does not satisfy the inequalities required by Günther’s
+lemma. These inequalities are essential; they enable the use of the contraction
+mapping theorem in the following proof.
+
+5
+
+Perturbation
+
+We now complete the proof of Nash’s theorem, modulo the two lemmas from the
+previos section. Recall that f : Tn,→ Rd is a fixed smooth free embedding and
+L(w) := 2·Q(f, w).
+5.1. Lemma. There exists r > 0 such that the equation
+➊
+
+L(w) + Q(w, w) = h
+
+admits a smooth solution w : Tn → Rd for any smooth metric h (not necessarily
+Riemannian) with ∥h∥C 2,α < r. Moreover, we can assume that
+∥w∥C 2,α ⩽ c·∥h∥C 2,α
+for some constant c.
+In the previous section, we showed that the perturbation theorem (3.1) implies
+the main theorem (1.1). Now we will show that the perturbation lemma implies
+the perturbation theorem (3.1), and therefore the main theorem (1.1).
+
+Proof of 3.1 modulo 5.1. Let g be the metric tensor induced by f.
+ Notice
+that the equation
+Q(f + w, f + w) = g + h
+is equivalent to ➊. Indeed,
+Q(f + w, f + w) = Q(f, f) + 2·Q(f, w) + Q(w, w)
+= g + L(w) + Q(w, w).
+Hence, 3.1 follows.
+In the proof of the perturbation lemma, we will follow the argument of the
+classical inverse function theorem in Banach spaces; see, for example, [9].
+
+Proof of 5.1 modulo 4.2 and 4.3. Recall that M, Q̃, a, and b2 are
+provided by 4.2 and 4.3. Set R = (1/10·b2) and r = (R/10·a). Assume ∥h∥C 2,α ⩽ r.
+By 4.3,
+Φ : w ↦ M h − Q̃(w, w)
+is a contraction on the closed ball B[0, R] ⊂ C 2,α (Tn, Rd).
+Consider the sequence of maps w0, w1,...
+ : Tn → Rd defined by w0 = 0 and
+wn+1 = Φ(wn) for all n. Notice that each wn is smooth. Since Φ is a contraction,
+the sequence wn converges in C 2,α (Tn, Rd); denote its limit by w. Then
+∥w∥C 2,α ⩽ R
+
+and
+
+w = M h − Q̃(w, w).
+
+Since LM = id and LQ̃ = Q, applying L to both sides yields that w solves ➊.
+To finish the proof, it remains to show the following claim:
+➋ The sequence ∥wn ∥C k,α is bounded for every integer k ⩾ 2.
+Indeed since the embeeding C k,α (Tn, Rd),→ C k (Tn, Rd) is compact, a subsequence
+of wn converges in C k (Tn, Rd); but its limit must coinside with w. So w is C k
+smooth for every k and therefore smooth.
+We prove ➋ by induction on k. The base case k = 2 has already been proved.
+By the induction hypothesis, ∥wn ∥C k−1,α is bounded. In particular, there is
+a constant c such that
+∥M h∥C k,α + bk ·∥wn ∥2C k−1,α ⩽ c
+for all n; here bk is the constant from 4.3.
+Using the second estimate in 4.3, we get
+∥wn+1 ∥C k,α ⩽ ∥M h∥C k,α + b2 ·∥wn ∥C 2,α ·∥wn ∥C k,α + bk ·∥wn ∥2C k−1,α ⩽
+⩽ c + b2 ·R·∥wn ∥C k,α ⩽
+⩽ c + (1/10)·∥wn ∥C k,α.
+
+In particular,
+∥wn ∥C k,α ⩽ 2·c
+
+⇒
+
+∥wn+1 ∥C k,α ⩽ 2·c
+
+for all n. Since w0 = 0, we get ➋.
+
+6
+
+Proof of Nash’s lemma
+
+Recall that f : Tn,→ Rd is a fixed smooth free embedding; in particular, f is
+regular.
+The tangent space Tp is the n-dimensional space spanned by the first-order
+partial derivatives ∂1 f,...
+, ∂n f at p. Let T⊥
+p denote the orthogonal complement
+
+of Tp in Rd.
+ Further, define the osculating space T2p as the span of all first- and
+second-order partial derivatives ∂i f and ∂ij f at p, and set Np := T2p ∩ T⊥
+p.
+
+2
+Since f is free, the dimensions of the spaces Tp, T⊥
+p, Tp, and Np are n, d − n,
+n + (n(n + 1)/2), and (n(n + 1)/2), respectively. We will write T, T⊥, T2, and N
+for the corresponding vector bundles over Tn.
+
+
+Proof of 4.2. Recall that Tn has global cyclic coordinates.
+
+Choose a metric tensor h on Tn.
+ Since all ∂i f, ∂ij f are linearly independent,
+the equations ⟨∂ij f, w⟩ = −(1/2)·hij for all i and j uniquely define an N-vector
+field w. Equivalently, w can be defined as a linear combination of ∂i f, ∂ij f such
+that
+⟨∂i f, w⟩ = 0,
+
+➊
+
+−2·⟨∂ij f, w⟩ = hij
+
+at each point.
+Notice that
+Lij (w) = 2·Qij (f, w) =
+= ⟨∂i f, ∂j w⟩ + ⟨∂j f, ∂i w⟩ =
+= ∂j ⟨∂i f, w⟩ + ∂i ⟨∂j f, w⟩ − 2·⟨∂ij f, w⟩.
+By ➊, the operator M : h ↦ w serves as the desired right inverse.
+This proof implies the following.
+6.1. Observation. The right inverse M in Nash’s lemma can be chosen so that
+M h is an N-field; that is, M h(p) ∈ Np for all p ∈ Tn.
+
+Following the proof of Nash’s lemma, we also get the following observation,
+which will be essentially used in the proof of Günther’s lemma.
+6.2. Observation. Let f : Tn → Rd be a free map. Given a tangent vector field
+x on Tn and a metric tensor h on Tn, there is a unique N-field w such that
+L(x + w) = h. In other words, given x, there is a right inverse Mx : h ↦ x + w of
+L, where w is an N-field.
+
+7
+
+Proof of Günther’s lemma
+
+The answer can be defined by the formula
+Q̃(w, w) = Mx Q(w, w),
+where Mx is provided by 6.2 and x is a tangent vector field on Tn that depends
+on w; see the remark right after the proof below. The trick is to choose x so
+that it absorbs high-frequency terms (see ➌, ➏, and ➑ below) and dissolve the
+loss-of-derivatives problem.
+The pertubations of f in 5.1 have essential tangenetial part; this is the main
+difference from Nash’s original construction. Note that perturbing a map in a
+tangential direction does not affect the Riemannian metric to first order; it only
+changes the parametrization. By that reason, adding to the construction the
+tangent field might look strange. However this idea works and similar ideas work
+in the DeTurck trick in the Ricci flow [1, 2.2] and Kuiper’s improvement of Nash’s
+C 1 -embedding theorem [8].
+
+Smoothing operator. Recall that α ∈ (0, 1) is fixed, say α = (1/2).
+Let u : Tn → R be a smooth function; its Laplacian is defined by
+P
+∆u = s ∂ss u,
+where ∂1,...
+, ∂n are the standard partial derivatives on Tn.
+
+7.1. Proposition. For any interger k ⩾ 2, the operator
+(∆ − 1) : u ↦ ∆u − u
+defines a bi-Lipschitz isomorphism C k,α (Tn) → C k−2,α (Tn). In other words,
+∆ − 1 is bounded and has bounde inverse (∆ − 1)−1.
+
+Sketch. Let v be a smooth function on Tn.
+ Fourier analysis guarantees the
+existence of a unique smooth solution u to the equation ∆u − u = v. Since smooth
+functions are dense in C k−2,α (Tn), it is sufficient to prove the following inequality
+for some constant c:
+➊
+
+(1/c)·∥v∥C k−2,α (Tn) ⩽ ∥u∥C k,α (Tn) ⩽ c·∥v∥C k−2,α (Tn).
+
+
+Note that the first inequality is trivial.
+By the maximum principle, we have
+∥u∥L∞ (Tn) ⩽ ∥v∥L∞ (Tn),
+
+➋
+
+where ∥ ∥L∞ (W) denotes the sup-norm on W ⊂ Tn.
+ Further, choose a (1/10)-ball
+B in Tn (with the standard metric); denote by 2·B the concentric ball with
+twice the radius. Note that 2·B is isometric to a Euclidean ball, so the standard
+Schauder’s estimates can be applied to the restriction u|2·B (see for example [2,
+Lemma 6.1(a)]). This implies
+∥u∥C 2,α (B) ⩽ c·(∥v∥C 0,α (2·B) + ∥u∥L∞ (2·B)) ⩽
+⩽ c·(∥v∥C 0,α (Tn) + ∥u∥L∞ (Tn)).
+After avereging this inequality for balls in Tn and doing straightforward manupulations
+using ➋, we get the second inequality in ➊.
+Notice that (∆ − 1)−1 is a smoothing operator; it takes a C k−2,α -function and
+returns a C k,α -function. Moreover, (∆ − 1)−1 commutes with partial derivatives;
+that is,
+(∆ − 1)−1 ∂i = ∂i (∆ − 1)−1.
+
+These two properties will play a key role in the proof that follows.
+In addition we will need the following claim that follows from the product rule
+for derivatives.
+7.2. Claim. Given a functiuon v ∈ C ∞ (Tn), there is a sequence of constants
+c0, c1,...
+ such that
+∥u·v∥C k,α ⩽ c0 ·∥u∥C k,α + ck ·∥u∥C k−1,α
+for any integer k ⩾ 1 and u ∈ C k,α (Tn).
+
+Proof of 4.3. Recall that Qij (w, w) = ⟨∂i w, ∂j w⟩. Let us show that
+➌
+
+(∆ − 1)Qij (w, w) = Aij (w) + ∂i Aj (w) + ∂j Ai (w),
+
+where each Aij, Ai and Aj is a linear combination (with constant coefficients) of
+the following quadratic forms
+➍
+
+w ↦ ⟨∂a w, ∂b w⟩,
+
+w ↦ ⟨∂ab w, ∂c w⟩,
+
+w ↦ ⟨∂ab w, ∂cd w⟩.
+
+for all indices a, b, c, d.
+Indeed,
+(∆ − 1)Qij (w, w) = ⟨∂i ∆w, ∂j w⟩ + ⟨∂i w, ∂j ∆w⟩+
+X
++ 2·
+⟨∂is w, ∂js w⟩ − ⟨∂i w, ∂j w⟩ =
+s
+
+= 2·
+
+X
+
+⟨∂is w, ∂js w⟩ − ⟨∂i w, ∂j w⟩ − 2·⟨∆w, ∂ij w⟩+
+
+s
+
++ ∂i ⟨∆w, ∂j w⟩ + ∂j ⟨∆w, ∂i w⟩.
+This proves ➌.
+Now choose A = Ai or A = Aij for some i and j. Notice that there is a
+sequence of constants c2, c3,...
+ such that
+➎
+
+∥A(w)∥C 0,α ⩽ c2 ·∥w∥2C 2,α,
+∥A(w)∥C k−2,α ⩽ c2 ·∥w∥C k,α ·∥w∥C 2,α + ck ·∥w∥2C k−1,α.
+
+
+These inequalities follow by checking each form in ➍. Let us do the case w ↦
+⟨∂ab w, ∂cd w⟩. The first inequality in ➎ is trivial. The second follows since for any
+partial derivative ∂I of order k − 2 we have
+∂I ⟨∂ab w, ∂cd w⟩ = ⟨∂ab ∂I w, ∂cd w⟩ + ⟨∂ab w, ∂cd ∂I w⟩ + extra terms,
+where each extra term has form ⟨∂K w, ∂L w⟩ and partial derivatives ∂K and ∂L
+have order at most k − 1.
+By 7.1, we have another sequence of constants c2, c3,...
+ such that
+➏
+
+∥(∆ − 1)−1 A(w)∥C 2,α ⩽ c2 ·∥w∥2C 2,α,
+∥(∆ − 1)−1 A(w)∥C k,α ⩽ c2 ·∥w∥C k,α ·∥w∥C 2,α + ck ·∥w∥2C k−1,α.
+
+Recall also that
+
+➐
+
+Lij (v) = −2·⟨∂ij f, v⟩ + ∂i ⟨∂j f, v⟩ + ∂j ⟨∂i f, v⟩;
+
+see the proof of Nash’s lemma. Let us define Q̃(w, w) as a linear combination of
+∂i f and ∂ij f for all i ⩽ j such that
+➑
+
+−2·⟨∂ij f, Q̃(w, w)⟩ = (∆ − 1)−1 Aij (w),
+⟨∂i f, Q̃(w, w)⟩ = (∆ − 1)−1 Ai (w)
+
+for all i and j. Since f is free, Q̃(w, w) is well-defined, and Q̃ extends to a symemtric
+bilinear form. Combining ➐, ➑, and ➌, we get
+LQ̃ = Q.
+Let {ei, eij}i⩽j be the dual frame to {∂i f, ∂ij f}i⩽j in the osculating bundle
+T2.
+ Notice that
+P
+P
+➒
+Q̃(w, w) = i (∆ − 1)−1 Ai (w)·ei − (1/2)· i⩽j (∆ − 1)−1 Aij (w)·eij.
+
+Since the maps ei, eij : Tn → Rd are smooth, ➏ together with 7.2 imply the
+inequalities in 4.3; in particular, the top coefficient b2 stays the same for all
+∥Q̃(w, w)∥C k,α.
+
+The promised tangent vector field x = x(w) is defined by the equations
+⟨∂i f, x⟩ = (∆ − 1)−1 Ai (w),
+which is essentially the second line in ➑. In other words, x is the first sum in the
+right-hand side of ➒.
+
+References
+[1]
+
+S. Brendle. Ricci flow and the sphere theorem. Vol. 111. Graduate Studies
+in Mathematics. 2010.
+
+[2]
+
+D. Gilbarg and N. S. Trudinger. Elliptic partial differential equations of
+second order. Vol. 224. Grundlehren der mathematischen Wissenschaften.
+1983.
+
+[3]
+
+M. Gromov. Partial differential relations. Vol. 9. Ergebnisse der Mathematik
+und ihrer Grenzgebiete (3). 1986.
+
+[4]
+
+M. L. Gromov and V. A. Rokhlin. “Embeddings and immersions in
+Riemannian geometry”. Russian Math. Surveys 25.5 (1970), 1–57.
+
+[5]
+
+M. Günther. “On the perturbation problem associated to isometric
+embeddings of Riemannian manifolds”. Ann. Global Anal. Geom. 7.1 (1989),
+69–77.
+
+[6]
+
+Q. Han and J-X Hong. Isometric embedding of Riemannian manifolds in
+Euclidean spaces. Vol. 130. Mathematical Surveys and Monographs. 2006.
+
+[7]
+
+R. Howard. Notes on Günther’s Method and the Local Version of the Nash
+Isometric Embedding Theorem. url: https://people.math.sc.edu/howard/
+Notes/nash.pdf.
+
+[8]
+
+N. Kuiper. “On C 1 -isometric imbeddings. I, II”. Indag. Math. 17 (1955),
+545–556, 683–689.
+
+[9]
+
+S. Lang. Real and functional analysis. Vol. 142. Graduate Texts in
+Mathematics. 1993.
+
+[10]
+
+J. Nash. “C 1 isometric imbeddings”. Ann. of Math. (2) 60 (1954), 383–396.
+
+[11]
+
+J. Nash. “The imbedding problem for Riemannian manifolds”. Ann. of Math.
+(2) 63 (1956), 20–63.
+
+[12]
+
+P. A. Ostrand. “Dimension of metric spaces and Hilbert’s problem 13”. Bull.
+Amer. Math. Soc. 71 (1965), 619–622.
+
+[13]
+
+T. Tao. Notes on the Nash embedding theorem. url: https://terrytao.
+wordpress.com/2016/05/11/.
+
+[14]
+
+M. Taylor. Partial differential equations III. Nonlinear equations. Vol. 117.
+Applied Mathematical Sciences. 2011.
+
+[15]
+
+D. Yang. Gunther’s proof of Nash’s isometric embedding theorem. 1998.
+arXiv: math/9807169 [math.DG].
+

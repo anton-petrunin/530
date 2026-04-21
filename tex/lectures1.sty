@@ -61,8 +61,6 @@ isbn=false]{biblatex}
 \DeclareFieldFormat{multipostnote}{#1}
 \DeclareFieldFormat{pages}{#1}
 
-\addto\captionsenglish{\renewcommand{\chaptername}{Lecture}}
-
 \usepackage{accsupp}
 \usepackage{soulutf8}
 \sodef\an{}{.1em}{.5em plus.1em}{.5em plus.1em minus.1em}
@@ -74,14 +72,6 @@ isbn=false]{biblatex}
 }
 
 \def\emph{\ann}
-
-\usepackage{titletoc}% http://ctan.org/pkg/titletoc
-\titlecontents*{section}[.5em]
-  {\small}
-  {\thecontentslabel.~{}}
-  {}
-  { \textbf{\thecontentspage}}
-  [; ][.]
 
 %LIST STILES
 \renewcommand{\@listI}{%
@@ -283,9 +273,9 @@ isbn=false]{biblatex}
 
 
 %THEOREM
-\newcounter{thm}[chapter]
-\renewcommand{\thethm}{\thechapter.\arabic{thm}}
-\newcommand\claim[2][{}]{\par\medskip\noindent\refstepcounter{thm}\hbox{\bf \thechapter.\arabic{thm}. #2.#1}
+\newcounter{thm}[section]
+\renewcommand{\thethm}{\thesection.\arabic{thm}}
+\newcommand\claim[2][{}]{\par\medskip\noindent\refstepcounter{thm}\hbox{\bf \thesection.\arabic{thm}. #2.#1}
 \it\ %\ignorespaces
 }
 \def\endclaim{
@@ -338,8 +328,6 @@ isbn=false]{biblatex}
 
 \newcommand{\qcomma}{\ooalign{\hss,\kern.03em\hss\cr?}}
 
-\makeatletter\renewcommand{\p@section}{\thechapter}\makeatother
-\renewcommand{\thesection}{\Alph{section}}
 
 \hyphenation{ 
 Alex-an-drov 
