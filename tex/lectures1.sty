@@ -53,7 +53,7 @@ isbn=false]{biblatex}
 \AtEveryBibitem{\clearlist{language}}
 \AtEveryBibitem{\clearlist{note}}
 \renewbibmacro{in:}{}
-\renewcommand*{\bibfont}{\footnotesize}
+%\renewcommand*{\bibfont}{\footnotesize}
 \addbibresource{library.bib}
 
 
@@ -327,6 +327,18 @@ isbn=false]{biblatex}
 \newcommand{\eqlbl}[1]{\refstepcounter{eqtn}\leqno{\text{\numform{eqtn}\label{#1}}}}
 
 \newcommand{\qcomma}{\ooalign{\hss,\kern.03em\hss\cr?}}
+
+\renewenvironment{abstract}
+  {\small
+   \begin{center}
+     {\bfseries Abstract\vspace{-.5em}\vspace{0pt}}
+   \end{center}
+   \begin{list}{}{%
+     \setlength{\leftmargin}{1.5cm}%
+     \setlength{\rightmargin}{1.5cm}%
+   }%
+   \item\relax}
+  {\end{list}}
 
 
 \hyphenation{ 

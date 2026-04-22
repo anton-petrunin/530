@@ -8,11 +8,11 @@ Riemannian geometry has two fundamental theorems.
 One is about the existence and uniqueness of the Levi-Civita connection, and the other is a result of John Nash~\cite{nash-1956}, which states that \textit{any Riemannian manifold is isometric to a smooth submanifold of Euclidean space}.
 In other words, Riemannian manifolds can be defined as submanifolds of Euclidean space.
 
-Nash's original proof is based on a delicate iteration scheme with smoothing operators to overcome the loss of derivatives.
-This construction led to the Nash--Moser inverse function theorem --- a method, which has found many applications.
+The original proof is based on a delicate and, at the time, unprecedented iteration scheme with smoothing operators designed to overcome the loss of derivatives.
+This construction led to the Nash--Moser inverse function theorem, a method that has found many applications.
 
-Later, Matthias Günther discovered a magic trick \cite{gunter} that removes the loss-of-derivatives problem.
-As a result, the proof can be based on the standard inverse function theorem in Banach spaces, which is essentially a contraction argument.
+Later, Matthias Günther discovered a magic trick \cite{gunter} that removes this loss-of-derivatives problem.
+His proof is based on the standard inverse function theorem in Banach spaces, which is, in essence, a contraction argument.
 
 Thanks to Günther's simplification, I was able to include this theorem in a differential geometry course, and I hope it is worth sharing.
 Except for the inverse function theorem, I mostly follow Nash's original proof;
@@ -33,6 +33,8 @@ Section~\ref{sec:Reductions} consists of several steps that reduce the main theo
 In Section~\ref{sec:free}, we introduce free maps and formulate Nash's lemma and Günther's lemma.
 In the following section we use these lemmas to solve the perturbation problem and therefore the embedding problem.
 The final two sections prove the lemmas.
+Günther's trick is explained in the last section; the rest of the paper is needed to appreciate it.
+
 
 Here is a list of globally fixed notation.
 \spell{\begin{multicols}{3}}{}
@@ -118,7 +120,7 @@ Without this assumption, the statement does not hold.
 Indeed, the Nash--Kuiper theorem \cite{nash-1954,kuiper-1955} states that  \ref{eq:<ww>=g} admits a $C^1$ solution $w$ if $d = n+1$.
 For instance, it might happen that the optimal dimension for $C^2$-embeddings is smaller than $\tbinom{n+1}{2}$.
 This question was mentioned by Mikhael Gromov and Vladimir Rokhlin in the cited paper.
-Counting degrees of freedom of the curvature tensor gives a lower bound that is still quadratic in $n$; namely, $d\ge \tfrac1{6}\cdot n\cdot (n+5)$.
+Counting degrees of freedom of the curvature tensor gives a lower bound that is still quadratic in $n$; namely, $d\ge \tfrac1{6}\cdot n\cdot (n+5)$ (check also my question on MathOverflow \cite{petrunin-2025}).
 
 \section{Approximate theorem}\label{sec1+}
 
@@ -469,22 +471,22 @@ The linear operator $L$ admits a right inverse \index{1Q@$L(w)$, $M(h)$}\label{L
 \[M\:C^\infty(\TT^n,\RR^N)\to C^\infty(\TT^n,\RR^d)\]
 such that
 \[\|Mh\|_{C^{2,\alpha}}\le a\cdot \|h\|_{C^{2,\alpha}}\]
-for some constant $a$.
+for some constant $a$ and any $h\in C^\infty(\TT^n,\RR^N)$.
 \end{thm}
 
 \begin{thm}{Günther's lemma}\label{lem:nash-guenter:guenter}
 There exists a symmetric bilinear form \index{1Q@$\tilde Q(v,w)$}\label{tildeQ}
 \[\tilde Q\:C^\infty(\TT^n,\RR^d)\times C^\infty(\TT^n,\RR^d) \to C^\infty(\TT^n,\RR^d)\]
- such that $L\tilde Q=Q$ and there is a sequence of constants $b_2,b_3,\dots$ such that
+and a sequence of constants $b_2,b_3,\dots$ such that $L\tilde Q=Q$ and
 \begin{align*}
 \|\tilde Q(w,w)\|_{C^{2,\alpha}}&\le b_2\cdot  \|w\|_{C^{2,\alpha}}^2,
 \\
 \|\tilde Q(w,w)\|_{C^{k,\alpha}}
 &\le b_2\cdot \|w\|_{C^{2,\alpha}}\cdot \|w\|_{C^{k,\alpha}}
 +
-b_k\cdot \|w\|_{C^{k-1,\alpha}}^2.
+b_k\cdot \|w\|_{C^{k-1,\alpha}}^2
 \end{align*}
-
+for any $w\in C^\infty(\TT^n,\RR^d)$.
 \end{thm}
 
 \paragraph{Remarks.}
@@ -554,7 +556,7 @@ It remains to bootstrap regularity via the following claim:
 The sequence $\|w_n\|_{C^{k,\alpha}}$ is bounded for every integer $k\ge 2$.
 \end{clm}
 
-Indeed, since the embedding
+Since the embedding
 $C^{k,\alpha}(\TT^n,\RR^d)\hookrightarrow C^k(\TT^n,\RR^d)$ is compact,
 a subsequence of $w_n$ converges in  $C^k(\TT^n,\RR^d)$;
 but its limit must coincide with $w$.
@@ -752,7 +754,7 @@ Indeed,
 \langle\partial_{i}\Delta w,\partial_jw\rangle
 +\langle\partial_{i} w,\partial_{j}\Delta w\rangle+
 \\
-&\quad+2\cdot \sum_s\langle\partial_{is} w,\partial_{js}w\rangle
+&\qquad\qquad+2\cdot \sum_s\langle\partial_{is} w,\partial_{js}w\rangle
 -\langle\partial_{i} w,\partial_{j}w\rangle
 =
 \\
@@ -763,7 +765,7 @@ Indeed,
 -2\cdot \langle\Delta w,\partial_{ij}w\rangle
 +
 \\
-&\quad+\partial_i\langle\Delta w,\partial_{j}w\rangle
+&\qquad\qquad+\partial_i\langle\Delta w,\partial_{j}w\rangle
 +\partial_j\langle\Delta w,\partial_{i} w\rangle.
 \end{align*}
 This proves \ref{eq:Delta}.
