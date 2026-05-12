@@ -1,3 +1,58 @@
+There are many symmetric bilinear forms that solve the equation $L\tilde Q = Q$.
+In particular, we could take $\tilde Q = MQ$, where $M$ is provided by Nash's lemma.
+However, this choice of $\tilde Q$ does not satisfy the inequalities required by Günther's lemma.
+These inequalities are essential; they enable the use of the contraction mapping theorem in the following proof.
+
+
+
+
+
+
+
+
+
+\paragraph{Torus.}
+Let us denote by $\TT^n=\RR^n/\ZZ^n$ the $n$-dimensional torus.
+
+The torus is a smooth manifold;
+it comes with global cyclic coordinates, which can be used to define the partial derivatives $\partial_1, \dots, \partial_n$.
+A metric tensor on $\TT^n$ can be written in these coordinates;
+therefore, we can (and will) regard a metric tensor as a smooth map $g\:\TT^n \to \RR^N$,
+where $N \df \tfrac{n(n+1)}{2}$.\label{Nn}
+
+
+
+
+
+
+
+
+
+
+
+
+Following the proof of Nash's lemma, we also get the following observation,
+which will play an essential role in the proof of Günther's lemma.
+
+
+\begin{thm}{Observation}\label{ex:Mv}
+Let $f\:\TT^n\to\RR^d$ be a free map.
+Given a tangent vector field $\vec x$ on $\TT^n$ and a metric tensor $h$ on $\TT^n$, there is a unique
+$\N$-field $w$ such that $L(\vec x+w)=h$.
+In other words, given $\vec x$,
+the operator $h\mapsto M(h-L\vec x) + \vec x$ is a right inverse of $L$.
+\end{thm}
+
+
+
+
+
+
+
+
+
+
+
 
 Let $v$ be a smooth function on $\TT^n$.
 Fourier analysis guarantees the existence of a unique smooth solution $u$ to the equation

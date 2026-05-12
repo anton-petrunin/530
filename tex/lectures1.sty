@@ -53,7 +53,7 @@ isbn=false]{biblatex}
 \AtEveryBibitem{\clearlist{language}}
 \AtEveryBibitem{\clearlist{note}}
 \renewbibmacro{in:}{}
-%\renewcommand*{\bibfont}{\footnotesize}
+\renewcommand*{\bibfont}{\footnotesize}
 \addbibresource{library.bib}
 
 
@@ -61,17 +61,37 @@ isbn=false]{biblatex}
 \DeclareFieldFormat{multipostnote}{#1}
 \DeclareFieldFormat{pages}{#1}
 
+
 \usepackage{accsupp}
-\usepackage{soulutf8}
+\usepackage{soul}
 \sodef\an{}{.1em}{.5em plus.1em}{.5em plus.1em minus.1em}
 
+%\newcommand\ann[1]{%
+%    \BeginAccSupp{method=escape,ActualText={#1}}%
+%      \an{#1}%
+%    \EndAccSupp{}%
+%}
+
 \newcommand\ann[1]{%
-    \BeginAccSupp{method=escape,ActualText={\detokenize{#1}}}%
-      \an{#1}%
-    \EndAccSupp{}%
+  \BeginAccSupp{
+    method=pdfstringdef,
+    ActualText={#1}%
+  }%
+    \an{#1}%  % letterspaced visible text
+  \EndAccSupp{}%
 }
 
 \def\emph{\ann}
+
+\usepackage{refcount}
+
+\newcommand{\twopageref}[2]{%
+  \ifnum\getpagerefnumber{#1}=\getpagerefnumber{#2}%
+    \pageref{#1}%
+  \else
+    \pageref{#1}, \pageref{#2}%
+  \fi
+}
 
 %LIST STILES
 \renewcommand{\@listI}{%
@@ -362,6 +382,7 @@ Ury-sohn
 co-bound-ed
 dif-feo-mor-phisms 
 para-met-rized 
+para-met-ri-za-tion
 pin-ched
 qua-si-geo-de-sic 
 qua-si-geo-de-sics
