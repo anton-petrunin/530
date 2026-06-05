@@ -33,7 +33,8 @@
 
 \usepackage[T1,T2A]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage[russian,german,english]{babel}
+\usepackage[german,english,russian]{babel}
+\usepackage{indentfirst}%+отступ в первой строке
 %\DeclareUnicodeCharacter{2010}{-}% support older LaTeX versions
 %\DeclareUnicodeCharacter{0301}{*************************************}
 
@@ -347,6 +348,8 @@ isbn=false]{biblatex}
 \newcommand{\eqlbl}[1]{\refstepcounter{eqtn}\leqno{\text{\numform{eqtn}\label{#1}}}}
 
 \newcommand{\qcomma}{\ooalign{\hss,\kern.03em\hss\cr?}}
+
+
 
 \hyphenation{ 
 Alex-an-drov 

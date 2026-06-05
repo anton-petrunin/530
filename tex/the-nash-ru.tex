@@ -1,0 +1,46 @@
+\documentclass{article}
+
+
+\newcommand{\spell}[2]{#1} %for text
+%\newcommand{\spell}[2]{#2} %for spelling
+
+\def\thetitle{Теорема Нэша с трюком Гюнтера}
+
+\usepackage{lectures-ru}
+\usepackage[colorlinks=true,
+citecolor=black,
+linkcolor=black,
+anchorcolor=black,
+filecolor=black,
+menucolor=black,
+urlcolor=black,
+pdftitle={\thetitle},
+pdfsubject={геометрия},
+pdfauthor={А. М. Петрунин}
+]{hyperref}
+\makeindex
+
+\spell{}{\makeatletter\usepackage{environ}\RenewEnviron{figure}[1][]{ [PICTURE] }\RenewEnviron{figure*}[1][]{ [PICTURE] }\RenewEnviron{wrapfigure}[1][]{ [PICTURE] }\RenewEnviron{Figure}[1][]{ [PICTURE] }\usepackage{emptypage}\pagestyle{empty}\makeatother\usepackage[none]{hyphenat}\def\emph{\textit}\renewcommand{\footnote}[1]{\textup{\ (#1)}}\renewcommand{\frac}[2]{(#1)/(#2)}\renewcommand{\tfrac}[2]{(#1/#2)}\everydisplay{\textstyle}}
+
+\begin{document}
+
+%\pagestyle{empty}\def\emph{\textit}
+
+\title{\thetitle}
+\author{А. М. Петрунин}
+\date{}
+\maketitle
+
+\input{nash-aa-ru}
+
+{\small\sloppy
+%\input{the-nash.ind}
+\def\emph{\textit}
+
+\printbibliography[heading=bibintoc]
+\fussy
+}
+
+
+
+\end{document}
