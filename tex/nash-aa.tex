@@ -9,7 +9,7 @@ One is about the Levi-Civita connection, and the other is a result of John Nash~
 In other words, Riemannian manifolds can be defined as submanifolds of Euclidean spaces with induced metrics.
 
 Nash used a version of Newton's method.
-A straightforward application of this method runs into the so-called loss-of-derivatives problem: the correction terms require  control of more derivatives than the previous approximation provides.
+A straightforward application of this method runs into the so-called loss-of-derivatives problem: the correction terms require control of more derivatives than the previous approximation provides.
 Nash overcame this by introducing delicate smoothing procedures, unprecedented at the time.
 This construction led to the Nash--Moser theorem, which has found many applications.
 
@@ -28,15 +28,16 @@ Michael Taylor~\cite{taylor} and by
 Qing Han and Jia-Xing Hong~\cite{han-hong}.
 
 The reader is assumed to be familiar with smooth manifolds (charts, atlases, coverings, partitions of unity, and tensor fields).
-Other results, including Schauder's estimates and the Whitney embedding theorem can be treated as black boxes.
+Other results, including Schauder's estimates and the Whitney embedding theorem, can be treated as black boxes.
 
 We formulate the embedding problem in Section~\ref{sec1}.
 Section~\ref{sec1+} introduces Nash's twist and solves an approximate version of the problem.
-Section~\ref{sec:Reductions} consists of several steps that reduce the embedding problem to the realization of a perturbed  metric on the torus.
+Section~\ref{sec:Reductions} consists of several steps that reduce the embedding problem to the realization of small perturbations of a metric on the torus.
 In Section~\ref{sec:free}, we introduce free maps and prove Nash's lemma.
-In the following section, we formulate Günther's lemma and use it to realize a perturbed  metric and therefore prove the embedding problem.
+In the following section, we formulate Günther's lemma and use it to realize a perturbed metric and therefore prove the embedding problem.
 The final section proves Günther's lemma.
-This is the main part of the paper; the other sections are only there to show the power of this lemma.
+This is the main part of the paper;
+the rest is needed to show the power of this lemma.
 
 Here is a list of globally fixed notation:
 \spell{\begin{multicols}{3}}{}
@@ -132,7 +133,7 @@ Then
 
 Furthermore, if $d_1=d_2$, then we can consider the usual sum $v_1+v_2$.
 Recall that the \index{support}\emph{support} of a map is the closure of the set where it takes nonzero values.
-Now suppose that $g$, $g_1$, and $g_2$ are induced by $v_1+ v_2$, $v_1$ and $v_2$, and the maps $v_1$ and $v_2$ have disjoint supports.
+Now suppose that $g$, $g_1$, and $g_2$ are induced by $v_1+ v_2$, $v_1$, and $v_2$, and the maps $v_1$ and $v_2$ have disjoint supports.
 Then again we have
 \[g=g_1+g_2.\]
 
@@ -302,7 +303,7 @@ Finally, choose $w_3\colon\Omega\hookrightarrow \RR^{2\cdot n+1}$ provided by th
 
 \section{Reductions}\label{sec:Reductions}
 
-\paragraph{Realization of a perturbed  metric.}
+\paragraph{Realization of small perturbations of a metric.}
 Let us denote by $\TT^n=\RR^n/\ZZ^n$ the $n$-dimensional torus.
 The next theorem will be proved in the following sections;
 note that this is a very special case of the main theorem.
@@ -337,7 +338,7 @@ Now let us improve the statement to an embedding; namely,
 given a Riemannian metric $g$ on $\TT^n$, there is an isometric embedding $(\TT^n,g)\hookrightarrow\RR^d$ for some $d$ depending only on~$n$.
 \end{clm}
 
-Choose your favorite smooth regular embedding $w_1\colon\TT^n\hookrightarrow \RR^{n+1}$.
+Choose a smooth regular embedding $w_1\colon\TT^n\hookrightarrow \RR^{n+1}$.
 Let $g_1$ be the metric induced by $w_1$.
 Since $w_1$ is regular, $g_1$ must be Riemannian.
 
@@ -460,7 +461,7 @@ Let us define the linear operator
 \text{by}
 \qquad L(w)\df 2\cdot Q(f,w).\]
 
-We will see soon that realization of a perturbed metric follows if the quadratic equation
+We will see soon that realization of small perturbations of a metric follows if the quadratic equation
 \[L(w)+Q(w,w)=h\]
 has a solution for small metric tensors $h$.
 The following lemma provides a solution of the corresponding linear equation $L(w)=h$.
@@ -507,7 +508,7 @@ L_{ij}(w)&=2\cdot Q_{ij}(f,w)=
 By \ref{eq:w(h)}, the operator $M\colon h \mapsto w$ serves as the desired right inverse.
 \qeds
 
-\section{Realization of a perturbed  metric}\label{sec:perturbation}
+\section{Realization of small perturbations of a metric}\label{sec:perturbation}
 
 \begin{thm}{Günther's lemma}\label{lem:nash-guenter:guenter}
 There exists a symmetric bilinear form \index{1Q@$\tilde Q(v,w)$}\label{tildeQ}
@@ -526,7 +527,7 @@ for any $w\in C^\infty(\TT^n,\RR^d)$ and $k\ge 3$.
 
 The proof is given in the next section.
 
-\paragraph{Realization of a perturbed  metric.}
+\paragraph{Realization of small perturbations of a metric.}
 We now complete the proof of Nash's theorem, modulo Günther's lemma.
 Recall that $f\colon\TT^n \hookrightarrow\RR^d$ is a fixed smooth free embedding and $L(w)\z\df 2\cdot Q(f,w)$.
 
@@ -539,8 +540,8 @@ Moreover, we can assume that
 for some constant $c$.
 \end{thm}
 
-In Section \ref{sec:Reductions}, we showed that realization of a perturbed  metric (\ref{thm:restricted}) implies the main theorem (\ref{thm:main}).
-Now we will show that the lemma implies realization of a perturbed  metric (\ref{thm:restricted}), and therefore the main theorem (\ref{thm:main}).
+In Section \ref{sec:Reductions}, we showed that realization of small perturbations of a metric (\ref{thm:restricted}) implies the main theorem (\ref{thm:main}).
+Now we will show that the lemma implies realization of a perturbed metric (\ref{thm:restricted}), and therefore the main theorem (\ref{thm:main}).
 
 \paragraph{Proof of \ref{thm:restricted} modulo \ref{lem:perturb}.}
 Recall that $f\colon\TT^n\to\RR^d$ is a fixed free map.
@@ -631,13 +632,13 @@ see the remark right after the proof below.
 Since $M$ is a right inverse of $L$, we have $L\tilde Q=Q$.
 The trick is to choose $\vec x$ so that the inequalities in the lemma hold; see \ref{eq:Delta}, \ref{eq:AB=<C}, and \ref{eq:tildeQ} below.
 
-The correction term $w$ in the proof of \ref{lem:perturb} meets the equation
+The correction term $w$ in the proof of \ref{lem:perturb} satisfies the equation
 \[w= Mh-\tilde Q(w,w)=M(h-Q(w,w)-L\vec x)+\vec x.\]
 By Nash's lemma, $\vec x$ is the tangential part of $w$.
 This tangential term is the main departure from Nash's original construction.
 Notice that perturbing an embedding in a tangential direction almost does not change the Riemannian metric: to first order, it only changes the parametrization.
 For this reason, introducing a tangential term might look strange, but it works.
-Similar ideas appear in the DeTurck trick for the Ricci flow \cite[2.2]{brendle} and in Kuiper's improvement of Nash's $C^1$-embedding theorem~\cite{kuiper-1955}.
+The same idea works in the DeTurck trick for the Ricci flow \cite[2.2]{brendle} and in Kuiper's improvement of Nash's $C^1$-embedding theorem~\cite{kuiper-1955}.
 
 \paragraph{Smoothing operator.}
 Recall that $\alpha\in(0,1)$ is fixed, say $\alpha=\tfrac12$.
@@ -648,21 +649,21 @@ its Laplacian is defined by \index{4d@$\Delta u$}\label{Du}
 where $\partial_1,\dots,\partial_n$ are the standard partial derivatives on $\TT^n$.
 
 \begin{thm}{Proposition}\label{prop:Delta-1}
-For any integer $k\ge 2$, the operator
-\[(\Delta-1)\colon u\mapsto \Delta u-u\]
-defines a bi-Lipschitz isomorphism $C^{k,\alpha}(\TT^n)\to C^{k-2,\alpha}(\TT^n)$;
-moreover the Lipschitz constants can be chosen independently of $k$.
-
-In other words, there is a constant $c>0$ such that the operator
-\[(\Delta-1)\colon C^{k,\alpha}(\TT^n)\to C^{k-2,\alpha}(\TT^n)\]
-is $c$-bounded and has $c$-bounded inverse $(\Delta-1)^{-1}$ for each $k\ge 2$.
+The operator $(\Delta-1)\colon u\mapsto \Delta u-u$ on $C^\infty(\TT^n)$ has an inverse $(\Delta-1)^{-1}$.
+Moreover, there is a constant $c>0$ such that, for every integer $k\ge2$, we have
+\begin{align*}
+\|(\Delta-1)u\|_{C^{k-2,\alpha}(\TT^n)}&\le c\cdot \|u\|_{C^{k,\alpha}(\TT^n)}
+\\
+\|(\Delta-1)^{-1}v\|_{C^{k,\alpha}(\TT^n)}&\le c\cdot \|v\|_{C^{k-2,\alpha}(\TT^n)}
+\end{align*}
+for any functions $u,v\in C^\infty(\TT^n)$.
 \end{thm}
 
 \parit{Sketch.}
-Let $v$ be a smooth function on $\TT^n$.
-Fourier analysis guarantees the existence of a unique smooth solution $u$ to the equation
-$\Delta u - u = v$.
-Since smooth functions are dense in $C^{k-2,\alpha}(\TT^n)$, it is sufficient to prove the following inequality for some constant $c$:
+The existence of $(\Delta-1)^{-1}$ follows from Fourier analysis.
+In other words, the equation $\Delta u - u = v$ has a unique smooth solution $u$ for a given $v\in C^\infty(\TT^n)$.
+
+It remains to prove the following inequality with some constant $c$:
 \[\tfrac1c\cdot\|v\|_{C^{k-2,\alpha}(\TT^n)}\le\|u\|_{C^{k,\alpha}(\TT^n)}
 \le
 c\cdot\|v\|_{C^{k-2,\alpha}(\TT^n)};
@@ -680,13 +681,15 @@ By \ref{eq:maximum-principle}, this implies
 \begin{align*}
 \|u\|_{C^{2,\alpha}(B)}
 &\le c\cdot(\|v\|_{C^{0,\alpha}(2\cdot B)} + \|u\|_{L^\infty(2\cdot B)})\le
- 2\cdot c\cdot\|v\|_{C^{0,\alpha}(\TT^n)} .
+ 2\cdot c\cdot\|v\|_{C^{0,\alpha}(\TT^n)}.
 \end{align*}
 Averaging this inequality for $\tfrac1{10}$-balls in $\TT^n$ leads to the second inequality in \ref{eq:biLip} for $k=2$.
-Finally, since $\partial_i\Delta=\Delta\partial_i$ for every $i$, we get \ref{eq:biLip} for any $k$.
+
+Since $\partial_i\Delta=\Delta\partial_i$ for each $i$,
+applying the already proved case to the partial derivatives $\partial^{\mathcal{I}}u$ and $\partial^{\mathcal{I}}v$, we obtain \ref{eq:biLip} for all $k$.
 \qeds
 
-Notice that $(\Delta-1)^{-1}$ is a smoothing operator; it takes a $C^{k-2,\alpha}$-function and returns a $C^{k,\alpha}$-function.
+Notice that $(\Delta-1)^{-1}$ is a smoothing operator.
 Moreover, $(\Delta-1)^{-1}$ commutes with partial derivatives; that is,
 \[(\Delta-1)^{-1}\partial_i
 =
@@ -698,7 +701,7 @@ In addition, we will need the following claim that follows from the product rule
 \begin{thm}{Claim}\label{ex:hoelder-norm}
 Given a function $v\in C^\infty(\TT^n)$, there is a sequence of constants $a_0,a_1,\dots$ such that
 \[\|u\cdot v\|_{C^{k,\alpha}}\le a_0\cdot\|u\|_{C^{k,\alpha}}+a_k\cdot\|u\|_{C^{k-1,\alpha}}\]
-for any integer $k\ge 1$ and $u\in C^{k,\alpha}(\TT^n)$.
+for any integer $k\ge 1$ and $u\in C^\infty(\TT^n)$.
 \end{thm}
 
 \paragraph{Proof of \ref{lem:nash-guenter:guenter}.}
