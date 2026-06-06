@@ -1,0 +1,6 @@
+lectures1.sty
+library.bib
+the-nash.bbl
+the-nash.tex
+nash-aa.tex
+mppics/pic-15.mps
