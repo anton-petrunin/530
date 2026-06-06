@@ -13,7 +13,7 @@ A straightforward application of this method runs into the so-called loss-of-der
 Nash overcame this by introducing delicate smoothing procedures, unprecedented at the time.
 This construction led to the Nash--Moser theorem, which has found many applications.
 
-Later, Matthias Günther discovered a magic trick \cite{gunter} that removes this loss-of-derivatives problem.
+Later, Matthias Günther discovered a magic way to remove this loss-of-derivatives problem \cite{gunter}.
 His proof uses a contraction argument, as in the inverse function theorem in Banach spaces.
 Thanks to Günther's simplification, I was able to include this theorem in a differential geometry course.
 These notes grew out of that course, and I hope they are worth sharing.
@@ -115,10 +115,9 @@ It means that the system
 cannot be overdetermined.
 This might be the optimal bound for large $n$ and for the local version of the theorem; that is, \textit{any point in a smooth $n$-dimensional Riemannian manifold has a neighborhood $U$ that admits an isometric embedding into $\RR^d$}.
 
-The system \ref{eq:<ww>=g} makes perfect sense for $C^1$ maps $w$, but the proof of the bound $d\ge \tbinom{n+1}{2}$ essentially uses that $w$ is $C^k$-smooth for sufficiently large $k$.
+The system \ref{eq:<ww>=g} makes perfect sense for $C^1$ maps $w$, but the proof of the bound $d\ge \tbinom{n+1}{2}$ uses that $w$ is $C^k$-smooth for sufficiently large $k$.
 Without this assumption, the statement does not hold.
 Indeed, by the Nash--Kuiper theorem \cite{nash-1954,kuiper-1955} \ref{eq:<ww>=g} has a local $C^1$ solution for $d = n+1$.
-%It might happen that the optimal dimension for $C^2$-embeddings is smaller than $\tbinom{n+1}{2}$. This question was mentioned by Mikhael Gromov and Vladimir Rokhlin in the cited paper. Counting degrees of freedom of the curvature tensor gives a lower bound that is still quadratic in $n$; namely, $d\ge \tfrac1{6}\cdot n\cdot (n+5)$, also check \cite{petrunin-2025}.
 
 \section{Approximate theorem}\label{sec1+}
 
@@ -241,15 +240,16 @@ Observe that
 Let us plug this formula in \ref{g=sum} and take \ref{alpha=1} into account.
 Assuming that $\eps$ is small, we will get that $g$ is a linear combination with positive coefficients of the metric tensors
 $(dx_i)^2$ and $(dx_i\pm dx_j)^2$.
-In other words, we can take the functions $x_i$ and $x_i\pm x_j$ for all $i< j$ as our functions $\psi_1,\dots,\psi_d$ (these should be extended smoothly to the whole manifold)
+In other words, we can take the functions $x_i$ and $x_i\pm x_j$ for all $i< j$ as our functions $\psi_1,\dots,\psi_d$ (these should be smoothly extendable to the whole manifold)
 and find $\phi_1,\dots,\phi_d$ such that \ref{eq:g=phidf} holds in a neighborhood of~$p$.
 Applying a partition of unity, we get the global statement.
 
 It suffices to take $n^2$ functions in each chart.
 So, if $\Omega$ is covered by $m$ charts, then we may take $d = n^2 \cdot m$.
 Moreover, the same bound applies if the charts can be colored using $m$ colors such that distinct charts of the same color do not overlap.
-By the colored version of Lebesgue covering dimension \cite[Theorem 2]{ostrand}, we can assume that $m=n+1$;
-therefore, $d \z= n^2 \cdot (n+1)$ suffices.
+By the colored version of Lebesgue covering dimension \cite[Theorem 2]{ostrand},
+$m=n+1$ colors are sufficient;
+therefore, we can take $d \z= n^2 \cdot (n+1)$.
 \qeds
 
 \paragraph{Proof of \ref{prop:approx-nash}.}
@@ -268,12 +268,12 @@ that is, the space $\RR^{r+s}$ with the metric tensor
 where $x_i$ and $y_i$ denote the coordinates of vectors $\vec x$ and $\vec y$ in $\RR^{r+s}$.
 
 \begin{thm}{Problem}
-Show that any metric $g$ on a smooth manifold $\Omega$ is induced by a smooth embedding $\Omega\hookrightarrow \RR^r\ominus\RR^s$ for some large $r$ and $s$.
+Show that any metric tensor $g$ on a smooth manifold $\Omega$ is induced by a smooth embedding $\Omega\hookrightarrow \RR^r\ominus\RR^s$ for some large $r$ and $s$.
 \end{thm}
 
 \parit{Solution based on Nash's theorem.}
-Notice that any metric $g$ can be written as the difference $g = g_1 - g_2$ of two Riemannian metrics $g_1$ and $g_2$ on $\Omega$.
-By Nash's theorem, we can find two smooth embeddings $w_1, w_2 \colon \Omega \hookrightarrow \RR^d$ whose induced metrics are $g_1$ and $g_2$, respectively.
+The metric tensor can be written as the difference $g = g_1 - g_2$ of two Riemannian metrics $g_1$ and $g_2$ on $\Omega$.
+By Nash's theorem, we can find two smooth embeddings $w_1, w_2 \colon \Omega \z\hookrightarrow \RR^d$ whose induced metrics are $g_1$ and $g_2$, respectively.
 It remains to observe that $g$ is induced by \label{ominus}
 \[w_1\ominus w_2\colon p\mapsto(w_1(p),w_2(p))\in \RR^d\ominus\RR^d.\eqno{\qed}\]
 
@@ -305,16 +305,15 @@ Finally, choose $w_3\colon\Omega\hookrightarrow \RR^{2\cdot n+1}$ provided by th
 
 \paragraph{Realization of small perturbations of a metric.}
 Let us denote by $\TT^n=\RR^n/\ZZ^n$ the $n$-dimensional torus.
-The next theorem will be proved in the following sections;
-note that this is a very special case of the main theorem.
 
 \begin{thm}{Theorem}\label{thm:restricted}
 There exists a Riemannian metric $g_0$ on $\TT^n$ such that
 any metric $g$ that is sufficiently close to $g_0$ in the $C^\infty$ topology is induced by a smooth map $\TT^n\to \RR^d$ for some $d$ that depends only on~$n$.
 \end{thm}
 
-Now we will reduce the main theorem (\ref{thm:main}) to this restricted version.
-The reduction proceeds in several steps.
+This theorem will be proved in the following sections;
+note that this is a very special case of the main theorem (\ref{thm:main}).
+Now we will reduce the main theorem to this restricted version.
 
 \paragraph{Step 1.}
 Let us use \ref{prop:approx-nash} to construct an isometric immersion for any metric on the torus; namely,
@@ -326,7 +325,7 @@ Indeed, let $g_0$ be the metric from \ref{thm:restricted}.
 After rescaling if necessary, we may assume that $g_0<g$; that is, $g_0(\vec x,\vec x)<g(\vec x,\vec x)$ for any nonzero tangent vector $\vec x$.
 In particular, the difference $g_1=g-g_0$ is a Riemannian metric.
 
-By \ref{prop:approx-nash}, there exists a metric tensor $h$ such that for any $t>0$, there is a smooth map $w_1\colon\TT^n\to \RR^{d_1}$ that induces $g_1+t\cdot h$.
+By \ref{prop:approx-nash}, there exists a metric tensor $h$ such that, given $t>0$, there is a smooth map $w_1\colon\TT^n\to \RR^{d_1}$ that induces $g_1+t\cdot h$.
 
 By \ref{thm:restricted}, for any small $t>0$, there is a smooth map $w_0\colon\TT^n\to \RR^{d_0}$ that induces the metric $g_0-t \cdot h$.
 Therefore, $w_0\oplus w_1$ induces
@@ -343,13 +342,12 @@ Let $g_1$ be the metric induced by $w_1$.
 Since $w_1$ is regular, $g_1$ must be Riemannian.
 
 We can assume that $g>g_1$; in other words, the metric $g_2=g-g_1$ is Riemannian.
-If this is not the case, replace $w_1$ with its rescaling $\varepsilon \cdot w_1$ for sufficiently small $\varepsilon > 0$.
+If this is not the case, replace $w_1$ with its rescaling $\varepsilon \cdot w_1$ for small $\varepsilon > 0$.
 
 Step 1 provides an isometric immersion $w_2\colon(\TT^n,g_2)\z\looparrowright \RR^d$.
 Since $g=g_1+g_2$,
 \[w=w_1\oplus w_2\colon (\TT^n,g)\to \RR^{d+ n+1}\]
-is an isometric embedding.
-Indeed, $w$ is isometric, and it is an embedding since $w_1$ is.
+is an isometric embedding; $w$ is an embedding since $w_1$ is.
 
 \paragraph{Step 3.} Now we extend the statement to all compact manifolds; namely,
 \begin{clm}{}
@@ -360,7 +358,7 @@ The Whitney theorem gives a smooth embedding $\iota\colon\Omega\hookrightarrow\T
 
 The Riemannian metric on $\Omega$ can be extended to a Riemannian metric on the torus.
 This follows, for example, by choosing a metric on a tubular neighborhood that restricts to the given one on \(\Omega\), and then patching it with the standard metric on the torus via a partition of unity.
-It remains to take a smooth isometric embedding $w\colon (\TT^{2\cdot n+1}, \bar g) \hookrightarrow \RR^d$ provided by Step 2 and observe that the composition $w \circ \iota\colon(\Omega, g) \hookrightarrow \RR^d$ is an isometric embedding.
+It remains to take a smooth isometric embedding $w\colon (\TT^{2\cdot n+1}, \bar g) \z\hookrightarrow \RR^d$ provided by Step 2 and observe that the composition $w \circ \iota\colon(\Omega, g) \z\hookrightarrow \RR^d$ is an isometric embedding.
 
 \paragraph{Step 4.}
 Now we sketch the reduction of the main theorem to the compact case.
@@ -563,7 +561,7 @@ Q(f+w, f+w)
 \end{align*}
 Hence, \ref{thm:restricted} follows. \qeds
 
-In the proof of the lemma, we will follow the argument of the classical inverse function theorem in Banach spaces; see, for example, \cite{cartan}.
+Next proof follows the argument of the inverse function theorem in Banach spaces; see, for example,~\cite{cartan}.
 
 \paragraph{Proof of \ref{lem:perturb} modulo \ref{lem:nash-guenter:guenter}.}
 Recall that $M$, $\tilde Q$, $a$, and $b_2$, $b_3,\dots$ are provided by \ref{lem:nash-guenter:nash} and \ref{lem:nash-guenter:guenter}.
@@ -642,7 +640,6 @@ The same idea works in the DeTurck trick for the Ricci flow \cite[2.2]{brendle} 
 
 \paragraph{Smoothing operator.}
 Recall that $\alpha\in(0,1)$ is fixed, say $\alpha=\tfrac12$.
-
 Let $u\colon \TT^n\to\RR$ be a smooth function;
 its Laplacian is defined by \index{4d@$\Delta u$}\label{Du}
 \[\Delta u=\sum_s\partial_{ss}u,\]
@@ -650,25 +647,19 @@ where $\partial_1,\dots,\partial_n$ are the standard partial derivatives on $\TT
 
 \begin{thm}{Proposition}\label{prop:Delta-1}
 The operator $(\Delta-1)\colon u\mapsto \Delta u-u$ on $C^\infty(\TT^n)$ has an inverse $(\Delta-1)^{-1}$.
-Moreover, there is a constant $c>0$ such that, for every integer $k\ge2$, we have
-\begin{align*}
-\|(\Delta-1)u\|_{C^{k-2,\alpha}(\TT^n)}&\le c\cdot \|u\|_{C^{k,\alpha}(\TT^n)}
-\\
-\|(\Delta-1)^{-1}v\|_{C^{k,\alpha}(\TT^n)}&\le c\cdot \|v\|_{C^{k-2,\alpha}(\TT^n)}
-\end{align*}
-for any functions $u,v\in C^\infty(\TT^n)$.
+Moreover, there is a constant $c>0$ such that
+\[\|(\Delta-1)^{-1}v\|_{C^{k,\alpha}(\TT^n)}\le c\cdot \|v\|_{C^{k-2,\alpha}(\TT^n)}\]
+for every integer $k\ge2$ and every function $v\in C^\infty(\TT^n)$.
 \end{thm}
 
 \parit{Sketch.}
 The existence of $(\Delta-1)^{-1}$ follows from Fourier analysis.
 In other words, the equation $\Delta u - u = v$ has a unique smooth solution $u$ for a given $v\in C^\infty(\TT^n)$.
-
 It remains to prove the following inequality with some constant $c$:
-\[\tfrac1c\cdot\|v\|_{C^{k-2,\alpha}(\TT^n)}\le\|u\|_{C^{k,\alpha}(\TT^n)}
+\[\|u\|_{C^{k,\alpha}(\TT^n)}
 \le
-c\cdot\|v\|_{C^{k-2,\alpha}(\TT^n)};
+c\cdot\|v\|_{C^{k-2,\alpha}(\TT^n)}.
 \eqlbl{eq:biLip}\]
-the first inequality is trivial.
 
 By the maximum principle, we have
 \[\|u\|_{L^\infty(\TT^n)}\le\|v\|_{L^\infty(\TT^n)},\eqlbl{eq:maximum-principle}\]
@@ -683,7 +674,7 @@ By \ref{eq:maximum-principle}, this implies
 &\le c\cdot(\|v\|_{C^{0,\alpha}(2\cdot B)} + \|u\|_{L^\infty(2\cdot B)})\le
  2\cdot c\cdot\|v\|_{C^{0,\alpha}(\TT^n)}.
 \end{align*}
-Averaging this inequality for $\tfrac1{10}$-balls in $\TT^n$ leads to the second inequality in \ref{eq:biLip} for $k=2$.
+Averaging this inequality for $\tfrac1{10}$-balls in $\TT^n$ leads to \ref{eq:biLip} for $k=2$.
 
 Since $\partial_i\Delta=\Delta\partial_i$ for each $i$,
 applying the already proved case to the partial derivatives $\partial^{\mathcal{I}}u$ and $\partial^{\mathcal{I}}v$, we obtain \ref{eq:biLip} for all $k$.
@@ -747,7 +738,7 @@ Indeed,
 This proves \ref{eq:Delta}.
 
 Now choose $A=A_i$ or $A=A_{ij}$ for some $i$ and $j$.
-Notice that there is a sequence of constants $c_2,c_3,\dots$ such that
+Тhere is a sequence of constants $c_2,c_3,\dots$ such that
 \[
 \begin{aligned}
 \|A(w)\|_{C^{0,\alpha}}&\le c_2\cdot \|w\|^2_{C^{2,\alpha}},
@@ -755,7 +746,6 @@ Notice that there is a sequence of constants $c_2,c_3,\dots$ such that
 \|A(w)\|_{C^{k-2,\alpha}}&\le c_2\cdot \|w\|_{C^{k,\alpha}}\cdot \|w\|_{C^{2,\alpha}}+c_{k}\cdot\|w\|^2_{C^{k-1,\alpha}}.
 \end{aligned}
 \eqlbl{eq:A=<C}\]
-
 These inequalities follow by checking each form in \ref{eq:forms}.
 Let us do the case $w\mapsto \langle\partial_{ab}w,\partial_{cd}w\rangle$.
 The first inequality in \ref{eq:A=<C} is trivial.
