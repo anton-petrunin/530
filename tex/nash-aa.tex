@@ -13,7 +13,7 @@ A straightforward application of this method runs into the so-called loss-of-der
 Nash overcame this by introducing delicate smoothing procedures, unprecedented at the time.
 This construction led to the Nash--Moser theorem, which has found many applications.
 
-Later, Matthias Günther discovered a magic way to remove this loss-of-derivatives problem \cite{gunter}.
+Later, Matthias Günther found a magic way that made the loss-of-derivatives problem disappear~\cite{gunter}.
 His proof uses a contraction argument, as in the inverse function theorem in Banach spaces.
 Thanks to Günther's simplification, I was able to include this theorem in a differential geometry course.
 These notes grew out of that course, and I hope they are worth sharing.
@@ -240,7 +240,7 @@ Observe that
 Let us plug this formula in \ref{g=sum} and take \ref{alpha=1} into account.
 Assuming that $\eps$ is small, we will get that $g$ is a linear combination with positive coefficients of the metric tensors
 $(dx_i)^2$ and $(dx_i\pm dx_j)^2$.
-In other words, we can take the functions $x_i$ and $x_i\pm x_j$ for all $i< j$ as our functions $\psi_1,\dots,\psi_d$ (these should be smoothly extendable to the whole manifold)
+In other words, we can take the functions $x_i$ and $x_i\pm x_j$ for all $i< j$ as our functions $\psi_1,\dots,\psi_d$ (each should be extendable to a smooth function on the whole manifold)
 and find $\phi_1,\dots,\phi_d$ such that \ref{eq:g=phidf} holds in a neighborhood of~$p$.
 Applying a partition of unity, we get the global statement.
 
