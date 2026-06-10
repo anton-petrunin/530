@@ -11,13 +11,12 @@ In other words, Riemannian manifolds can be defined as submanifolds of Euclidean
 Nash used a version of Newton's method.
 A straightforward application of this method runs into the so-called loss-of-derivatives problem: the correction terms require control of more derivatives than the previous approximation provides.
 Nash overcame this by introducing delicate smoothing procedures, unprecedented at the time.
-This construction led to the Nash--Moser theorem, which has found many applications.
+This construction led to the Nash--Moser inverse function theorem, which has found many applications.
 
 Later, Matthias Günther found a magic way that made the loss-of-derivatives problem disappear~\cite{gunter}.
 His proof uses a contraction argument, as in the inverse function theorem in Banach spaces.
-Thanks to Günther's simplification, I was able to include this theorem in a differential geometry course.
-These notes grew out of that course, and I hope they are worth sharing.
 
+The proof presented below was tried out on several occasions in lectures and gradually polished along the way.
 Except for the inverse function theorem, I mostly follow Nash's proof;
 I also use several cosmetic tweaks by
 Deane Yang~\cite{yang},
@@ -28,13 +27,13 @@ Michael Taylor~\cite{taylor} and by
 Qing Han and Jia-Xing Hong~\cite{han-hong}.
 
 The reader is assumed to be familiar with smooth manifolds (charts, atlases, coverings, partitions of unity, and tensor fields).
-Other results, including Schauder's estimates and the Whitney embedding theorem, can be treated as black boxes.
+Other results, including the Schauder estimates and the Whitney embedding theorem, can be treated as black boxes.
 
 We formulate the embedding problem in Section~\ref{sec1}.
 Section~\ref{sec1+} introduces Nash's twist and solves an approximate version of the problem.
 Section~\ref{sec:Reductions} consists of several steps that reduce the embedding problem to the realization of small perturbations of a metric on the torus.
 In Section~\ref{sec:free}, we introduce free maps and prove Nash's lemma.
-In the following section, we formulate Günther's lemma and use it to realize a perturbed metric and therefore prove the embedding problem.
+In the following section, we formulate Günther's lemma and use it to realize small perturbations of a metric, thereby proving the embedding theorem.
 The final section proves Günther's lemma.
 This is the main part of the paper;
 the rest is needed to show the power of this lemma.
@@ -66,7 +65,7 @@ Here and further, \emph{smooth} means~$C^\infty$.
 
 Let $\bar\Omega$ be another smooth manifold, and let $w\colon\Omega \to \bar\Omega$ be a smooth map.
 The derivative of $w$ in the direction of a tangent vector $\vec x \in \T_p\Omega$ is denoted by \label{dw}\index{4d@$w^*$, $dw$, $\vec x w$} $\vec x w = dw(\vec x)$;
-more formally, the derivative of $w$ in the direction $\vec x$ is the \index{differential}\emph{differential} $dw\colon\T\Omega \to \T\bar\Omega$ of $w$, evaluated at $\vec x$.
+the right-hand side is the \index{differential}\emph{differential} $dw\colon\T\Omega \to \T\bar\Omega$ of $w$, evaluated at $\vec x$.
 Note that $\vec x w \in \T_{w(p)}\bar\Omega$.
 
 Suppose that $\bar\Omega$ is equipped with a metric tensor $\bar g$.
@@ -85,7 +84,7 @@ In particular, $w$ is an immersion.
 Conversely, if $w$ is regular and $\bar g$ is Riemannian, then so is $g = w^* \bar g$.
 
 We consider the space $\RR^d$ equipped with the metric tensor defined by the standard scalar product:
-\[\bar g(\vec x, \vec y) \df \langle x, y \rangle = x_1 \cdot y_1 + \dots + x_d \cdot y_d,\]
+\[\bar g(\vec x, \vec y) \df \langle \vec x, \vec y \rangle = x_1 \cdot y_1 + \dots + x_d \cdot y_d,\]
 where $x_i$ and $y_i$ denote the coordinates of vectors $\vec x, \vec y \in \RR^d$.
 Note that $\bar g$ is Riemannian.
 
@@ -169,7 +168,8 @@ $\psi\colon\Omega \z\to \RR$; that is,
 \end{thm}
 
 \parit{Computations.}
-Suppose that $\vec x$ is a tangent vector on $\Omega$. Then,
+Suppose that $\vec x$ is a tangent vector on $\Omega$.
+Then
 \begin{align*}
 \vec x\Theta&=\vec x(\phi\cdot \ell_r\circ \psi)=
 \\
@@ -237,7 +237,7 @@ for all $i\ne j$ and any point in $U$.
 
 Observe that
 \[\pm dx_i\odot dx_j=\tfrac12\cdot (dx_i\pm dx_j)^2-\tfrac12\cdot(dx_i)^2-\tfrac12\cdot(dx_j)^2.\]
-Let us plug this formula in \ref{g=sum} and take \ref{alpha=1} into account.
+Let us plug this formula into \ref{g=sum} and take \ref{alpha=1} into account.
 Assuming that $\eps$ is small, we will get that $g$ is a linear combination with positive coefficients of the metric tensors
 $(dx_i)^2$ and $(dx_i\pm dx_j)^2$.
 In other words, we can take the functions $x_i$ and $x_i\pm x_j$ for all $i< j$ as our functions $\psi_1,\dots,\psi_d$ (each should be extendable to a smooth function on the whole manifold)
@@ -268,7 +268,7 @@ that is, the space $\RR^{r+s}$ with the metric tensor
 where $x_i$ and $y_i$ denote the coordinates of vectors $\vec x$ and $\vec y$ in $\RR^{r+s}$.
 
 \begin{thm}{Problem}
-Show that any metric tensor $g$ on a smooth manifold $\Omega$ is induced by a smooth embedding $\Omega\hookrightarrow \RR^r\ominus\RR^s$ for some large $r$ and $s$.
+Show that any metric tensor $g$ on a smooth manifold $\Omega$ is induced by a smooth embedding $\Omega\hookrightarrow \RR^r\ominus\RR^s$ for large $r$ and $s$.
 \end{thm}
 
 \parit{Solution based on Nash's theorem.}
@@ -371,8 +371,8 @@ Further, we need to find a sequence of maps $r_{\mathfrak{i}}\colon\Omega \to \S
 and $r_{\mathfrak{i}}$ is constant, say $c_{\mathfrak{i}}$, outside of a compact subset $K_{\mathfrak{i}}\subset \Omega$.
 This part is done by applying a partition of unity.
 
-In addition, we have to arrange this construction so that the index set $\mathfrak{I}$ can be colored into $n+1$ colors such that $K_{\mathfrak{i}}\cap K_{\mathfrak{j}}=\emptyset$ for distinct indices $\mathfrak{i}$ and $\mathfrak{j}$ of the same color.
-More precisely, $\mathfrak{I}$ can be partitioned into $n+1$ subsets $\mathfrak{I}_0, \dots, \mathfrak{I}_n$ such that for any $k$ and any distinct $\mathfrak{i}, \mathfrak{j} \z\in \mathfrak{I}_k$, we have
+In addition, we have to arrange this construction so that the index set $\mathfrak{I}$ can be colored with $n+1$ colors such that $K_{\mathfrak{i}}\cap K_{\mathfrak{j}}=\emptyset$ for distinct indices $\mathfrak{i}$ and $\mathfrak{j}$ of the same color.
+More precisely, $\mathfrak{I}$ can be partitioned into subsets $\mathfrak{I}_0, \dots, \mathfrak{I}_n$ such that for any $k$ and any distinct $\mathfrak{i}, \mathfrak{j} \z\in \mathfrak{I}_k$, we have
 $K_{\mathfrak{i}} \cap K_{\mathfrak{j}} = \emptyset$.
 This is very similar to the colored version of Lebesgue covering dimension.
 
@@ -539,7 +539,7 @@ for some constant $c$.
 \end{thm}
 
 In Section \ref{sec:Reductions}, we showed that realization of small perturbations of a metric (\ref{thm:restricted}) implies the main theorem (\ref{thm:main}).
-Now we will show that the lemma implies realization of a perturbed metric (\ref{thm:restricted}), and therefore the main theorem (\ref{thm:main}).
+Now we will show that the lemma implies realization of small perturbations (\ref{thm:restricted}), and therefore the main theorem (\ref{thm:main}).
 
 \paragraph{Proof of \ref{thm:restricted} modulo \ref{lem:perturb}.}
 Recall that $f\colon\TT^n\to\RR^d$ is a fixed free map.
@@ -561,7 +561,7 @@ Q(f+w, f+w)
 \end{align*}
 Hence, \ref{thm:restricted} follows. \qeds
 
-Next proof follows the argument of the inverse function theorem in Banach spaces; see, for example,~\cite{cartan}.
+The next proof follows the argument of the inverse function theorem in Banach spaces; see, for example,~\cite{cartan}.
 
 \paragraph{Proof of \ref{lem:perturb} modulo \ref{lem:nash-guenter:guenter}.}
 Recall that $M$, $\tilde Q$, $a$, and $b_2$, $b_3,\dots$ are provided by \ref{lem:nash-guenter:nash} and \ref{lem:nash-guenter:guenter}.
@@ -595,7 +595,6 @@ So $w$ is $C^k$-smooth for every $k$ and therefore smooth.
 
 We prove \ref{clm:wn-bounded} by induction on $k$.
 The base case $k=2$ has already been proved.
-
 By the induction hypothesis, $\|w_n\|_{C^{k-1,\alpha}}$ is bounded.
 In particular, there is a constant $c_k$ such that
 \[\|Mh\|_{C^{k,\alpha}}+b_k\cdot \|w_n\|_{C^{k-1,\alpha}}^2\le c_k\]
@@ -628,7 +627,7 @@ The form $\tilde Q$ in Günther's lemma can be defined by the formula
 where $\vec x$ is a tangent vector field on $\TT^n$ that depends quadratically on $w$;
 see the remark right after the proof below.
 Since $M$ is a right inverse of $L$, we have $L\tilde Q=Q$.
-The trick is to choose $\vec x$ so that the inequalities in the lemma hold; see \ref{eq:Delta}, \ref{eq:AB=<C}, and \ref{eq:tildeQ} below.
+It remains to choose $\vec x$ so that the inequalities in the lemma hold; see \ref{eq:Delta}, \ref{eq:AB=<C}, and \ref{eq:tildeQ} below.
 
 The correction term $w$ in the proof of \ref{lem:perturb} satisfies the equation
 \[w= Mh-\tilde Q(w,w)=M(h-Q(w,w)-L\vec x)+\vec x.\]
@@ -667,7 +666,7 @@ where $\|\ \|_{L^\infty(W)}$ denotes the sup-norm on $W\subset \TT^n$.
 
 Choose a $\tfrac1{10}$-ball $B$ in $\TT^n$ (with the standard metric);
 denote by $2\cdot B$ the concentric ball with twice the radius.
-Since $2\cdot B$ is isometric to a Euclidean ball, Schauder's estimates can be applied to the restriction $u|_{2\cdot B}$ (see for example \cite[Lemma 6.1(a)]{gilbarg-trudinger}).
+Since $2\cdot B$ is isometric to a Euclidean ball, Schauder's estimates can be applied to the restriction $u|_{2\cdot B}$ (see, for example \cite[Lemma 6.1(a)]{gilbarg-trudinger}).
 By \ref{eq:maximum-principle}, this implies
 \begin{align*}
 \|u\|_{C^{2,\alpha}(B)}
@@ -738,7 +737,7 @@ Indeed,
 This proves \ref{eq:Delta}.
 
 Now choose $A=A_i$ or $A=A_{ij}$ for some $i$ and $j$.
-Тhere is a sequence of constants $c_2,c_3,\dots$ such that
+There is a sequence of constants $c_2,c_3,\dots$ such that
 \[
 \begin{aligned}
 \|A(w)\|_{C^{0,\alpha}}&\le c_2\cdot \|w\|^2_{C^{2,\alpha}},
